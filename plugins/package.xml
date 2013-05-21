@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.9.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfMelodyPlugin</name>
+ <channel>plugins.symfony-project.org</channel>
+ <summary>An easy way to connect to facebook, google, yahoo...</summary>
+ <description>The sfMelody plugin provides an easy way to connect to facebook, google, yahoo... through OAuth authentification.</description>
+ <lead>
+  <name>Maxime Picaud</name>
+  <user>chok</user>
+  <email>maxime.picaud@agence-shape.fr</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-09-30</date>
+ <time>20:24:42</time>
+ <version>
+  <release>1.1.6</release>
+  <api>1.1.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.symfony-project.org/license">MIT license</license>
+ <notes>
+-
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="339c78b6dc8d7d6c1b0412c0a7ccc2f0" name="lib/orm/sfMelodyDoctrineOrmAdapter.class.php" role="data"/>
+   <file md5sum="c18856d3b48c370076d961e914c6fe12" name="lib/orm/sfMelodyOrmAdapter.class.php" role="data"/>
+   <file md5sum="2b4d294cfb676609f71a629c3ef947a0" name="lib/orm/sfMelodyPropelOrmAdapter.class.php" role="data"/>
+   <file md5sum="01f9a74a77960cf1b1e61e8ef7c3dc4a" name="lib/action/sfMelodyBaseActions.class.php" role="data"/>
+   <file md5sum="162e6b026768bffba63d7b787fdae48d" name="lib/helper/MelodyHelper.php" role="data"/>
+   <file md5sum="d9d82f2e6411afa9aece88c0ea1aee5d" name="lib/melody/base/sfMelody1.class.php" role="data"/>
+   <file md5sum="c2941575def42088ca92cdc0f6195b32" name="lib/melody/base/sfMelody2.class.php" role="data"/>
+   <file md5sum="701d84e1af767a3d847e9c85182f31af" name="lib/melody/base/sfMelody.class.php" role="data"/>
+   <file md5sum="f35bcace26668f91fd03afffe8dce9be" name="lib/melody/sfYahooMelody.class.php" role="data"/>
+   <file md5sum="7e3f53a224c00bac026b9e86c7e1f894" name="lib/melody/sfLinkedinMelody.class.php" role="data"/>
+   <file md5sum="90adb4891ae28d8744ee7d964bb77b8b" name="lib/melody/sfTwitterMelody.class.php" role="data"/>
+   <file md5sum="6a99b146bc51c98ec1c9cb3ab99792dc" name="lib/melody/sfMyspaceMelody.class.php" role="data"/>
+   <file md5sum="e39c6becd606508cfbcf2e8172db1e85" name="lib/melody/sfGoogleMelody.class.php" role="data"/>
+   <file md5sum="48c78acd3eaf7285abb1292e20bde89f" name="lib/melody/sfFacebookMelody.class.php" role="data"/>
+   <file md5sum="eb8a9014513b0e8e2f3cca05d91a6138" name="lib/user/sfMelodyUserFactory.class.php" role="data"/>
+   <file md5sum="01265673adcb8279c78eaba622ebde8c" name="lib/user/sfMelodyUser.class.php" role="data"/>
+   <file md5sum="31e64d660a5ef8b45b652866e6bb5452" name="web/images/facebook/default.png" role="data"/>
+   <file md5sum="91fc849c3c9b84cd375e5c9678f8d87e" name="web/images/facebook/light-medium-short.png" role="data"/>
+   <file md5sum="67515e9540c3c93dfcf4977b90515891" name="web/images/facebook/light-small-short.png" role="data"/>
+   <file md5sum="530f34db332cff90f04592cb96770b60" name="web/images/facebook/light-medium-long.png" role="data"/>
+   <file md5sum="f2e4485654061987ed6bfb3de0b2312e" name="web/images/facebook/dark-medium-short.png" role="data"/>
+   <file md5sum="d5012dbbc74a8f14d20f1347bc39f78e" name="web/images/facebook/light-large-short.png" role="data"/>
+   <file md5sum="0b2e6a1335d17c56f7263d55e09e3f56" name="web/images/twitter/dark-full.png" role="data"/>
+   <file md5sum="32bbb39309d562585f1b6cc24b4b4676" name="web/images/twitter/default.png" role="data"/>
+   <file md5sum="32bbb39309d562585f1b6cc24b4b4676" name="web/images/twitter/light-full.png" role="data"/>
+   <file md5sum="86251a4578867fabb50170b87a541768" name="web/images/twitter/dark-soft.png" role="data"/>
+   <file md5sum="ec3e0b1711460f209e30d5b9cd0506b3" name="web/images/twitter/light-soft.png" role="data"/>
+   <file md5sum="7da4dfd27d58e889958de16415b9bc55" name="web/images/yahoo/default.png" role="data"/>
+   <file md5sum="e4dd014aaac25060735f105404f45f7b" name="config/routing.yml" role="data"/>
+   <file md5sum="05475a30363358ae5cb7889fc7b0edb2" name="modules/sfMelody/lib/BasesfMelodyActions.class.php" role="data"/>
+   <file md5sum="d41d8cd98f00b204e9800998ecf8427e" name="modules/sfMelody/templates/accessSuccess.php" role="data"/>
+   <file md5sum="c19c0030fa32791281c0a4deca6c7ce0" name="modules/sfMelody/actions/actions.class.php" role="data"/>
+   <file md5sum="cb1bd69cc08bd74d9c9edefc0079f88e" name="README" role="data"/>
+   <file md5sum="cb1bd69cc08bd74d9c9edefc0079f88e" name="README.md" role="data"/>
+   <file md5sum="8d0b47d647db0896685a36171f75bb70" name="LICENSE" role="data"/>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.4</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   
+  </required>
+ </dependencies>
+ <phprelease/>
+ <changelog>
+  <release>
+   <version>
+    <release>1.1.6</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* more log
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.5</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* fix remove all tokens by signin
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.4</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* Bug authenticated redirct + signout
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.3</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* Bugs action + melody2
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.2</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* Propel version
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.1</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* git submodule change folder architecture
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>09-04-2010</date>
+   <notes>
+* Better user creation
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.2</release>
+    <api>1.0.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>08-23-2010</date>
+   <notes>
+* Correct summary
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>08-23-2010</date>
+   <notes>
+* Correct description
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.symfony-project.com/license">MIT license</license>
+   <license>MIT</license>
+   <date>08-23-2010</date>
+   <notes>
+* First public release
+   </notes>
+  </release>
+ </changelog>
+</package>

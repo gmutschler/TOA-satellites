@@ -2,4 +2,7 @@
 # http://www.symfony-project.org/reference/1_4/en/11-App
 
 # default values
-#all:
+all:
+  oauth:
+    key: "DZ3QWRJQG75Z2K7QQ7"
+    secret: "5JSC5HEBQQIPAL7SBWOQQ3XME3CKGYSDK7NMTJAJLJOSEFO7UP"
