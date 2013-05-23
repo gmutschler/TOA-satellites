@@ -3,71 +3,57 @@
 /**
  * oauth actions.
  *
- * @package    toaberlin
+ * @package    sfOpenIdOAuth
  * @subpackage oauth
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class oauthActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->sf_guard_users = Doctrine_Core::getTable('sfGuardUser')
-      ->createQuery('a')
-      ->execute();
+ /**
+  * Executes index action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeIndex(sfWebRequest $request) {
+
+	$this->getUser()->connect('eventbrite');
+  }
+  public function executeConnect(sfWebRequest $request) {
+    $this->getUser()->setFlash('info', 'connected to service!');
+    $this->redirect('@default?module=index&action=finish');
   }
 
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new sfGuardUserForm();
+  public function executeError(sfWebRequest $request) {
+    //get the message error...
+    $this->getUser()->setFlash('error', $this->getUser()->getFlash('oauth_error'));
+    $this->redirect("@default?module=index&action=index");
   }
 
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+  public function executeRegister(sfWebRequest $request) {
 
-    $this->form = new sfGuardUserForm();
+    $melody = unserialize($this->getUser()->getAttribute('melody'));
 
-    $this->processForm($request, $this->form);
+    $access_token = $melody->getToken();
+    $user = $melody->getUser();
 
-    $this->setTemplate('new');
-  }
+    if($user && $access_token) {
 
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($sf_guard_user = Doctrine_Core::getTable('sfGuardUser')->find(array($request->getParameter('id'))), sprintf('Object sf_guard_user does not exist (%s).', $request->getParameter('id')));
-    $this->form = new sfGuardUserForm($sf_guard_user);
-  }
+      $user->setUsername($access_token->getIdentifier());
+      $user->setEmailAddress($access_token->getIdentifier());
 
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($sf_guard_user = Doctrine_Core::getTable('sfGuardUser')->find(array($request->getParameter('id'))), sprintf('Object sf_guard_user does not exist (%s).', $request->getParameter('id')));
-    $this->form = new sfGuardUserForm($sf_guard_user);
+      $user->setIsActive(false);
+      $user->save();
 
-    $this->processForm($request, $this->form);
+      $access_token->setUserId($user->getId());
+      if(!$this->getUser()->isAuthenticated()) {
+          $this->getUser()->signin($user, sfConfig::get('app_melody_remember_user', true));
+      }
 
-    $this->setTemplate('edit');
-  }
-
-  public function executeDelete(sfWebRequest $request)
-  {
-    $request->checkCSRFProtection();
-
-    $this->forward404Unless($sf_guard_user = Doctrine_Core::getTable('sfGuardUser')->find(array($request->getParameter('id'))), sprintf('Object sf_guard_user does not exist (%s).', $request->getParameter('id')));
-    $sf_guard_user->delete();
-
-    $this->redirect('oauth/index');
-  }
-
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $sf_guard_user = $form->save();
-
-      $this->redirect('oauth/edit?id='.$sf_guard_user->getId());
     }
+
+    $this->getUser()->addToken($access_token);
+
+    $this->redirect("@default?module=index&action=register");
   }
 }

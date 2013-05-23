@@ -3,6 +3,16 @@
 
 # default values
 all:
-  oauth:
-    key: "DZ3QWRJQG75Z2K7QQ7"
-    secret: "5JSC5HEBQQIPAL7SBWOQQ3XME3CKGYSDK7NMTJAJLJOSEFO7UP"
+
+  melody:
+    create_user: true
+    remember_user: false        # TODO: test it
+    redirect_register: false    # TODO: would be better to add some stuff here
+
+    eventbrite:
+      key: DZ3QWRJQG75Z2K7QQ7
+      secret: 5JSC5HEBQQIPAL7SBWOQQ3XME3CKGYSDK7NMTJAJLJOSEFO7UP
+      callback: @homepage
+      provider: eventbrite
+      request_auth_url: https://www.eventbrite.com/oauth/authorize
+      access_token_url: https://www.eventbrite.com/oauth/token

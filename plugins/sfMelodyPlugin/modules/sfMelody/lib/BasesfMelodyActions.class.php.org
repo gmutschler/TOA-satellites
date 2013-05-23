@@ -4,7 +4,6 @@
  *
  * @author Gordon Franke <info@nevalon.de>
  * @since 29 août 2010
- * @modified Maciej Taranienko <maciej@canadel.ee>
  */
 class BasesfMelodyActions extends sfMelodyBaseActions
 {
@@ -22,16 +21,8 @@ class BasesfMelodyActions extends sfMelodyBaseActions
     $melody = $this->getMelody();
 
     $melody->setCallback('@melody_access?service='.$melody->getName());
+    $access_token = $melody->getAccessToken($this->getCode());
 
-    // make sure the token does not contain any errors!
-    if(!$access_token = $melody->getAccessToken($this->getCode())) {
-
-	$this->getUser()->setFlash('error', 'There was an authentication error. Please try again');
-	$this->redirect($melody->getConfigParameter('callback'));	// ** use the callback form app.yml
-	die();
-    }
-
-    // process with normal execution otherwise
     $melody->setToken($access_token);
 
     $user = null;
