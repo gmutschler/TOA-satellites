@@ -1,0 +1,241 @@
+/*
+ * toaberlin.css
+ * (c) 2013 maciej(at)canadel(dot)ee
+ *
+ *      built using LESS
+ *      http://leafo.net/lessphp
+ *
+ */
+
+// # global reset
+@import 'reset.less';
+
+// # less variables
+@color-text: #000;
+@color-text-hero-submenu: #494949;
+@color-bg: #fff;
+@color-border: #DEDEDE;
+@color-red: #DC142C;
+
+@color-bg-footer: #FBFBF9;
+@color-bg-hero: #EFEDEC;
+
+@font-minion: 'Minion-Pro';
+@font-proxima: 'Proxima-Nova';
+
+@images-layout: '../images/layout';
+@images-content: '../images/content';
+
+@width-layout: 960px;
+@height-header: 151px;
+
+// # global definitions, classes and less mixins
+.fleft {	float: left		}
+.fright {	float: right		}
+.tleft {	text-align: left	}
+.tcenter { 	text-align: center	}
+.tright {	text-align: right	}
+.titalic {	font-style: italic	}
+.tuper {	text-transform: uppercase	}
+.tnouper {	text-transform: none	}
+.mauto {	margin: 0 auto		}
+.relative {	position: relative	}
+.absolute(@top, @left: 0) {
+	position: absolute;
+	top: @top + px;
+	left: @left + px;
+}
+.disblock() {
+	display: block;
+}
+.disblock(@height) {
+	.disblock;
+	height: @height;
+}
+.disblock(@width, @height) {
+	.disblock;
+	width: @width;
+	height: @height;
+}
+
+.bglay(@image) {
+	background: no-repeat url(@{images-layout}/@{image});
+}
+.nobg {
+	background: none !important;
+}
+
+.ffamily(@font) {
+	font-family: @font, sans-serif;
+}
+.ffamily(@size, @font) {
+	.ffamily(@font);
+	font-size: @size;
+}
+.ffamily(@size, @font, @weight) {
+	.ffamily(@size, @font);
+	font-weight: @weight;
+}
+
+.uborder(@color: @color-border) {
+	border: none;
+	border-left: 1px solid @color;
+	border-right: 1px solid @color;
+	border-bottom: 1px solid @color;
+}
+
+.c3transition(@duration) {
+	-o-transition: @duration;
+	-ms-transition: @duration;
+	-moz-transition: @duration;
+	-webkit-transition: @duration;
+	transition: @duration;
+}
+
+
+// TODO: consider automating flat navigation rendering here!
+.flatnav {
+
+}
+
+
+// # common (global) block elements
+body {
+	.tcenter;
+	font: 17px 'Minion Pro', sans-serif;
+}
+
+#main {
+	.tleft;
+	.mauto;
+
+	margin-top: 4px;
+        width: @width-layout;
+}
+	#header {
+		height: @height-header;
+
+		#logo {
+			.disblock(250px, @height-header);
+			.bglay('logo_top.gif');
+			.mauto;
+		}
+
+	        #loginbox {
+			.fright;
+	        }
+	}
+
+	#content {
+
+		// global definitions for hero unit; screen-differences should appear as special classes below
+		#hero {
+			@height-local-media: 518px;	// TODO: consider if it's not subsite-dependant! if so, maybe pass PHP vars before compiling less?
+			@height-local-menu: 33px;
+
+			.disblock(@height-local-media + @height-local-menu);
+
+			margin-top: 18px;
+
+			#hero_media {
+				height: @height-local-media;
+			}
+
+			#hero_submenu {
+				.uborder;
+				.ffamily(16px, @font-proxima);
+
+				@padding-local-top: 7px;
+
+				height: @height-local-menu - @padding-local-top;
+				padding-top: @padding-local-top;
+
+				background-color: @color-bg-hero;
+
+				h2, ul { .fleft }
+
+				h2 {
+					.tuper;
+
+					margin: 0 8px 0 12px;
+					padding-right: 16px;
+
+					font-weight: bold;
+
+					background: no-repeat url(@{images-layout}/arrow.png) right 4px;
+				}
+
+				ul {
+
+					li {
+						.fleft;
+						margin: 0 11px;
+
+						a {
+							.c3transition(.5s);
+
+							color: @color-text-hero-submenu;
+							text-decoration: none;
+
+							&:hover, &.selected {
+
+								color: @color-red;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.listing {
+			margin-top: 36px;	// FIXME
+
+			// TODO: listing widget!
+		}
+
+		// common content typo
+		h1 {
+
+			.ffamily(46px, @font-minion);
+			.tuper;
+
+			span {
+				.tnouper;
+				.titalic;
+				font-size: 18px;
+				font-weight: normal;
+			}
+		}
+	}
+
+#footer {
+	.ffamily(18px, @font-proxima, bold);
+
+	margin-top: 20px;	// FIXME
+
+	background-color: @color-bg-footer;
+
+	#footer_menu {
+		.tuper;
+
+		border-top: 1px solid @color-border;
+		border-bottom: 1px solid @color-border;
+
+	}
+
+	// FIXME: temporary stuff
+	h1 {
+		padding: 60px 0;
+		.tuper;
+		font-size: 70px;
+	}
+}
+
+// content screens
+// they apply to anything below #content div and can override or add certain looks
+div.screen_home {
+
+	#hero {
+		// some modifications
+	}
+}

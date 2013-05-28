@@ -1,13 +1,8 @@
-/* TODO */
-body {
-	text-align: center;
-}
-#main {
-	width: 960px;
-	margin: 0 auto;
-
-	text-align: left;
-}
-	#loginbox {
-		float: right;
-	}
+/*
+ * toaberlin.css
+ * (c) 2013 maciej(at)canadel(dot)ee
+ *
+ *      built using LESS
+ *      http://leafo.net/lessphp
+ *
+ */html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}:focus{outline:0;}ol,ul{list-style:none;}table{border-collapse:separate;border-spacing:0;}.clear{clear:both;font-size:1px;line-height:0;}a{cursor:pointer;}.fleft{float:left;}.fright{float:right;}.tleft{text-align:left;}.tcenter{text-align:center;}.tright{text-align:right;}.titalic{font-style:italic;}.tuper{text-transform:uppercase;}.tnouper{text-transform:none;}.mauto{margin:0 auto;}.relative{position:relative;}.nobg{background:none !important;}body{text-align:center;font:17px 'Minion Pro', sans-serif;}#main{text-align:left;margin:0 auto;margin-top:4px;width:960px;}#header{height:151px;}#header #logo{display:block;width:250px;height:151px;background:no-repeat url(../images/layout/logo_top.gif);margin:0 auto;}#header #loginbox{float:right;}#content #hero{display:block;height:551px;margin-top:18px;}#content #hero #hero_media{height:518px;}#content #hero #hero_submenu{border:none;border-left:1px solid #dedede;border-right:1px solid #dedede;border-bottom:1px solid #dedede;font-family:'Proxima-Nova', sans-serif;font-size:16px;height:26px;padding-top:7px;background-color:#efedec;}#content #hero #hero_submenu h2,#content #hero #hero_submenu ul{float:left;}#content #hero #hero_submenu h2{text-transform:uppercase;margin:0 8px 0 12px;padding-right:16px;font-weight:bold;background:no-repeat url(../images/layout/arrow.png) right 4px;}#content #hero #hero_submenu ul li{float:left;margin:0 11px;}#content #hero #hero_submenu ul li a{-o-transition:.5s;-ms-transition:.5s;-moz-transition:.5s;-webkit-transition:.5s;transition:.5s;color:#494949;text-decoration:none;}#content #hero #hero_submenu ul li a:hover,#content #hero #hero_submenu ul li a.selected{color:#dc142c;}#content .listing{margin-top:36px;}#content h1{font-family:'Minion-Pro', sans-serif;font-size:46px;text-transform:uppercase;}#content h1 span{text-transform:none;font-style:italic;font-size:18px;font-weight:normal;}#footer{font-family:'Proxima-Nova', sans-serif;font-size:18px;font-weight:bold;margin-top:20px;background-color:#fbfbf9;}#footer #footer_menu{text-transform:uppercase;border-top:1px solid #dedede;border-bottom:1px solid #dedede;}#footer h1{padding:60px 0;text-transform:uppercase;font-size:70px;}

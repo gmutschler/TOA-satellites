@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css]
 
-  javascripts:    []
+  javascripts:    ['http://use.typekit.net/ios4gyb.js'] # that's our fonts :>
 
   has_layout:     true
   layout:         layout
