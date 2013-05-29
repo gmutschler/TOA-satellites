@@ -2,8 +2,8 @@
 	Main Hero Unit partial
 
 	We should pass here:
-	- media (with some attributes for media type? TODO
 	- submenu title
+	- media (with some attributes for media type? TODO
 	- submenu items (as an array? TODO)
 */ ?>
 <div id="hero">

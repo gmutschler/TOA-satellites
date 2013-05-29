@@ -9,7 +9,45 @@
 
 		<h1>Satellite Events <span>from 10am to 3:30pm</span></h1>
 
-		<p>TODO: time widget styling and JS</p>
+<?php include_partial('listing_widget', array(
+
+	'type' => 'upper'
+)) ?>
+
+
+		<ul class="listing_list">
+<?php for($looprun = 0; $looprun <= 10; $looprun++):
+
+	// some temporary fun :)
+	$randHr = rand(0,7);
+	$randMin = rand(0,2) * 15;
+	if($randMin == 0) $randMin = '00';
+?>
+
+			<li>
+				<span class="photo">
+					<a href="#event-link" style="background-image: url('/images/content/test_event_thumb.png')">
+						<span>1<?=$randHr?>:<?=$randMin?></span>
+					</a>
+				</span>
+
+				<span class="data">
+					<span class="title"><a href="#event-link">Take photos together in the evening light</a></span>
+					<span class="hosted">Hosted by <a href="#user-link">Guillaume Mutschler</a></span>
+					<span class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu nisi leo. Integer sit amet mauris felis, quis tempor nisl. Nullam consequat vehicula eros a convallis.</span>
+					<?php // TODO: truncate with http://www.symfony-project.org/api/1_2/TextHelper ?>
+					<span class="address">U-Bahnhof Bundestag (U55)<br />63 Rosenthaler Strasse<br />10119 Berlin</span>
+					<span class="time">1<?=$randHr?>:<?=$randMin?> - 1<?=$randHr + 2?>:<?=$randMin?></span>
+				</span>
+
+				<span class="clear"></span>
+			</li>
+<?php endfor ?>
+		</ul>
+		<div class="clear"></div>
+
+<?php /*
+
 		<p>TODO: list styling</p>
 
 		<table>
@@ -61,7 +99,10 @@
 		  </tbody>
 		</table>
 
-		  <a href="<?php echo url_for('home/new') ?>">New</a>
+		<a href="<?php echo url_for('home/new') ?>">New</a>
+*/ ?>
+
+<?php include_partial('listing_widget') ?>
 
 	</div>
 </div>

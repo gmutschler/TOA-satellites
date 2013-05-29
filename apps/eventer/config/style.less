@@ -12,13 +12,19 @@
 
 // # less variables
 @color-text: #000;
+@color-text-gray: #646464;
+@color-text-gray-dark: #5A5A5A;
 @color-text-hero-submenu: #494949;
 @color-bg: #fff;
 @color-border: #DEDEDE;
+@color-border-dark: #ccc;
 @color-red: #DC142C;
+@color-red-light: #EA7280;
+@color-red-author: #DC142C;
 
 @color-bg-footer: #FBFBF9;
 @color-bg-hero: #EFEDEC;
+@color-bg-listitem: #FBFBF9;
 
 @font-minion: 'Minion-Pro';
 @font-proxima: 'Proxima-Nova';
@@ -36,15 +42,36 @@
 .tcenter { 	text-align: center	}
 .tright {	text-align: right	}
 .titalic {	font-style: italic	}
-.tuper {	text-transform: uppercase	}
+.tupper {	text-transform: uppercase	}
 .tnouper {	text-transform: none	}
 .mauto {	margin: 0 auto		}
+
 .relative {	position: relative	}
-.absolute(@top, @left: 0) {
+.absolute() {				// TODO: finetune those methods :)
 	position: absolute;
+}
+.absolute(@top, @left: 0) {
+	.absolute;
 	top: @top + px;
 	left: @left + px;
 }
+.topleft(@top, @left) {
+	top: @top;
+	left: @left;
+}
+.topright(@top, @right) {
+	top: @top;
+	right: @right;
+}
+.bottomleft(@bottom, @left) {
+	bottom: @bottom;
+	left: @left;
+}
+.bottomright(@bottom, @right) {
+	bottom: @bottom;
+	right: @right;
+}
+
 .disblock() {
 	display: block;
 }
@@ -77,11 +104,17 @@
 	font-weight: @weight;
 }
 
-.uborder(@color: @color-border) {
+.uborder(@color) {	// "U" shape border
 	border: none;
 	border-left: 1px solid @color;
 	border-right: 1px solid @color;
 	border-bottom: 1px solid @color;
+}
+.crevborder(@colorr) {	// "C-reversed" shape border
+	border: none;
+	border-top: 1px solid @colorr;
+	border-bottom: 1px solid @colorr;
+	border-right: 1px solid @colorr;
 }
 
 .c3transition(@duration) {
@@ -142,7 +175,7 @@ body {
 			}
 
 			#hero_submenu {
-				.uborder;
+				.uborder(@color-border);
 				.ffamily(16px, @font-proxima);
 
 				@padding-local-top: 7px;
@@ -155,7 +188,7 @@ body {
 				h2, ul { .fleft }
 
 				h2 {
-					.tuper;
+					.tupper;
 
 					margin: 0 8px 0 12px;
 					padding-right: 16px;
@@ -188,16 +221,150 @@ body {
 		}
 
 		.listing {
-			margin-top: 36px;	// FIXME
+			.tcenter;
+			margin-top: 36px;
 
-			// TODO: listing widget!
+			// the fancy widget (rethink it's structure)
+			h1, .listing_widget { .tleft }
+			.listing_widget {
+				height: 30px;
+				border-top: 1px solid @color-border-dark;
+
+				background-color: @color-red-light;
+
+				// TODO: upper widget should coexist with subtitle somehow
+				&.upper {
+
+					margin-top: -20px;
+					z-index: 10 !important;
+				}
+			}
+
+			// the entire list
+			ul.listing_list {
+				.disblock;
+				@padding-local-leftright: 5px;
+
+				margin-top: 39px;
+				padding: 0 @padding-local-leftright;
+
+				li {
+					@height-local-li: 126px;
+					@width-local-photo: 174px;
+
+					.disblock(@height-local-li);
+					margin-bottom: 18px;
+
+					span.photo, span.data { .fleft }
+					span.photo {
+						&, & a {
+							.disblock(@width-local-photo, @height-local-li);
+						}
+
+						a {
+							.relative;
+							.ffamily(60px, @font-proxima, bold);	// TODO: use Proxima-Nova semi bold when possible
+							.c3transition(.5s);
+
+							color: @color-bg;
+							background-repeat: no-repeat;
+
+							&:hover { color: @color-red }
+
+							span {
+								.absolute;
+								.bottomright(0, 2px);
+
+								margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
+							}
+						}
+					}
+					span.data {
+
+						// we're removing 1 from width and 2 from height for the border size
+						.disblock(@width-layout - 2 * @padding-local-leftright - @width-local-photo - 1, @height-local-li - 2);
+						.crevborder(@color-border-dark);
+						.tleft;
+						.relative;
+
+						background-color: @color-bg-listitem;
+
+						span {
+							.absolute;
+							@position-local-leftright: 14px;
+							@position-local-topbottom: 14px;
+
+							line-height: 1em;
+							font-weight: bold;
+
+							&.title, &.desc { width: 475px }	// ** hard-limiting widths here
+							&.title, &.time { .ffamily(15px, @font-proxima, bold) }
+							&.time, &.address { font-size: 16px }
+							&.title {
+								.tupper;
+								.topleft(@position-local-topbottom, @position-local-leftright);
+
+								a {
+									.c3transition(.5s);
+
+									color: @color-text;
+									text-decoration: none;
+
+									&:hover { color: @color-red }
+								}
+							}
+							&.hosted {
+								.titalic;
+								.topleft(33px, @position-local-leftright);
+
+								color: @color-text-gray;
+
+								font-size: 14px;
+
+								a {
+									.c3transition(.5s);
+
+									color: @color-red;
+
+									&:hover {
+										color: @color-text;
+										text-decoration: none;
+									}
+								}
+							}
+							&.desc {
+								.topleft(51px, @position-local-leftright);
+
+								color: @color-text-gray-dark;
+
+								line-height: 1.25em;
+								letter-spacing: -0.75px;		// ** kind of experimental
+								word-spacing: 1px;
+							}
+							&.address, &.time { .tright }
+							&.address {
+								.topright(@position-local-topbottom, @position-local-leftright);
+
+								line-height: 1.2em;
+							}
+							&.time {
+								.bottomright(@position-local-topbottom, @position-local-leftright);
+
+								color: @color-red;
+							}
+						}
+
+
+					}
+				}
+			}
 		}
 
 		// common content typo
 		h1 {
 
 			.ffamily(46px, @font-minion);
-			.tuper;
+			.tupper;
 
 			span {
 				.tnouper;
@@ -216,7 +383,7 @@ body {
 	background-color: @color-bg-footer;
 
 	#footer_menu {
-		.tuper;
+		.tupper;
 
 		border-top: 1px solid @color-border;
 		border-bottom: 1px solid @color-border;
@@ -226,7 +393,7 @@ body {
 	// FIXME: temporary stuff
 	h1 {
 		padding: 60px 0;
-		.tuper;
+		.tupper;
 		font-size: 70px;
 	}
 }
