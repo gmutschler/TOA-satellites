@@ -26,8 +26,10 @@
 @color-bg-hero: #EFEDEC;
 @color-bg-listitem: #FBFBF9;
 
-@font-minion: 'Minion-Pro';
-@font-proxima: 'Proxima-Nova';
+//@font-minion: 'Minion-Pro';
+//@font-proxima: 'Proxima-Nova';
+@font-minion: 'minion-pro';
+@font-proxima: 'proxima-nova';
 
 @images-layout: '../images/layout';
 @images-content: '../images/content';
@@ -125,17 +127,13 @@
 	transition: @duration;
 }
 
-
-// TODO: consider automating flat navigation rendering here!
-.flatnav {
-
-}
-
-
 // # common (global) block elements
 body {
 	.tcenter;
 	font: 17px 'Minion Pro', sans-serif;
+}
+a {
+	.c3transition(.5s);	// ** applies to all possible content
 }
 
 #main {
@@ -205,8 +203,6 @@ body {
 						margin: 0 11px;
 
 						a {
-							.c3transition(.5s);
-
 							color: @color-text-hero-submenu;
 							text-decoration: none;
 
@@ -264,7 +260,6 @@ body {
 						a {
 							.relative;
 							.ffamily(60px, @font-proxima, bold);	// TODO: use Proxima-Nova semi bold when possible
-							.c3transition(.5s);
 
 							color: @color-bg;
 							background-repeat: no-repeat;
@@ -305,8 +300,6 @@ body {
 								.topleft(@position-local-topbottom, @position-local-leftright);
 
 								a {
-									.c3transition(.5s);
-
 									color: @color-text;
 									text-decoration: none;
 
@@ -322,8 +315,6 @@ body {
 								font-size: 14px;
 
 								a {
-									.c3transition(.5s);
-
 									color: @color-red;
 
 									&:hover {
@@ -374,18 +365,50 @@ body {
 	}
 
 #footer {
-	.ffamily(18px, @font-proxima, bold);
+	.ffamily(16px, @font-proxima, bold);
 
-	margin-top: 20px;	// FIXME
+	margin-top: 130px;	// FIXME: this will be killed by JS automation anyway
 
 	background-color: @color-bg-footer;
 
 	#footer_menu {
 		.tupper;
+		.tright;
+
+		padding: 16px 65px 12px 0;
 
 		border-top: 1px solid @color-border;
 		border-bottom: 1px solid @color-border;
 
+		ul {
+			.fright;
+			@padding-local-top: 6px;
+			@padding-local-bottom: 8px;
+
+			padding: @padding-local-top 0 @padding-local-bottom 0;
+
+			li {
+				.fleft;
+				margin-left: 3px;	// FIXME: finetune; though it kind of cannot be done properly :(
+
+				a {
+					padding: @padding-local-top 12px @padding-local-bottom 12px;
+
+					text-decoration: none;
+					color: @color-text;
+
+					// states in proper sequence; highlighted at bottom so it overrides anything else
+					&.selected, &:hover {
+						color: @color-red-author;
+					}
+
+					&.highlighted {
+						color: @color-bg;
+						background-color: @color-red-author;
+					}
+				}
+			}
+		}
 	}
 
 	// FIXME: temporary stuff
@@ -402,5 +425,11 @@ div.screen_home {
 
 	#hero {
 		// some modifications
+	}
+}
+div.screen_other {
+	
+	#hero {
+
 	}
 }

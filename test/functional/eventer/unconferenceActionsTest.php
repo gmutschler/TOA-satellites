@@ -5,10 +5,10 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $browser = new sfTestFunctional(new sfBrowser());
 
 $browser->
-  get('/event/index')->
+  get('/unconference/index')->
 
   with('request')->begin()->
-    isParameter('module', 'event')->
+    isParameter('module', 'unconference')->
     isParameter('action', 'index')->
   end()->
 

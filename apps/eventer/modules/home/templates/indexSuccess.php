@@ -1,19 +1,26 @@
 <div id="content" class="screen_home">
 
-<?php include_partial('hero', array(
+<?php include_partial('global/hero', array(
 
-	'submenu_title' => 'The Satellites'
+	'submenu_title' => 'The Satellites',
+	'links' => array(
+
+		'Introduction'	=> 'satellites/index',
+		'Book'		=> 'satellites/book',
+		'Host'		=> 'satellites/host'
+	)
 )) ?>
 
 	<div class="listing">
 
 		<h1>Satellite Events <span>from 10am to 3:30pm</span></h1>
 
+<?php // TODO: move below to some sort of partial too ?>
+
 <?php include_partial('listing_widget', array(
 
 	'type' => 'upper'
 )) ?>
-
 
 		<ul class="listing_list">
 <?php for($looprun = 0; $looprun <= 10; $looprun++):

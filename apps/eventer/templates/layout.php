@@ -24,7 +24,7 @@
 <?php endif ?>
 		</div>
 
-		<a id="logo" title="Tech Open Air Berlin 2013" href="/"></a>
+		<a id="logo" title="Tech Open Air Berlin 2013" href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"></a>
 	</div>
 
 <?php if($sf_user->hasFlash('info') or $sf_user->hasFlash('notice') or $sf_user->hasFlash('error')): ?>
@@ -37,10 +37,22 @@
 
  </div>
 
+<?php // TODO: consider if not to grab footer_menu above footer_text in DOM structure for easier JavaScript fun ?>
  <div id="footer">
 	
 	<div id="footer_menu">
-		<p>TODO: footer menu styling</p>
+
+		<ul>
+			<li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"<?php if($sf_context->getModuleName() == 'home') { ?> class="selected"<?php } ?>>Home</a></li>
+			<li><a href="<?=url_for('unconference/index')?>"<?php if($sf_context->getModuleName() == 'unconference') { ?> class="selected"<?php } ?>>The Unconference</a></li>
+			<li><a href="#">The Satellites</a></li>
+			<li><a href="<?=url_for('news/index')?>"<?php if($sf_context->getModuleName() == 'news') { ?> class="selected"<?php } ?>>News</a></li>
+			<li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Partners</a></li>
+			<li><a href="<?=url_for('about/index')?>"<?php if($sf_context->getModuleName() == 'about') { ?> class="selected"<?php } ?>>About us</a></li>
+			<li><a class="highlighted" href="#">Buy tickets</a></li>
+		</ul>
+
+		<div class="clear"></div>
 	</div>
 
 	<h1>Content of the<br />footer still to define</h1>
