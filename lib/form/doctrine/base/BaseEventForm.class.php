@@ -16,6 +16,7 @@ abstract class BaseEventForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'                  => new sfWidgetFormInputHidden(),
+      'category_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => false)),
       'eventbrite_id'       => new sfWidgetFormInputText(),
       'venue_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Venue'), 'add_empty' => false)),
       'organiser_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organiser'), 'add_empty' => false)),
@@ -33,11 +34,14 @@ abstract class BaseEventForm extends BaseFormDoctrine
       'logo'                => new sfWidgetFormInputText(),
       'logo_ssl'            => new sfWidgetFormInputText(),
       'status'              => new sfWidgetFormInputText(),
+      'moderated'           => new sfWidgetFormInputCheckbox(),
+      'listing_color'       => new sfWidgetFormInputText(),
       'tickets_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Ticket')),
     ));
 
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'category_id'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'))),
       'eventbrite_id'       => new sfValidatorInteger(array('required' => false)),
       'venue_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Venue'))),
       'organiser_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Organiser'))),
@@ -55,6 +59,8 @@ abstract class BaseEventForm extends BaseFormDoctrine
       'logo'                => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'logo_ssl'            => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'status'              => new sfValidatorString(array('max_length' => 16, 'required' => false)),
+      'moderated'           => new sfValidatorBoolean(array('required' => false)),
+      'listing_color'       => new sfValidatorString(array('max_length' => 8, 'required' => false)),
       'tickets_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Ticket', 'required' => false)),
     ));
 

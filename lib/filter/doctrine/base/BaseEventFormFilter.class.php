@@ -13,6 +13,7 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
+      'category_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => true)),
       'eventbrite_id'       => new sfWidgetFormFilterInput(),
       'venue_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Venue'), 'add_empty' => true)),
       'organiser_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Organiser'), 'add_empty' => true)),
@@ -30,10 +31,13 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
       'logo'                => new sfWidgetFormFilterInput(),
       'logo_ssl'            => new sfWidgetFormFilterInput(),
       'status'              => new sfWidgetFormFilterInput(),
+      'moderated'           => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'listing_color'       => new sfWidgetFormFilterInput(),
       'tickets_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Ticket')),
     ));
 
     $this->setValidators(array(
+      'category_id'         => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Category'), 'column' => 'id')),
       'eventbrite_id'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'venue_id'            => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Venue'), 'column' => 'id')),
       'organiser_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Organiser'), 'column' => 'id')),
@@ -51,6 +55,8 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
       'logo'                => new sfValidatorPass(array('required' => false)),
       'logo_ssl'            => new sfValidatorPass(array('required' => false)),
       'status'              => new sfValidatorPass(array('required' => false)),
+      'moderated'           => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'listing_color'       => new sfValidatorPass(array('required' => false)),
       'tickets_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Ticket', 'required' => false)),
     ));
 
@@ -90,6 +96,7 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'                  => 'Number',
+      'category_id'         => 'ForeignKey',
       'eventbrite_id'       => 'Number',
       'venue_id'            => 'ForeignKey',
       'organiser_id'        => 'ForeignKey',
@@ -107,6 +114,8 @@ abstract class BaseEventFormFilter extends BaseFormFilterDoctrine
       'logo'                => 'Text',
       'logo_ssl'            => 'Text',
       'status'              => 'Text',
+      'moderated'           => 'Boolean',
+      'listing_color'       => 'Text',
       'tickets_list'        => 'ManyKey',
     );
   }

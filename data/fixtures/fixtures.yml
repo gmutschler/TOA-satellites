@@ -1,17 +1,93 @@
-# # Populate this file with data to be loaded by your ORM's *:data-load task.
-# # You can create multiple files in this directory (i.e. 010_users.yml,
-# # 020_articles.yml, etc) which will be loaded in alphabetical order.
-# # 
-# # See documentation for your ORM's *:data-load task for more information.
-# 
-# User:
-#   fabien:
-#     username: fabien
-#     password: changeme
-#     name:     Fabien Potencier
-#     email:    fabien.potencier@symfony-project.com
-#   kris:
-#     username: Kris.Wallsmith
-#     password: changeme
-#     name:     Kris Wallsmith
-#     email:    kris.wallsmith@symfony-project.com
+# TODO: Add tickets, attendees, etc.
+# NOTE: Funny bug discovered here. Any line containing PHP code MUST BE finished with \n, otherwise fixture loading will produce a lot of strange, irrational and almost untraceable errors
+
+# 5 random users
+sfGuardUser:
+<?php for($i = 0; $i < 5; $i++): ?>
+  tUser<?=$i?>:
+    username:           user<?=$i?>
+
+    password:           user<?=$i?>
+<?php endfor ?>
+
+# 5 random categories
+Category:
+<?php for($i = 0; $i < 5; $i++): ?>
+  tCategory<?=$i?>:
+
+    name: Test category <?=$i?>
+
+<?php endfor ?>
+
+# 3 random venues
+Venue:
+<?php for($i = 0; $i < 3; $i++): ?>
+  tVenue<?=$i?>:
+    eventbrite_id:      <?=rand(5000,200000)?>
+
+    name:               Test Location <?=$i?>
+
+    address:            Grunwalderstrasse 42/<?=$i?>
+
+    address2:           Hauptmenu Building
+    city:               Berlin
+    region:             Brandenburg
+    postal_code:        <?=rand(10,40)?><?=rand(100,999)?>
+
+    country:            Germany
+    country_code:       DE
+    latitude:           52.509535
+    longitude:          13.392334
+<?php endfor ?>
+
+# 3 random organisers
+Organiser:
+<?php for($i = 0; $i < 3; $i++): ?>
+  tOrganiser<?=$i?>:
+    eventbrite_id:      <?=rand(5000,200000)?>
+
+    name:               Test Organiser <?=$i?>
+
+    description:        This is an experimental, test organiser from our test data pool
+    url:                http://devtoa.canadel.ee/
+<?php endfor ?>
+
+# 15 random events
+Event:
+<?php for($i = 0; $i < 15; $i++): ?>
+  tEvent<?=$i?>:
+    eventbrite_id:      <?php echo rand(5000,200000); ?>
+
+    title:              Test event <?=$i?>
+
+    description:        This is an experimental, test event from our test data pool. It might be surprising, but in this particular case we don't actually mean the swimming pool... Even though we have totally nothing against seeing few asian women in swimming suits there. \o/
+
+    start_date:         2013-06-22 1<?=rand(1,4)?>:<?=rand(1,3)?><?=rand(0,9)?>
+
+    end_date:           2013-06-22 1<?=rand(5,7)?>:<?=rand(1,3)?><?=rand(0,9)?>
+
+    timezone:           CET
+    url:                http://facebook.com/
+    capacity:           <?=rand(10,40)?>
+
+    created:            <?=date('Y-m-d H:i')?>
+
+    eventbrite_modified: <?=date('Y-m-d H:i')?>
+
+    privacy:            -- not sure --
+    logo:               -- none yet --
+    logo_ssl:           -- none yet --
+    status:             -- not sure --
+    moderated:          true
+    listing_color:      FFFFFF
+
+    Category:           tCategory<?=rand(0,4)?>
+
+    Venue:              tVenue<?=rand(0,2)?>
+
+    Organiser:          tOrganiser<?=rand(0,2)?>
+
+#    Category:           tCategory1
+#    Venue:              tVenue1
+#    Organiser:          tOrganiser1
+<?php endfor ?>

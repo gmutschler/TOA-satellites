@@ -6,74 +6,26 @@
 #    (dig around their API); probably do some user flag sayign "main ticket bought"
 #
 #  TODO:
-#  - Add Event + Users many-to-many relations! Consider the Yeppy way with 'confirm' field
 #  - Check if Event + Tickets are one-to-many or many-to-many?
-#  - Ask out if we need sortable behaviour for certain stuff here
 #
 #  LATER:
-#  - Venue + Event - consider making it single table#
+#  - Venue + Event - consider making it single table
 #  - Optimize certain defined values basing on real world examples
 #  - Add optimizations as notnulls, primary keys, indexes, etc.
 options:
   charset:            UTF8
   type:               innodb
 
-Event:
+Category:
   columns:
-    eventbrite_id:
-      type: integer(12)
-    venue_id:
-      type: integer
-      notnull: true
-    organiser_id:
-      type: integer
-      notnull: true
-    title:
+    name:
       type: string(64)
-      notnull: true
-    description:
-      type: string(512)
-      notnull: true
-    start_date:
-      type: timestamp
-    end_date:
-      type: timestamp
-    timezone:
-      type: string(32)
-    url:
-      type: string(128)
-    capacity:
-      type: integer(4)
-    created:            # TODO: think about it; maybe basing on actAs Timestampable and forcing writes there would be better?
-      type: timestamp
-    eventbrite_modified:
-      type: timestamp
-    privacy:            # TODO: think about it; maybe some enumeration would be better?
-      type: string(16)
-    password:
-      type: string(160) # TODO: check the password hashing method and adjust it
-    logo:
-      type: string(128)
-    logo_ssl:
-      type: string(128)
-    status:
-      type: string(16)  # TODO: think of enumeration again
   relations:
-    Venue:
-      local: venue_id
-      foreign: id
-      type: one
-      foreignType: one
-      onDelete: CASCADE
-    Organiser:
-      local: organiser_id
-      foreign: id
-      onDelete: CASCADE
-    Tickets:
-      class:            Ticket
-      refClass:         EventTicket
-      foreignAlias:     Tickets
-    # TODO: User attendees!
+    Events:
+      class:            Event
+      local:            id
+      foreign:          category_id
+      type:             many
 
 Venue:
   columns:
@@ -100,12 +52,17 @@ Venue:
     latitude:
       type: float
   relations:
-    Event:
+#    Event:
+#      local:            id
+#      foreign:          venue_id
+#      type:             one
+#      foreignType:      one
+#      onDelete:         CASCADE
+    Events:
+      class:            Event
       local:            id
       foreign:          venue_id
-      type:             one
-      foreignType:      one
-      onDelete:         CASCADE
+      type:             many
 
 Organiser:
   columns:
@@ -163,4 +120,91 @@ Ticket:
       class:            Event
       refClass:         EventTicket
       foreignAlias:     Events
-    # TODO: users?
+
+Attendee:
+  columns:
+    user_id:
+      type: integer
+    event_id:
+      type: integer
+    confirmed:
+      type: boolean
+      default: true # experimental
+  relations:
+    sfGuardUser:
+      local: user_id
+      foreign: id
+      foreignAlias: Attendees
+    Event:
+      local: event_id
+      foreign: id
+      foreignAlias: Attendees
+
+Event:
+  columns:
+    category_id:
+      type: integer
+      notnull: true
+    eventbrite_id:
+      type: integer(12)
+    venue_id:
+      type: integer
+      notnull: true
+    organiser_id:
+      type: integer
+      notnull: true
+    title:
+      type: string(64)
+      notnull: true
+    description:
+      type: string(512)
+      notnull: true
+    start_date:
+      type: timestamp
+    end_date:
+      type: timestamp
+    timezone:
+      type: string(32)
+    url:
+      type: string(128)
+    capacity:
+      type: integer(4)
+    created:            # TODO: think about it; maybe basing on actAs Timestampable and forcing writes there would be better?
+      type: timestamp
+    eventbrite_modified:
+      type: timestamp
+    privacy:            # TODO: think about it; maybe some enumeration would be better?
+      type: string(16)
+    password:
+      type: string(160) # TODO: check the password hashing method and adjust it
+    logo:
+      type: string(128)
+    logo_ssl:
+      type: string(128)
+    status:
+      type: string(16)  # TODO: think of enumeration again
+    moderated:
+      type: boolean
+      default: false
+    listing_color:
+      type: string(8)
+  relations:
+#    Venue:
+#      local: venue_id
+#      foreign: id
+#      type: one
+#      foreignType: many
+#      foreignAlias: Events
+#      onDelete: CASCADE
+     
+    Organiser:
+      local: organiser_id
+      foreign: id
+      onDelete: CASCADE
+#    Category:
+#      local: category_id
+#      foreign: id
+    Tickets:
+      class:            Ticket
+      refClass:         EventTicket
+      foreignAlias:     Tickets

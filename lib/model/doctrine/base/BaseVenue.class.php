@@ -16,32 +16,32 @@
  * @property string $country_code
  * @property float $longitude
  * @property float $latitude
- * @property Event $Event
+ * @property Doctrine_Collection $Events
  * 
- * @method integer getEventbriteId()  Returns the current record's "eventbrite_id" value
- * @method string  getName()          Returns the current record's "name" value
- * @method string  getAddress()       Returns the current record's "address" value
- * @method string  getAddress2()      Returns the current record's "address2" value
- * @method string  getCity()          Returns the current record's "city" value
- * @method string  getRegion()        Returns the current record's "region" value
- * @method integer getPostalCode()    Returns the current record's "postal_code" value
- * @method string  getCountry()       Returns the current record's "country" value
- * @method string  getCountryCode()   Returns the current record's "country_code" value
- * @method float   getLongitude()     Returns the current record's "longitude" value
- * @method float   getLatitude()      Returns the current record's "latitude" value
- * @method Event   getEvent()         Returns the current record's "Event" value
- * @method Venue   setEventbriteId()  Sets the current record's "eventbrite_id" value
- * @method Venue   setName()          Sets the current record's "name" value
- * @method Venue   setAddress()       Sets the current record's "address" value
- * @method Venue   setAddress2()      Sets the current record's "address2" value
- * @method Venue   setCity()          Sets the current record's "city" value
- * @method Venue   setRegion()        Sets the current record's "region" value
- * @method Venue   setPostalCode()    Sets the current record's "postal_code" value
- * @method Venue   setCountry()       Sets the current record's "country" value
- * @method Venue   setCountryCode()   Sets the current record's "country_code" value
- * @method Venue   setLongitude()     Sets the current record's "longitude" value
- * @method Venue   setLatitude()      Sets the current record's "latitude" value
- * @method Venue   setEvent()         Sets the current record's "Event" value
+ * @method integer             getEventbriteId()  Returns the current record's "eventbrite_id" value
+ * @method string              getName()          Returns the current record's "name" value
+ * @method string              getAddress()       Returns the current record's "address" value
+ * @method string              getAddress2()      Returns the current record's "address2" value
+ * @method string              getCity()          Returns the current record's "city" value
+ * @method string              getRegion()        Returns the current record's "region" value
+ * @method integer             getPostalCode()    Returns the current record's "postal_code" value
+ * @method string              getCountry()       Returns the current record's "country" value
+ * @method string              getCountryCode()   Returns the current record's "country_code" value
+ * @method float               getLongitude()     Returns the current record's "longitude" value
+ * @method float               getLatitude()      Returns the current record's "latitude" value
+ * @method Doctrine_Collection getEvents()        Returns the current record's "Events" collection
+ * @method Venue               setEventbriteId()  Sets the current record's "eventbrite_id" value
+ * @method Venue               setName()          Sets the current record's "name" value
+ * @method Venue               setAddress()       Sets the current record's "address" value
+ * @method Venue               setAddress2()      Sets the current record's "address2" value
+ * @method Venue               setCity()          Sets the current record's "city" value
+ * @method Venue               setRegion()        Sets the current record's "region" value
+ * @method Venue               setPostalCode()    Sets the current record's "postal_code" value
+ * @method Venue               setCountry()       Sets the current record's "country" value
+ * @method Venue               setCountryCode()   Sets the current record's "country_code" value
+ * @method Venue               setLongitude()     Sets the current record's "longitude" value
+ * @method Venue               setLatitude()      Sets the current record's "latitude" value
+ * @method Venue               setEvents()        Sets the current record's "Events" collection
  * 
  * @package    toaberlin
  * @subpackage model
@@ -103,9 +103,8 @@ abstract class BaseVenue extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Event', array(
+        $this->hasMany('Event as Events', array(
              'local' => 'id',
-             'foreign' => 'venue_id',
-             'onDelete' => 'CASCADE'));
+             'foreign' => 'venue_id'));
     }
 }
