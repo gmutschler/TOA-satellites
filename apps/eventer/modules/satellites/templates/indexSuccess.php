@@ -1,15 +1,6 @@
 <div id="content" class="screen_satellites">
 
-<?php include_partial('global/hero', array(
-
-	'submenu_title' => 'The Satellites',
-	'links' => array(
-
-		'Introduction'  => 'satellites/index',
-		'Book'          => 'satellites/book',
-		'Host'          => 'satellites/host'
-	)
-)) ?>
+<?php include_partial('hero') ?>
 
 <?php include_partial('listing', array(
 

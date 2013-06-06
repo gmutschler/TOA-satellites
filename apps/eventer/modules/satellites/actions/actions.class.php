@@ -5,19 +5,31 @@
  *
  * @package    toaberlin
  * @subpackage satellites
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class satellitesActions extends sfActions
-{
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->events = Doctrine_Core::getTable('Event')
-      ->createQuery('a')
-      ->orderBy('start_date')
-      ->execute();
-  }
+class satellitesActions extends sfActions {
 
+	public function executeIndex(sfWebRequest $request) {
+
+		$this->events = Doctrine_Core::getTable('Event')->getEventsForPage($request->getParameter('page'));
+
+/*
+		$this->events = Doctrine_Core::getTable('Event')
+		->createQuery('a')
+		->orderBy('start_date')
+		->execute();
+*/
+	}
+
+	public function executeEvent(sfWebRequest $request) {
+
+		$this->event = Doctrine_Core::getTable('Event')->findOneById($request->getParameter('id'));
+		$this->forward404Unless($this->event);
+	}
+
+
+// TODO: Below stuff is deprecated
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new EventForm();

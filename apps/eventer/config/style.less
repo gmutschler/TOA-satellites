@@ -26,8 +26,6 @@
 @color-bg-hero: #EFEDEC;
 @color-bg-listitem: #FBFBF9;
 
-//@font-minion: 'Minion-Pro';
-//@font-proxima: 'Proxima-Nova';
 @font-minion: 'minion-pro';
 @font-proxima: 'proxima-nova';
 
@@ -49,7 +47,7 @@
 .mauto {	margin: 0 auto		}
 
 .relative {	position: relative	}
-.absolute() {				// TODO: finetune those methods :)
+.absolute() {				// L8R: finetune those methods :)
 	position: absolute;
 }
 .absolute(@top, @left: 0) {
@@ -131,6 +129,7 @@
 body {
 	.tcenter;
 	font: 17px 'Minion Pro', sans-serif;
+	background-color: @color-bg;
 }
 a {
 	.c3transition(.5s);	// ** applies to all possible content
@@ -159,7 +158,7 @@ a {
 
 	#content {
 
-		// global definitions for hero unit; screen-differences should appear as special classes below
+		// # hero unit block
 		#hero {
 			@height-local-media: 518px;	// TODO: consider if it's not subsite-dependant! if so, maybe pass PHP vars before compiling less?
 			@height-local-menu: 33px;
@@ -216,23 +215,72 @@ a {
 			}
 		}
 
+		// ! common for known blocks
+		.listing, .textual { margin-top: 36px }
+
+		// > listing block
 		.listing {
 			.tcenter;
-			margin-top: 36px;
 
-			// the fancy widget (rethink it's structure)
+			// the fancy widget
 			h1, .listing_widget { .tleft }
 			.listing_widget {
-				height: 30px;
-				border-top: 1px solid @color-border-dark;
+				.relative;
 
-				background-color: @color-red-light;
+				@height-local-widget: 30px;
+				height: @height-local-widget;
 
-				// TODO: upper widget should coexist with subtitle somehow
+				background: @color-bg no-repeat url(@{images-layout}/timeline.gif) top center;
+
+				a {
+					.disblock(29px, @height-local-widget - 1px);
+					border: 1px solid @color-border-dark;
+				}
+
+				.listing_widget_next {
+					.fright;
+
+					background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
+				}
+				.listing_widget_prev {
+					.fleft;
+
+					background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
+				}
+
+				// TODO: redo it in the manner pixprapromo is built
+				.measure {
+					@width-local-measure: 153px;
+					@left-local-start: 51px;
+					.disblock(@width-local-measure, @height-local-widget);
+
+					background-color: rgba(255, 0, 0, .5);
+
+					.absolute;
+
+					&.pos1 {
+						left: @left-local-start;
+					}
+					&.pos2 {
+						left: @left-local-start + @width-local-measure;
+					}
+					&.pos3 {
+						left: @left-local-start + 2 * @width-local-measure;
+					}
+				}
+
+
+				// slight modifications for the widget on top
 				&.upper {
-
 					margin-top: -20px;
 					z-index: 10 !important;
+
+					border-top: 1px solid @color-border-dark;
+
+					a {
+						height: @height-local-widget;
+						.uborder(@color-border-dark);
+					}
 				}
 			}
 
@@ -248,30 +296,35 @@ a {
 					@height-local-li: 126px;
 					@width-local-photo: 174px;
 
-					.disblock(@height-local-li);
 					margin-bottom: 18px;
+
+					&, & a.big_link {
+
+						.disblock(@height-local-li);
+					}
+
+					// hover effects
+					span.photo, span.data span.title { .c3transition(.5s) }
+					a.big_link:hover {
+
+						span.photo, span.data span.title { color: @color-red }
+					}
+
 
 					span.photo, span.data { .fleft }
 					span.photo {
-						&, & a {
-							.disblock(@width-local-photo, @height-local-li);
-						}
+						.disblock(@width-local-photo, @height-local-li);
+						.relative;
+						.ffamily(60px, @font-proxima, bold);	// TODO: use Proxima-Nova semi bold when possible
 
-						a {
-							.relative;
-							.ffamily(60px, @font-proxima, bold);	// TODO: use Proxima-Nova semi bold when possible
+						color: @color-bg;
+						background-repeat: no-repeat;
 
-							color: @color-bg;
-							background-repeat: no-repeat;
+						span {
+							.absolute;
+							.bottomright(0, 2px);
 
-							&:hover { color: @color-red }
-
-							span {
-								.absolute;
-								.bottomright(0, 2px);
-
-								margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
-							}
+							margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
 						}
 					}
 					span.data {
@@ -291,6 +344,7 @@ a {
 
 							line-height: 1em;
 							font-weight: bold;
+							color: @color-text;
 
 							&.title, &.desc { width: 475px }	// ** hard-limiting widths here
 							&.title, &.time { .ffamily(15px, @font-proxima, bold) }
@@ -299,12 +353,14 @@ a {
 								.tupper;
 								.topleft(@position-local-topbottom, @position-local-leftright);
 
+								/*
 								a {
 									color: @color-text;
 									text-decoration: none;
 
 									&:hover { color: @color-red }
 								}
+								*/
 							}
 							&.hosted {
 								.titalic;
@@ -314,13 +370,16 @@ a {
 
 								font-size: 14px;
 
-								a {
+								b {
 									color: @color-red;
+									text-decoration: underline;
 
+								/*
 									&:hover {
 										color: @color-text;
 										text-decoration: none;
 									}
+								*/
 								}
 							}
 							&.desc {
@@ -349,7 +408,20 @@ a {
 			}
 		}
 
-		// common content typo
+		// > textual block
+		.textual {
+
+			h2 {
+				.ffamily(20px, @font-proxima);
+				font-weight: bold;
+				margin: 1em 0 .5em 0;
+			}
+			p {
+				margin-bottom: 1em;
+			}
+		}
+
+		// > content typography defaults
 		h1 {
 
 			.ffamily(46px, @font-minion);

@@ -16,4 +16,28 @@ class EventTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Event');
     }
+
+    public function getEventsForPage($page = 0) {
+
+	if($page == 0) {
+
+		$events = $this->createQuery('a')
+		->orderBy('start_date')
+		->execute();
+	}
+	else {
+
+		// TODO: calculate referal hour from $page variable
+
+		$sql = 'SELECT * FROM event e WHERE e.start_date <= ADDDATE(e.start_date, INTERVAL 3 HOUR)';
+/*
+		$date_start = $page * 
+
+		$events = $this->createQuery('a')
+		->
+*/
+	}
+
+	return $events;
+    }
 }
