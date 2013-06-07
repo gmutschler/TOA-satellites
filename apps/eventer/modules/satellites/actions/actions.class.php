@@ -11,6 +11,9 @@
 class satellitesActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
+	}
+
+	public function executeBook(sfWebRequest $request) {
 
 		$this->events = Doctrine_Core::getTable('Event')->getEventsForPage($request->getParameter('page'));
 
@@ -28,13 +31,13 @@ class satellitesActions extends sfActions {
 		$this->forward404Unless($this->event);
 	}
 
+	public function executeHost(sfWebRequest $request) {
+
+		// TODO: play with the user stuff to match the API and Guillaume's workflow here
+		$this->form = new EventForm();
+	}
 
 // TODO: Below stuff is deprecated
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new EventForm();
-  }
-
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
