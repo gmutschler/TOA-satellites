@@ -79,16 +79,17 @@ class homeActions extends sfActions {
 			// token methods
 			$melodyObj->getToken()->setUserId($userObj->getId());
 			$this->getUser()->addToken($melodyObj->getToken());
-
-			// forward to home
-			// ** home alone will take care of callbacks (if any)
-			$this->forward('home', 'index');
 		}
 
 		// Something went wrong and we should not be here
 		else {
 
-			// TODO: setFlash() and forward to some error?
+			// setFlash() and forward to some error?
+			$this->getUser()->setFlash('error', 'There was an error logging you in. Please try again');
 		}
+
+		// Always forward to home/index
+		// ** home alone will take care of callbacks (if any)
+		$this->forward('home', 'index')
 	}
 }
