@@ -46,7 +46,7 @@ class homeActions extends sfActions {
 
 			//print($melodyObj->getToken()->getTokenKey());		// get the token key
 
-			// fetch API user data					** would be wise to check response here
+			// fetch API user data					TODO: check response for errors
 			$userData = $melodyObj->getUserData(null);
 
 			// check if we have a user of given			** this query could be moved to some model method like FindOneByEmail()
@@ -80,7 +80,8 @@ class homeActions extends sfActions {
 			$melodyObj->getToken()->setUserId($userObj->getId());
 			$this->getUser()->addToken($melodyObj->getToken());
 
-			// redirect to callback	FIXME
+			// forward to home
+			// ** home alone will take care of callbacks (if any)
 			$this->forward('home', 'index');
 		}
 

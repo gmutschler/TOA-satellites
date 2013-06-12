@@ -20,7 +20,9 @@
 
 			<p><a href="<?=url_for('home/login')?>">Log in with Eventbrite</a></p>
 <?php else: ?>
-			<p>Logged in with <?=$sf_user->getMelody('eventbrite')->getToken()->getTokenKey()?>! <?=link_to('Logout', 'sf_guard_signout') ?></p>
+			<p>Hello, <?=$sf_user->getGuardUser()->getEmailAddress()?>! <?=link_to('Logout', 'sf_guard_signout') ?></p>
+
+<?php /* <p>Logged in with <?=$sf_user->getMelody('eventbrite')->getToken()->getTokenKey()?>! <?=link_to('Logout', 'sf_guard_signout') ?></p> */ ?>
 <?php endif ?>
 		</div>
 
