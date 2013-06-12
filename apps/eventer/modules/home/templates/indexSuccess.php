@@ -13,6 +13,7 @@
 */
 )) ?>
 
-	<h1>Home</h1>
+	<div class="textual"><h1>Home</h1></div>
+	<p>Test paragraph</p>
 
 </div>
