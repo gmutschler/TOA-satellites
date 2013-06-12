@@ -5,9 +5,15 @@
 sfGuardUser:
 <?php for($i = 0; $i < 5; $i++): ?>
   tUser<?=$i?>:
+    first_name:         Johnny<?=$i?>
+
+    last_name:          Kahoota<?=$i?>
+
     username:           user<?=$i?>
 
     password:           user<?=$i?>
+
+    email_address:      user<?=$i?>@toaberlin.com
 <?php endfor ?>
 
 # 5 random categories

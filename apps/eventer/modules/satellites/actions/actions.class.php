@@ -16,13 +16,6 @@ class satellitesActions extends sfActions {
 	public function executeBook(sfWebRequest $request) {
 
 		$this->events = Doctrine_Core::getTable('Event')->getEventsForPage($request->getParameter('page'));
-
-/*
-		$this->events = Doctrine_Core::getTable('Event')
-		->createQuery('a')
-		->orderBy('start_date')
-		->execute();
-*/
 	}
 
 	public function executeEvent(sfWebRequest $request) {
@@ -33,7 +26,14 @@ class satellitesActions extends sfActions {
 
 	public function executeHost(sfWebRequest $request) {
 
-		// TODO: play with the user stuff to match the API and Guillaume's workflow here
+		// user not logged in? set callback action and redirect him to login
+		if(!$this->getUser()->isAuthenticated()) {
+
+			$this->getUser()->setAttribute('loginCallback', 'satellites/host');
+			$this->forward('home', 'login');
+		}
+
+		// TODO: choose from user's events (API) or form a new event
 		$this->form = new EventForm();
 	}
 

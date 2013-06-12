@@ -7,6 +7,11 @@ homepage:
 #  param: { module: default, action: index }
   param: { module: home, action: index }
 
+# custom routes
+loggedin:
+  url:   /home/loggedin
+  param: { module: home, action: loggedin }
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:

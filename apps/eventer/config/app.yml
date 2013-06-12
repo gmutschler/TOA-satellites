@@ -5,9 +5,9 @@
 all:
 
   melody:
-    create_user: true
-    remember_user: false        # TODO: test it
-    redirect_register: false    # TODO: would be better to add some stuff here
+    create_user: false
+    remember_user: true
+    redirect_register: @loggedin
 
     eventbrite:
       key: DZ3QWRJQG75Z2K7QQ7
@@ -16,3 +16,20 @@ all:
       provider: eventbrite
       request_auth_url: https://www.eventbrite.com/oauth/authorize
       access_token_url: https://www.eventbrite.com/oauth/token
+
+#      scope: [email]
+#      user:
+#        username:
+#          call: user_get
+#          path: user.user_id
+#          prefix: Eventbrite_
+#        first_name:
+#          call: user_get
+#          path: user.first_name
+#        last_name:
+#          call: user_get
+#          path: user.last_name
+#        email_address:
+#          call: user_get
+#          path: user.email
+#          key: true
