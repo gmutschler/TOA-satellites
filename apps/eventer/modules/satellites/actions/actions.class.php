@@ -44,19 +44,10 @@ class satellitesActions extends sfActions {
 			$this->eventsArray = $events;
 		}
 
-		else $this->redirect($this->generateUrl('default', array('module' => 'satellites', 'action' => 'hostNew')));	// ** 'default' is route name
-	}
-
-	public function executeHostNew(sfWebRequest $request) {
-
-		if(!$this->getUser()->isAuthenticated()) {
-
-			$this->getUser()->setAttribute('loginCallback', 'satellites/hostNew');
-			$this->forward('home', 'login');
-		}
-
-		// TODO: play with the form
+		// Create the new form for all cases
 		$this->form = new EventForm();
+
+		//else $this->redirect($this->generateUrl('default', array('module' => 'satellites', 'action' => 'hostNew')));	// ** 'default' is route name
 	}
 	public function executeImport(sfWebRequest $request) {
 
@@ -66,7 +57,11 @@ class satellitesActions extends sfActions {
 			$this->forward('home', 'login');
 		}
 
+		$this->forward404Unless($request->getParameter('id'));
+
 		// TODO: the import actions in model...
+		// TODO: we shall also take care of $request->getParameter('category') somehow
+		die(print('We shall now import an event with the id #' . $request->getParameter('id')));
 	}
 
 

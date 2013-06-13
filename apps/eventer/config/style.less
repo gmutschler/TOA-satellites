@@ -20,7 +20,7 @@
 @color-border-dark: #ccc;
 @color-red: #DC142C;
 @color-red-light: #EA7280;
-@color-red-author: #DC142C;
+
 
 @color-bg-footer: #FBFBF9;
 @color-bg-hero: #EFEDEC;
@@ -406,7 +406,11 @@ a {
 			}
 		}
 
-		// > content typography defaults
+		.forms {
+			
+		}
+
+		// > common content typography defaults
 		h1 {
 			.ffamily(46px, @font-minion);
 			.tupper;
@@ -428,6 +432,36 @@ a {
 		}
 
 		h4 {
+		}
+
+		p {
+			&.notice {
+				.titalic;
+			}
+
+			a {
+				color: @color-red;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+		a.button_red, input.button_red {
+
+			.ffamily(28px, @font-proxima, bold);
+			.tupper;
+
+			padding: 6px 14px;
+
+			color: @color-bg;
+			background-color: @color-red;
+
+			border: none;
+		}
+		a.button_black {
 		}
 	}
 
@@ -466,12 +500,12 @@ a {
 
 					// states in proper sequence; highlighted at bottom so it overrides anything else
 					&.selected, &:hover {
-						color: @color-red-author;
+						color: @color-red;
 					}
 
 					&.highlighted {
 						color: @color-bg;
-						background-color: @color-red-author;
+						background-color: @color-red;
 					}
 				}
 			}
