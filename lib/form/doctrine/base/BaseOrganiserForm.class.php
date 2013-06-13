@@ -17,6 +17,7 @@ abstract class BaseOrganiserForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
       'eventbrite_id' => new sfWidgetFormInputText(),
+      'user_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('GuardUser'), 'add_empty' => true)),
       'name'          => new sfWidgetFormInputText(),
       'description'   => new sfWidgetFormTextarea(),
       'url'           => new sfWidgetFormInputText(),
@@ -25,6 +26,7 @@ abstract class BaseOrganiserForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'eventbrite_id' => new sfValidatorInteger(array('required' => false)),
+      'user_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('GuardUser'), 'required' => false)),
       'name'          => new sfValidatorString(array('max_length' => 64, 'required' => false)),
       'description'   => new sfValidatorString(array('max_length' => 256, 'required' => false)),
       'url'           => new sfValidatorString(array('max_length' => 128, 'required' => false)),

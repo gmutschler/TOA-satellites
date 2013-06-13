@@ -9,24 +9,21 @@
 <?php if(isset($events) and count($events)): ?>
 
 		<ul class="listing_list">
-<?php	foreach($events as $event): ?>
+<?php	foreach($events as $event) include_partial('listing_item', array(
 
-			<li><a class="big_link" href="<?=url_for('satellites/event?id=' . $event->getId())?>">
-					<span class="photo" style="background-image: url('/images/content/test_event_thumb.png')">
-						<span><?=$event->getStartHour()?></span>
-					</span>
-
-					<span class="data">
-						<span class="title"><?=$event->getTitle()?></span>
-						<span class="hosted">Hosted by <b onclick="window.location.href = '<?=url_for('satellites/event?id=' . $event->getId())?>'">Guillaume Mutschler</b></span>
-						<span class="desc"><?=truncate_text($event->getDescription(), 175)?></span>
-						<span class="address"><?=$event->getVenue()->getName()?><br /><?=$event->getVenue()->getAddress()?><br /><?=$event->getVenue()->getPostalCode()?> <?=$event->getVenue()->getCity()?></span>
-						<span class="time"><?=$event->getStartHour()?> - <?=$event->getEndHour()?></span>
-					</span>
-
-					<span class="clear"></span>
-			</a></li>
-<?php	endforeach ?>
+	'big_link'	=> url_for('satellites/event?id=' . $event->getId()),
+	'image'		=> '/images/content/test_event_thumb.png',		// TODO
+	'start_hour'	=> $event->getStartHour(),
+	'end_hour'	=> $event->getEndHour(),
+	'title'		=> $event->getTitle(),
+	'desc'		=> $event->getDescription(),
+	'org_name'	=> $event->getOrganiser()->getName(),
+	'org_link'	=> $event->getOrganiser()->getUrl(),
+	'ven_name'	=> $event->getVenue()->getName(),
+	'ven_addr'	=> $event->getVenue()->getAddress(),
+	'ven_post'	=> $event->getVenue()->getPostalCode(),
+	'ven_city'	=> $event->getVenue()->getCity()
+)) ?>
 		</ul>
 <?php endif ?>
 		<div class="clear"></div>

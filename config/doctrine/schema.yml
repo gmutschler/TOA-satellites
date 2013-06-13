@@ -68,6 +68,8 @@ Organiser:
   columns:
     eventbrite_id:
       type: integer(12) # TODO: check length
+    user_id:
+      type: integer
     name:
       type: string(64)
     description:
@@ -80,6 +82,12 @@ Organiser:
       local:    id
       foreign:  organiser_id
       type:     many
+    GuardUser:
+      class:    sfGuardUser
+      local:    user_id
+      foreign:  id
+      type:     one
+      foreignType: one
 
 EventTicket:
   columns:
@@ -197,10 +205,10 @@ Event:
 #      foreignAlias: Events
 #      onDelete: CASCADE
      
-    Organiser:
-      local: organiser_id
-      foreign: id
-      onDelete: CASCADE
+#    Organiser:
+#      local: organiser_id
+#      foreign: id
+#      onDelete: CASCADE
 #    Category:
 #      local: category_id
 #      foreign: id

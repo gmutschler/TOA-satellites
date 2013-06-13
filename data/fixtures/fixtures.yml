@@ -1,7 +1,7 @@
 # TODO: Add tickets, attendees, etc.
 # NOTE: Funny bug discovered here. Any line containing PHP code MUST BE finished with \n, otherwise fixture loading will produce a lot of strange, irrational and almost untraceable errors
 
-# 5 random users
+# 5 random users that may be organisers
 sfGuardUser:
 <?php for($i = 0; $i < 5; $i++): ?>
   tUser<?=$i?>:
@@ -14,6 +14,19 @@ sfGuardUser:
     password:           user<?=$i?>
 
     email_address:      user<?=$i?>@toaberlin.com
+<?php endfor ?>
+
+Organiser:
+<?php for($i = 0; $i < 5; $i++): ?>
+  tOrganiser<?=$i?>:
+    eventbrite_id:      <?=rand(5000,200000)?>
+
+    name:               Test Organiser <?=$i?>
+
+    description:        This is an experimental, test organiser from our test data pool
+    url:                http://devtoa.canadel.ee/
+    GuardUser:          tUser<?=$i?>
+
 <?php endfor ?>
 
 # 5 random categories
@@ -44,18 +57,6 @@ Venue:
     country_code:       DE
     latitude:           52.509535
     longitude:          13.392334
-<?php endfor ?>
-
-# 3 random organisers
-Organiser:
-<?php for($i = 0; $i < 3; $i++): ?>
-  tOrganiser<?=$i?>:
-    eventbrite_id:      <?=rand(5000,200000)?>
-
-    name:               Test Organiser <?=$i?>
-
-    description:        This is an experimental, test organiser from our test data pool
-    url:                http://devtoa.canadel.ee/
 <?php endfor ?>
 
 # 15 random events

@@ -352,15 +352,6 @@ a {
 							&.title {
 								.tupper;
 								.topleft(@position-local-topbottom, @position-local-leftright);
-
-								/*
-								a {
-									color: @color-text;
-									text-decoration: none;
-
-									&:hover { color: @color-red }
-								}
-								*/
 							}
 							&.hosted {
 								.titalic;
@@ -373,13 +364,7 @@ a {
 								b {
 									color: @color-red;
 									text-decoration: underline;
-
-								/*
-									&:hover {
-										color: @color-text;
-										text-decoration: none;
-									}
-								*/
+									cursor: pointer;
 								}
 							}
 							&.desc {
@@ -433,6 +418,15 @@ a {
 				font-size: 18px;
 				font-weight: normal;
 			}
+		}
+
+		h3 {
+			font-weight: bold;
+			.tleft;
+			.ffamily(18px, @font-minion);
+		}
+
+		h4 {
 		}
 	}
 
@@ -493,15 +487,15 @@ a {
 
 // content screens
 // they apply to anything below #content div and can override or add certain looks
-div.screen_home {
+div.screen_home {	// home
 
 	#hero {
 		// some modifications
 	}
 }
-div.screen_other {
-	
-	#hero {
+div.screen_host {	// host event (selection)
 
-	}
+}
+div.screen_host_new {	// host new event (form)
+
 }

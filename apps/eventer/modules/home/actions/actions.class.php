@@ -90,6 +90,6 @@ class homeActions extends sfActions {
 
 		// Always forward to home/index
 		// ** home alone will take care of callbacks (if any)
-		$this->forward('home', 'index')
+		$this->forward('home', 'index');
 	}
 }

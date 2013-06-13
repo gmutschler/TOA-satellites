@@ -25,10 +25,10 @@
  * @property string $status
  * @property boolean $moderated
  * @property string $listing_color
- * @property Organiser $Organiser
  * @property Doctrine_Collection $Tickets
  * @property Category $Category
  * @property Venue $Venue
+ * @property Organiser $Organiser
  * @property Doctrine_Collection $Attendees
  * 
  * @method integer             getCategoryId()          Returns the current record's "category_id" value
@@ -51,10 +51,10 @@
  * @method string              getStatus()              Returns the current record's "status" value
  * @method boolean             getModerated()           Returns the current record's "moderated" value
  * @method string              getListingColor()        Returns the current record's "listing_color" value
- * @method Organiser           getOrganiser()           Returns the current record's "Organiser" value
  * @method Doctrine_Collection getTickets()             Returns the current record's "Tickets" collection
  * @method Category            getCategory()            Returns the current record's "Category" value
  * @method Venue               getVenue()               Returns the current record's "Venue" value
+ * @method Organiser           getOrganiser()           Returns the current record's "Organiser" value
  * @method Doctrine_Collection getAttendees()           Returns the current record's "Attendees" collection
  * @method Event               setCategoryId()          Sets the current record's "category_id" value
  * @method Event               setEventbriteId()        Sets the current record's "eventbrite_id" value
@@ -76,10 +76,10 @@
  * @method Event               setStatus()              Sets the current record's "status" value
  * @method Event               setModerated()           Sets the current record's "moderated" value
  * @method Event               setListingColor()        Sets the current record's "listing_color" value
- * @method Event               setOrganiser()           Sets the current record's "Organiser" value
  * @method Event               setTickets()             Sets the current record's "Tickets" collection
  * @method Event               setCategory()            Sets the current record's "Category" value
  * @method Event               setVenue()               Sets the current record's "Venue" value
+ * @method Event               setOrganiser()           Sets the current record's "Organiser" value
  * @method Event               setAttendees()           Sets the current record's "Attendees" collection
  * 
  * @package    toaberlin
@@ -178,11 +178,6 @@ abstract class BaseEvent extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Organiser', array(
-             'local' => 'organiser_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
-
         $this->hasMany('Ticket as Tickets', array(
              'refClass' => 'EventTicket',
              'local' => 'event_id',
@@ -194,6 +189,10 @@ abstract class BaseEvent extends sfDoctrineRecord
 
         $this->hasOne('Venue', array(
              'local' => 'venue_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('Organiser', array(
+             'local' => 'organiser_id',
              'foreign' => 'id'));
 
         $this->hasMany('Attendee as Attendees', array(

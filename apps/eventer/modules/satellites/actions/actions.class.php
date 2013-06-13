@@ -33,9 +33,43 @@ class satellitesActions extends sfActions {
 			$this->forward('home', 'login');
 		}
 
-		// TODO: choose from user's events (API) or form a new event
+		// TODO: check what happens when we're trying to getOrganiser() on user who does not have the organiser object...
+
+		// check if we should host a new event for the user, or allow him to select from Eventbrite ones already
+		if($events = EventTable::getInstance()->getAPIUnhostedForUser($this->getUser())) {
+
+			// prepare variable for the layout
+			// ** ugly hack: strip tags rightaway...
+			foreach($events as $key => $event) $events[$key]['event']['description'] = trim(strip_tags($event['event']['description']));
+			$this->eventsArray = $events;
+		}
+
+		else $this->redirect($this->generateUrl('default', array('module' => 'satellites', 'action' => 'hostNew')));	// ** 'default' is route name
+	}
+
+	public function executeHostNew(sfWebRequest $request) {
+
+		if(!$this->getUser()->isAuthenticated()) {
+
+			$this->getUser()->setAttribute('loginCallback', 'satellites/hostNew');
+			$this->forward('home', 'login');
+		}
+
+		// TODO: play with the form
 		$this->form = new EventForm();
 	}
+	public function executeImport(sfWebRequest $request) {
+
+		if(!$this->getUser()->isAuthenticated()) {
+
+			$this->getUser()->setAttribute('loginCallback', 'satellites/host');
+			$this->forward('home', 'login');
+		}
+
+		// TODO: the import actions in model...
+	}
+
+
 
 // TODO: Below stuff is deprecated
   public function executeCreate(sfWebRequest $request)

@@ -2,6 +2,8 @@
 
 <?php include_partial('hero') ?>
 
-	<h1>About the first day</h1>
+	<div class="textual">
 
+		<h1>About the first day</h1>
+	</div>
 </div>

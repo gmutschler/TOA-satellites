@@ -2,6 +2,8 @@
 
 <?php include_partial('hero') ?>
 
-	<h1>Time Schedule</h1>
+	<div class="textual">
 
+		<h1>Time Schedule</h1>
+	</div>
 </div>

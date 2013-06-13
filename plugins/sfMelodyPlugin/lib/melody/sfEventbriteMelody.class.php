@@ -3,7 +3,7 @@
 	Eventbrite.com implementation for sfMelody plugin
 	Maciej Taranienko <maciej@canadel.ee>
 
-	rev 2013-06-11
+	rev 2013-06-13
 */
 
 class sfEventbriteMelody extends sfMelody2 {
@@ -158,10 +158,14 @@ class sfEventbriteMelody extends sfMelody2 {
 
 		return $this->localGet('user_get', $params);
 	}
-
-
 	public function getEventsForUser($email) {
 
-		// TODO:
+		// ** enhace with more params if needed
+		// TODO: make it not importing passed events
+		// http://developer.eventbrite.com/doc/users/user_list_events/
+		return $this->localGet('user_list_events', array(
+
+			'email'	=> $email
+		));
 	}
 }
