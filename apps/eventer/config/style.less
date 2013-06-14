@@ -26,6 +26,9 @@
 @color-bg-gray-dark: #F4F4F3;
 @color-bg-hero: #EFEDEC;
 
+@color-retro-bg: #A19F73;
+@color-retro-text: #ffffff;
+
 @font-minion: 'minion-pro';
 @font-proxima: 'proxima-nova';
 
@@ -46,6 +49,10 @@
 .tnouper {	text-transform: none	}
 .mauto {	margin: 0 auto		}
 
+.negmargin-top {   
+    margin-top: -18px;
+    z-index: 10 !important;
+}
 .relative {	position: relative	}
 .absolute() {				// L8R: finetune those methods :)
 	position: absolute;
@@ -136,6 +143,7 @@ a {
 	.c3transition(.5s);	// ** applies to all possible content
 }
 
+
 #main {
 	.tleft;
 	.mauto;
@@ -158,6 +166,7 @@ a {
 	}
 
 	#content {
+    
 
 		// # hero unit block
 		#hero {
@@ -215,6 +224,33 @@ a {
 				}
 			}
 		}
+    
+        #edition-2013 {
+            background: @color-retro-bg;
+            color: @color-retro-text;
+            .negmargin-top;
+        
+            p { color: @color-retro-text;}
+        
+            #about-2013 {
+                .content-box-inner;
+                #theme-description {
+                    width: 520px;
+                    margin-right: 2.4em;
+                    .fleft;
+                }
+                
+                #sidebar-expect {
+                    width: 260px;
+                    background: @color-retro-text;
+                    color: @color-retro-bg;
+                    .fleft;
+                    .tcenter;
+                    .content-box-inner;
+                }
+            }
+        }
+    
     
         .press-publications {
             border: 1px solid @color-border;
@@ -351,8 +387,7 @@ a {
 
 				// slight modifications for the widget on top
 				&.upper {
-					margin-top: -18px;
-					z-index: 10 !important;
+                    .negmargin-top
 
 					a {
 						height: @height-local-widget;
@@ -475,7 +510,7 @@ a {
 			h3 {
 				.ffamily(16px, @font-proxima);
 				font-weight: bold;
-				margin: 1em 0 .5em 0;
+				margin: 0.2em 0 .5em 0;
 			}
 			p {
 				margin-bottom: 0.8em;
@@ -507,6 +542,7 @@ a {
 			.ffamily(46px, @font-minion);
 			.tupper;
             position: relative;
+            z-index: -10;
 
 			span {
 				.tnouper;
