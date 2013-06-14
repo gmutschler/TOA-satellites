@@ -19,10 +19,16 @@
 	'desc'		=> $event->getDescription(),
 	'org_name'	=> $event->getOrganiser()->getName(),
 	'org_link'	=> $event->getOrganiser()->getUrl(),
+	'ven_name'	=> $event->getVenueName(),
+	'ven_addr'	=> $event->getVenueAddress(),
+	'ven_post'	=> $event->getVenuePostalCode(),
+	'ven_city'	=> $event->getVenueCity()
+/*
 	'ven_name'	=> $event->getVenue()->getName(),
 	'ven_addr'	=> $event->getVenue()->getAddress(),
 	'ven_post'	=> $event->getVenue()->getPostalCode(),
 	'ven_city'	=> $event->getVenue()->getCity()
+*/
 )) ?>
 		</ul>
 <?php endif ?>

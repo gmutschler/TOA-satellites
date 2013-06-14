@@ -25,25 +25,25 @@ Category:
       foreign:          category_id
       type:             many
 
-Venue:
-  columns:
-    name:
-      type: string(64)
-    address:
-      type: string(128)
-    city:
-      type: string(32)
-    postal_code:
-      type: integer(6)  # TODO: check for potential dashed postcodes (and either filter them out, or change this field to string)
-    longitude:
+#Venue:
+#  columns:
+#    name:
+#      type: string(64)
+#    address:
+#      type: string(128)
+#    city:
+#      type: string(32)
+#    postal_code:
+#      type: integer(6)  # TODO: check for potential dashed postcodes (and either filter them out, or change this field to string)
+#    longitude:
 #      type: float(3,6)
-      type: float
-    latitude:
+#      type: float
+#    latitude:
 #      type: float(3,6)
-      type: float
+#      type: float
 
-    eventbrite_id:
-      type: integer(16)
+#    eventbrite_id:
+#      type: integer(16)
 
 #   region:
 #     type: string(16)
@@ -54,14 +54,14 @@ Venue:
 #   country_code:
 #     type: string(3)
 
-  relations:
-    Events:
-      class:            Event
-      local:            id
-      foreign:          venue_id
-      type:             many
-      foreignType:      one
-      foreignAlias:     Venue
+#  relations:
+#    Events:
+#      class:            Event
+#      local:            id
+#      foreign:          venue_id
+#      type:             many
+#      foreignType:      one
+#      foreignAlias:     Venue
 
 Organiser:
   columns:
@@ -104,31 +104,37 @@ Ticket:
     event_id:
       type: integer
       notnull: true
-    type:
-      type: integer(1)  # TODO: wtf is that anyway? ;)
+    name:
+      type: string(64)
+    description:
+      type: string(256)
     price:
       type: float(4,2)
-    max:
-      type: integer(5)  # TODO: make sure 5 digit number is enough
-    min:
-      type: integer(5)  # TODO: make sure 5 digit number is enough
-    start_date:
-      type: timestamp
-    end_date:
-      type: timestamp
-    quantity_available:
-      type: integer(5)  # TODO: make sure 5 digit number is enough
-    quantity_sold:
-      type: integer(5)  # TODO: make sure 5 digit number is enough
-    visible:
-      type: boolean
-      default: false
+    quantity_declared:
+      type: integer(5)
+    quantity_paid:
+      type: integer(5)
+    quantity_free:
+      type: integer(5)
 
     eventbrite_id:
       type: integer(16)
 
 #    currency:                  ** always in EUR, remember to push to API though
 #      type: string(3)
+#    visible:
+#      type: boolean
+#      default: false
+#    max:
+#      type: integer(5)  # TODO: make sure 5 digit number is enough
+#    min:
+#      type: integer(5)  # TODO: make sure 5 digit number is enough
+#    start_date:
+#      type: timestamp
+#    end_date:
+#      type: timestamp
+#    type:
+#      type: integer(1)  # TODO: wtf is that anyway? ;)
 
   relations:
     Event:
@@ -169,9 +175,9 @@ Event:
     category_id:
       type: integer
       notnull: true
-    venue_id:
-      type: integer
-      notnull: true
+#    venue_id:
+#      type: integer
+#      notnull: true
     organiser_id:
       type: integer
       notnull: true
@@ -198,14 +204,29 @@ Event:
       type: boolean
       default: false
 
-    eventbrite_created:
-      type: timestamp
-    eventbrite_modified:
-      type: timestamp
-    eventbrite_logo_url:
+    venue_name:
+      type: string(64)
+    venue_address:
       type: string(128)
+      notnull: true
+    venue_city:
+      type: string(32)
+      notnull: true
+    venue_postal_code:
+      type: integer(6)
+    venue_latitude:
+      type: float  # TODO: try forcing more stuff after coma
+    venue_longitude:
+      type: float  # TODO: ^^
+    venue_eventbrite_id:
+      type: integer(16)
+
     eventbrite_id:
       type: integer(16)
+    eventbrite_logo_url:
+      type: string(128)
+    eventbrite_created:
+      type: timestamp
     eventbrite_modified:
       type: timestamp
 

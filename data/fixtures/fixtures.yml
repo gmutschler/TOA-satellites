@@ -1,4 +1,4 @@
-# TODO: Add tickets, attendees, etc.
+# TODO: Add attendees, etc.
 # NOTE: Funny bug discovered here. Any line containing PHP code MUST BE finished with \n, otherwise fixture loading will produce a lot of strange, irrational and almost untraceable errors
 
 # 5 random users that may be organisers
@@ -39,27 +39,22 @@ Category:
 <?php endfor ?>
 
 # 3 random venues
-Venue:
-<?php for($i = 0; $i < 3; $i++): ?>
-  tVenue<?=$i?>:
-    eventbrite_id:      <?=rand(5000,200000)?>
+#Venue:
+#<?php for($i = 0; $i < 3; $i++): ?>
+#  tVenue<?=$i?>:
+#    eventbrite_id:      <?=rand(5000,200000)?>
 
-    name:               Test Location <?=$i?>
+#    name:               Test Location <?=$i?>
 
-    address:            Grunwalderstrasse 42/<?=$i?>
+#    address:            Grunwalderstrasse 42/<?=$i?>
 
-    city:               Berlin
+#    city:               Berlin
 
-    postal_code:        <?=rand(10,40)?><?=rand(100,999)?>
+#    postal_code:        <?=rand(10,40)?><?=rand(100,999)?>
 
-    latitude:           52.509535
-    longitude:          13.392334
-
-#    country:            Germany
-#    country_code:       DE
-#    address2:           Hauptmenu Building
-#    region:             Brandenburg
-<?php endfor ?>
+#    latitude:           52.509535
+#    longitude:          13.392334
+#<?php endfor ?>
 
 # 15 random events
 Event:
@@ -67,7 +62,9 @@ Event:
 
         $startHour = '1' . rand(1,4) . ':' . rand(1,3) . rand(0,9);
         $endHour = '1' . rand(5,7) . ':' . rand(1,3) . rand(0,9);
+
 ?>
+
   tEvent<?=$i?>:
 
     title:              Test event <?=$i?>
@@ -78,14 +75,26 @@ Event:
 
     end_date:           2013-06-22 <?=$endHour?>
 
-    start_hour:         <?=$startHour?>
+    start_hour:         <?=$startHour?>:00
 
-    end_hour:           <?=$endHour?>
+    end_hour:           <?=$endHour?>:00
 
     logo:               null
     listing_color:      FFFFFF
     moderated:          true
 
+    venue_eventbrite_id:      <?=rand(5000,200000)?>
+
+    venue_name:               Test Location <?=$i?>
+
+    venue_address:            Grunwalderstrasse 42/<?=$i?>
+
+    venue_city:               Berlin
+
+    venue_postal_code:        <?=rand(10,40)?><?=rand(100,999)?>
+
+    venue_latitude:           52.509535
+    venue_longitude:          13.392334
 
     eventbrite_id:      <?php echo rand(5000,200000); ?>
 
@@ -98,10 +107,9 @@ Event:
 
     Category:           tCategory<?=rand(0,4)?>
 
-    Venue:              tVenue<?=rand(0,2)?>
-
     Organiser:          tOrganiser<?=rand(0,2)?>
 
+#    Venue:              tVenue<?=rand(0,2)?>
 <?php endfor ?>
 
 # 4 random tickets for 1st event
@@ -109,18 +117,15 @@ Ticket:
 <?php for($i = 0; $i < 4; $i++): ?>
   tTicket<?=$i?>:
 
-    type:               3                       #TODO remove this
+    name:               VIP ticket <?=$i?>
+
+    description:        Some fancy ticket
+
     price:              <?=rand(15,99)?>
 
-    max:                200
-    min:                5
-    start_date:         null                    #TODO consider if not to remove this too
-    end_date:           null
-
-    quantity_available: 200
-    quantity_sold:      <?=rand(10,50)?>
-
-    visible:            true
+    quantity_declared:  100
+    quantity_paid:      50
+    quantity_free:      50
 
 
     eventbrite_id:      <?php echo rand(5000,200000); ?>

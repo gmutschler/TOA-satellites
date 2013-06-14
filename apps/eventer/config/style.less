@@ -20,7 +20,6 @@
 @color-border-dark: #ccc;
 @color-red: #DC142C;
 @color-red-light: #EA7280;
-@color-red-author: #DC142C;
 
 @color-bg-gray: #FBFBF9;
 @color-bg-gray-dark: #F4F4F3;
@@ -274,7 +273,7 @@ a {
     
         .story_timeline {
             .timeline {
-                border-left: 6px solid @color-red-author;
+                border-left: 6px solid @color-red;
                 margin-left: 40px;
                 width: 640px;
                 padding: 1px 0;
@@ -287,7 +286,7 @@ a {
                         position: absolute;
                         top: 50%;
                         left: -13px;
-                        background: @color-red-author;
+                        background: @color-red;
                         height: 12px;
                         width: 12px;
                         border-radius: 50%;
@@ -295,7 +294,7 @@ a {
                         margin-top: -24px;
                     }
                     .milestone-line {
-                        background: @color-red-author;
+                        background: @color-red;
                         height: 2px;
                         position: absolute;
                         top: 50%;
@@ -575,6 +574,39 @@ a {
 
 		h4 {
 		}
+
+		p {
+
+			&.notice {
+				.titalic;
+			}
+
+			a {
+				color: @color-red;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+		a.button_red, input.button_red {
+
+			.ffamily(28px, @font-proxima, bold);
+			.tupper;
+
+			padding: 6px 14px;
+
+			color: @color-bg;
+			background-color: @color-red;
+			border: none;
+
+			cursor: pointer;
+		}
+		a.button_black {
+			// TODO
+		}
 	}
 
 #footer {
@@ -612,12 +644,12 @@ a {
 
 					// states in proper sequence; highlighted at bottom so it overrides anything else
 					&.selected, &:hover {
-						color: @color-red-author;
+						color: @color-red;
 					}
 
 					&.highlighted {
 						color: @color-bg;
-						background-color: @color-red-author;
+						background-color: @color-red;
 					}
 				}
 			}

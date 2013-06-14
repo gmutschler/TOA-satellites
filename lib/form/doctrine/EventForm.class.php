@@ -12,31 +12,38 @@ class EventForm extends BaseEventForm {
 
 	public function configure() {
 
+		// important fields
 		$this->useFields(array(
 
 			'title',
 			'description',
-			'start_hour',		// TODO: dates to be calculated upon submission
+			'start_hour',		// TODO: check why the fuck it don't get saved; dates to be calculated upon submission
 			'end_hour',
 			'listing_color',
 
+			'venue_name',
+			'venue_address',
+			'venue_city',
+			'venue_postal_code',
+
 			'category_id',
-			'venue_id',
-			'organiser_id',		// TODO: think of it
-			//'tickets_list'
+			'organiser_id'		// TODO: auto-set it!
 		));
 
+		// widgets and validators
 		$this->setWidget('logo', new sfWidgetFormInputFile());
 		$this->setValidator('logo', new sfValidatorFile(array(
 
 			'mime_types'	=> 'web_images',
-			'path'		=> sfConfig::get('sf_upload"dir') . '/logos',	// TODO: create this dir
+			'path'		=> sfConfig::get('sf_upload_dir') . '/logos',	// TODO: create this dir
 			'required'	=> false
 		)));
 
+		// TODO: add validators for start/end hours!
+
 		// embedded forms: http://symfony.com/legacy/doc/more-with-symfony/1_4/en/06-Advanced-Forms
 		// http://www.thatsquality.com/articles/stretching-sfform-with-dynamic-elements-ajax-a-love-story
-		$this->embedForm('newVenue', new VenueCollectionForm(null, array(
+		$this->embedForm('newTickets', new TicketCollectionForm(null, array(
 
 			'event'	=> $this->getObject(),
 			'size'	=> 1
@@ -47,13 +54,14 @@ class EventForm extends BaseEventForm {
 
 	public function saveEmbeddedForms($con = null, $forms = null) {
 
+		// unset nulls in embedded tickets form
 		if(null === $forms) {
 
-			$venues = $this->getValue('newVenue');
+			$tickets = $this->getValue('newTickets');
 			$forms = $this->embeddedForms;
-			foreach($this->embeddedForms['newVenue'] as $name => $form) {
+			foreach($this->embeddedForms['newTickets'] as $name => $form) {
 
-				if(!isset($venues[$name])) unset($forms['newVenue'][$name]);
+				if(!isset($tickets[$name])) unset($forms['newTickets'][$name]);
 			}
 		}
 

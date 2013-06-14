@@ -11,14 +11,15 @@
 		<p>This event belongs to category: <a href="#link-to-category-there-will-be"><?=$event->getCategory()->getName()?></a></p>
 
 		<h2>Where?</h2>
-		<p><?php echo $event->getVenue()->getName() ?><br />
-			<?=$event->getVenue()->getAddress()?><br />
-			<?=$event->getVenue()->getPostalCode()?> <?=$event->getVenue()->getCity()?><br />
-			GPS locations: <?=$event->getVenue()->getLatitude()?> x <?=$event->getVenue()->getLongitude()?>
+
+		<p><?php echo $event->getVenueName() ?><br />
+			<?=$event->getVenueAddress()?><br />
+			<?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
+			GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
 		</p>
 
 		<h2>When?</h2>
-		<p>Between <?=$event->getStartDate()?> and <?=$event->getEndDate()?></p>
+		<p>Between <?=$event->getStartHour()?> and <?=$event->getEndHour()?></p>
 
 		<h2>With who?</h2>
 		<p>This event is organized by: <a href="#link-to-organiser-there-will-be"><?=$event->getOrganiser()->getName()?></a></p>

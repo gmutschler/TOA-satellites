@@ -15,33 +15,27 @@ abstract class BaseTicketForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                 => new sfWidgetFormInputHidden(),
-      'event_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Event'), 'add_empty' => false)),
-      'type'               => new sfWidgetFormInputText(),
-      'price'              => new sfWidgetFormInputText(),
-      'max'                => new sfWidgetFormInputText(),
-      'min'                => new sfWidgetFormInputText(),
-      'start_date'         => new sfWidgetFormDateTime(),
-      'end_date'           => new sfWidgetFormDateTime(),
-      'quantity_available' => new sfWidgetFormInputText(),
-      'quantity_sold'      => new sfWidgetFormInputText(),
-      'visible'            => new sfWidgetFormInputCheckbox(),
-      'eventbrite_id'      => new sfWidgetFormInputText(),
+      'id'                => new sfWidgetFormInputHidden(),
+      'event_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Event'), 'add_empty' => false)),
+      'name'              => new sfWidgetFormInputText(),
+      'description'       => new sfWidgetFormTextarea(),
+      'price'             => new sfWidgetFormInputText(),
+      'quantity_declared' => new sfWidgetFormInputText(),
+      'quantity_paid'     => new sfWidgetFormInputText(),
+      'quantity_free'     => new sfWidgetFormInputText(),
+      'eventbrite_id'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'                 => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'event_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Event'))),
-      'type'               => new sfValidatorInteger(array('required' => false)),
-      'price'              => new sfValidatorNumber(array('required' => false)),
-      'max'                => new sfValidatorInteger(array('required' => false)),
-      'min'                => new sfValidatorInteger(array('required' => false)),
-      'start_date'         => new sfValidatorDateTime(array('required' => false)),
-      'end_date'           => new sfValidatorDateTime(array('required' => false)),
-      'quantity_available' => new sfValidatorInteger(array('required' => false)),
-      'quantity_sold'      => new sfValidatorInteger(array('required' => false)),
-      'visible'            => new sfValidatorBoolean(array('required' => false)),
-      'eventbrite_id'      => new sfValidatorInteger(array('required' => false)),
+      'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'event_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Event'))),
+      'name'              => new sfValidatorString(array('max_length' => 64, 'required' => false)),
+      'description'       => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'price'             => new sfValidatorNumber(array('required' => false)),
+      'quantity_declared' => new sfValidatorInteger(array('required' => false)),
+      'quantity_paid'     => new sfValidatorInteger(array('required' => false)),
+      'quantity_free'     => new sfValidatorInteger(array('required' => false)),
+      'eventbrite_id'     => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('ticket[%s]');
