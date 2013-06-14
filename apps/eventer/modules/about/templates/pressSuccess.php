@@ -4,7 +4,7 @@
 
 	<div class="textual">
         <h1>Press</h1>
-        <div class="press-publications content-box">
+        <div class="press-publications">
             <div class="press-covering">
                 <h2>Press review</h2>
                  
@@ -187,8 +187,8 @@
             </div>
             
             <div class="sidebar-contact">
-                <h2>Contact &amp; Accreditation</h2>
-                <h3><big>Kerstin Bock</big></h3>
+                <h3>CONTACT &amp; ACCREDITATIONS</h3>
+                <h2><small>Kerstin Bock</small></h2>
                 <p>
                     (+49) 160-9466-2108<br />
                     <a href="mailto:press@toaberlin.com" target="_blank">press@toaberlin.com</a><br />
@@ -196,6 +196,7 @@
                     <a href="http://de.linkedin.com/in/kerstinbock" target="_blank">Linkedin</a>
                 </p>
             </div>
+            <div class="clear"></div>
         </div>
         
         <h1>Graphic Ressources</h1>

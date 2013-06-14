@@ -20,11 +20,11 @@
 @color-border-dark: #ccc;
 @color-red: #DC142C;
 @color-red-light: #EA7280;
+@color-red-author: #DC142C;
 
-
-@color-bg-footer: #FBFBF9;
+@color-bg-gray: #FBFBF9;
+@color-bg-gray-dark: #F4F4F3;
 @color-bg-hero: #EFEDEC;
-@color-bg-listitem: #FBFBF9;
 
 @font-minion: 'minion-pro';
 @font-proxima: 'proxima-nova';
@@ -104,6 +104,7 @@
 	font-weight: @weight;
 }
 
+.content-box-inner {padding: 25px;}
 .uborder(@color) {	// "U" shape border
 	border: none;
 	border-left: 1px solid @color;
@@ -182,9 +183,9 @@ a {
 
 				background-color: @color-bg-hero;
 
-				h2, ul { .fleft }
+				h3, ul { .fleft }
 
-				h2 {
+				h3 {
 					.tupper;
 
 					margin: 0 8px 0 12px;
@@ -208,12 +209,32 @@ a {
 							&:hover, &.selected {
 
 								color: @color-red;
-							}
+                        }
 						}
 					}
 				}
 			}
 		}
+    
+        .press-publications {
+            border: 1px solid @color-border;
+    
+            .press-covering {
+                height: 360px;
+                overflow-y: scroll;
+                width: 560px;
+                .fleft;
+                .content-box-inner;
+            }
+            .sidebar-contact {
+                background: @color-bg-gray;
+                width: 290px;
+                height: 360px;
+                .fright;
+                .content-box-inner;
+                .tcenter;
+            }
+        }
 
 		// ! common for known blocks
 		.listing, .textual { margin-top: 36px }
@@ -230,7 +251,7 @@ a {
 				@height-local-widget: 30px;
 				height: @height-local-widget;
 
-				background: @color-bg no-repeat url(@{images-layout}/timeline.gif) top center;
+				background: @color-bg-gray no-repeat url(@{images-layout}/timeline.gif) top center;
 
 				a {
 					.disblock(29px, @height-local-widget - 1px);
@@ -275,8 +296,6 @@ a {
 					margin-top: -20px;
 					z-index: 10 !important;
 
-					border-top: 1px solid @color-border-dark;
-
 					a {
 						height: @height-local-widget;
 						.uborder(@color-border-dark);
@@ -317,7 +336,7 @@ a {
 						.relative;
 						.ffamily(60px, @font-proxima, bold);	// TODO: use Proxima-Nova semi bold when possible
 
-						color: @color-bg;
+						color: @color-bg-gray;
 						background-repeat: no-repeat;
 
 						span {
@@ -335,7 +354,7 @@ a {
 						.tleft;
 						.relative;
 
-						background-color: @color-bg-listitem;
+						background-color: @color-bg-gray;
 
 						span {
 							.absolute;
@@ -343,7 +362,6 @@ a {
 							@position-local-topbottom: 14px;
 
 							line-height: 1em;
-							font-weight: bold;
 							color: @color-text;
 
 							&.title, &.desc { width: 475px }	// ** hard-limiting widths here
@@ -396,24 +414,29 @@ a {
 		// > textual block
 		.textual {
 
-			h2 {
-				.ffamily(20px, @font-proxima);
+			h3 {
+				.ffamily(16px, @font-proxima);
 				font-weight: bold;
 				margin: 1em 0 .5em 0;
 			}
 			p {
 				margin-bottom: 1em;
+                color: #494949;
 			}
+            p.lead {
+                color: #000;
+                font-size: 36px;
+                line-height: 1.36em;
+                margin: 1em 0 1.5em 0;
+                max-width: 820px;
+            }
 		}
 
-		.forms {
-			
-		}
-
-		// > common content typography defaults
+		// > content typography defaults
 		h1 {
 			.ffamily(46px, @font-minion);
 			.tupper;
+            position: relative;
 
 			span {
 				.tnouper;
@@ -422,46 +445,26 @@ a {
 				font-weight: normal;
 			}
 		}
+        h1:after {
+            content: "";
+            width: 100%;
+            height: 20px;
+            background: #fff;
+            border-top: 1px solid @color-border-dark;
+            position: absolute;
+            bottom: 0;
+            display: inline-block;
+            left: 0;
+        }
 
-		h3 {
+		h2 {
 			.ffamily(29px, @font-minion);
-			.tleft;
 			.tupper;
 
 			// TODO: margins
 		}
 
 		h4 {
-		}
-
-		p {
-			&.notice {
-				.titalic;
-			}
-
-			a {
-				color: @color-red;
-				text-decoration: underline;
-
-				&:hover {
-					text-decoration: none;
-				}
-			}
-		}
-
-		a.button_red, input.button_red {
-
-			.ffamily(28px, @font-proxima, bold);
-			.tupper;
-
-			padding: 6px 14px;
-
-			color: @color-bg;
-			background-color: @color-red;
-
-			border: none;
-		}
-		a.button_black {
 		}
 	}
 
@@ -470,7 +473,7 @@ a {
 
 	margin-top: 130px;	// FIXME: this will be killed by JS automation anyway
 
-	background-color: @color-bg-footer;
+	background-color: @color-bg-gray;
 
 	#footer_menu {
 		.tupper;
@@ -500,12 +503,12 @@ a {
 
 					// states in proper sequence; highlighted at bottom so it overrides anything else
 					&.selected, &:hover {
-						color: @color-red;
+						color: @color-red-author;
 					}
 
 					&.highlighted {
 						color: @color-bg;
-						background-color: @color-red;
+						background-color: @color-red-author;
 					}
 				}
 			}
