@@ -187,7 +187,7 @@
             </div>
             
             <div class="sidebar-contact">
-                <h3>CONTACT &amp; ACCREDITATIONS</h3>
+                <h3 class="tupper">Contact &amp; Accreditations</h3>
                 <h2><small>Kerstin Bock</small></h2>
                 <p>
                     (+49) 160-9466-2108<br />
@@ -198,8 +198,11 @@
             </div>
             <div class="clear"></div>
         </div>
-        
+    </div><!--END TEXTUAL-->
+    
+    <div class="textual">
         <h1>Graphic Ressources</h1>
+        <h2>Logos</h2>
         <div>
             <img src="/images/content/press/TOA_logo-black-big.png" style="" alt="TOA Berlin Logo - Dark">
             <h4>TOA Logo - Black <em>(Right Click to download)</em></h4>
@@ -211,10 +214,10 @@
             <p><a href="/images/content/press/TOA_logo-white-big.png">PNG Version (600x600)</a><br><a href="/images/content/press/TOA_logo-white-vector.eps">EPS Version (Vector graphics)</a></p>
         </div>
         
-        <h1>Photos Gallery</h1>
+        <h2>Photos Gallery</h2>
         ADD THE GALLERY (photos hosted at https://www.dropbox.com/sh/d8wtghrvp2jxatl/l6IpS4j_um and http://www.flickr.com/photos/toaberlin/sets/72157633275519594/)
         
-        <!--<h1>2013 Edition Illustrations</h1>-->
+        <!--<h2>2013 Edition Illustrations</h2>-->
     
     </div><!--END TEXTUAL-->
 
