@@ -48,45 +48,53 @@ Venue:
 
     address:            Grunwalderstrasse 42/<?=$i?>
 
-    address2:           Hauptmenu Building
     city:               Berlin
-    region:             Brandenburg
+
     postal_code:        <?=rand(10,40)?><?=rand(100,999)?>
 
-    country:            Germany
-    country_code:       DE
     latitude:           52.509535
     longitude:          13.392334
+
+#    country:            Germany
+#    country_code:       DE
+#    address2:           Hauptmenu Building
+#    region:             Brandenburg
 <?php endfor ?>
 
 # 15 random events
 Event:
-<?php for($i = 0; $i < 15; $i++): ?>
+<?php for($i = 0; $i < 15; $i++): 
+
+        $startHour = '1' . rand(1,4) . ':' . rand(1,3) . rand(0,9);
+        $endHour = '1' . rand(5,7) . ':' . rand(1,3) . rand(0,9);
+?>
   tEvent<?=$i?>:
-    eventbrite_id:      <?php echo rand(5000,200000); ?>
 
     title:              Test event <?=$i?>
 
     description:        This is an experimental, test event from our test data pool. It might be surprising, but in this particular case we don't actually mean the swimming pool... Even though we have totally nothing against seeing few asian women in swimming suits there. \o/
 
-    start_date:         2013-06-22 1<?=rand(1,4)?>:<?=rand(1,3)?><?=rand(0,9)?>
+    start_date:         2013-06-22 <?=$startHour?>
 
-    end_date:           2013-06-22 1<?=rand(5,7)?>:<?=rand(1,3)?><?=rand(0,9)?>
+    end_date:           2013-06-22 <?=$endHour?>
 
-    timezone:           CET
-    url:                http://facebook.com/
-    capacity:           <?=rand(10,40)?>
+    start_hour:         <?=$startHour?>
 
-    created:            <?=date('Y-m-d H:i')?>
+    end_hour:           <?=$endHour?>
+
+    logo:               null
+    listing_color:      FFFFFF
+    moderated:          true
+
+
+    eventbrite_id:      <?php echo rand(5000,200000); ?>
+
+    eventbrite_created:  <?=date('Y-m-d H:i')?>
 
     eventbrite_modified: <?=date('Y-m-d H:i')?>
 
-    privacy:            -- not sure --
-    logo:               -- none yet --
-    logo_ssl:           -- none yet --
-    status:             -- not sure --
-    moderated:          true
-    listing_color:      FFFFFF
+    eventbrite_logo_url: null
+
 
     Category:           tCategory<?=rand(0,4)?>
 
@@ -94,7 +102,30 @@ Event:
 
     Organiser:          tOrganiser<?=rand(0,2)?>
 
-#    Category:           tCategory1
-#    Venue:              tVenue1
-#    Organiser:          tOrganiser1
+<?php endfor ?>
+
+# 4 random tickets for 1st event
+Ticket:
+<?php for($i = 0; $i < 4; $i++): ?>
+  tTicket<?=$i?>:
+
+    type:               3                       #TODO remove this
+    price:              <?=rand(15,99)?>
+
+    max:                200
+    min:                5
+    start_date:         null                    #TODO consider if not to remove this too
+    end_date:           null
+
+    quantity_available: 200
+    quantity_sold:      <?=rand(10,50)?>
+
+    visible:            true
+
+
+    eventbrite_id:      <?php echo rand(5000,200000); ?>
+
+
+    Event:              tEvent0
+
 <?php endfor ?>

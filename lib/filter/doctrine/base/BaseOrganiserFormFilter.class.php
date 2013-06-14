@@ -13,19 +13,19 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'eventbrite_id' => new sfWidgetFormFilterInput(),
       'user_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('GuardUser'), 'add_empty' => true)),
       'name'          => new sfWidgetFormFilterInput(),
       'description'   => new sfWidgetFormFilterInput(),
       'url'           => new sfWidgetFormFilterInput(),
+      'eventbrite_id' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'eventbrite_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'user_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('GuardUser'), 'column' => 'id')),
       'name'          => new sfValidatorPass(array('required' => false)),
       'description'   => new sfValidatorPass(array('required' => false)),
       'url'           => new sfValidatorPass(array('required' => false)),
+      'eventbrite_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('organiser_filters[%s]');
@@ -46,11 +46,11 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'            => 'Number',
-      'eventbrite_id' => 'Number',
       'user_id'       => 'ForeignKey',
       'name'          => 'Text',
       'description'   => 'Text',
       'url'           => 'Text',
+      'eventbrite_id' => 'Number',
     );
   }
 }

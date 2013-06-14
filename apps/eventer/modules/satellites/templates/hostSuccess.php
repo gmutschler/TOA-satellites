@@ -8,7 +8,7 @@
 
 		<h1>Host an event</h1>
 
-		<h3>Import your eventbrite events</h3>
+		<h2>Import your eventbrite events</h2>
 
 		<ul class="listing_list">
 <?php	foreach($eventsArray as $event) {

@@ -20,4 +20,8 @@ class Event extends BaseEvent {
 
 		return date('H:i', strtotime($this->getEndDate()));
 	}
+	public function sendEventToAPI() {
+
+		// TODO: remember to push privacy and and status as 1
+	}
 }

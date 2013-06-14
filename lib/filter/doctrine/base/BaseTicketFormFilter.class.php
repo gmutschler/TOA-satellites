@@ -13,9 +13,8 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'eventbrite_id'      => new sfWidgetFormFilterInput(),
+      'event_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Event'), 'add_empty' => true)),
       'type'               => new sfWidgetFormFilterInput(),
-      'currency'           => new sfWidgetFormFilterInput(),
       'price'              => new sfWidgetFormFilterInput(),
       'max'                => new sfWidgetFormFilterInput(),
       'min'                => new sfWidgetFormFilterInput(),
@@ -24,13 +23,12 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
       'quantity_available' => new sfWidgetFormFilterInput(),
       'quantity_sold'      => new sfWidgetFormFilterInput(),
       'visible'            => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'events_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Event')),
+      'eventbrite_id'      => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'eventbrite_id'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'event_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Event'), 'column' => 'id')),
       'type'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'currency'           => new sfValidatorPass(array('required' => false)),
       'price'              => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'max'                => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'min'                => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -39,7 +37,7 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
       'quantity_available' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'quantity_sold'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'visible'            => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'events_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Event', 'required' => false)),
+      'eventbrite_id'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('ticket_filters[%s]');
@@ -51,24 +49,6 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
     parent::setup();
   }
 
-  public function addEventsListColumnQuery(Doctrine_Query $query, $field, $values)
-  {
-    if (!is_array($values))
-    {
-      $values = array($values);
-    }
-
-    if (!count($values))
-    {
-      return;
-    }
-
-    $query
-      ->leftJoin($query->getRootAlias().'.EventTicket EventTicket')
-      ->andWhereIn('EventTicket.event_id', $values)
-    ;
-  }
-
   public function getModelName()
   {
     return 'Ticket';
@@ -78,9 +58,8 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'                 => 'Number',
-      'eventbrite_id'      => 'Number',
+      'event_id'           => 'ForeignKey',
       'type'               => 'Number',
-      'currency'           => 'Text',
       'price'              => 'Number',
       'max'                => 'Number',
       'min'                => 'Number',
@@ -89,7 +68,7 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
       'quantity_available' => 'Number',
       'quantity_sold'      => 'Number',
       'visible'            => 'Boolean',
-      'events_list'        => 'ManyKey',
+      'eventbrite_id'      => 'Number',
     );
   }
 }

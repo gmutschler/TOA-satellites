@@ -1,15 +1,13 @@
 # TOA Berlin database schema, maciej@canadel.ee
-#  Event's schema is mostly based on http://developer.eventbrite.com/doc/events/event_get/
 #
 #  INFO:
 #  - If the event has paid tickets, and the user already bought the main ticket, only the free tickets should be displayed
 #    (dig around their API); probably do some user flag sayign "main ticket bought"
 #
 #  TODO:
-#  - Check if Event + Tickets are one-to-many or many-to-many?
+#  - Check how the fuck to add float with more spaces after coma FOR FUCKS SAKE
 #
 #  LATER:
-#  - Venue + Event - consider making it single table
 #  - Optimize certain defined values basing on real world examples
 #  - Add optimizations as notnulls, primary keys, indexes, etc.
 options:
@@ -29,45 +27,44 @@ Category:
 
 Venue:
   columns:
-    eventbrite_id:
-      type: integer(12) # TODO: check length
     name:
       type: string(64)
     address:
       type: string(128)
-    address2:
-      type: string(128)
     city:
       type: string(32)
-    region:
-      type: string(16)
     postal_code:
       type: integer(6)  # TODO: check for potential dashed postcodes (and either filter them out, or change this field to string)
-    country:
-      type: string(64)
-    country_code:
-      type: string(3)   # TODO: check length
     longitude:
+#      type: float(3,6)
       type: float
     latitude:
+#      type: float(3,6)
       type: float
+
+    eventbrite_id:
+      type: integer(16)
+
+#   region:
+#     type: string(16)
+#   address2:
+#     type: string(128)
+#   country:
+#     type: string(64)
+#   country_code:
+#     type: string(3)
+
   relations:
-#    Event:
-#      local:            id
-#      foreign:          venue_id
-#      type:             one
-#      foreignType:      one
-#      onDelete:         CASCADE
     Events:
       class:            Event
       local:            id
       foreign:          venue_id
       type:             many
+      foreignType:      one
+      foreignAlias:     Venue
 
 Organiser:
   columns:
-    eventbrite_id:
-      type: integer(12) # TODO: check length
     user_id:
       type: integer
     name:
@@ -76,8 +73,12 @@ Organiser:
       type: string(256)
     url:
       type: string(128)
+
+    eventbrite_id:
+      type: integer(16)
+
   relations:
-    Events:
+    Events:             # TODO: think of making it one-to-one with Event!
       class:    Event
       local:    id
       foreign:  organiser_id
@@ -89,25 +90,24 @@ Organiser:
       type:     one
       foreignType: one
 
-EventTicket:
-  columns:
-    event_id:
-      type: integer
-      primary: true
-    ticket_id:
-      type: integer
-      primary: true
+#EventTicket:
+#  columns:
+#    event_id:
+#      type: integer
+#      primary: true
+#    ticket_id:
+#      type: integer
+#      primary: true
 
 Ticket:
   columns:
-    eventbrite_id:
-      type: integer(12) # TODO: check length
+    event_id:
+      type: integer
+      notnull: true
     type:
       type: integer(1)  # TODO: wtf is that anyway? ;)
-    currency:
-      type: string(3)
     price:
-      type: float
+      type: float(4,2)
     max:
       type: integer(5)  # TODO: make sure 5 digit number is enough
     min:
@@ -123,11 +123,25 @@ Ticket:
     visible:
       type: boolean
       default: false
+
+    eventbrite_id:
+      type: integer(16)
+
+#    currency:                  ** always in EUR, remember to push to API though
+#      type: string(3)
+
   relations:
-    Events:
-      class:            Event
-      refClass:         EventTicket
-      foreignAlias:     Events
+    Event:
+      local:            event_id
+      foreign:          id
+      type:             one
+      foreignType:      many
+      foreignAlias:     Tickets
+#  relations:
+#    Events:
+#      class:            Event
+#      refClass:         EventTicket
+#      foreignAlias:     Events
 
 Attendee:
   columns:
@@ -149,12 +163,12 @@ Attendee:
       foreignAlias: Attendees
 
 Event:
+  actAs:
+    Timestampable: ~
   columns:
     category_id:
       type: integer
       notnull: true
-    eventbrite_id:
-      type: integer(12)
     venue_id:
       type: integer
       notnull: true
@@ -171,48 +185,56 @@ Event:
       type: timestamp
     end_date:
       type: timestamp
-    timezone:
-      type: string(32)
-    url:
-      type: string(128)
-    capacity:
-      type: integer(4)
-    created:            # TODO: think about it; maybe basing on actAs Timestampable and forcing writes there would be better?
-      type: timestamp
-    eventbrite_modified:
-      type: timestamp
-    privacy:            # TODO: think about it; maybe some enumeration would be better?
-      type: string(16)
-    password:
-      type: string(160) # TODO: check the password hashing method and adjust it
+    start_hour:
+      type: time
+    end_hour:
+      type: time
     logo:
       type: string(128)
-    logo_ssl:
-      type: string(128)
-    status:
-      type: string(16)  # TODO: think of enumeration again
+    listing_color:
+      type: string(8)
+
     moderated:
       type: boolean
       default: false
-    listing_color:
-      type: string(8)
-  relations:
-#    Venue:
-#      local: venue_id
-#      foreign: id
-#      type: one
-#      foreignType: many
-#      foreignAlias: Events
-#      onDelete: CASCADE
-     
-#    Organiser:
-#      local: organiser_id
-#      foreign: id
-#      onDelete: CASCADE
-#    Category:
-#      local: category_id
-#      foreign: id
-    Tickets:
-      class:            Ticket
-      refClass:         EventTicket
-      foreignAlias:     Tickets
+
+    eventbrite_created:
+      type: timestamp
+    eventbrite_modified:
+      type: timestamp
+    eventbrite_logo_url:
+      type: string(128)
+    eventbrite_id:
+      type: integer(16)
+    eventbrite_modified:
+      type: timestamp
+
+#    timezone:
+#      type: string(32)
+#    url:
+#      type: string(128)
+#    capacity:
+#      type: integer(4)
+#    privacy:
+#      type: string(16)
+#    logo_ssl:
+#      type: string(128)
+#    status:
+#      type: string(16)
+#    password:
+#      type: string(160)
+
+#  relations:
+#    Tickets:
+#      class:            Ticket
+#      refClass:         EventTicket
+#      foreignAlias:     Tickets
+
+#  relations:
+#    Tickets:
+#      class:            Ticket
+#      local:            id
+#      foreign:          ticket_id
+#      type:             many
+#      foreignType:      one
+#      foreignAlias:     Event

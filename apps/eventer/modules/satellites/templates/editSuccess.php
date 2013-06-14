@@ -1,3 +1,6 @@
-<h1>Edit Event</h1>
+	<div class="forms">
 
-<?php include_partial('form', array('form' => $form)) ?>
+		<h3>Edit your own event</h3>
+
+		<?php include_partial('form', array('form' => $form)) ?> 
+	</div>

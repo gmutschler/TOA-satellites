@@ -46,8 +46,6 @@ class satellitesActions extends sfActions {
 
 		// Create the new form for all cases
 		$this->form = new EventForm();
-
-		//else $this->redirect($this->generateUrl('default', array('module' => 'satellites', 'action' => 'hostNew')));	// ** 'default' is route name
 	}
 	public function executeImport(sfWebRequest $request) {
 
@@ -56,7 +54,6 @@ class satellitesActions extends sfActions {
 			$this->getUser()->setAttribute('loginCallback', 'satellites/host');
 			$this->forward('home', 'login');
 		}
-
 		$this->forward404Unless($request->getParameter('id'));
 
 		// TODO: the import actions in model...
@@ -64,25 +61,26 @@ class satellitesActions extends sfActions {
 		die(print('We shall now import an event with the id #' . $request->getParameter('id')));
 	}
 
+	public function executeCreate(sfWebRequest $request) {
 
+		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
+		$this->forward404Unless($request->isMethod(sfRequest::POST));
 
-// TODO: Below stuff is deprecated
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+		$this->form = new EventForm();
+		$this->processForm($request, $this->form);
 
-    $this->form = new EventForm();
+		$this->setTemplate('new');
+	}
+	public function executeEdit(sfWebRequest $request) {
 
-    $this->processForm($request, $this->form);
+		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
+		$this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
 
-    $this->setTemplate('new');
-  }
+		// TODO: make sure the event belongs to the user
 
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
-    $this->form = new EventForm($event);
-  }
+		$this->form = new EventForm($event);
+	}
+
 
   public function executeUpdate(sfWebRequest $request)
   {
