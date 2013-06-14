@@ -17,7 +17,7 @@ class EventForm extends BaseEventForm {
 
 			'title',
 			'description',
-			'start_hour',		// TODO: check why the fuck it don't get saved; dates to be calculated upon submission
+			'start_hour',
 			'end_hour',
 			'listing_color',
 
@@ -39,6 +39,9 @@ class EventForm extends BaseEventForm {
 			'required'	=> false
 		)));
 
+		//$this->setWidget('start_hour', new sfWidgetFormInput());
+		//$this->setWidget('end_hour', new sfWidgetFormInput());
+
 		// TODO: add validators for start/end hours!
 
 		// embedded forms: http://symfony.com/legacy/doc/more-with-symfony/1_4/en/06-Advanced-Forms
@@ -52,9 +55,9 @@ class EventForm extends BaseEventForm {
 		$this->embedRelation('Tickets');
 	}
 
+	// unset nulls in embedded tickets form
 	public function saveEmbeddedForms($con = null, $forms = null) {
 
-		// unset nulls in embedded tickets form
 		if(null === $forms) {
 
 			$tickets = $this->getValue('newTickets');
@@ -67,4 +70,26 @@ class EventForm extends BaseEventForm {
 
 		return parent::saveEmbeddedForms($con, $forms);
 	}
+
+	// override the saving method
+	protected function doSave($con = null) {
+
+		// INFO: For SWFUpload use $ret = parent::doSave($con); at top, process the form and return $ret at the end
+
+		// override stupid times in DATETIME format
+		if($this->getValue('start_hour') and $this->getValue('end_hour')) {
+
+			$startDate = sfConfig::get('app_satellites_date') . ' ' . $this->getValue('start_hour');
+			$endDate = sfConfig::get('app_satellites_date') . ' ' . $this->getValue('end_hour');
+
+			$this->getObject()->setStartDate($startDate);
+			$this->getObject()->setEndDate($endDate);
+		}
+
+		// TODO: override organizer attaching it to currently logged on user
+
+		return parent::doSave($con);
+	}
+
+	// override the binding method to change some values
 }

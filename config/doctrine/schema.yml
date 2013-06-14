@@ -175,9 +175,6 @@ Event:
     category_id:
       type: integer
       notnull: true
-#    venue_id:
-#      type: integer
-#      notnull: true
     organiser_id:
       type: integer
       notnull: true
@@ -193,8 +190,10 @@ Event:
       type: timestamp
     start_hour:
       type: time
+      notnull: true
     end_hour:
       type: time
+      notnull: true
     logo:
       type: string(128)
     listing_color:
@@ -230,6 +229,9 @@ Event:
     eventbrite_modified:
       type: timestamp
 
+#    venue_id:
+#      type: integer
+#      notnull: true
 #    timezone:
 #      type: string(32)
 #    url:

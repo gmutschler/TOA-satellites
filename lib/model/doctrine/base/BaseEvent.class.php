@@ -121,9 +121,11 @@ abstract class BaseEvent extends sfDoctrineRecord
              ));
         $this->hasColumn('start_hour', 'time', null, array(
              'type' => 'time',
+             'notnull' => true,
              ));
         $this->hasColumn('end_hour', 'time', null, array(
              'type' => 'time',
+             'notnull' => true,
              ));
         $this->hasColumn('logo', 'string', 128, array(
              'type' => 'string',
