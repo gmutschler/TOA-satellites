@@ -226,6 +226,25 @@ a {
 			}
 		} // end #hero
     
+        
+                .three-columns {
+                    padding: 15px;
+                    border: 1px solid @color-border;
+                    .fleft;
+                    .tcenter;
+                    margin: 0 7px;
+                    width: 258px;
+            
+                    &.first {margin-left: 0;}
+                    &.last {margin-right: 0;}
+            
+                    p {font-size: 16px;}
+                    ul {
+                        font-size: 16px;
+                        .tleft;
+                    }
+                }
+    
         #edition-2013 {
             background: @color-retro-bg;
             color: @color-retro-text;
@@ -687,6 +706,8 @@ a {
 				}
 			}
 		}
+        small {font-size: smaller;}
+        big {font-size: larger;}
 
 		a.button_red, input.button_red {
 
