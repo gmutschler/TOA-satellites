@@ -3,10 +3,14 @@
 
 <?php include_partial('hero') ?>
 
-<?php if(isset($eventsArray)): ?>
-	<div class="listing">
+	<div class="textual">
 
 		<h1>Host an event</h1>
+
+	</div>
+
+<?php if(isset($eventsArray)): ?>
+	<div class="listing">
 
 		<h2>Import your eventbrite events</h2>
 
@@ -37,7 +41,7 @@
 
 	<div class="textual">
 
-		<p class="notice">By importing the event, you agree to our <a href="#">terms and conditions</a>.</p>
+		<p class="notice">By importing the event, you agree to our <a href="#TODO">terms and conditions</a>.</p>
 
 		<h4>Or</h4>
 	</div>
@@ -45,7 +49,7 @@
 
 	<div class="forms">
 
-		<h3>Create your own event</h3>
+		<h2>Create your own event</h2>
 
 		<?php include_partial('form', array('form' => $form)) ?>
 	</div>

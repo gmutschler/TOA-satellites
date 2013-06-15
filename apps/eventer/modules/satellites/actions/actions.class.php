@@ -33,8 +33,6 @@ class satellitesActions extends sfActions {
 			$this->forward('home', 'login');
 		}
 
-		// TODO: check what happens when we're trying to getOrganiser() on user who does not have the organiser object...
-
 		// check if we should host a new event for the user, or allow him to select from Eventbrite ones already
 		if($events = EventTable::getInstance()->getAPIUnhostedForUser($this->getUser())) {
 
@@ -82,6 +80,7 @@ class satellitesActions extends sfActions {
 	}
 
 
+// TODO: work on below actions
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));

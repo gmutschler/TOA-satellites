@@ -26,8 +26,7 @@ class EventForm extends BaseEventForm {
 			'venue_city',
 			'venue_postal_code',
 
-			'category_id',
-			'organiser_id'		// TODO: auto-set it!
+			'category_id'
 		));
 
 		// widgets and validators
@@ -39,10 +38,8 @@ class EventForm extends BaseEventForm {
 			'required'	=> false
 		)));
 
-		//$this->setWidget('start_hour', new sfWidgetFormInput());
-		//$this->setWidget('end_hour', new sfWidgetFormInput());
-
 		// TODO: add validators for start/end hours!
+		// TODO: add validator for postal code that would remove (or add) dashes!
 
 		// embedded forms: http://symfony.com/legacy/doc/more-with-symfony/1_4/en/06-Advanced-Forms
 		// http://www.thatsquality.com/articles/stretching-sfform-with-dynamic-elements-ajax-a-love-story
@@ -86,10 +83,11 @@ class EventForm extends BaseEventForm {
 			$this->getObject()->setEndDate($endDate);
 		}
 
-		// TODO: override organizer attaching it to currently logged on user
+		// override organizer by attaching it to currently logged on user
+		if($organiser = sfContext::getInstance()->getUser()->getGuardUser()->getOrganiser()) $this->getObject()->setOrganiser($organiser);
 
 		return parent::doSave($con);
 	}
 
-	// override the binding method to change some values
+	// LATER: override the binding method to change some values
 }

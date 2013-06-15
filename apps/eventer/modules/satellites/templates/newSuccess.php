@@ -4,7 +4,7 @@
 
 	<div class="forms">
 
-		<h3>Create your own event</h3>
+		<h2>Create your own event</h2>
 
 		<?php include_partial('form', array('form' => $form)) ?> 
 	</div>
