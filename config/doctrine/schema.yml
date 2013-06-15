@@ -34,7 +34,7 @@ Category:
 #    city:
 #      type: string(32)
 #    postal_code:
-#      type: integer(6)  # TODO: check for potential dashed postcodes (and either filter them out, or change this field to string)
+#      type: integer(6)
 #    longitude:
 #      type: float(3,6)
 #      type: float
@@ -78,7 +78,7 @@ Organiser:
       type: integer(16)
 
   relations:
-    Events:             # TODO: think of making it one-to-one with Event!
+    Events:             # LATER: think of making it one-to-one with Event!
       class:    Event
       local:    id
       foreign:  organiser_id
@@ -126,15 +126,15 @@ Ticket:
 #      type: boolean
 #      default: false
 #    max:
-#      type: integer(5)  # TODO: make sure 5 digit number is enough
+#      type: integer(5)
 #    min:
-#      type: integer(5)  # TODO: make sure 5 digit number is enough
+#      type: integer(5)
 #    start_date:
 #      type: timestamp
 #    end_date:
 #      type: timestamp
 #    type:
-#      type: integer(1)  # TODO: wtf is that anyway? ;)
+#      type: integer(1) 
 
   relations:
     Event:
@@ -175,9 +175,6 @@ Event:
     category_id:
       type: integer
       notnull: true
-#    venue_id:
-#      type: integer
-#      notnull: true
     organiser_id:
       type: integer
       notnull: true
@@ -193,8 +190,10 @@ Event:
       type: timestamp
     start_hour:
       type: time
+      notnull: true
     end_hour:
       type: time
+      notnull: true
     logo:
       type: string(128)
     listing_color:
@@ -230,6 +229,9 @@ Event:
     eventbrite_modified:
       type: timestamp
 
+#    venue_id:
+#      type: integer
+#      notnull: true
 #    timezone:
 #      type: string(32)
 #    url:

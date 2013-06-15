@@ -36,7 +36,8 @@ class EventTable extends Doctrine_Table {
 	// user-to-event getters
 	public function getForUser(sfUser $user) {
 
-		return $user->getGuardUser()->getOrganiser()->getEvents();
+		// fallback fix for users not having Organiser profiles
+		return $user->getGuardUser()->getOrganiser() ? $user->getGuardUser()->getOrganiser()->getEvents() : array();
 	}
 	public function getAPIForUser(sfUser $user) {
 
@@ -56,7 +57,21 @@ class EventTable extends Doctrine_Table {
 			// 2. check if the user has any events hosted in our database
 			if($eventsDB and count($eventsDB)) {
 
-				// 3a. TODO: rule out duplicates
+				// 3a. rule out duplicates
+				$output = $eventsAPI['events'];
+
+				// LATER: adjust it as probably massive-iterating the API response would be faster than iterating the Doctrine_Collection
+				foreach($output as $keyAPI => $eventAPI) {
+
+					// LATER: think if a better way for searching in Doctrine_Collection
+					// http://www.tig12.net/downloads/apidocs/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Doctrine_Collection.class.html
+					foreach($eventsDB as $eventDB) {
+
+						if($eventAPI['event']['id'] == $eventDB->getEventbriteId()) unset($output[$keyAPI]);
+					}
+				}
+
+				return $output;
 			}
 
 			// 3b. return all of the API events
@@ -66,5 +81,4 @@ class EventTable extends Doctrine_Table {
 		// 1b. return false
 		else return false;
 	}
-
 }

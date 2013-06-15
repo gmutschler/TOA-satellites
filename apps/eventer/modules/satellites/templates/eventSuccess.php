@@ -20,6 +20,7 @@
 
 		<h2>When?</h2>
 		<p>Between <?=$event->getStartHour()?> and <?=$event->getEndHour()?></p>
+		<p><?=var_dump($event->getStartHour())?></p>
 
 		<h2>With who?</h2>
 		<p>This event is organized by: <a href="#link-to-organiser-there-will-be"><?=$event->getOrganiser()->getName()?></a></p>

@@ -10,7 +10,18 @@
     
     <div class="textual">
         <h2>Our partner locations</h2>
-        CAROUSEL AVEC LES ENDROITS
+        <div class="locationslider">
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+            <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+        </div>
     </div>
     
     <div class="textual">

@@ -28,7 +28,7 @@ class homeActions extends sfActions {
 		if(!$this->getUser()->isAuthenticated()) $this->getUser()->connect('eventbrite');
 		else $this->forward('home', 'index');
 	}
-	public function executeLogout(sfWebRequest $request) {	// ** DEPRECATED
+	public function executeLogout(sfWebRequest $request) {	// FIXME copy sfGuard logout action here and UNSET SESSION STUFF there as it bugs!
 
 		if($this->getUser()->isAuthenticated()) $this->getUser()->getMelodyUser()->logOut(); // ** notice: this eats all our memory and dies
 		else $this->forward('home', 'index');
@@ -71,6 +71,8 @@ class homeActions extends sfActions {
 				$userObj->setLastName($userData['user']['last_name']);
 				$userObj->setEmailAddress($userData['user']['email']);
 				$userObj->save();
+
+				// TODO: create the organiser profile rightaway as well!
 			}
 
 			// sign in and save the user

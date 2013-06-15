@@ -1,6 +1,6 @@
 /*
  * toaberlin.css
- * (c) 2013 maciej(at)canadel(dot)ee
+ * (c) 2013 maciej(at)canadel(dot)ee, guillaume(at)toaberlin(dot)com
  *
  *      built using LESS
  *      http://leafo.net/lessphp
@@ -14,6 +14,7 @@
 @color-text: #000;
 @color-text-gray: #646464;
 @color-text-gray-dark: #5A5A5A;
+//#454543
 @color-text-hero-submenu: #494949;
 @color-bg: #fff;
 @color-border: #DEDEDE;
@@ -48,6 +49,7 @@
 .tnouper {	text-transform: none	}
 .mauto {	margin: 0 auto		}
 
+.separator {margin-top: 20px;}
 .negmargin-top {   
     margin-top: -19px;
     z-index: 10 !important;
@@ -217,34 +219,12 @@ a {
 							&:hover, &.selected {
 
 								color: @color-red;
-                        }
+							}
 						}
 					}
 				}
 			}
-		}
-
-        
-        
-       .three-columns {
-            padding: 15px;
-            border: 1px solid @color-border;
-            .fleft;
-            .tcenter;
-            margin: 0 7px;
-            width: 258px;
-        
-            &.first {margin-left: 0;}
-            &.last {margin-right: 0;}
-            
-            p {font-size: 16px;}
-            ul {
-                font-size: 16px;
-                .tleft;
-            }
-        }
-
-
+		} // end #hero
     
         #edition-2013 {
             background: @color-retro-bg;
@@ -255,14 +235,15 @@ a {
             p { color: @color-retro-text;}
         
             #about-2013 {
+            
                 #theme-description {
-                    width: 540px;
-                    margin-right: 2.4em;
+                    width: 520px;
+                    margin-right: 70px;
                     .fleft;
                 }
                 
                 #sidebar-expect {
-                    width: 279px;
+                    width: 240px;
                     background: @color-retro-text;
                     color: @color-retro-bg;
                     .fleft;
@@ -271,40 +252,41 @@ a {
                 }
             }
         
-            .illustration-kater {
-                line-height: 0;
-                .relative;
+            #locations-2013 {
+                .separator;
+            
+                .illustration-kater {
+                    .relative;
                 
-                #kater-address {
-                    .absolute;
-                    .content-box-inner;
-                    .tcenter;
-                    bottom: 20px;
-                    right: 20px;
-                    background: @color-retro-text;
-                    border: 2px solid @color-retro-bg;
+                    #kater-address {
+                        background: @color-retro-text;
+                        border: 2px solid @color-retro-bg;
+                        .absolute;
+                        .bottomright(20px, 20px);
+                        .content-box-inner;
                     
-                    p { color: @color-retro-bg; }
-                    h3 {
+                        h3, p {
+                            color: @color-retro-bg;
+                            .tcenter;
+                        }
+                    }
+                    
+                    h2 {
+                        padding: 0.2em 0.4em;
+                        background: @color-retro-text;
                         color: @color-retro-bg;
-                        .tupper;
+                        .absolute;
+                        .bottomleft(30px, 20px);
                     }
                 }
             
-                h2 {
-                    .absolute;
-                    bottom: 30px;
-                    left: 10px;
-                    background: @color-retro-text;
-                    color: @color-retro-bg;
-                    padding: 0.6em 0.4em;
-                }
-            }
-            #kater-description {
-                    background: @color-retro-text;
+                #kater-description {
                     .content-box-inner;
-            
-                    p{ color: @color-retro-bg; }
+                    background: @color-retro-text;
+                    margin-top: -8px;
+                    
+                    p {color: @color-retro-bg;}
+                }
             }
         }
     
@@ -395,7 +377,7 @@ a {
 			.tcenter;
 
 			// the fancy widget
-			h1, .listing_widget { .tleft }
+			h1, h2, .listing_widget { .tleft }
 			.listing_widget {
 				.relative;
 
@@ -444,7 +426,7 @@ a {
 
 				// slight modifications for the widget on top
 				&.upper {
-                    .negmargin-top
+					.negmargin-top
 
 					a {
 						height: @height-local-widget;
@@ -559,65 +541,135 @@ a {
 					}
 				}
 			}
-		}
+		} // & end listing block
 
 		// > textual block
 		.textual {
 
 			h3 {
-				.ffamily(16px, @font-proxima);
-				font-weight: bold;
+				.ffamily(16px, @font-proxima, bold);
 				margin: 0.2em 0 .5em 0;
 			}
 			p {
 				margin-bottom: 0.8em;
-                color: #494949;
-                line-height: 1.36em;
+				color: #494949;
+				line-height: 1.36em;
+
+ 				text-align: justify;
+
+
+				&.lead {
+					color: #000;
+					font-size: 36px;
+					max-width: 820px;
+				}
+			}
+		} // & end textual block
+
+		// > forms block
+		.forms {
+
+			h2 {
+				margin-bottom: 20px;
+			}
 			
-                &.lead {
-                    color: #000;
-                    font-size: 28px;
-                }
-            }
-		}
+			h3 {
+				.ffamily(16px, @font-proxima, bold);
+				.tupper;
+
+				margin-bottom: 6px;
+			}
+
+			form {
+				@width-local-form: 542px;
+				@padding-leftright-fields: 10px;
+				@padding-topbottom-fields: 6px;
+
+				width: @width-local-form;
+
+				// TODO: play with selects:
+				// http://cssdeck.com/labs/styling-select-box-with-css3
+				// http://lea.verou.me/2011/03/custom-select-drop-downs-with-css3/
+
+				// some form field defaults
+				select, textarea, input[type=text] {			// ** CSS3 selectors sadly :/
+					.ffamily(18px, @font-minion, bold);
+
+					padding: @padding-topbottom-fields @padding-leftright-fields;
+
+					border: 1px solid @color-border;
+
+					color: @color-text-gray-dark;
+					background-color: @color-bg-gray;
+				}
+
+				.error_list {	// TODO: find what form->renderGlobalErrors() renders and add here too
+
+					color: @color-red;
+					font-weight: bold;
+				}
+
+				.section_block {
+					margin-bottom: 97px;
+
+					&.last {
+						margin-bottom: 36px;
+					}
+				}
+
+				.section {
+					margin-bottom: 8px;
+
+					&.long {
+
+						select, textarea, input[type=text] {
+							.disblock;
+							width: @width-local-form - 2px;		// ** 2 px for left/right borders
+						}
+
+						textarea, input[type=text] {	// for some reason input is stubborn
+
+							width:  @width-local-form - 4px - (2 * @padding-leftright-fields);
+						}
+					}
+				}
+			}
+			
+		} // & end forms block
 
 		// > content typography defaults
 		h1 {
 			.ffamily(46px, @font-minion);
 			.tupper;
-            position: relative;
-            z-index: -10;
+			position: relative;
+			z-index: -10;
 
 			span {
 				.tnouper;
 				.titalic;
 				font-size: 18px;
 				font-weight: normal;
-                padding-top: 3px;
-                display: inline-block;
-                vertical-align: middle;
+				padding-top: 3px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&:after {
+				content: "";
+				width: 100%;
+				height: 18px;
+				background: #fff;
+				border-top: 1px solid @color-border-dark;
+				position: absolute;
+				bottom: 0;
+				display: inline-block;
+				left: 0;
 			}
 		}
-        h1:after {
-            content: "";
-            width: 100%;
-            height: 18px;
-            background: #fff;
-            border-top: 1px solid @color-border-dark;
-            position: absolute;
-            bottom: 0;
-            display: inline-block;
-            left: 0;
-        }
 
 		h2 {
 			.ffamily(29px, @font-minion);
 			.tupper;
-
-			// TODO: margins
-		}
-
-		h4 {
 		}
 
 		p {
@@ -635,10 +687,6 @@ a {
 				}
 			}
 		}
-    
-        strong {font-weight: 600;}
-        big {font-size: larger;}
-        small {font-size: smaller;}
 
 		a.button_red, input.button_red {
 
@@ -656,7 +704,8 @@ a {
 		a.button_black {
 			// TODO
 		}
-	}
+
+	} // & end #content
 
 #footer {
 	.ffamily(16px, @font-proxima, bold);
@@ -713,17 +762,25 @@ a {
 	}
 }
 
-// content screens
-// they apply to anything below #content div and can override or add certain looks
-div.screen_home {	// home
-
-	#hero {
-		// some modifications
-	}
-}
+// # content screens
+// they apply to anything below #content div and can override or add certain unique looks
 div.screen_host {	// host event (selection)
 
-}
-div.screen_host_new {	// host new event (form)
+	.textual {
 
+		h4 {
+
+			.ffamily(70px, @font-proxima, bold);
+			.tupper;
+			line-height: .4em;
+
+			margin-top: 100px;
+		}
+	}
+}
+div.screen_host_form {	// "edit" and "new" screens for the event
+
+	#hero {
+		margin-bottom: 36px;
+	}
 }

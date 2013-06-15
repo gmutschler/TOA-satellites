@@ -17,7 +17,7 @@ class EventForm extends BaseEventForm {
 
 			'title',
 			'description',
-			'start_hour',		// TODO: check why the fuck it don't get saved; dates to be calculated upon submission
+			'start_hour',
 			'end_hour',
 			'listing_color',
 
@@ -26,8 +26,7 @@ class EventForm extends BaseEventForm {
 			'venue_city',
 			'venue_postal_code',
 
-			'category_id',
-			'organiser_id'		// TODO: auto-set it!
+			'category_id'
 		));
 
 		// widgets and validators
@@ -40,6 +39,7 @@ class EventForm extends BaseEventForm {
 		)));
 
 		// TODO: add validators for start/end hours!
+		// TODO: add validator for postal code that would remove (or add) dashes!
 
 		// embedded forms: http://symfony.com/legacy/doc/more-with-symfony/1_4/en/06-Advanced-Forms
 		// http://www.thatsquality.com/articles/stretching-sfform-with-dynamic-elements-ajax-a-love-story
@@ -52,9 +52,9 @@ class EventForm extends BaseEventForm {
 		$this->embedRelation('Tickets');
 	}
 
+	// unset nulls in embedded tickets form
 	public function saveEmbeddedForms($con = null, $forms = null) {
 
-		// unset nulls in embedded tickets form
 		if(null === $forms) {
 
 			$tickets = $this->getValue('newTickets');
@@ -67,4 +67,27 @@ class EventForm extends BaseEventForm {
 
 		return parent::saveEmbeddedForms($con, $forms);
 	}
+
+	// override the saving method
+	protected function doSave($con = null) {
+
+		// INFO: For SWFUpload use $ret = parent::doSave($con); at top, process the form and return $ret at the end
+
+		// override stupid times in DATETIME format
+		if($this->getValue('start_hour') and $this->getValue('end_hour')) {
+
+			$startDate = sfConfig::get('app_satellites_date') . ' ' . $this->getValue('start_hour');
+			$endDate = sfConfig::get('app_satellites_date') . ' ' . $this->getValue('end_hour');
+
+			$this->getObject()->setStartDate($startDate);
+			$this->getObject()->setEndDate($endDate);
+		}
+
+		// override organizer by attaching it to currently logged on user
+		if($organiser = sfContext::getInstance()->getUser()->getGuardUser()->getOrganiser()) $this->getObject()->setOrganiser($organiser);
+
+		return parent::doSave($con);
+	}
+
+	// LATER: override the binding method to change some values
 }

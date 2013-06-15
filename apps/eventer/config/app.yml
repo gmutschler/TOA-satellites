@@ -4,6 +4,8 @@
 # default values
 all:
 
+  satellites_date: '2013-08-02'           # when are the satellites going to happen
+
   melody:
     create_user: false
     remember_user: true

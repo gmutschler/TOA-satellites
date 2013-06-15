@@ -5,7 +5,7 @@
  *
  * @package    toaberlin
  * @subpackage apitests
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class apitestsActions extends sfActions {
@@ -34,5 +34,12 @@ class apitestsActions extends sfActions {
 	public function executeMe(sfWebRequest $request) {
 
 		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
+	}
+
+	public function executeUserlistevents(sfWebRequest $request) {
+
+		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
+
+		$this->events = $this->getUser()->getMelody('eventbrite')->getEventsForUser($this->getUser()->getGuardUser()->getEmailAddress());
 	}
 }

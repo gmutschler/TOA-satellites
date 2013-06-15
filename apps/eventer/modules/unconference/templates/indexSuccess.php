@@ -10,8 +10,8 @@
             
             <div id="about-2013">
                 <h2>Edition 2013 - Reset Tomorrow</h2>
-                <h3 class="tupper">An ode to Retrofuturism</h3>
                 <div id="theme-description">
+                    <h3 class="tupper">An ode to Retrofuturism</h3>
                     <p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper.</p>
                     <p>Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
                 </div>
