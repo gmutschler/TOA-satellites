@@ -25,44 +25,6 @@ Category:
       foreign:          category_id
       type:             many
 
-#Venue:
-#  columns:
-#    name:
-#      type: string(64)
-#    address:
-#      type: string(128)
-#    city:
-#      type: string(32)
-#    postal_code:
-#      type: integer(6)
-#    longitude:
-#      type: float(3,6)
-#      type: float
-#    latitude:
-#      type: float(3,6)
-#      type: float
-
-#    eventbrite_id:
-#      type: integer(16)
-
-#   region:
-#     type: string(16)
-#   address2:
-#     type: string(128)
-#   country:
-#     type: string(64)
-#   country_code:
-#     type: string(3)
-
-#  relations:
-#    Events:
-#      class:            Event
-#      local:            id
-#      foreign:          venue_id
-#      type:             many
-#      foreignType:      one
-#      foreignAlias:     Venue
-
 Organiser:
   columns:
     user_id:
@@ -71,14 +33,20 @@ Organiser:
       type: string(64)
     description:
       type: string(256)
+    logo:
+      type: string(128)
     url:
+      type: string(128)
+    twitter:
+      type: string(128)
+    facebook:
       type: string(128)
 
     eventbrite_id:
       type: integer(16)
 
   relations:
-    Events:             # LATER: think of making it one-to-one with Event!
+    Events:
       class:    Event
       local:    id
       foreign:  organiser_id
@@ -109,16 +77,23 @@ Ticket:
     description:
       type: string(256)
     price:
-      type: float(4,2)
+      type: float
+    end_date:
+      type: timestamp
     quantity_declared:
       type: integer(5)
+      notnull: true
     quantity_paid:
       type: integer(5)
     quantity_free:
       type: integer(5)
 
     eventbrite_id:
-      type: integer(16)
+      type: integer(16)         # for paid ticket
+    evenbrite_id_free:
+      type: integer(16)         # for free ticket
+
+    # if the organiser 
 
 #    currency:                  ** always in EUR, remember to push to API though
 #      type: string(3)
@@ -131,8 +106,7 @@ Ticket:
 #      type: integer(5)
 #    start_date:
 #      type: timestamp
-#    end_date:
-#      type: timestamp
+
 #    type:
 #      type: integer(1) 
 

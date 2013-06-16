@@ -24,7 +24,9 @@ Organiser:
     name:               Test Organiser <?=$i?>
 
     description:        This is an experimental, test organiser from our test data pool
-    url:                http://devtoa.canadel.ee/
+    url:                http://www.eventbrite.com/org/2285317017
+    twitter:            https://twitter.com/TOABerlin
+    facebook:           https://www.facebook.com/TechOpenAir
     GuardUser:          tUser<?=$i?>
 
 <?php endfor ?>
@@ -67,7 +69,7 @@ Event:
 
   tEvent<?=$i?>:
 
-    title:              Test event <?=$i?>
+    title:              Take photos together in the evening light <?=$i?>
 
     description:        This is an experimental, test event from our test data pool. It might be surprising, but in this particular case we don't actually mean the swimming pool... Even though we have totally nothing against seeing few asian women in swimming suits there. \o/
 
@@ -80,7 +82,7 @@ Event:
     end_hour:           <?=$endHour?>:00
 
     logo:               null
-    listing_color:      FFFFFF
+    listing_color:      17DBB5
     moderated:          true
 
     venue_eventbrite_id:      <?=rand(5000,200000)?>
@@ -117,9 +119,9 @@ Ticket:
 <?php for($i = 0; $i < 4; $i++): ?>
   tTicket<?=$i?>:
 
-    name:               VIP ticket <?=$i?>
+    name:               Normal ticket <?=$i?>
 
-    description:        Some fancy ticket
+    description:        Cras dapibus turpis gravida varius aliquet. Aenean sed urna ligula. Nullam nisl eros, eleifend at tortor vel, imperdiet porta sem. Quisque scelerisque mollis semper. Nunc varius enim nec egestas iaculis. Pellentesque convallis lectus vitae dui interdum dictum. Curabitur vel sollicitudin nisi.
 
     price:              <?=rand(15,99)?>
 
