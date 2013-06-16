@@ -648,6 +648,15 @@ a {
 					color: @color-text-gray-dark;
 					background-color: @color-bg-gray;
 				}
+				select {
+					-webkit-appearance:none;
+					-moz-appearance:none;
+					appearance:none;
+					outline:none;
+					display: inline-block;
+				}
+				// TODO: test it Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding.
+				@media screen and (-webkit-min-device-pixel-ratio:0) { select {padding-right:18px} }
 
 				.error_list {	// TODO: find what form->renderGlobalErrors() renders and add here too
 
