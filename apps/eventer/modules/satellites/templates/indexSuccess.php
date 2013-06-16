@@ -41,8 +41,10 @@
         <p><big>Have a look at some ideas below or come up with yours.</big></p>
         <div class="table">
             <div class="three-columns first">
-                <img src="/images/content/networking.jpg" alt="networking address book">
-                <h3>Networking</h3>
+                <div class="three-columns-header">
+                    <img src="/images/content/networking.jpg" alt="networking address book">
+                    <h3>Networking</h3>
+                </div>
                 <div class="content-box-inner">
                     <p>Share memorable moments to connect with your audience!</p>
                     <ul>
@@ -58,8 +60,10 @@
                 </div>
             </div>
             <div class="three-columns">
-                <img src="/images/content/making.jpg" alt="kitchen accessories">
-                <h3>Making</h3>
+                <div class="three-columns-header">
+                    <img src="/images/content/making.jpg" alt="kitchen accessories">
+                    <h3>Making</h3>
+                </div>
                 <div class="content-box-inner">
                     <p>When people from different disciplines put their though into action, an innovation is born!</p>
                     <ul>
@@ -73,9 +77,10 @@
                 </div>
             </div>
             <div class="three-columns last">
-                
-                <img src="/images/content/learning.jpg" alt="Old schooldesk">
-                <h3>Learning</h3>
+                <div class="three-columns-header">
+                    <img src="/images/content/learning.jpg" alt="Old schooldesk">
+                    <h3>Learning</h3>
+                </div>
                 <div class="content-box-inner">
                     <p>Share your knowledge and Karma will be your friend!</p>
                     <ul>

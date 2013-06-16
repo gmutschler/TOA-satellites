@@ -291,21 +291,24 @@ a:hover {
                 display: table-cell;
                 border: 1px solid @color-border;
                 width: 308px;
-                .relative;
+            
+                .three-columns-header {
+                    .relative;
+                    
+                    img {
+                        margin: -1px;
+                        width: 310px;
+                    }
+            
+                    h3 {
+                        .absolute;
+                        .bottomleft(15px, 15px);
+                        padding: 0.2em 0.6em;
+                        background: #fff;
+                    }
+                }
                 
                 .content-box-inner {padding: 15px;}
-                
-                img {
-                    margin: -1px;
-                    width: 310px;
-                }
-            
-                h3 {
-                    .absolute;
-                    .topleft(160px, 10px);
-                    padding: 0.2em 0.6em;
-                    background: #fff;
-                }
         
                 p {font-size: 16px;}
                 ul {
@@ -387,23 +390,82 @@ a:hover {
     
     
         .press-publications {
-            border: 1px solid @color-border;
     
-            .press-covering {
-                height: 360px;
-                overflow-y: scroll;
+            .press-review {
                 width: 560px;
+                border: 1px solid @color-border;
                 .fleft;
-                .content-box-inner;
+                
+                .press-review-content {
+                    overflow-y: scroll;
+                    .content-box-inner;
+                    height: 360px;
+                
+                    .press-coverage {
+                        margin-bottom: 5px;
+                        
+                        a {
+                            text-decoration: none;
+                            border: 1px solid @color-border;
+                            border-left: 4px solid @color-red-light;
+                            padding: 7px 10px 7px 15px;
+                            display: block;
+                            background: @color-bg-gray;
+                            color: @color-text;
+                            
+                            .date {
+                                font-style: italic;
+                                font-size: 15px;
+                                color: @color-text-gray-dark;
+                                margin-top: -8px;
+                            }
+                                                
+                            &:hover {
+                                border-left: 4px solid @color-red;
+                                background: #fff;
+                                color: @color-red;
+                            }
+                            
+
+                        }
+                    }
+                }
+                
+                .press-review-header {
+                    .relative;
+                    
+                    img { margin:-1px; }
+                    
+                    h2 {
+                        .absolute;
+                        .bottomleft(30px, 20px);
+                        padding: 0.1em 0.5em;
+                        background: #fff;
+                    }
+                }
             }
+            
             .sidebar-contact {
-                background: @color-bg-gray;
-                width: 290px;
-                height: 360px;
+                width: 320px;
                 .fright;
                 .content-box-inner;
+                border: 1px solid @color-border;
                 .tcenter;
+                p {.tcenter;}
             }
+        }
+    
+        .logo-download {
+            width: 470px;
+            margin: 10px;
+            .fleft;
+            .tcenter;
+            
+            &.first { margin-left: 0; }
+            &.last { margin-right: 0; }
+            
+            h3 {.tupper;}
+            a.button_black {margin: 2px 0;}
         }
     
         .story_timeline {
@@ -480,6 +542,7 @@ a:hover {
 				height: @height-local-widget;
 
 				background: @color-bg-gray no-repeat url(@{images-layout}/timeline.gif) top center;
+                
 
 				a {
 					.disblock(29px, @height-local-widget - 1px);
@@ -499,6 +562,16 @@ a:hover {
 					background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
                     &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
 				}
+            
+                &.upper {
+                    .negmargin-top;
+                    border-top: 1px solid @color-border-dark;
+
+                    a {
+                        height: @height-local-widget;
+                        .uborder(@color-border-dark);
+                    }
+                }
 
 				// TODO: redo it in the manner pixprapromo is built
 				.measure {
@@ -519,18 +592,11 @@ a:hover {
 					&.pos3 {
 						left: @left-local-start + 2 * @width-local-measure;
 					}
-				}
 
 
-				// slight modifications for the widget on top
-				&.upper {
-					.negmargin-top
 
-					a {
-						height: @height-local-widget;
-						.uborder(@color-border-dark);
-					}
-				}
+				    // slight modifications for the widget on top
+                }
 			}
 
 			// the entire list
