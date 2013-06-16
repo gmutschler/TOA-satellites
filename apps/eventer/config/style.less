@@ -20,7 +20,7 @@
 @color-border: #DEDEDE;
 @color-border-dark: #ccc;
 @color-red: #DC142C;
-@color-red-light: #EA7280;
+@color-red-light: #FC354C;
 
 @color-bg-gray: #FBFBF9;
 @color-bg-gray-dark: #F4F4F3;
@@ -263,13 +263,17 @@ a:hover {
                 height: 40px;
                 .absolute;
             
+                &:hover {border: 1px solid @color-text;}
+            
                 &.slider_previous {
                     .topleft(63px, -6px);
                     background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
+                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
                 }
                 &.slider_next {
                     .topright(63px, -6px);
                     background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
+                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
                 }
             
             }
@@ -480,17 +484,20 @@ a:hover {
 				a {
 					.disblock(29px, @height-local-widget - 1px);
 					border: 1px solid @color-border-dark;
+                    &:hover {border: 1px solid @color-text;}
 				}
 
 				.listing_widget_next {
 					.fright;
 
 					background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
+                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
 				}
 				.listing_widget_prev {
 					.fleft;
 
 					background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
+                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
 				}
 
 				// TODO: redo it in the manner pixprapromo is built
@@ -557,7 +564,7 @@ a:hover {
 					span.photo {
 						.disblock(@width-local-photo, @height-local-li);
 						.relative;
-						.ffamily(60px, @font-proxima, bold);	// TODO: use Proxima-Nova semi bold when possible
+						.ffamily(60px, @font-proxima, 600);
 
 						color: @color-bg-gray;
 						background-repeat: no-repeat;
@@ -690,17 +697,20 @@ a:hover {
 
 				// some form field defaults
 				select, textarea, input[type=text] {			// ** CSS3 selectors sadly :/
-					.ffamily(18px, @font-minion, bold);
+					.ffamily(18px, @font-minion);
 					.formborder;
 
 					padding: @padding-topbottom-fields @padding-leftright-fields;
+                    -webkit-border-radius: 0;
+                    border-radius: 0;
 				}
 
 				// text errors
 				.error_list {
 
 					color: @color-red;
-					font-weight: bold;
+					font-style: italic;
+                    padding: 0.28em 0;
 				}
 
 				// sections
@@ -747,7 +757,9 @@ a:hover {
 						&.dropdown_small {	// ** used for time selects
 
 							select {
-								padding: 2px 15px 2px 5px;
+								padding: 2px 40px 2px 8px;
+                                margin: 0 8px;
+                                .relative;
 							}
 
 							&:before, &:after {
@@ -757,10 +769,10 @@ a:hover {
 							}
 
 							&:before {
-								.topright(0, 0);
+								.topright(0, 8);
 							}
 							&:after {
-								.absolute(0, 31);	// ** NOTICE: this can be very tricky on some browsers
+								.absolute(0, 42);	// ** NOTICE: this can be very tricky on some browsers
 							}
 						}
 						&.dropdown_big {	// ** used for category select
@@ -855,7 +867,6 @@ a:hover {
 						select, textarea, input[type=text] {
 
 							border-color: @color-red;
-							background-color: @color-bg-red;
 						}
 					}
 				}
@@ -910,6 +921,7 @@ a:hover {
 
 				&:hover {
 					text-decoration: none;
+                    color: @color-red-light;
 				}
 			}
 		}
@@ -928,13 +940,19 @@ a:hover {
 			border: none;
 
 			cursor: pointer;
+            
+            &:hover {
+                background: @color-text;
+            }
 		}
 		a.button_black {
 
-			.ffamily(14px, @font-minion);	// FIXME: finetune default size
+			.ffamily(17px, @font-minion);
 			.tupper;
 
-			padding: 6px 10px;		// FIXME: finetune default padding
+			padding: 9px 15px;
+            border: 1px solid #000;
+            display: inline-block;
 
 			color: @color-bg;
 			background: @color-text;
@@ -943,10 +961,16 @@ a:hover {
 
 			font-weight: normal;
 			text-decoration: none;
+            
+            &:hover {
+                color: #000;
+                background: #fff;
+                border: 1px solid @color-border-dark;
+            }
 
 			&.button_black_small {
 
-				padding: 8px 20px;
+				padding: 7px 19px;
 				font-size: 10px;
 			}
 		}
@@ -994,6 +1018,9 @@ a:hover {
 					&.highlighted {
 						color: @color-bg;
 						background-color: @color-red;
+                        &:hover {
+                            background: @color-text;
+                        }
 					}
 				}
 			}
@@ -1016,9 +1043,9 @@ div.screen_host {	// host event (selection)
 
 		h4 {
 
-			.ffamily(70px, @font-proxima, bold);
+			.ffamily(64px, @font-proxima, 900);
 			.tupper;
-			line-height: .4em;
+			line-height: .36em;
 
 			margin-top: 100px;
 		}
