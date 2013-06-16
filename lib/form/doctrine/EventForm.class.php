@@ -38,6 +38,44 @@ class EventForm extends BaseEventForm {
 			'required'	=> false
 		)));
 
+		$this->setWidget('title', new sfWidgetFormInput(
+
+			array('label' => 'Title'),
+			array('placeholder' => 'Name of your event')
+		));
+		$this->setWidget('description', new sfWidgetFormTextarea(
+
+			array('label' => 'Description'),
+			array('placeholder' => 'Describe your event here')
+		));
+		$this->setWidget('listing_color', new sfWidgetFormInput(
+
+			array('label' => 'Color'),
+			array('placeholder' => 'Your contrast color')
+		));
+
+		$this->setWidget('venue_name', new sfWidgetFormInput(
+
+			array('label' => 'Venue name'),
+			array('placeholder' => 'Name of your venue')
+		));
+		$this->setWidget('venue_address', new sfWidgetFormInput(
+
+			array('label' => 'Venue address'),
+			array('placeholder' => 'Address of your venue')
+		));
+		$this->setWidget('venue_postal_code', new sfWidgetFormInput(
+
+			array('label' => 'Postal code'),
+			array('placeholder' => 'Zip Code')
+		));
+		$this->setWidget('venue_city', new sfWidgetFormInput(
+
+			array('label' => 'City'),
+			array('placeholder' => 'City')
+		));
+
+
 		// TODO: add validators for start/end hours!
 		// TODO: add validator for postal code that would remove (or add) dashes!
 

@@ -25,5 +25,23 @@ class TicketForm extends BaseTicketForm {
 		$this->validatorSchema['description']->setOption('required', false);
 		$this->validatorSchema['price']->setOption('required', false);
 		$this->validatorSchema['quantity_declared']->setOption('required', false);
+
+		// placeholders
+		$this->setWidget('name', new sfWidgetFormInput(
+
+			array('label' => 'Name'),
+			array('placeholder' => 'Ticket name')
+		));
+		$this->setWidget('description', new sfWidgetFormTextarea(
+
+			array('label' => 'Description'),
+			array('placeholder' => 'Ticket description')
+		));
+		$this->setWidget('price', new sfWidgetFormInput(
+
+			array('label' => 'Price'),
+			array('placeholder' => 'Ticket price')
+
+		));
 	}
 }

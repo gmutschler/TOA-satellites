@@ -25,6 +25,7 @@
 @color-bg-gray: #FBFBF9;
 @color-bg-gray-dark: #F4F4F3;
 @color-bg-hero: #EFEDEC;
+@color-bg-red: #FFF5F2;
 
 @color-retro-bg: #A19F73;
 @color-retro-text: #ffffff;
@@ -125,6 +126,12 @@
 	border-bottom: 1px solid @colorr;
 	border-right: 1px solid @colorr;
 }
+.formborder {
+	border: 1px solid @color-border;
+
+	color: @color-text-gray-dark;
+	background-color: @color-bg-gray;
+}
 
 .c3transition(@duration) {
 	-o-transition: @duration;
@@ -132,6 +139,17 @@
 	-moz-transition: @duration;
 	-webkit-transition: @duration;
 	transition: @duration;
+}
+.c3rotate(@amount) {
+	-webkit-transform:rotate(@amount);
+	-moz-transform:rotate(@amount);
+	-ms-transform:rotate(@amount);
+	transform:rotate(@amount);
+}
+.c3appearance(@value) {
+	-webkit-appearance: @value;
+	-moz-appearance: @value;
+	appearance: @value;
 }
 
 // # common (global) block elements
@@ -640,30 +658,19 @@ a {
 				// some form field defaults
 				select, textarea, input[type=text] {			// ** CSS3 selectors sadly :/
 					.ffamily(18px, @font-minion, bold);
+					.formborder;
 
 					padding: @padding-topbottom-fields @padding-leftright-fields;
-
-					border: 1px solid @color-border;
-
-					color: @color-text-gray-dark;
-					background-color: @color-bg-gray;
 				}
-				select {
-					-webkit-appearance:none;
-					-moz-appearance:none;
-					appearance:none;
-					outline:none;
-					display: inline-block;
-				}
-				// TODO: test it Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding.
-				@media screen and (-webkit-min-device-pixel-ratio:0) { select {padding-right:18px} }
 
-				.error_list {	// TODO: find what form->renderGlobalErrors() renders and add here too
+				// text errors
+				.error_list {
 
 					color: @color-red;
 					font-weight: bold;
 				}
 
+				// sections
 				.section_block {
 					margin-bottom: 97px;
 
@@ -675,6 +682,66 @@ a {
 				.section {
 					margin-bottom: 8px;
 
+					// fancy dropdowns
+					span {
+						display: inline-block;
+						height: 100%;
+					}
+					&.dropdown, .dropdown {
+
+						// TODO: play with "web/css/formselectfix.css" updating with proper paddings to ensure Safari compat
+
+						.relative;
+
+						select {
+							.c3appearance(none);
+							outline: none;
+							display: inline-block;
+
+							cursor: pointer;
+						}
+
+						&:before, &:after {
+							.absolute;
+
+							pointer-events: none;
+
+							content: '';
+							background-color: @color-text;
+							background-repeat: no-repeat;
+						}
+
+						&.dropdown_small {	// ** used for time selects
+
+							select {
+								padding: 2px 15px 2px 5px;
+							}
+
+							&:before, &:after {
+
+								.disblock(34px, 100%);
+								background-image: url(@{images-layout}/select_bg_small.png);
+							}
+
+							&:before {
+								.topright(0, 0);
+							}
+							&:after {
+								.absolute(0, 31);	// ** NOTICE: this can be very tricky on some browsers
+							}
+						}
+						&.dropdown_big {	// ** used for category select
+
+							&:before {
+								.disblock(41px, 100%);
+								.topright(0, 2px);
+
+								background-image: url(@{images-layout}/select_bg_big.png);
+							}
+						}
+					}
+
+					// global sections
 					&.long {
 
 						select, textarea, input[type=text] {
@@ -685,6 +752,77 @@ a {
 						textarea, input[type=text] {	// for some reason input is stubborn
 
 							width:  @width-local-form - 4px - (2 * @padding-leftright-fields);
+						}
+					}
+
+					// individual sections
+					&.description {
+						textarea { height: 320px - 4px - (2 * @padding-topbottom-fields); }
+					}
+					&.upload {
+						.formborder;
+						.tcenter;
+
+						width: @width-local-form - 4px;
+
+						margin-top: 44px;
+						padding: 10px 0;
+
+						p {
+							margin-bottom: 5px;
+
+							font-size: 13px;
+							line-height: 1.1em;
+						}
+					}
+					&.color {
+
+						input {
+							width: 210px - 2 * @padding-leftright-fields - 2px;
+							// TODO: consider proper left padding for the background image, when adding the picker
+						}
+					}
+					&.city {
+						.fleft input {
+							width: 100px - 2 * @padding-leftright-fields - 2px;
+						}
+						.fright input {
+							width: 430px - 2 * @padding-leftright-fields - 2px;
+						}
+					}
+					&.price {
+
+						.fleft input {
+							width: 154px - 2 * @padding-leftright-fields - 2px;
+
+							// ** many declarations not to kill the original background color which can differ here
+							background-image: url(@{images-layout}/euro.gif);
+							background-repeat: no-repeat;
+							background-position: 130px 13px;
+
+							// TODO: try to text-align right and add right padding for the euro sign
+						}
+						.fright {
+
+							p { font-size: 17px; }
+							input {
+								.tright;
+								width: 68px - 2 * @padding-leftright-fields - 2px;
+							}
+
+						}
+					}
+
+					// errors
+					&.error, .error {
+
+						// TODO: find what form->renderGlobalErrors() renders and add here too
+
+						// fields
+						select, textarea, input[type=text] {
+
+							border-color: @color-red;
+							background-color: @color-bg-red;
 						}
 					}
 				}
@@ -759,7 +897,25 @@ a {
 			cursor: pointer;
 		}
 		a.button_black {
-			// TODO
+
+			.ffamily(16px, @font-minion);	// FIXME: finetune default size
+			.tupper;
+
+			padding: 3px 5px;		// FIXME: finetune default padding
+
+			color: @color-bg;
+			background: @color-text;
+
+			cursor: pointer;
+
+			font-weight: normal;
+			text-decoration: none;
+
+			&.button_black_small {
+
+				padding: 8px 20px;
+				font-size: 10px;
+			}
 		}
 
 	} // & end #content

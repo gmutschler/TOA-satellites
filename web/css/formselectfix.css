@@ -1,0 +1,5 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+	.dropdown_big select { padding-right: 10px }
+	.dropdown_small select { padding-right: 5px }
+}

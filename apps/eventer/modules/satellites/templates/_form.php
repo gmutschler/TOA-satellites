@@ -9,31 +9,32 @@
 
 		<h3>The Event Details</h3>
 
-		<div class="section long">
+		<div class="section long dropdown dropdown_big<?php if($form['category_id']->hasError()) { ?> error<? } ?>">
 			<?=$form['category_id']?>
 			<?=$form['category_id']->renderError()?>
 		</div>
-		<div class="section long">
+		<div class="section long<?php if($form['title']->hasError()) { ?> error<? } ?>">
 			<?=$form['title']?>
 			<?=$form['title']->renderError()?>
 		</div>
 		<div class="section time">
-			<p class="notice fleft">from <?=$form['start_hour']?></p>
-			<p class="notice fleft">to <?=$form['end_hour']?></p>
+			<p class="notice fleft<?php if($form['start_hour']->hasError()) { ?> error<? } ?>">from <span class="dropdown dropdown_small"><?=$form['start_hour']?></span></p>
+			<p class="notice fleft<?php if($form['end_hour']->hasError()) { ?> error<? } ?>">to <span class="dropdown dropdown_small"><?=$form['end_hour']?></span></p>
 
 			<div class="clear"></div>
 			<?=$form['start_hour']->renderError()?>
 			<?=$form['end_hour']->renderError()?>
 		</div>
-		<div class="section upload">
+		<div class="section upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
+			<p class="notice">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 450px</p>
 			<?=$form['logo']?>
 			<?=$form['logo']->renderError()?>
 		</div>
-		<div class="section long">
+		<div class="section long description<?php if($form['description']->hasError()) { ?> error<? } ?>">
 			<?=$form['description']?>
 			<?=$form['description']->renderError()?>
 		</div>
-		<div class="section">
+		<div class="section color<?php if($form['listing_color']->hasError()) { ?> error<? } ?>">
 			<?=$form['listing_color']?>
 			<?=$form['listing_color']->renderError()?>
 		</div>
@@ -42,20 +43,20 @@
 	<div class="section_block">
 
 		<h3>The Venue</h3>
-		<div class="section long">
+		<div class="section long<?php if($form['venue_name']->hasError()) { ?> error<? } ?>">
 			<?=$form['venue_name']?>
 			<?=$form['venue_name']->renderError()?>
 		</div>
-		<div class="section long">
+		<div class="section long<?php if($form['venue_address']->hasError()) { ?> error<? } ?>">
 			<?=$form['venue_address']?>
 			<?=$form['venue_address']->renderError()?>
 		</div>
 		<div class="section city">
-			<div class="column fleft">
+			<div class="column fleft<?php if($form['venue_postal_code']->hasError()) { ?> error<? } ?>">
 				<?=$form['venue_postal_code']?>
 				<?=$form['venue_postal_code']->renderError()?>
 			</div>
-			<div class="column fright">
+			<div class="column fright<?php if($form['venue_city']->hasError()) { ?> error<? } ?>">
 				<?=$form['venue_city']?>
 				<?=$form['venue_city']->renderError()?>
 			</div>
@@ -69,31 +70,20 @@
 
 	<div class="section_block last">
 
-		<h3>The tickets <a class="button_black fright" href="#TODO">&plus; Add more tickets</a></h3>
+		<h3>The tickets <a class="button_black button_black_small fright" href="#TODO" onclick="alert('This function is under construction. For now - new ticket form will appeaer whenever you submit a valid ticket.')">&plus; Add more tickets</a></h3>
 
-	<?php	foreach($form['newTickets'] as $ticket): ?>
-		<div class="section long">
-			<?=$ticket['name']?>
-			<?=$ticket['name']->renderError()?>
-		</div>
-		<div class="section long">
-			<?=$ticket['description']?>
-			<?=$ticket['description']->renderError()?>
-		</div>
-		<div class="section price">
-			<div class="column fleft">
-				<?=$ticket['price']?>
-				<?=$ticket['price']->renderError()?>
-			</div>
-			<div class="column fright">
-				<p class="notice">Quantity available: <?=$ticket['quantity_declared']?></p>
-				<?=$ticket['quantity_declared']->renderError()?>
-			</div>
-			<div class="clear"></div>
-		</div>
+<?php	if(isset($form['Tickets']) and count($form['Tickets'])) foreach($form['Tickets'] as $key => $ticket) include_partial('subform_ticket', array(
+
+			'key' => $key,
+			'ticket' => $ticket
+)) ?>
+
+<?php	foreach($form['newTickets'] as $key => $ticket) include_partial('subform_ticket', array(
+
+			'key' => $key,
+			'ticket' => $ticket
+)) ?>
 	</div>
-
-<?php	endforeach ?>
 
 <?php // control panel :) ?>
 	<div class="section_controls">
