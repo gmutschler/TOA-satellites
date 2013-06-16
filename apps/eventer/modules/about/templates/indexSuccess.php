@@ -4,7 +4,7 @@
     
     <div class="textual">
         
-        <p class="lead">Our mission is to connect, grow and inspire the creative, entrepreneurial and scientific community through knowledge exchange and collaboration.</p>
+        <p class="lead"><big>Our mission is to connect, grow and inspire the creative, entrepreneurial and scientific community through knowledge exchange and collaboration.</big></p>
         
         <h1>Our Story</h1>
         <div class="story_timeline">

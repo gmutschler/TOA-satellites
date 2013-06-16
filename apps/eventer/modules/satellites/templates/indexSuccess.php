@@ -34,46 +34,60 @@
             <a class="slider_nav slider_previous" onmouseover="scrollDiv('scrollarea1', 4)" onmouseout="clearTimeout(timer1)" onmousedown="scrollDiv('scrollarea1', 8)" onmouseup="clearTimeout(timer1)"></a>
             <a class="slider_nav slider_next" onmouseover="scrollDiv('scrollarea1', -4)" onmouseout="clearTimeout(timer1)" onmousedown="scrollDiv('scrollarea1', -8)" onmouseup="clearTimeout(timer1)"></a>
         </div>
-    </div>
-    
-    <div class="textual">
+   
+        <hr>
+        
         <h2>What to expect</h2>
         <p><big>Have a look at some ideas below or come up with yours.</big></p>
-        <div class="three-columns first">
-            <h3>Networking</h3>
-            <p>Share memorable moments to connect with your audience!</p>
-            <ul>
-                <li>Breakfast, Lunch or Dinner Meetups</li>
-                <li>Open Office Hours</li>
-                <li>Recruiting Events</li>
-                <li>Cocktails Receptions, Pup Crawls</li>
-                <li>BBQ's, Picknicks</li>
-                <li>Parties</li>
-                <li>...</li>
-            </ul>
+        <div class="table">
+            <div class="three-columns first">
+                <img src="/images/content/networking.jpg" alt="networking address book">
+                <h3>Networking</h3>
+                <div class="content-box-inner">
+                    <p>Share memorable moments to connect with your audience!</p>
+                    <ul>
+                        <li>Breakfast, Lunch or Dinner Meetups</li>
+                        <li>Open Office Hours</li>
+                        <li>Recruiting Events</li>
+                        <li>Cocktails Receptions, Pup Crawls</li>
+                        <li>BBQ's, Picknicks</li>
+                        <li>Parties</li>
+                        <li>...</li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="three-columns">
+                <img src="/images/content/making.jpg" alt="kitchen accessories">
+                <h3>Making</h3>
+                <div class="content-box-inner">
+                    <p>When people from different disciplines put their though into action, an innovation is born!</p>
+                    <ul>
+                        <li>Hackathons</li>
+                        <li>DIY Workshops</li>
+                        <li>Art Installations</li>
+                        <li>Jam Sessions</li>
+                        <li>...</li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="three-columns last">
+                
+                <img src="/images/content/learning.jpg" alt="Old schooldesk">
+                <h3>Learning</h3>
+                <div class="content-box-inner">
+                    <p>Share your knowledge and Karma will be your friend!</p>
+                    <ul>
+                        <li>Workshops</li>
+                        <li>Talks and Panels</li>
+                        <li>User Meetups</li>
+                        <li>...</li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
         </div>
-        <div class="three-columns">
-            <h3>Making</h3>
-            <p>When people from different disciplines put their though into action, an innovation is born!</p>
-            <ul>
-                <li>Hackathons</li>
-                <li>DIY Workshops</li>
-                <li>Art Installations</li>
-                <li>Jam Sessions</li>
-                <li>...</li>
-            </ul>
-        </div>
-        <div class="three-columns last">
-            <h3>Learning</h3>
-            <p>Share your knowledge and Karma will be your friend!</p>
-            <ul>
-                <li>Workshops</li>
-                <li>Talks and Panels</li>
-                <li>User Meetups</li>
-                <li>...</li>
-            </ul>
-        </div>
-        <div class="clear"></div>
         <div class="tcenter"><h3 class="tupper"><big>Your Idea ?</big></h3><a  href="host" class="button_black">Host your own</a></div>
     </div>
 </div>

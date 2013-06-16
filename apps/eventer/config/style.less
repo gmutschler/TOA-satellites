@@ -83,7 +83,7 @@
 
 .disblock() {
 	display: block;
-}
+}s
 .disblock(@height) {
 	.disblock;
 	height: @height;
@@ -159,7 +159,10 @@ body {
 	background-color: @color-bg;
 }
 a {
-	.c3transition(.5s);	// ** applies to all possible content
+	.c3transition(800ms);	// ** applies to all possible content
+}
+a:hover {
+    .c3transition(150ms);
 }
 
 
@@ -272,21 +275,45 @@ a {
             }
         }
         
-        .three-columns {
-            padding: 15px;
-            border: 1px solid @color-border;
-            .fleft;
-            .tcenter;
-            margin: 0 7px;
-            width: 258px;
-    
-            &.first {margin-left: 0;}
-            &.last {margin-right: 0;}
-    
-            p {font-size: 16px;}
-            ul {
-                font-size: 16px;
-                .tleft;
+        .table {
+            display: table;
+            border-collapse: separate;
+            border-spacing: 15px 5px;
+            margin-left: -15px;
+            margin-bottom: 60px;
+            table-layout: fixed;
+        
+            .three-columns {
+                display: table-cell;
+                border: 1px solid @color-border;
+                width: 308px;
+                .relative;
+                
+                .content-box-inner {padding: 15px;}
+                
+                img {
+                    margin: -1px;
+                    width: 310px;
+                }
+            
+                h3 {
+                    .absolute;
+                    .topleft(160px, 10px);
+                    padding: 0.2em 0.6em;
+                    background: #fff;
+                }
+        
+                p {font-size: 16px;}
+                ul {
+                    font-size: 15px;
+                
+                    li {
+                        padding: 0.3em 0.6em 0.2em 0.6em;
+                        background: @color-bg-hero;
+                        margin: 1px;
+                        .fleft;
+                    }
+                }
             }
         }
     
@@ -609,6 +636,12 @@ a {
 
 		// > textual block
 		.textual {
+            
+            hr {
+                border: none;
+                border-bottom: 1px solid @color-border-dark;
+                margin: 90px 30%;
+            }
 
 			h3 {
 				.ffamily(16px, @font-proxima, bold);
@@ -624,8 +657,8 @@ a {
 
 				&.lead {
 					color: #000;
-					font-size: 36px;
-					max-width: 820px;
+					font-size: 28px;
+                    .tleft;
 				}
 			}
 		} // & end textual block
@@ -885,7 +918,7 @@ a {
 
 		a.button_red, input.button_red {
 
-			.ffamily(28px, @font-proxima, bold);
+			.ffamily(21px, @font-proxima, bold);
 			.tupper;
 
 			padding: 6px 14px;
@@ -898,10 +931,10 @@ a {
 		}
 		a.button_black {
 
-			.ffamily(16px, @font-minion);	// FIXME: finetune default size
+			.ffamily(14px, @font-minion);	// FIXME: finetune default size
 			.tupper;
 
-			padding: 3px 5px;		// FIXME: finetune default padding
+			padding: 6px 10px;		// FIXME: finetune default padding
 
 			color: @color-bg;
 			background: @color-text;
