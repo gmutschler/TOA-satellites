@@ -30,8 +30,8 @@
 @color-retro-bg: #A19F73;
 @color-retro-text: #ffffff;
 
-@font-minion: 'minion-pro';
-@font-proxima: 'proxima-nova';
+@font-minion: 'minion-pro', serif;
+@font-proxima: 'proxima-nova', sans-serif;
 
 @images-layout: '../images/layout';
 @images-content: '../images/content';
@@ -301,7 +301,6 @@ a:hover {
             border-collapse: separate;
             border-spacing: 15px 5px;
             margin-left: -15px;
-            margin-bottom: 60px;
             table-layout: fixed;
         
             .three-columns {
@@ -327,7 +326,7 @@ a:hover {
                 
                 .content-box-inner {padding: 15px;}
         
-                p {font-size: 16px;}
+                p {font-size: 21px;}
                 ul {
                     font-size: 15px;
                 
@@ -428,7 +427,7 @@ a:hover {
                 }
             
                 .bundle {
-                    .ffamily(31px, "minion-pro");
+                    .ffamily(31px, @font-minion);
                     font-style: italic;
                     background: #FBFBF9;
                     border: 1px solid #CCC;
@@ -445,7 +444,7 @@ a:hover {
                     
                     li {
                         line-height: 1.1em;
-                        .ffamily(14px, "proxima-nova");
+                        .ffamily(14px, @font-proxima);
                         margin: 1.8em 0 0.6em 0;
                         list-style-type: none;
                         
@@ -1220,6 +1219,17 @@ a:hover {
 		}
         small {font-size: smaller;}
         big {font-size: larger;}
+    
+        a.seemore {
+            display: block;
+            margin-bottom: 60px;
+            .ffamily(14px, @font-proxima);
+            .tright;
+            text-decoration: none;
+            color: @color-text;
+            
+            &:hover { color: @color-red; }
+        }
 
 		a.button_red, input.button_red, a.button_custom {
 

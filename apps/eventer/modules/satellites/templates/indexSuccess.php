@@ -93,7 +93,8 @@
                 </div>
             </div>
         </div>
-        <div class="tcenter"><h3 class="tupper"><big>Your Idea ?</big></h3><a  href="host" class="button_black">Host your own</a></div>
+        <a href="/satellites/book" class="seemore">See all the satellites events &rsaquo;</a>
+        <div class="tcenter"><h3 class="tupper"><big>Your Idea ?</big></h3><a  href="host" class="button_black">&#43; Host your own</a></div>
     </div>
 </div>
 

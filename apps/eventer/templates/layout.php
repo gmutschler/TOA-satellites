@@ -57,6 +57,41 @@
 		<div class="clear"></div>
 	</div>
 
-	<h1>Content of the<br />footer still to define</h1>
+    <div class="footer-column">
+        <h4>The Festival</h4>
+        <ul>
+            <li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>">Home</a></li>
+            <li><a href="<?=url_for('unconference/index')?>">The Unconference</a></li>
+            <li><a href="<?=url_for('satellites/index')?>">The Satellite Events</a></li>
+            <li><a href="http://toaberlin2013.eventbrite.com/">Buy your ticket</a></li>
+        </ul>
+    </div>
+    <div class="footer-column">
+        <h4>Tech Open Air</h4>
+        <ul>
+            <li><a href="<?=url_for('about/index')?>">About Us</a></li>
+            <li><a hred="<?=url_for('about/team')?>">The Team</a></li>
+            <li><a href="<?=url_for('about/contact')?>">Contact</a></li>
+            <li><a href="<?=url_for('home/colophon')?>">Colophon</a></li>
+        </ul>
+    </div>
+    <div class="footer-column">
+        <h4>For the Pros</h4>
+        <ul>
+            <li><a href="<?=url_for('about/press')?>">Press</a></li>
+            <li><a hred="<?=url_for('partners/supportus')?>">Become a partner</a></li>
+            <li>Developer API (to come)</li>
+        </ul>
+    </div>
+    <div class="footer-column">
+        <h4>Follow us</h4>
+        <ul>
+            <li><a href="http://blog.toaberlin.com">Blog</a></li>
+            <li><a hred="http://www.facebook.com/TechOpenAir">Facebook</a></li>
+            <li><a href="http://twitter.com/TOABerlin/">Twitter</a></li>
+            <li><a href="http://vimeo.com/channels/toaberlin">Vimeo</a></li>
+        </ul>
+    </div>
+     
  </div>
 </body></html>
