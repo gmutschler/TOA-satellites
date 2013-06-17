@@ -460,12 +460,67 @@ a:hover {
             margin: 10px;
             .fleft;
             .tcenter;
+            .relative;
             
             &.first { margin-left: 0; }
-            &.last { margin-right: 0; }
+            &.last {
+                margin-right: 0;
+                h3 {color: #fff;}
+            }
             
-            h3 {.tupper;}
-            a.button_black {margin: 2px 0;}
+            img {border: 1px solid @color-border-dark;}
+        
+            h3 {
+                .tupper;
+                .absolute;
+                .topright(440px, 15px);
+            }
+            a.button_black {margin: 2px;}
+        }
+    
+        .photo_gallery a {
+            .relative;
+            margin-right: 6px;
+            display: block;
+            .fleft;
+            
+            &.third { margin-right: 0;}
+            
+            div.button{
+                display: inline-block;
+                width: 100px;
+                background: @color-bg;
+                color: @color-text;
+                padding: 7px 19px;
+                border: 1px solid @color-border;
+                .tcenter;
+                .absolute;
+                .bottomleft(20px, 88px);
+                .ffamily(10px, @font-minion);
+                .tupper;
+                filter : alpha(opacity=30);
+                opacity: 0.3;
+                .c3transition(800ms);
+                
+            }
+            &:hover {
+                div.button {
+                    .c3transition(150ms);
+                    filter : alpha(opacity=100);
+                    opacity: 1;
+                }
+            }   
+        }
+        
+        .sponsors_logos {
+        
+            a {
+                display: inline-block;
+                border: 1px solid @color-bg;
+                &:hover {
+                    border: 1px solid @color-border;
+                }
+            }
         }
     
         .story_timeline {
