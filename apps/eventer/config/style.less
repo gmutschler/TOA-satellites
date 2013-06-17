@@ -248,6 +248,613 @@ a:hover {
 			}
 		} // & end hero_submenu
     
+
+		// ! common for known blocks
+		.listing, .textual { margin-top: 36px }
+
+		// > listing block
+		.listing {
+			.tcenter;
+
+			// the fancy widget
+			h1, h2, .listing_widget { .tleft }
+			.listing_widget {
+				.relative;
+
+				@height-local-widget: 30px;
+				height: @height-local-widget;
+
+				background: @color-bg-gray no-repeat url(@{images-layout}/timeline.gif) top center;
+                
+
+				a {
+					.disblock(29px, @height-local-widget - 1px);
+					border: 1px solid @color-border-dark;
+                    &:hover {border: 1px solid @color-text;}
+				}
+
+				.listing_widget_next {
+					.fright;
+
+					background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
+                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
+				}
+				.listing_widget_prev {
+					.fleft;
+
+					background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
+                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
+				}
+            
+                &.upper {
+                    .negmargin-top;
+                    border-top: 1px solid @color-border-dark;
+
+                    a {
+                        height: @height-local-widget;
+                        .uborder(@color-border-dark);
+                    }
+                }
+
+				// TODO: redo it in the manner pixprapromo is built
+				.measure {
+					@width-local-measure: 153px;
+					@left-local-start: 51px;
+					.disblock(@width-local-measure, @height-local-widget);
+
+					background-color: rgba(255, 0, 0, .5);
+
+					.absolute;
+
+					&.pos1 {
+						left: @left-local-start;
+					}
+					&.pos2 {
+						left: @left-local-start + @width-local-measure;
+					}
+					&.pos3 {
+						left: @left-local-start + 2 * @width-local-measure;
+					}
+
+
+
+				    // slight modifications for the widget on top
+                }
+			}
+
+			// the entire list
+			ul.listing_list {
+				.disblock;
+				@padding-local-leftright: 5px;
+
+				margin-top: 39px;
+				padding: 0 @padding-local-leftright;
+
+				li {
+					@height-local-li: 126px;
+					@width-local-photo: 174px;
+
+					margin-bottom: 18px;
+
+					&, & a.big_link {
+
+						.disblock(@height-local-li);
+					}
+
+					// hover effects
+					span.photo, span.data span.title { .c3transition(.5s) }
+					a.big_link:hover {
+
+						span.photo, span.data span.title { color: @color-red }
+					}
+
+
+					span.photo, span.data { .fleft }
+					span.photo {
+						.disblock(@width-local-photo, @height-local-li);
+						.relative;
+						.ffamily(60px, @font-proxima, 600);
+
+						color: @color-bg-gray;
+						background-repeat: no-repeat;
+
+						span {
+							.absolute;
+							.bottomright(0, 2px);
+
+							margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
+						}
+					}
+					span.data {
+
+						// we're removing 1 from width and 2 from height for the border size
+						.disblock(@width-layout - 2 * @padding-local-leftright - @width-local-photo - 1, @height-local-li - 2);
+						.crevborder(@color-border-dark);
+						.tleft;
+						.relative;
+
+						background-color: @color-bg-gray;
+
+						span {
+							.absolute;
+							@position-local-leftright: 14px;
+							@position-local-topbottom: 14px;
+
+							line-height: 1em;
+							color: @color-text;
+
+							&.title, &.desc { width: 475px }	// ** hard-limiting widths here
+							&.title, &.time { .ffamily(15px, @font-proxima, bold) }
+							&.time, &.address { font-size: 16px }
+							&.title {
+								.tupper;
+								.topleft(@position-local-topbottom, @position-local-leftright);
+							}
+							&.hosted {
+								.titalic;
+								.topleft(33px, @position-local-leftright);
+
+								color: @color-text-gray;
+
+								font-size: 14px;
+
+								b {
+									color: @color-red;
+									text-decoration: underline;
+									cursor: pointer;
+								}
+							}
+							&.desc {
+								.topleft(51px, @position-local-leftright);
+
+								color: @color-text-gray-dark;
+
+								line-height: 1.25em;
+								letter-spacing: -0.75px;		// ** kind of experimental
+								word-spacing: 1px;
+							}
+							&.address, &.time { .tright }
+							&.address {
+								.topright(@position-local-topbottom, @position-local-leftright);
+
+								line-height: 1.2em;
+							}
+							&.time {
+								.bottomright(@position-local-topbottom, @position-local-leftright);
+
+								color: @color-red;
+							}
+						}
+					}
+				}
+			}
+		} // & end listing block
+
+		// > textual block
+		.textual {
+            
+            hr {
+                border: none;
+                border-bottom: 1px solid @color-border-dark;
+                margin: 90px 30%;
+            }
+
+			h3 {
+				.ffamily(16px, @font-proxima, bold);
+				margin: 0.2em 0 .5em 0;
+			}
+			p {
+				margin-bottom: 0.8em;
+				color: @color-text-hero-submenu;
+				line-height: 1.36em;
+
+ 				text-align: justify;
+
+
+				&.lead {
+					color: @color-text;
+					font-size: 28px;
+                    .tleft;
+				}
+			}
+            
+            ul.bullet {
+                list-style-type: square;
+                list-style-position: inside;
+                color: @color-text-hero-submenu;
+				line-height: 1.36em;
+				margin-bottom: 0.8em;
+            }
+
+			// TODO: move these tickets to some other wrapper div later... ;)
+			ul.tickets_list {
+
+				.disblock;
+
+				li {
+					@height-local-li: 183px;		// ** width is the same as @width-layout
+					@padding-local-leftright: 22px;
+					@padding-local-topbottom: 27px;
+
+					.formborder;
+					.relative;
+					.disblock(@width-layout - 2 * @padding-local-leftright - 2px, @height-local-li - 2 * @padding-local-topbottom - 2px);
+
+					padding: @padding-local-topbottom @padding-local-leftright;
+					margin-bottom: 14px;
+
+					// inner elements
+					span {
+
+						&.overlay {
+							.absolute(0, 0);
+							.disblock(100%, 100%);
+							.tcenter;
+
+							z-index: 10;
+							background: rgba(0, 0, 0, .7);
+
+							span {
+								.titalic;
+
+								color: @color-bg;
+								font-size: 24px;
+							}
+						}
+						&.title {
+							.ffamily(16px, @font-proxima, bold);
+							.tupper;
+
+							color: @color-text;
+
+							.fright {
+								margin-left: 40px;
+							}
+						}
+						&.clear, &.line, &.desc { .disblock }
+						&.line {
+							border-bottom: 1px solid @color-border-dark;
+						}
+						&.desc {
+							width: 502px;
+							margin-top: 10px;
+
+							line-height: 1.4em;
+						}
+						&.book {
+							.absolute;
+							.bottomright(@padding-local-topbottom, @padding-local-leftright);
+
+							a {
+								font-size: 15px;
+
+							}
+						}
+					}
+
+				}
+			}
+
+		} // & end textual block
+
+		// > forms block
+		.forms {
+
+			h2 {
+				margin-bottom: 20px;
+			}
+			
+			h3 {
+				.ffamily(16px, @font-proxima, bold);
+				.tupper;
+
+				margin-bottom: 6px;
+			}
+
+			form {
+				@width-local-form: 542px;
+				@padding-leftright-fields: 10px;
+				@padding-topbottom-fields: 6px;
+
+				width: @width-local-form;
+
+				// TODO: play with selects:
+				// http://cssdeck.com/labs/styling-select-box-with-css3
+				// http://lea.verou.me/2011/03/custom-select-drop-downs-with-css3/
+
+				// some form field defaults
+				select, textarea, input[type=text] {			// ** CSS3 selectors sadly :/
+					.ffamily(18px, @font-minion);
+					.formborder;
+
+					padding: @padding-topbottom-fields @padding-leftright-fields;
+                    -webkit-border-radius: 0;
+                    border-radius: 0;
+				}
+
+				// text errors
+				.error_list {
+
+					color: @color-red;
+					font-style: italic;
+                    padding: 0.28em 0;
+				}
+
+				// sections
+				.section_block {
+					margin-bottom: 97px;
+
+					&.last {
+						margin-bottom: 36px;
+					}
+				}
+
+				.section {
+					margin-bottom: 8px;
+
+					// fancy dropdowns
+					span {
+						display: inline-block;
+						height: 100%;
+					}
+					&.dropdown, .dropdown {
+
+						// TODO: play with "web/css/formselectfix.css" updating with proper paddings to ensure Safari compat
+
+						.relative;
+
+						select {
+							.c3appearance(none);
+							outline: none;
+							display: inline-block;
+
+							cursor: pointer;
+						}
+
+						&:before, &:after {
+							.absolute;
+
+							pointer-events: none;
+
+							content: '';
+							background-color: @color-text;
+							background-repeat: no-repeat;
+						}
+
+						&.dropdown_small {	// ** used for time selects
+
+							select {
+								padding: 2px 40px 2px 8px;
+                                margin: 0 8px;
+                                .relative;
+							}
+
+							&:before, &:after {
+
+								.disblock(34px, 100%);
+								background-image: url(@{images-layout}/select_bg_small.png);
+							}
+
+							&:before {
+								.topright(0, 8);
+							}
+							&:after {
+								.absolute(0, 42);	// ** NOTICE: this can be very tricky on some browsers
+							}
+						}
+						&.dropdown_big {	// ** used for category select
+
+							&:before {
+								.disblock(41px, 100%);
+								.topright(0, 2px);
+
+								background-image: url(@{images-layout}/select_bg_big.png);
+							}
+						}
+					}
+
+					// global sections
+					&.long {
+
+						select, textarea, input[type=text] {
+							.disblock;
+							width: @width-local-form - 2px;		// ** 2 px for left/right borders
+						}
+
+						textarea, input[type=text] {	// for some reason input is stubborn
+
+							width:  @width-local-form - 4px - (2 * @padding-leftright-fields);
+						}
+					}
+
+					// individual sections
+					&.description {
+						textarea { height: 320px - 4px - (2 * @padding-topbottom-fields); }
+					}
+					&.upload {
+						.formborder;
+						.tcenter;
+
+						width: @width-local-form - 4px;
+
+						margin-top: 44px;
+						padding: 10px 0;
+
+						p {
+							margin-bottom: 5px;
+
+							font-size: 13px;
+							line-height: 1.1em;
+						}
+					}
+					&.color {
+
+						input {
+							width: 210px - 2 * @padding-leftright-fields - 2px;
+							// TODO: consider proper left padding for the background image, when adding the picker
+						}
+					}
+					&.city {
+						.fleft input {
+							width: 100px - 2 * @padding-leftright-fields - 2px;
+						}
+						.fright input {
+							width: 430px - 2 * @padding-leftright-fields - 2px;
+						}
+					}
+					&.price {
+
+						.fleft input {
+							width: 154px - 2 * @padding-leftright-fields - 2px;
+
+							// ** many declarations not to kill the original background color which can differ here
+							background-image: url(@{images-layout}/euro.gif);
+							background-repeat: no-repeat;
+							background-position: 130px 13px;
+
+							// TODO: try to text-align right and add right padding for the euro sign
+						}
+						.fright {
+
+							p { font-size: 17px; }
+							input {
+								.tright;
+								width: 68px - 2 * @padding-leftright-fields - 2px;
+							}
+
+						}
+					}
+
+					// errors
+					&.error, .error {
+
+						// TODO: find what form->renderGlobalErrors() renders and add here too
+
+						// fields
+						select, textarea, input[type=text] {
+
+							border-color: @color-red;
+						}
+					}
+				}
+			}
+			
+		} // & end forms block
+
+		// > content typography defaults
+		h1 {
+			.ffamily(46px, @font-minion);
+			.tupper;
+			position: relative;
+			z-index: -10;
+
+			span {
+				.tnouper;
+				.titalic;
+				font-size: 18px;
+				font-weight: normal;
+				padding-top: 3px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			&:after {
+				content: "";
+				width: 100%;
+				height: 18px;
+				background: #fff;
+				border-top: 1px solid @color-border-dark;
+				position: absolute;
+				bottom: 0;
+				display: inline-block;
+				left: 0;
+			}
+		}
+
+		h2 {
+			.ffamily(29px, @font-minion);
+			.tupper;
+		}
+
+		p {
+
+			&.notice {
+				.titalic;
+			}
+
+			a {
+				color: @color-red;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+                    color: @color-red-light;
+				}
+			}
+		}
+        small {font-size: smaller;}
+        big {font-size: larger;}
+    
+        a.seemore {
+            display: block;
+            margin-bottom: 60px;
+            .ffamily(14px, @font-proxima);
+            .tright;
+            text-decoration: none;
+            color: @color-text;
+            
+            &:hover { color: @color-red; }
+        }
+
+		a.button_red, input.button_red, a.button_custom {
+
+			.ffamily(21px, @font-proxima, bold);
+			.tupper;
+
+			padding: 6px 14px;
+
+			color: @color-bg;
+			background-color: @color-red;	// ** to be overriden in button_custom, inside single event page
+			border: none;
+
+			text-decoration: none;
+			cursor: pointer;
+            
+			&:hover {
+				background: @color-text;
+			}
+		}
+		a.button_black {
+
+			.ffamily(17px, @font-minion);
+			.tupper;
+
+			padding: 9px 15px;
+			border: 1px solid @color-text;
+			display: inline-block;
+
+			color: @color-bg;
+			background: @color-text;
+
+			cursor: pointer;
+
+			font-weight: normal;
+			text-decoration: none;
+            
+            &:hover {
+                color: #000;
+                background: #fff;
+                border: 1px solid @color-border-dark;
+            }
+
+			&.button_black_small {
+
+				padding: 7px 19px;
+				font-size: 10px;
+			}
+		}
+    
+
         &.screen_about_contact .textual .threecolumns {
             
             .tcenter;
@@ -683,603 +1290,6 @@ a:hover {
             }
         }
 
-		// ! common for known blocks
-		.listing, .textual { margin-top: 36px }
-
-		// > listing block
-		.listing {
-			.tcenter;
-
-			// the fancy widget
-			h1, h2, .listing_widget { .tleft }
-			.listing_widget {
-				.relative;
-
-				@height-local-widget: 30px;
-				height: @height-local-widget;
-
-				background: @color-bg-gray no-repeat url(@{images-layout}/timeline.gif) top center;
-                
-
-				a {
-					.disblock(29px, @height-local-widget - 1px);
-					border: 1px solid @color-border-dark;
-                    &:hover {border: 1px solid @color-text;}
-				}
-
-				.listing_widget_next {
-					.fright;
-
-					background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
-                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
-				}
-				.listing_widget_prev {
-					.fleft;
-
-					background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
-                    &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
-				}
-            
-                &.upper {
-                    .negmargin-top;
-                    border-top: 1px solid @color-border-dark;
-
-                    a {
-                        height: @height-local-widget;
-                        .uborder(@color-border-dark);
-                    }
-                }
-
-				// TODO: redo it in the manner pixprapromo is built
-				.measure {
-					@width-local-measure: 153px;
-					@left-local-start: 51px;
-					.disblock(@width-local-measure, @height-local-widget);
-
-					background-color: rgba(255, 0, 0, .5);
-
-					.absolute;
-
-					&.pos1 {
-						left: @left-local-start;
-					}
-					&.pos2 {
-						left: @left-local-start + @width-local-measure;
-					}
-					&.pos3 {
-						left: @left-local-start + 2 * @width-local-measure;
-					}
-
-
-
-				    // slight modifications for the widget on top
-                }
-			}
-
-			// the entire list
-			ul.listing_list {
-				.disblock;
-				@padding-local-leftright: 5px;
-
-				margin-top: 39px;
-				padding: 0 @padding-local-leftright;
-
-				li {
-					@height-local-li: 126px;
-					@width-local-photo: 174px;
-
-					margin-bottom: 18px;
-
-					&, & a.big_link {
-
-						.disblock(@height-local-li);
-					}
-
-					// hover effects
-					span.photo, span.data span.title { .c3transition(.5s) }
-					a.big_link:hover {
-
-						span.photo, span.data span.title { color: @color-red }
-					}
-
-
-					span.photo, span.data { .fleft }
-					span.photo {
-						.disblock(@width-local-photo, @height-local-li);
-						.relative;
-						.ffamily(60px, @font-proxima, 600);
-
-						color: @color-bg-gray;
-						background-repeat: no-repeat;
-
-						span {
-							.absolute;
-							.bottomright(0, 2px);
-
-							margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
-						}
-					}
-					span.data {
-
-						// we're removing 1 from width and 2 from height for the border size
-						.disblock(@width-layout - 2 * @padding-local-leftright - @width-local-photo - 1, @height-local-li - 2);
-						.crevborder(@color-border-dark);
-						.tleft;
-						.relative;
-
-						background-color: @color-bg-gray;
-
-						span {
-							.absolute;
-							@position-local-leftright: 14px;
-							@position-local-topbottom: 14px;
-
-							line-height: 1em;
-							color: @color-text;
-
-							&.title, &.desc { width: 475px }	// ** hard-limiting widths here
-							&.title, &.time { .ffamily(15px, @font-proxima, bold) }
-							&.time, &.address { font-size: 16px }
-							&.title {
-								.tupper;
-								.topleft(@position-local-topbottom, @position-local-leftright);
-							}
-							&.hosted {
-								.titalic;
-								.topleft(33px, @position-local-leftright);
-
-								color: @color-text-gray;
-
-								font-size: 14px;
-
-								b {
-									color: @color-red;
-									text-decoration: underline;
-									cursor: pointer;
-								}
-							}
-							&.desc {
-								.topleft(51px, @position-local-leftright);
-
-								color: @color-text-gray-dark;
-
-								line-height: 1.25em;
-								letter-spacing: -0.75px;		// ** kind of experimental
-								word-spacing: 1px;
-							}
-							&.address, &.time { .tright }
-							&.address {
-								.topright(@position-local-topbottom, @position-local-leftright);
-
-								line-height: 1.2em;
-							}
-							&.time {
-								.bottomright(@position-local-topbottom, @position-local-leftright);
-
-								color: @color-red;
-							}
-						}
-					}
-				}
-			}
-		} // & end listing block
-
-		// > textual block
-		.textual {
-            
-            hr {
-                border: none;
-                border-bottom: 1px solid @color-border-dark;
-                margin: 90px 30%;
-            }
-
-			h3 {
-				.ffamily(16px, @font-proxima, bold);
-				margin: 0.2em 0 .5em 0;
-			}
-			p {
-				margin-bottom: 0.8em;
-				color: #494949;
-				line-height: 1.36em;
-
- 				text-align: justify;
-
-
-				&.lead {
-					color: #000;
-					font-size: 28px;
-                    .tleft;
-				}
-			}
-
-			// TODO: move these tickets to some other wrapper div later... ;)
-			ul.tickets_list {
-
-				.disblock;
-
-				li {
-					@height-local-li: 183px;		// ** width is the same as @width-layout
-					@padding-local-leftright: 22px;
-					@padding-local-topbottom: 27px;
-
-					.formborder;
-					.relative;
-					.disblock(@width-layout - 2 * @padding-local-leftright - 2px, @height-local-li - 2 * @padding-local-topbottom - 2px);
-
-					padding: @padding-local-topbottom @padding-local-leftright;
-					margin-bottom: 14px;
-
-					// inner elements
-					span {
-
-						&.overlay {
-							.absolute(0, 0);
-							.disblock(100%, 100%);
-							.tcenter;
-
-							z-index: 10;
-							background: rgba(0, 0, 0, .7);
-
-							span {
-								.titalic;
-
-								color: @color-bg;
-								font-size: 24px;
-							}
-						}
-						&.title {
-							.ffamily(16px, @font-proxima, bold);
-							.tupper;
-
-							color: @color-text;
-
-							.fright {
-								margin-left: 40px;
-							}
-						}
-						&.clear, &.line, &.desc { .disblock }
-						&.line {
-							border-bottom: 1px solid @color-border-dark;
-						}
-						&.desc {
-							width: 502px;
-							margin-top: 10px;
-
-							line-height: 1.4em;
-						}
-						&.book {
-							.absolute;
-							.bottomright(@padding-local-topbottom, @padding-local-leftright);
-
-							a {
-								font-size: 15px;
-
-							}
-						}
-					}
-
-				}
-			}
-
-		} // & end textual block
-
-		// > forms block
-		.forms {
-
-			h2 {
-				margin-bottom: 20px;
-			}
-			
-			h3 {
-				.ffamily(16px, @font-proxima, bold);
-				.tupper;
-
-				margin-bottom: 6px;
-			}
-
-			form {
-				@width-local-form: 542px;
-				@padding-leftright-fields: 10px;
-				@padding-topbottom-fields: 6px;
-
-				width: @width-local-form;
-
-				// TODO: play with selects:
-				// http://cssdeck.com/labs/styling-select-box-with-css3
-				// http://lea.verou.me/2011/03/custom-select-drop-downs-with-css3/
-
-				// some form field defaults
-				select, textarea, input[type=text] {			// ** CSS3 selectors sadly :/
-					.ffamily(18px, @font-minion);
-					.formborder;
-
-					padding: @padding-topbottom-fields @padding-leftright-fields;
-                    -webkit-border-radius: 0;
-                    border-radius: 0;
-				}
-
-				// text errors
-				.error_list {
-
-					color: @color-red;
-					font-style: italic;
-                    padding: 0.28em 0;
-				}
-
-				// sections
-				.section_block {
-					margin-bottom: 97px;
-
-					&.last {
-						margin-bottom: 36px;
-					}
-				}
-
-				.section {
-					margin-bottom: 8px;
-
-					// fancy dropdowns
-					span {
-						display: inline-block;
-						height: 100%;
-					}
-					&.dropdown, .dropdown {
-
-						// TODO: play with "web/css/formselectfix.css" updating with proper paddings to ensure Safari compat
-
-						.relative;
-
-						select {
-							.c3appearance(none);
-							outline: none;
-							display: inline-block;
-
-							cursor: pointer;
-						}
-
-						&:before, &:after {
-							.absolute;
-
-							pointer-events: none;
-
-							content: '';
-							background-color: @color-text;
-							background-repeat: no-repeat;
-						}
-
-						&.dropdown_small {	// ** used for time selects
-
-							select {
-								padding: 2px 40px 2px 8px;
-                                margin: 0 8px;
-                                .relative;
-							}
-
-							&:before, &:after {
-
-								.disblock(34px, 100%);
-								background-image: url(@{images-layout}/select_bg_small.png);
-							}
-
-							&:before {
-								.topright(0, 8);
-							}
-							&:after {
-								.absolute(0, 42);	// ** NOTICE: this can be very tricky on some browsers
-							}
-						}
-						&.dropdown_big {	// ** used for category select
-
-							&:before {
-								.disblock(41px, 100%);
-								.topright(0, 2px);
-
-								background-image: url(@{images-layout}/select_bg_big.png);
-							}
-						}
-					}
-
-					// global sections
-					&.long {
-
-						select, textarea, input[type=text] {
-							.disblock;
-							width: @width-local-form - 2px;		// ** 2 px for left/right borders
-						}
-
-						textarea, input[type=text] {	// for some reason input is stubborn
-
-							width:  @width-local-form - 4px - (2 * @padding-leftright-fields);
-						}
-					}
-
-					// individual sections
-					&.description {
-						textarea { height: 320px - 4px - (2 * @padding-topbottom-fields); }
-					}
-					&.upload {
-						.formborder;
-						.tcenter;
-
-						width: @width-local-form - 4px;
-
-						margin-top: 44px;
-						padding: 10px 0;
-
-						p {
-							margin-bottom: 5px;
-
-							font-size: 13px;
-							line-height: 1.1em;
-						}
-					}
-					&.color {
-
-						input {
-							width: 210px - 2 * @padding-leftright-fields - 2px;
-							// TODO: consider proper left padding for the background image, when adding the picker
-						}
-					}
-					&.city {
-						.fleft input {
-							width: 100px - 2 * @padding-leftright-fields - 2px;
-						}
-						.fright input {
-							width: 430px - 2 * @padding-leftright-fields - 2px;
-						}
-					}
-					&.price {
-
-						.fleft input {
-							width: 154px - 2 * @padding-leftright-fields - 2px;
-
-							// ** many declarations not to kill the original background color which can differ here
-							background-image: url(@{images-layout}/euro.gif);
-							background-repeat: no-repeat;
-							background-position: 130px 13px;
-
-							// TODO: try to text-align right and add right padding for the euro sign
-						}
-						.fright {
-
-							p { font-size: 17px; }
-							input {
-								.tright;
-								width: 68px - 2 * @padding-leftright-fields - 2px;
-							}
-
-						}
-					}
-
-					// errors
-					&.error, .error {
-
-						// TODO: find what form->renderGlobalErrors() renders and add here too
-
-						// fields
-						select, textarea, input[type=text] {
-
-							border-color: @color-red;
-						}
-					}
-				}
-			}
-			
-		} // & end forms block
-
-		// > content typography defaults
-		h1 {
-			.ffamily(46px, @font-minion);
-			.tupper;
-			position: relative;
-			z-index: -10;
-
-			span {
-				.tnouper;
-				.titalic;
-				font-size: 18px;
-				font-weight: normal;
-				padding-top: 3px;
-				display: inline-block;
-				vertical-align: middle;
-			}
-
-			&:after {
-				content: "";
-				width: 100%;
-				height: 18px;
-				background: #fff;
-				border-top: 1px solid @color-border-dark;
-				position: absolute;
-				bottom: 0;
-				display: inline-block;
-				left: 0;
-			}
-		}
-
-		h2 {
-			.ffamily(29px, @font-minion);
-			.tupper;
-		}
-
-		p {
-
-			&.notice {
-				.titalic;
-			}
-
-			a {
-				color: @color-red;
-				text-decoration: underline;
-
-				&:hover {
-					text-decoration: none;
-                    color: @color-red-light;
-				}
-			}
-		}
-        small {font-size: smaller;}
-        big {font-size: larger;}
-    
-        a.seemore {
-            display: block;
-            margin-bottom: 60px;
-            .ffamily(14px, @font-proxima);
-            .tright;
-            text-decoration: none;
-            color: @color-text;
-            
-            &:hover { color: @color-red; }
-        }
-
-		a.button_red, input.button_red, a.button_custom {
-
-			.ffamily(21px, @font-proxima, bold);
-			.tupper;
-
-			padding: 6px 14px;
-
-			color: @color-bg;
-			background-color: @color-red;	// ** to be overriden in button_custom, inside single event page
-			border: none;
-
-			text-decoration: none;
-			cursor: pointer;
-            
-			&:hover {
-				background: @color-text;
-			}
-		}
-		a.button_black {
-
-			.ffamily(17px, @font-minion);
-			.tupper;
-
-			padding: 9px 15px;
-			border: 1px solid @color-text;
-			display: inline-block;
-
-			color: @color-bg;
-			background: @color-text;
-
-			cursor: pointer;
-
-			font-weight: normal;
-			text-decoration: none;
-            
-            &:hover {
-                color: #000;
-                background: #fff;
-                border: 1px solid @color-border-dark;
-            }
-
-			&.button_black_small {
-
-				padding: 7px 19px;
-				font-size: 10px;
-			}
-		}
-
 	} // & end #content
 
 #footer {
@@ -1338,6 +1348,40 @@ a:hover {
 		.tupper;
 		font-size: 70px;
 	}
+    
+    #footer-sitemap {
+        .mauto;
+        width: @width-layout;
+        .tleft;
+        padding: 40px 0 120px 0;
+        
+        .footer-column{
+            width: 210px;
+            .fleft;
+            
+            h4 {
+                font-size: 15px;
+                font-weight: 800;
+                margin-bottom: 0.3em;
+                .tupper;
+            }
+            
+            ul {
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 1.4em;
+                
+                a {
+                    text-decoration: none;
+                    color: @color-text-gray-dark;
+                    
+                    &:hover { color: @color-red; }
+                }
+            }
+            
+        }
+        
+    }
 }
 
 // # content screens

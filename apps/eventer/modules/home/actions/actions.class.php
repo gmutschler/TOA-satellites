@@ -94,4 +94,7 @@ class homeActions extends sfActions {
 		// ** home alone will take care of callbacks (if any)
 		$this->forward('home', 'index');
 	}
+    
+    public function executeColophon(sfWebRequest $request) { }
+    public function executePrivacy(sfWebRequest $request) { }
 }
