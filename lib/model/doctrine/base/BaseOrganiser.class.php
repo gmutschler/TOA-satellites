@@ -8,7 +8,10 @@
  * @property integer $user_id
  * @property string $name
  * @property string $description
+ * @property string $logo
  * @property string $url
+ * @property string $twitter
+ * @property string $facebook
  * @property integer $eventbrite_id
  * @property Doctrine_Collection $Events
  * @property sfGuardUser $GuardUser
@@ -16,14 +19,20 @@
  * @method integer             getUserId()        Returns the current record's "user_id" value
  * @method string              getName()          Returns the current record's "name" value
  * @method string              getDescription()   Returns the current record's "description" value
+ * @method string              getLogo()          Returns the current record's "logo" value
  * @method string              getUrl()           Returns the current record's "url" value
+ * @method string              getTwitter()       Returns the current record's "twitter" value
+ * @method string              getFacebook()      Returns the current record's "facebook" value
  * @method integer             getEventbriteId()  Returns the current record's "eventbrite_id" value
  * @method Doctrine_Collection getEvents()        Returns the current record's "Events" collection
  * @method sfGuardUser         getGuardUser()     Returns the current record's "GuardUser" value
  * @method Organiser           setUserId()        Sets the current record's "user_id" value
  * @method Organiser           setName()          Sets the current record's "name" value
  * @method Organiser           setDescription()   Sets the current record's "description" value
+ * @method Organiser           setLogo()          Sets the current record's "logo" value
  * @method Organiser           setUrl()           Sets the current record's "url" value
+ * @method Organiser           setTwitter()       Sets the current record's "twitter" value
+ * @method Organiser           setFacebook()      Sets the current record's "facebook" value
  * @method Organiser           setEventbriteId()  Sets the current record's "eventbrite_id" value
  * @method Organiser           setEvents()        Sets the current record's "Events" collection
  * @method Organiser           setGuardUser()     Sets the current record's "GuardUser" value
@@ -49,7 +58,19 @@ abstract class BaseOrganiser extends sfDoctrineRecord
              'type' => 'string',
              'length' => 256,
              ));
+        $this->hasColumn('logo', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
         $this->hasColumn('url', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
+        $this->hasColumn('twitter', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
+        $this->hasColumn('facebook', 'string', 128, array(
              'type' => 'string',
              'length' => 128,
              ));

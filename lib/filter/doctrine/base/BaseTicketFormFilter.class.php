@@ -23,6 +23,9 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
       'quantity_free'     => new sfWidgetFormFilterInput(),
       'eventbrite_id'     => new sfWidgetFormFilterInput(),
       'evenbrite_id_free' => new sfWidgetFormFilterInput(),
+      'created_at'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'updated_at'        => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'attendees_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Attendee')),
     ));
 
     $this->setValidators(array(
@@ -36,6 +39,9 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
       'quantity_free'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'eventbrite_id'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'evenbrite_id_free' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'created_at'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'updated_at'        => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'attendees_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Attendee', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('ticket_filters[%s]');
@@ -45,6 +51,24 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
     $this->setupInheritance();
 
     parent::setup();
+  }
+
+  public function addAttendeesListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.AttendeeTicket AttendeeTicket')
+      ->andWhereIn('AttendeeTicket.attendee_id', $values)
+    ;
   }
 
   public function getModelName()
@@ -66,6 +90,9 @@ abstract class BaseTicketFormFilter extends BaseFormFilterDoctrine
       'quantity_free'     => 'Number',
       'eventbrite_id'     => 'Number',
       'evenbrite_id_free' => 'Number',
+      'created_at'        => 'Date',
+      'updated_at'        => 'Date',
+      'attendees_list'    => 'ManyKey',
     );
   }
 }

@@ -14,6 +14,7 @@ options:
   charset:            UTF8
   type:               innodb
 
+
 Category:
   columns:
     name:
@@ -24,6 +25,7 @@ Category:
       local:            id
       foreign:          category_id
       type:             many
+
 
 Organiser:
   columns:
@@ -58,16 +60,28 @@ Organiser:
       type:     one
       foreignType: one
 
-#EventTicket:
-#  columns:
-#    event_id:
-#      type: integer
-#      primary: true
-#    ticket_id:
-#      type: integer
-#      primary: true
+
+Attendee:       # ** this is just a sub-class for sfGuardUser, since that object itself cannot be related many-to-many
+  columns:
+    user_id:
+      type:     integer
+      notnull:  true
+    has_main_ticket:
+      type:     boolean
+      default:  false
+
+  relations:
+    GuardUser:
+      class:    sfGuardUser
+      local:    user_id
+      foreign:  id
+      type:     one
+      foreignType: one
+
 
 Ticket:
+  actAs: 
+    Timestampable: ~
   columns:
     event_id:
       type: integer
@@ -93,23 +107,6 @@ Ticket:
     evenbrite_id_free:
       type: integer(16)         # for free ticket
 
-    # if the organiser 
-
-#    currency:                  ** always in EUR, remember to push to API though
-#      type: string(3)
-#    visible:
-#      type: boolean
-#      default: false
-#    max:
-#      type: integer(5)
-#    min:
-#      type: integer(5)
-#    start_date:
-#      type: timestamp
-
-#    type:
-#      type: integer(1) 
-
   relations:
     Event:
       local:            event_id
@@ -117,30 +114,27 @@ Ticket:
       type:             one
       foreignType:      many
       foreignAlias:     Tickets
-#  relations:
-#    Events:
-#      class:            Event
-#      refClass:         EventTicket
-#      foreignAlias:     Events
+    Attendees:
+      class:            Attendee
+      refClass:         AttendeeTicket
+      foreignAlias:     Tickets
 
-Attendee:
+
+AttendeeTicket:
   columns:
-    user_id:
+    attendee_id:
       type: integer
-    event_id:
+      notnull: true
+    ticket_id:
       type: integer
-    confirmed:
-      type: boolean
-      default: true # experimental
+      notnull: true
+
   relations:
-    sfGuardUser:
-      local: user_id
-      foreign: id
-      foreignAlias: Attendees
-    Event:
-      local: event_id
-      foreign: id
-      foreignAlias: Attendees
+    Ticket:
+      foreignAlias: AttendeeTickets
+    Attendee:
+      foreignAlias: AttendeeTickets
+
 
 Event:
   actAs:
@@ -202,36 +196,3 @@ Event:
       type: timestamp
     eventbrite_modified:
       type: timestamp
-
-#    venue_id:
-#      type: integer
-#      notnull: true
-#    timezone:
-#      type: string(32)
-#    url:
-#      type: string(128)
-#    capacity:
-#      type: integer(4)
-#    privacy:
-#      type: string(16)
-#    logo_ssl:
-#      type: string(128)
-#    status:
-#      type: string(16)
-#    password:
-#      type: string(160)
-
-#  relations:
-#    Tickets:
-#      class:            Ticket
-#      refClass:         EventTicket
-#      foreignAlias:     Tickets
-
-#  relations:
-#    Tickets:
-#      class:            Ticket
-#      local:            id
-#      foreign:          ticket_id
-#      type:             many
-#      foreignType:      one
-#      foreignAlias:     Event

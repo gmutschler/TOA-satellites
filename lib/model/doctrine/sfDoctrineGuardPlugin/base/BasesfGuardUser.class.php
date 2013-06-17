@@ -23,7 +23,7 @@
  * @property sfGuardForgotPassword $ForgotPassword
  * @property Doctrine_Collection $Tokens
  * @property Organiser $Organiser
- * @property Doctrine_Collection $Attendees
+ * @property Attendee $Attendee
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -43,7 +43,7 @@
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
  * @method Doctrine_Collection   getTokens()                Returns the current record's "Tokens" collection
  * @method Organiser             getOrganiser()             Returns the current record's "Organiser" value
- * @method Doctrine_Collection   getAttendees()             Returns the current record's "Attendees" collection
+ * @method Attendee              getAttendee()              Returns the current record's "Attendee" value
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -62,7 +62,7 @@
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setTokens()                Sets the current record's "Tokens" collection
  * @method sfGuardUser           setOrganiser()             Sets the current record's "Organiser" value
- * @method sfGuardUser           setAttendees()             Sets the current record's "Attendees" collection
+ * @method sfGuardUser           setAttendee()              Sets the current record's "Attendee" value
  * 
  * @package    toaberlin
  * @subpackage model
@@ -166,7 +166,7 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'user_id'));
 
-        $this->hasMany('Attendee as Attendees', array(
+        $this->hasOne('Attendee', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

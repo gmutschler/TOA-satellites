@@ -16,7 +16,10 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
       'user_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('GuardUser'), 'add_empty' => true)),
       'name'          => new sfWidgetFormFilterInput(),
       'description'   => new sfWidgetFormFilterInput(),
+      'logo'          => new sfWidgetFormFilterInput(),
       'url'           => new sfWidgetFormFilterInput(),
+      'twitter'       => new sfWidgetFormFilterInput(),
+      'facebook'      => new sfWidgetFormFilterInput(),
       'eventbrite_id' => new sfWidgetFormFilterInput(),
     ));
 
@@ -24,7 +27,10 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
       'user_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('GuardUser'), 'column' => 'id')),
       'name'          => new sfValidatorPass(array('required' => false)),
       'description'   => new sfValidatorPass(array('required' => false)),
+      'logo'          => new sfValidatorPass(array('required' => false)),
       'url'           => new sfValidatorPass(array('required' => false)),
+      'twitter'       => new sfValidatorPass(array('required' => false)),
+      'facebook'      => new sfValidatorPass(array('required' => false)),
       'eventbrite_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
@@ -49,7 +55,10 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
       'user_id'       => 'ForeignKey',
       'name'          => 'Text',
       'description'   => 'Text',
+      'logo'          => 'Text',
       'url'           => 'Text',
+      'twitter'       => 'Text',
+      'facebook'      => 'Text',
       'eventbrite_id' => 'Number',
     );
   }

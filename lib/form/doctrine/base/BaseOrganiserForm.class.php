@@ -19,7 +19,10 @@ abstract class BaseOrganiserForm extends BaseFormDoctrine
       'user_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('GuardUser'), 'add_empty' => true)),
       'name'          => new sfWidgetFormInputText(),
       'description'   => new sfWidgetFormTextarea(),
+      'logo'          => new sfWidgetFormInputText(),
       'url'           => new sfWidgetFormInputText(),
+      'twitter'       => new sfWidgetFormInputText(),
+      'facebook'      => new sfWidgetFormInputText(),
       'eventbrite_id' => new sfWidgetFormInputText(),
     ));
 
@@ -28,7 +31,10 @@ abstract class BaseOrganiserForm extends BaseFormDoctrine
       'user_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('GuardUser'), 'required' => false)),
       'name'          => new sfValidatorString(array('max_length' => 64, 'required' => false)),
       'description'   => new sfValidatorString(array('max_length' => 256, 'required' => false)),
+      'logo'          => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'url'           => new sfValidatorString(array('max_length' => 128, 'required' => false)),
+      'twitter'       => new sfValidatorString(array('max_length' => 128, 'required' => false)),
+      'facebook'      => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'eventbrite_id' => new sfValidatorInteger(array('required' => false)),
     ));
 

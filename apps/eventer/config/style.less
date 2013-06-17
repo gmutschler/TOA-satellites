@@ -796,17 +796,66 @@ a:hover {
 				.disblock;
 
 				li {
-					.disblock;
-					.formborder;
+					@height-local-li: 183px;		// ** width is the same as @width-layout
+					@padding-local-leftright: 22px;
+					@padding-local-topbottom: 27px;
 
+					.formborder;
+					.relative;
+					.disblock(@width-layout - 2 * @padding-local-leftright - 2px, @height-local-li - 2 * @padding-local-topbottom - 2px);
+
+					padding: @padding-local-topbottom @padding-local-leftright;
 					margin-bottom: 14px;
 
-					.overlay {
-						.disblock;
-						background: rgba(0, 0, 0, .4);
+					// inner elements
+					span {
 
-						z-index: 10;
+						&.overlay {
+							.absolute(0, 0);
+							.disblock(100%, 100%);
+							.tcenter;
+
+							z-index: 10;
+							background: rgba(0, 0, 0, .7);
+
+							span {
+								.titalic;
+
+								color: @color-bg;
+								font-size: 24px;
+							}
+						}
+						&.title {
+							.ffamily(16px, @font-proxima, bold);
+							.tupper;
+
+							color: @color-text;
+
+							.fright {
+								margin-left: 40px;
+							}
+						}
+						&.clear, &.line, &.desc { .disblock }
+						&.line {
+							border-bottom: 1px solid @color-border-dark;
+						}
+						&.desc {
+							width: 502px;
+							margin-top: 10px;
+
+							line-height: 1.4em;
+						}
+						&.book {
+							.absolute;
+							.bottomright(@padding-local-topbottom, @padding-local-leftright);
+
+							a {
+								font-size: 15px;
+
+							}
+						}
 					}
+
 				}
 			}
 
@@ -1070,7 +1119,7 @@ a:hover {
         small {font-size: smaller;}
         big {font-size: larger;}
 
-		a.button_red, input.button_red {
+		a.button_red, input.button_red, a.button_custom {
 
 			.ffamily(21px, @font-proxima, bold);
 			.tupper;
@@ -1078,14 +1127,17 @@ a:hover {
 			padding: 6px 14px;
 
 			color: @color-bg;
-			background-color: @color-red;
 			border: none;
 
+			text-decoration: none;
 			cursor: pointer;
             
-            &:hover {
-                background: @color-text;
-            }
+			&:hover {
+				background: @color-text;
+			}
+		}
+		a.button_red {
+			background-color: @color-red;
 		}
 		a.button_black {
 
@@ -1093,8 +1145,8 @@ a:hover {
 			.tupper;
 
 			padding: 9px 15px;
-            border: 1px solid #000;
-            display: inline-block;
+			border: 1px solid @color-text;
+			display: inline-block;
 
 			color: @color-bg;
 			background: @color-text;

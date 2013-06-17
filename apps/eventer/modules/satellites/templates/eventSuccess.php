@@ -1,3 +1,4 @@
+<?php use_helper('Date') ?>
 <?php // Tweak the local stylesheet to match "your custom color"
 
 if($color = $event->getListingColor()) {
@@ -14,7 +15,7 @@ if($color = $event->getListingColor()) {
 
 		color: <?=$color?>;
 	}
-	#content a.button_red {
+	#content a.button_custom {
 
 		background-color: <?=$color?>;
 	}
@@ -48,6 +49,8 @@ if($color = $event->getListingColor()) {
 
 				<h4><?=$event->getOrganiser()->getName()?></h4>
 
+				<p><?=$event->getOrganiser()->getDescription()?></p>
+
 				<p>TODO: contact button, twitter, facebook, url</p>
 			</div>
 
@@ -71,9 +74,11 @@ if($color = $event->getListingColor()) {
 <?php	foreach($event->getTickets() as $ticket): // TODO: consider making this a re-usable partial (f.e. for user account) ?>
 <?php			// ** paid ticket ?>
 			<li>
-				<span class="title"><span class="qty fright"><?=$ticket->getQuantityPaid()?> remaining</span><span class="date fright"><?=$ticket->getEndDate()?></span><?=$ticket->getName()?></span>
+				<span class="title"><span class="qty fright"><?=$ticket->getQuantityPaid()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEndDate()))?></span><?=$ticket->getName()?></span>
+				<span class="clear line"></span>
+
 				<span class="desc"><?=$ticket->getDescription()?></span>
-				<span class="book"><a class="button_red" href="#" onclick="alert('TODO')"><?=$ticket->getPrice()?>&euro; - Book it</a></span>
+				<span class="book"><a class="button_custom" href="#" onclick="alert('TODO: We are waiting for Eventbrite with this'); return false"><?=$ticket->getPrice()?>&euro; - Book it</a></span>
 
 				<span class="clear"></span>
 			</li>
@@ -85,9 +90,13 @@ TODO:
 */
 ?>
 			<li>
-				<span class="title"><span class="qty fright"><?=$ticket->getQuantityFree()?> remaining</span><span class="date fright"><?=$ticket->getEndDate()?></span><?=$ticket->getName()?> for TOA Attendees</span>
+				<span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="#" onclick="alert('Booo!'); return false;">Buy yours now</a></span>
+
+				<span class="title"><span class="qty fright"><?=$ticket->getQuantityFree()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEndDate()))?></span><?=$ticket->getName()?> for TOA Attendees</span>
+				<span class="clear line"></span>
+
 				<span class="desc"><?=$ticket->getDescription()?></span>
-				<span class="book"><a class="button_red" href="#" onclick="alert('TODO')">FREE - Book it</a></span>
+				<span class="book"><a class="button_custom" href="#" onclick="alert('TODO: We are waiting for Eventbrite with this'); return false">FREE - Book it</a></span>
 
 				<span class="clear"></span>
 			</li>

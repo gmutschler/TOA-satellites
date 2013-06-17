@@ -30,7 +30,6 @@
  * @property Category $Category
  * @property Organiser $Organiser
  * @property Doctrine_Collection $Tickets
- * @property Doctrine_Collection $Attendees
  * 
  * @method integer             getCategoryId()          Returns the current record's "category_id" value
  * @method integer             getOrganiserId()         Returns the current record's "organiser_id" value
@@ -57,7 +56,6 @@
  * @method Category            getCategory()            Returns the current record's "Category" value
  * @method Organiser           getOrganiser()           Returns the current record's "Organiser" value
  * @method Doctrine_Collection getTickets()             Returns the current record's "Tickets" collection
- * @method Doctrine_Collection getAttendees()           Returns the current record's "Attendees" collection
  * @method Event               setCategoryId()          Sets the current record's "category_id" value
  * @method Event               setOrganiserId()         Sets the current record's "organiser_id" value
  * @method Event               setTitle()               Sets the current record's "title" value
@@ -83,7 +81,6 @@
  * @method Event               setCategory()            Sets the current record's "Category" value
  * @method Event               setOrganiser()           Sets the current record's "Organiser" value
  * @method Event               setTickets()             Sets the current record's "Tickets" collection
- * @method Event               setAttendees()           Sets the current record's "Attendees" collection
  * 
  * @package    toaberlin
  * @subpackage model
@@ -198,10 +195,6 @@ abstract class BaseEvent extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('Ticket as Tickets', array(
-             'local' => 'id',
-             'foreign' => 'event_id'));
-
-        $this->hasMany('Attendee as Attendees', array(
              'local' => 'id',
              'foreign' => 'event_id'));
 
