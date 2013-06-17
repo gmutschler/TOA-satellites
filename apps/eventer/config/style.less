@@ -247,6 +247,23 @@ a:hover {
 			}
 		} // end #hero
     
+        &.screen_about_contact .textual .threecolumns {
+            
+            .tcenter;
+        
+            .element {
+                vertical-align: top;
+                display: inline-block;
+                width: 264px;
+                height: 210px;
+                .content-box-inner;
+                border: 1px solid @color-border;
+            
+                h3 { .tupper; }
+                p { .tcenter; }
+            }
+        }
+    
         .location_slider {
             .relative;
         
@@ -386,6 +403,91 @@ a:hover {
                     p {color: @color-retro-bg;}
                 }
             }
+        }
+    
+        #sponsorpackages {
+        
+            .tablecolumn {
+                width: 304px;
+                display: inline-block;
+                border: 1px solid @color-border;
+                vertical-align: top;
+                margin: 40px 4px;
+                background: @color-bg-gray-dark;
+                .tcenter;
+            
+                &.mainbundle h2 {color: @color-red;}
+            
+                h2 {
+                    padding: 0.5em 0;
+                    margin:0;
+                    font-size: 31px;
+                    line-height: 24px;
+                    text-transform: none;
+                    color: @color-text-hero-submenu;
+                }
+            
+                .bundle {
+                    .ffamily(31px, "minion-pro");
+                    font-style: italic;
+                    background: #FBFBF9;
+                    border: 1px solid #CCC;
+                    padding: 1em 0;
+                    color: @color-text-hero-submenu;
+                    line-height: 24px;
+                    width: 310px;
+                    margin-left: -4px;  
+                }
+            
+                ul {
+                    margin: 0;
+                    padding: 0 10px 0 15px;
+                    
+                    li {
+                        line-height: 1.1em;
+                        .ffamily(14px, "proxima-nova");
+                        margin: 1.8em 0 0.6em 0;
+                        list-style-type: none;
+                        
+                        &.item{
+                            text-align: left;
+                            margin: 0.95em 0;
+                            
+                            &.active {
+                                color: #212121;
+                                
+                                &:before {
+                                    color: #21B314;
+                                    content: "\2713";
+                                    width: 1.2em;
+                                    display: block;
+                                    height: 1.4em;
+                                    .fleft;
+                                }
+                            }
+                        
+                            &.inactive {
+                                color: rgba(0,0,0,0.2);
+                                
+                                &:before{
+                                    color: #FFCCCC;
+                                    content: "\2717";
+                                    width: 1.2em;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                
+                    }
+            
+                }
+                
+                .button_black {margin: 10px 0 30px 0;}
+            
+            } 
+            
+            p.lead {.tcenter;}
+        
         }
     
     
