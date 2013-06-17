@@ -38,14 +38,16 @@ Attendee:
 
 <?php endfor ?>
 
-# 5 random categories
+# 4 predefined categories
 Category:
-<?php for($i = 0; $i < 5; $i++): ?>
-  tCategory<?=$i?>:
-
-    name: Test category <?=$i?>
-
-<?php endfor ?>
+  tCategory0:
+    name: Making
+  tCategory1:
+    name: Learning
+  tCategory2:
+    name: Networking
+  tCategory3:
+    name: Performing
 
 # 15 random events
 Event:
@@ -96,7 +98,7 @@ Event:
     eventbrite_logo_url: null
 
 
-    Category:           tCategory<?=rand(0,4)?>
+    Category:           tCategory<?=rand(0,3)?>
 
     Organiser:          tOrganiser<?=rand(0,2)?>
 

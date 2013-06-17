@@ -126,6 +126,4 @@ class EventForm extends BaseEventForm {
 
 		return parent::doSave($con);
 	}
-
-	// LATER: override the binding method to change some values
 }

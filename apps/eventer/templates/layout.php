@@ -20,7 +20,7 @@
 
 			<p><a href="<?=url_for('home/login')?>">Log in with Eventbrite</a></p>
 <?php else: ?>
-			<p>Hello, <?=$sf_user->getGuardUser()->getEmailAddress()?>! <?=link_to('Logout', 'sf_guard_signout') ?></p>
+			<p>Hello, <?=link_to($sf_user->getGuardUser()->getEmailAddress(), 'user/index')?>! <?=link_to('Logout', 'sf_guard_signout') ?></p>
 
 <?php /* <p>Logged in with <?=$sf_user->getMelody('eventbrite')->getToken()->getTokenKey()?>! <?=link_to('Logout', 'sf_guard_signout') ?></p> */ ?>
 <?php endif ?>
@@ -48,6 +48,9 @@
 			<li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"<?php if($sf_context->getModuleName() == 'home') { ?> class="selected"<?php } ?>>Home</a></li>
 			<li><a href="<?=url_for('unconference/index')?>"<?php if($sf_context->getModuleName() == 'unconference') { ?> class="selected"<?php } ?>>The Unconference</a></li>
 			<li><a href="<?=url_for('satellites/index')?>"<?php if($sf_context->getModuleName() == 'satellites') { ?> class="selected"<?php } ?>>The Satellites</a></li>
+<?php if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getOrganiser() and count($sf_user->getGuardUser()->getOrganiser()->getEvents())): ?>
+			<li><a href="<?=url_for('user/hostedevents')?>"<?php if($sf_context->getModuleName() == 'user') { ?> class="selected"<?php } ?>>Manage Events</a></li>
+<?php endif ?>
 			<li><a href="<?=url_for('news/index')?>"<?php if($sf_context->getModuleName() == 'news') { ?> class="selected"<?php } ?>>News</a></li>
 			<li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Partners</a></li>
 			<li><a href="<?=url_for('about/index')?>"<?php if($sf_context->getModuleName() == 'about') { ?> class="selected"<?php } ?>>About us</a></li>
