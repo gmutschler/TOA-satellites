@@ -1,7 +1,15 @@
 <div id="content" class="screen_about_team">
 
-<?php include_partial('hero') ?>
+        <div id="hero">
 
-	<h1>The Team</h1>
+                <div id="hero_background"></div>
+                <div id="hero_foreground"></div>
+        </div>
 
+<?php include_partial('submenu') ?>
+
+	<div class="textual">
+
+		<h1>The Team</h1>
+	</div>
 </div>

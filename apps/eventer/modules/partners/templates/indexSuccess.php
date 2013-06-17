@@ -1,6 +1,12 @@
 <div id="content" class="screen_partners_index">
 
-<?php include_partial('hero') ?>
+        <div id="hero">
+
+                <div id="hero_background"></div>
+                <div id="hero_foreground"></div>
+        </div>
+
+<?php include_partial('submenu') ?>
 
 	<div class="textual">
         <p class="lead">Muchas Gracias to these companies without which this Festival could not take place. If you are interested in supporting us, please have a look at our <a href="partners/supportus">supporter page</a>.</p>

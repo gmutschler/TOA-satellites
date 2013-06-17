@@ -24,7 +24,13 @@ if($color = $event->getListingColor()) {
 
 <div id="content" class="screen_event">
 
-<?php include_partial('hero') ?>
+        <div id="hero">
+
+                <div id="hero_background"></div>
+                <div id="hero_foreground"></div>
+        </div>
+
+<?php include_partial('submenu') ?>
 
 	<div class="textual">
 

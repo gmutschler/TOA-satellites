@@ -188,64 +188,65 @@ a:hover {
 	}
 
 	#content {
-    
+  
+  		// local scope variables for hero and submenus
+ 		@height-local-menu: 33px;
+		@height-local-media: 518px;
+
 
 		// # hero unit block
 		#hero {
-			@height-local-media: 518px;	// TODO: consider if it's not subsite-dependant! if so, maybe pass PHP vars before compiling less?
-			@height-local-menu: 33px;
 
-			.disblock(@height-local-media + @height-local-menu);
+			//.disblock(@height-local-media + @height-local-menu);
+			.disblock(@height-local-media);
 
 			margin-top: 18px;
 
-			#hero_media {
-				height: @height-local-media;
+			#hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
+		} // end #hero
+
+		#hero_submenu {
+			.uborder(@color-border);
+			.ffamily(16px, @font-proxima);
+
+			@padding-local-top: 7px;
+
+			height: @height-local-menu - @padding-local-top;
+			padding-top: @padding-local-top;
+
+			background-color: @color-bg-hero;
+
+			h3, ul { .fleft }
+
+			h3 {
+				.tupper;
+
+				margin: 0 8px 0 12px;
+				padding-right: 16px;
+
+				font-weight: bold;
+
+				background: no-repeat url(@{images-layout}/arrow.png) right 4px;
 			}
 
-			#hero_submenu {
-				.uborder(@color-border);
-				.ffamily(16px, @font-proxima);
+			ul {
 
-				@padding-local-top: 7px;
+				li {
+					.fleft;
+					margin: 0 11px;
 
-				height: @height-local-menu - @padding-local-top;
-				padding-top: @padding-local-top;
+					a {
+						color: @color-text-hero-submenu;
+						text-decoration: none;
 
-				background-color: @color-bg-hero;
+						&:hover, &.selected {
 
-				h3, ul { .fleft }
-
-				h3 {
-					.tupper;
-
-					margin: 0 8px 0 12px;
-					padding-right: 16px;
-
-					font-weight: bold;
-
-					background: no-repeat url(@{images-layout}/arrow.png) right 4px;
-				}
-
-				ul {
-
-					li {
-						.fleft;
-						margin: 0 11px;
-
-						a {
-							color: @color-text-hero-submenu;
-							text-decoration: none;
-
-							&:hover, &.selected {
-
-								color: @color-red;
-							}
+							color: @color-red;
 						}
 					}
 				}
 			}
-		} // end #hero
+		} // & end hero_submenu
     
         &.screen_about_contact .textual .threecolumns {
             
@@ -1239,6 +1240,7 @@ a:hover {
 			padding: 6px 14px;
 
 			color: @color-bg;
+			background-color: @color-red;	// ** to be overriden in button_custom, inside single event page
 			border: none;
 
 			text-decoration: none;
@@ -1247,9 +1249,6 @@ a:hover {
 			&:hover {
 				background: @color-text;
 			}
-		}
-		a.button_red {
-			background-color: @color-red;
 		}
 		a.button_black {
 

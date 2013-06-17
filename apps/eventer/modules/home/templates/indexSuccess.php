@@ -1,17 +1,10 @@
 <div id="content" class="screen_home">
 
-<?php include_partial('global/hero', array(
+	<div id="hero">
 
-	'submenu_title' => 'Home',
-/*
-	'links' => array(
-
-		'Introduction'	=> 'satellites/index',
-		'Book'		=> 'satellites/book',
-		'Host'		=> 'satellites/host'
-	)
-*/
-)) ?>
+		<div id="hero_background"></div>
+		<div id="hero_foreground"></div>
+	</div>
 
 	<div class="textual">
         
