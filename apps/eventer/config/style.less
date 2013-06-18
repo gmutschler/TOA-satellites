@@ -42,9 +42,9 @@
 // # global definitions, classes and less mixins
 .fleft {	float: left		}
 .fright {	float: right		}
-.tleft {	text-align: left	}
+.tleft {	text-align: left }
 .tcenter { 	text-align: center	}
-.tright {	text-align: right	}
+.tright {	text-align: right }
 .titalic {	font-style: italic	}
 .tupper {	text-transform: uppercase	}
 .tnouper {	text-transform: none	}
@@ -52,7 +52,7 @@
 
 .separator {margin-top: 20px;}
 .negmargin-top {   
-    margin-top: -19px;
+    margin-top: -9px;
     z-index: 10 !important;
 }
 .relative {	position: relative	}
@@ -250,7 +250,7 @@ a:hover {
     
 
 		// ! common for known blocks
-		.listing, .textual { margin-top: 36px }
+		.listing, .textual { margin-top: 50px }
 
 		// > listing block
 		.listing {
@@ -456,6 +456,11 @@ a:hover {
 					font-size: 28px;
                     .tleft;
 				}
+            
+                &.tright { text-align: right; }
+                &.tleft { text-align: left; }
+                &.tcenter { text-align: center; }
+                
 			}
             
             ul.bullet {
@@ -486,20 +491,30 @@ a:hover {
 					// inner elements
 					span {
 
-						&.overlay {
-							.absolute(0, 0);
-							.disblock(100%, 100%);
+						&.overlay-container {
+							.absolute(-1, -1);
+							width: 960px;
+                            height: 183px;
+                            display: table;
 							.tcenter;
 
 							z-index: 10;
 							background: rgba(0, 0, 0, .7);
+                        
+                            span.overlay {
+                                display: table-cell;
+                                vertical-align: middle;
+                                margin-bottom: -5px;
+                            
+                                span {
+                                    .titalic;
+    
+                                    color: @color-bg;
+                                    font-size: 21px;
+                                    display: block;
+                                }
+                            }
 
-							span {
-								.titalic;
-
-								color: @color-bg;
-								font-size: 24px;
-							}
 						}
 						&.title {
 							.ffamily(16px, @font-proxima, bold);
@@ -747,6 +762,7 @@ a:hover {
 			.tupper;
 			position: relative;
 			z-index: -10;
+            line-height: 42px;
 
 			span {
 				.tnouper;
@@ -761,7 +777,7 @@ a:hover {
 			&:after {
 				content: "";
 				width: 100%;
-				height: 18px;
+				height: 8px;
 				background: #fff;
 				border-top: 1px solid @color-border-dark;
 				position: absolute;
@@ -1429,6 +1445,73 @@ div.screen_user_home {
                 p { .tcenter; }
             }
             
+        }
+    }
+}
+
+div.screen_event {
+    
+    .textual {
+        
+        h1 {
+            padding-right: 200px;
+            
+            span.time {
+                font-size: 38px !important;
+                margin-top: -1px;
+                margin-right: -199px;
+                .fright;
+            }
+        }
+        
+        .bicolumn {
+            margin-top: 22px;
+            margin-bottom: 85px;
+            
+            .column {
+                border: 1px solid @color-border;
+                
+                &.fleft {
+                    width: 580px;
+                    
+                    .event-image {
+                        min-height: 85px;
+                        margin: -1px -1px -10px -1px;
+                        width: 582px;
+                        .relative;
+                        
+                        img {
+                            min-height: 85px;
+                            display: block;
+                            .mauto;
+                        }
+                        
+                        h2 {
+                            position: absolute;
+                            background: @color-background;
+                            bottom: 20px;
+                            left: 14px;
+                            padding: 2px 12px;
+                        }
+                    }
+                }
+                
+                &.fright {
+                    width: 340px;
+                    .tcenter;
+                    
+                    h3 {.tupper;}
+                    h4 {
+                        margin-bottom: 40px;
+                        .ffamily(28px, @font-minion);
+                    }
+                    img {
+                        margin-top: 35px;
+                        max-height: 120px;
+                        width: auto;
+                    }
+                }
+            }
         }
     }
 }

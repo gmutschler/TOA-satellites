@@ -27,51 +27,63 @@ if($color = $event->getListingColor()) {
         <div id="hero">
 
                 <div id="hero_background"></div>
-                <div id="hero_foreground"></div>
+                <div id="hero_foreground">
+                    <div class="event-location">
+                        <h2>Where?</h2>
+    
+                        <p><?php echo $event->getVenueName() ?><br />
+                            <?=$event->getVenueAddress()?><br />
+                            <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
+                            GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
+                        </p>
+                    </div>
+                </div>
         </div>
 
 <?php include_partial('submenu') ?>
 
 	<div class="textual">
 
-		<h1><?=$event->getTitle()?><span class="time fright"><?=$event->getStartHour()?> - <?=$event->getEndHour()?></span></h1>
+		<h1><?=$event->getTitle()?><span class="time"><?=$event->getStartHour()?> - <?=$event->getEndHour()?></span></h1>
 
 		<div class="bicolumn">
 
 			<div class="column fleft">
 
-				<?php // TODO: background image ?>
+				<div class="event-image">
+                    <?=$event->getLogo()?>
 
-				<h2>Event details</h2>
+				    <h2>Event details</h2>
+                </div>
 
-				<p><?=$event->getDescription()?></p>
+				<div class="content-box-inner"><p><?=$event->getDescription()?></p></div>
 			</div>
 
 			<div class="column fright">
+                <div class="content-box-inner">
 
-				<h3>Organizer</h3>
-
-				<p>TODO: logo</p>
-
-				<h4><?=$event->getOrganiser()->getName()?></h4>
-
-				<p><?=$event->getOrganiser()->getDescription()?></p>
-
-				<p>TODO: contact button, twitter, facebook, url</p>
+                    <h3>Organizer</h3>
+    
+                    <?=$event->getOrganiser()->getLogo()?>
+    
+                    <h4><?=$event->getOrganiser()->getName()?></h4>
+    
+                    <p><?=$event->getOrganiser()->getDescription()?></p>
+                    
+                    <a href="mailto:<?=$event->getOrganiser()->getGuardUser()->getEmailAddress()?>" class="button_black button_black_small" target="_blank">Contact the organizer</a>
+    
+                    <p class="tright">
+                    <a href="<?=$event->getOrganiser()->getTwitter()?>" class="twitter-link" target="_blank"></a>
+                    <a href="<?=$event->getOrganiser()->getFacebook()?>" class="facebook-link" target="_blank"></a>
+                    <a href="<?=$event->getOrganiser()->getUrl()?>" class="website-link" target="_blank"></a>
+                    </p>
+                </div>
 			</div>
-
+            <p>TODO: This event belongs to category: <a href="#link-to-category-there-will-be"><?=$event->getCategory()->getName()?></a></p>
 			<div class="clear"></div>
 		</div>
 
-		<p>TODO: This event belongs to category: <a href="#link-to-category-there-will-be"><?=$event->getCategory()->getName()?></a></p>
-
-		<h2>Where?</h2>
-
-		<p><?php echo $event->getVenueName() ?><br />
-			<?=$event->getVenueAddress()?><br />
-			<?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
-			GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
-		</p>
+		
 
 <?php if($event->getTickets()->count()): ?>
 
@@ -96,7 +108,7 @@ TODO:
 */
 ?>
 			<li>
-				<span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="#" onclick="alert('Booo!'); return false;">Buy yours now</a></span>
+				<span class="overlay-container"><span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="#" onclick="alert('Booo!'); return false;">Buy yours now</a></span></span>
 
 				<span class="title"><span class="qty fright"><?=$ticket->getQuantityFree()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEndDate()))?></span><?=$ticket->getName()?> for TOA Attendees</span>
 				<span class="clear line"></span>
