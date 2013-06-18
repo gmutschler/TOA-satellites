@@ -18,6 +18,7 @@
 <?php endif ?>
 
 <?php include_partial('main_ticket', array('user' => $user)) ?>
+        <div class="clear"></div>
 
 	</div>
 </div>

@@ -12,8 +12,8 @@ all:
     redirect_register: @loggedin
 
     eventbrite:
-      key: DZ3QWRJQG75Z2K7QQ7
-      secret: 5JSC5HEBQQIPAL7SBWOQQ3XME3CKGYSDK7NMTJAJLJOSEFO7UP
+      key: HHW4LA2AAXLKNRAHVX
+      secret: I57ZXVQLRCQFC53236VE6AA6K7BHKY7UAMJPSG7HFXAVKSP2DR
       callback: @homepage
       provider: eventbrite
       request_auth_url: https://www.eventbrite.com/oauth/authorize

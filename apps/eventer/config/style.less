@@ -792,8 +792,10 @@ a:hover {
 				}
 			}
 		}
-        small {font-size: smaller;}
-        big {font-size: larger;}
+        small { font-size: smaller; }
+        big { font-size: larger; }
+        strong { font-weight: 700; }
+        em { font-style: italic; }
     
         a.seemore {
             display: block;
@@ -821,6 +823,7 @@ a:hover {
 			cursor: pointer;
             
 			&:hover {
+                color: @color-bg;
 				background: @color-text;
 			}
 		}
@@ -1405,4 +1408,27 @@ div.screen_host_form {	// "edit" and "new" screens for the event
 	#hero {
 		margin-bottom: 36px;
 	}
+}
+
+div.screen_user_home {
+    &#content{
+        .textual {
+            .profile-basic-infos {
+                .fleft;
+                width: 50%;
+                margin-right: 10%;
+                
+            }
+            .profile-main-ticket{
+                width: 280px;
+                .fleft;
+                .content-box-inner;
+                border: 1px solid @color-border;
+                .tcenter;
+                
+                p { .tcenter; }
+            }
+            
+        }
+    }
 }

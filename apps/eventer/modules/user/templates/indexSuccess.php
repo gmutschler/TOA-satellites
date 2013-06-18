@@ -6,18 +6,20 @@
 
 		<h1>User profile</h1>
 
+        <div class="profile-basic-infos">
 		<h2>Your basic information</h2>
-		<ul>
-			<li>Name: <?=$user->getFirstName()?></li>
-			<li>Surname: <?=$user->getLastName()?></li>
-			<li>E-mail address: <?=$user->getEmailAddress()?></li>
-			<li>Last successful login: <?=$user->getLastLogin()?></li>
-		</ul>
-
+            <ul>
+                <li><strong>Surname:</strong> <?=$user->getFirstName()?></li>
+                <li><strong>Name:</strong> <?=$user->getLastName()?></li>
+                <li><strong>E-mail address:</strong> <?=$user->getEmailAddress()?></li>
+                <li><strong>Last successful login:</strong> <?=$user->getLastLogin()?></li>
+            </ul>
+        </div>
 <?php include_partial('main_ticket', array('user' => $user)) ?>
+        <div class="clear"></div>
 	</div>
 
-	<div class="forms">
+	<div class="textual forms">
 
 		<h2>Your organizer profile</h2>
 <?php include_partial('form', array('form' => $form)) ?>
