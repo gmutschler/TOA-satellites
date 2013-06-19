@@ -26,16 +26,10 @@
         <h2>Our partner locations</h2>
         <div class="location_slider">
             <div id="scrollarea1" class="slider_content">
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
-                <a href="http://www.amanogroup.de/en/hotels/amano/"><img src="/images/content/locations/amano.jpg"></a>
+                <a href="http://agoracollective.org/" target="_blank"><img src="/images/content/locations/agora.jpg"></a>
+                <a href="http://www.ahoyberlin.com/" target="_blank"><img src="/images/content/locations/ahoy.jpg"></a>
+                <a href="http://betahaus.de/" target="_blank"><img src="/images/content/locations/betahaus.jpg"></a>
+                <a href="http://www.amanogroup.de/en/hotels/amano/" target="_blank"><img src="/images/content/locations/amano.jpg"></a>
             </div>
             <a class="slider_nav slider_previous" onmouseover="scrollDiv('scrollarea1', 4)" onmouseout="clearTimeout(timer1)" onmousedown="scrollDiv('scrollarea1', 8)" onmouseup="clearTimeout(timer1)"></a>
             <a class="slider_nav slider_next" onmouseover="scrollDiv('scrollarea1', -4)" onmouseout="clearTimeout(timer1)" onmousedown="scrollDiv('scrollarea1', -8)" onmouseup="clearTimeout(timer1)"></a>
