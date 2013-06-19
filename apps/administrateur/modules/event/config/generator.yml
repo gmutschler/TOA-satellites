@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Event
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          event
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+    css:                   nothing
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [=title, start_hour, end_hour, category, organiser, moderated]
+        max_per_page: 500
+      filter:
+        display: [category_id, organiser_id, title, description, start_hour, end_hour, listing_color, moderated, venue_name, venue_city, venue_postal_code, eventbrite_id]
+        fields:
+          eventbrite_id:
+            label: Eventbrite ID
+      form:    ~
+      edit:    ~
+      new:     ~

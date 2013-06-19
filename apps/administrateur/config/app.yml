@@ -1,0 +1,34 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  sf_admin_dash:
+    web_dir:                    /sfAdminDashPlugin
+    image_dir:                  /sfAdminDashPlugin/images/icons/
+    default_image:              config.png
+    resize_mode:                thumbnail
+    site:                       TOA Berlin - Le Administrateur
+    include_jquery_no_conflict: true
+
+    categories:
+      Events:
+        items:
+          Categories:
+            url:    category
+            image:  sections.png
+          Events:
+            url:    event
+            image:  impressions.png
+      Users:
+        items:
+          Profiles:
+            url:    sf_guard_user
+            image:  users.png
+          Organisers:
+            url:    organiser
+            image:  support.png
+          Attendees:
+            url:    attendee
+            image:  addusers.png
+# TODO

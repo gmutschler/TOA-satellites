@@ -1,10 +1,16 @@
 # NOTE: Funny bug discovered here. Any line containing PHP code MUST BE finished with \n, otherwise fixture loading will produce a lot of strange, irrational and almost untraceable errors
 
-# 5 random users that may be organisers
+# 1 predefined superadmin and 5 random users that may be organisers
 sfGuardUser:
-<?php for($i = 0; $i < 5; $i++): ?>
+  tUser0:
+    first_name:         TOA
+    last_name:          Administrator
+    username:           administrateur
+    password:           toa4ever
+    email_address:      siteadmin@toaberlin.com
+<?php for($i = 1; $i < 6; $i++): ?>
   tUser<?=$i?>:
-    first_name:         Johnny<?=$i?>
+    first_name:         Timmy<?=$i?>
 
     last_name:          Kahoota<?=$i?>
 
@@ -16,7 +22,7 @@ sfGuardUser:
 <?php endfor ?>
 
 Organiser:
-<?php for($i = 0; $i < 5; $i++): ?>
+<?php for($i = 0; $i < 6; $i++): ?>
   tOrganiser<?=$i?>:
     eventbrite_id:      <?=rand(5000,200000)?>
 
@@ -31,7 +37,7 @@ Organiser:
 <?php endfor ?>
 
 Attendee:
-<?php for($i = 0; $i < 5; $i++): ?>
+<?php for($i = 0; $i < 6; $i++): ?>
   tAttendee<?=$i?>:
 
     GuardUser:          tUser<?=$i?>

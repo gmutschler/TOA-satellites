@@ -9,10 +9,15 @@ class ProjectConfiguration extends sfProjectConfiguration {
 
 		$this->enablePlugins(array(
 
+			// eventer app
 			'sfDoctrinePlugin',
 			'sfDoctrineGuardPlugin',
 			'sfDoctrineOAuthPlugin',
-			'sfMelodyPlugin'
+			'sfMelodyPlugin',
+
+			// administrateur app
+			'sfJqueryReloadedPlugin',
+			'sfAdminDashPlugin'
 		));
 
 		//$this->enableAllPluginsExcept(array('sfPropelPlugin'));
