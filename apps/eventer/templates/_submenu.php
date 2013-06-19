@@ -15,14 +15,16 @@ $local_route = $sf_context->getRouting()->getCurrentInternalUri();
 ?>
 <?php if(isset($submenu_title) and isset($links)): ?>
 	<div id="hero_submenu">
-
-		<h3><?=$submenu_title?></h3>
-<?php	if(isset($links) and count($links)): ?>
-		<ul>
-<?php		foreach($links as $link_title => $link_route): ?>
-			<li><a href="<?=url_for($link_route)?>"<?php if($link_route == $local_route) { ?> class="selected"<?php } ?>><?=$link_title?></a></li>
-<?php		endforeach ?>
-		</ul>
-<?php 	endif ?>
-	</div>
+        <div id="submenu-bg"></div>
+        <div id="submenu-content">
+            <h3><?=$submenu_title?></h3>
+    <?php	if(isset($links) and count($links)): ?>
+            <ul>
+    <?php		foreach($links as $link_title => $link_route): ?>
+                <li><a href="<?=url_for($link_route)?>"<?php if($link_route == $local_route) { ?> class="selected"<?php } ?>><?=$link_title?></a></li>
+    <?php		endforeach ?>
+            </ul>
+    <?php 	endif ?>
+        </div>
+    </div>
 <?php endif ?>

@@ -19,34 +19,39 @@
         </p>
 
         <hr>
-        <div class="threecolumns">
+        <div class="fourcolumns">
             <div class="element">
-                <h3>Partners & Sponsors</h3>
-                <h2><small>Maryem El Himani</small></h2>
+                <h3>Sponsoring</h3>
+                <h2>Maryem El Himani</h2>
                 <p>
-                    <a href="mailto:sponsoring@toaberlin.com">sponsoring@toaberlin.com</a><br />
-                    <a href="de.linkedin.com/pub/maryem-el-himani/61/961/326">Linkedin</a>
+                    <a href="mailto:sponsoring@toaberlin.com">sponsoring@toaberlin.com</a>
                 </p>
             </div>    
         
             <div class="element">
                 <h3>Press & Media</h3>
-                <h2><small>Kerstin Bock</small></h2>
+                <h2>Kerstin Bock</h2>
                 <p>
-                    (+49) 160-9466-2108<br>
                     <a href="mailto:press@toaberlin.com" target="_blank">press@toaberlin.com</a><br />
-                    <a href="http://twitter.com/KerstinKolumna" target="_blank">@KerstinKolumna</a><br />
-                    <a href="http://de.linkedin.com/in/kerstinbock" target="_blank">Linkedin</a>
+                    <a href="http://www.twitter.com/TOABerlin">Twitter</a>
+            </div>
+            
+            <div class="element">
+                <h3>Program</h3>
+                <h2>Nadine Riede</h2>
+                <p>
+                    <a href="mailto:speakers@toaberlin.com">speakers@toaberlin.com</a>
                 </p>
             </div>
             
             <div class="element">
-                <h3>Speakers Relations</h3>
-                <h2><small>Nadine Riede</small></h2>
+                <h3>Satellites</h3>
+                <h2>Kerstin Bock</h2>
                 <p>
-                    <a href="speakers@toaberlin.com">speakers@toaberlin.com</a>
+                    <a href="mailto:satellite@toaberlin.com" target="_blank">press@toaberlin.com</a>
                 </p>
             </div>
+            
         </div>
             
     </div>

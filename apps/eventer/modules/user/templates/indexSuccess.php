@@ -5,9 +5,9 @@
 	<div class="textual">
 
 		<h1>User profile</h1>
+		<h2>Your basic information</h2>
 
         <div class="profile-basic-infos">
-		<h2>Your basic information</h2>
             <ul>
                 <li><strong>Surname:</strong> <?=$user->getFirstName()?></li>
                 <li><strong>Name:</strong> <?=$user->getLastName()?></li>
