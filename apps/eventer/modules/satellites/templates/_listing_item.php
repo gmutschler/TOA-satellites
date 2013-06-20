@@ -1,6 +1,8 @@
 			<li><a class="big_link" href="<?=$big_link?>">
-					<span class="photo" style="background-image: url('<?=$image?>')">
-						<span><?=$start_hour?></span>
+                    <span class="photo">
+                        <span class="bg-color" style="background:#dc142a"></span>
+                        <img src='<?=$image?>' />
+						<span class="time"><?=$start_hour?></span>
 					</span>
 
 					<span class="data">

@@ -6,6 +6,15 @@
 	'type' => 'upper'
 )) ?>
 
+        <ul class="event-categories">
+            <li class="selected"><a href="">All</a></li>
+            <li><a href="">Category 1</a></li>
+            <li><a href="">Category 2</a></li>
+            <li><a href="">Category 3</a></li>
+            <li><a href="">Category 4</a></li>
+            <li><a href="">Category 5</a></li>
+        </ul>
+
 <?php if(isset($events) and count($events)): ?>
 
 		<ul class="listing_list">
