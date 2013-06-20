@@ -30,11 +30,16 @@ class EventForm extends BaseEventForm {
 		));
 
 		// widgets and validators
-		$this->setWidget('logo', new sfWidgetFormInputFile());
+		$this->setWidget('logo', new sfWidgetFormInputFileEditable(array(
+			'file_src'	=> sfConfig::get('sf_upload_dir') . '/event_images/' . $this->getObject()->logo,
+			'edit_mode'	=> !$this->isNew(),
+			'is_image'	=> true,
+			'with_delete'	=> false
+		)));
 		$this->setValidator('logo', new sfValidatorFile(array(
 
 			'mime_types'	=> 'web_images',
-			'path'		=> sfConfig::get('sf_upload_dir') . '/logos',	// TODO: create this dir
+			'path'		=> sfConfig::get('sf_upload_dir') . '/event_images',
 			'required'	=> false
 		)));
 
@@ -120,6 +125,8 @@ class EventForm extends BaseEventForm {
 			$this->getObject()->setStartDate($startDate);
 			$this->getObject()->setEndDate($endDate);
 		}
+
+		// TODO: play with GPS locations
 
 		// override organizer by attaching it to currently logged on user
 		if($organiser = sfContext::getInstance()->getUser()->getGuardUser()->getOrganiser()) $this->getObject()->setOrganiser($organiser);

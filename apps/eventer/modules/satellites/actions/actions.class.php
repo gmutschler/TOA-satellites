@@ -78,38 +78,56 @@ class satellitesActions extends sfActions {
 
 		$this->form = new EventForm($event);
 	}
+	// TODO: make sure the event belongs to the userwork on below actions
+	public function executeUpdate(sfWebRequest $request) {
+
+		$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+		$this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
+		$this->form = new EventForm($event);
+
+		$this->processForm($request, $this->form);
+
+		$this->setTemplate('edit');
+	}
+
+	protected function processForm(sfWebRequest $request, sfForm $form) {
+
+		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+
+		if($form->isValid()) {
+
+			// prepare stuff for thumbnails
+			// TODO: rethink
+			$file = $this->form->getValue('logo');
+			$extension = $file->getExtension($file->getOriginalExtension());
+			$dir = sfConfig::get('sf_upload_dir') . '/event_images/';
+
+			$event = $form->save();
+
+			// thumbnails
+			if($event->getLogo()) {
+
+				$thumb = new sfThumbnail(174, 126, false, true, 100, 'sfImageMagickAdapter', array('method' => 'shave_all'), true, 'center', 'middle');
+				$thumb->loadFile($dir . $event->getLogo());
+				$thumb->save($dir . $event->getLogo());
+			}
+
+			// message
+			$this->getUser()->setFlash('info', 'Your event has been saved!');
+
+			// redir
+			$this->redirect('satellites/edit?id='.$event->getId());
+		}
+	}
 
 
-// TODO: work on below actions
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
-    $this->form = new EventForm($event);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  public function executeDelete(sfWebRequest $request)
-  {
+  // TODO: deprecate this totally
+  public function executeDelete(sfWebRequest $request) {
     $request->checkCSRFProtection();
 
     $this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
     $event->delete();
 
     $this->redirect('satellites/index');
-  }
-
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $event = $form->save();
-
-      $this->redirect('satellites/edit?id='.$event->getId());
-    }
   }
 }
