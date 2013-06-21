@@ -276,7 +276,7 @@ a:hover {
   
 		// local scope variables for hero and submenus
 		@height-local-menu: 33px;
-		@height-local-media: 518px;
+		@height-local-media: 490px;
         margin-top: 18px;
 
 
@@ -285,7 +285,14 @@ a:hover {
 
 			//.disblock(@height-local-media + @height-local-menu);
 			.disblock(@height-local-media);
+            .relative;
             width: @width-layout + 2;
+        
+            #hero_background, #hero_foreground {
+                .disblock(100%, 100%);
+                .absolute;
+                .topright(0, 0);
+            }
 
 
 			#hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
@@ -366,8 +373,7 @@ a:hover {
 				height: @height-local-widget;
 
 				background: @color-bg-gray no-repeat url(@{images-layout}/timeline.gif) top center;
-				
-
+                
 				a {
 					.disblock(29px, @height-local-widget - 1px);
 					border: 1px solid @color-border-dark;
@@ -492,6 +498,7 @@ a:hover {
 						.ffamily(60px, @font-proxima, 600);
 
 						color: @color-bg-gray;
+                        overflow: hidden;
                     
                         img {
                             .absolute;
@@ -535,12 +542,16 @@ a:hover {
 							line-height: 1em;
 							color: @color-text;
 
-							&.title, &.desc { width: 475px }	// ** hard-limiting widths here
+							&.title, &.desc {
+                                width: 520px;
+                                overflow: hidden;
+                            }	// ** hard-limiting widths here
 							&.title, &.time { .ffamily(15px, @font-proxima, bold) }
 							&.time, &.address { font-size: 16px }
 							&.title {
 								.tupper;
 								.topleft(@position-local-topbottom, @position-local-leftright);
+                                white-space: nowrap;
 							}
 							&.hosted {
 								.titalic;
@@ -562,14 +573,18 @@ a:hover {
 								color: @color-text-gray-dark;
 
 								line-height: 1.25em;
-								letter-spacing: -0.75px;		// ** kind of experimental
-								word-spacing: 1px;
+                                max-height: 63px;
+                                overflow: hidden;
 							}
 							&.address, &.time { .tright }
 							&.address {
 								.topright(@position-local-topbottom, @position-local-leftright);
 
 								line-height: 1.2em;
+                                max-width: 225px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                            
 							}
 							&.time {
 								.bottomright(@position-local-topbottom, @position-local-leftright);
@@ -846,9 +861,14 @@ a:hover {
 
 						margin-top: 44px;
 						padding: 10px 0;
+                    
+                        img {
+                            max-width: 450px;
+                            margin: -1px;
+                        }
 
 						p {
-							margin-bottom: 5px;
+							margin-top: 5px;
 
 							font-size: 13px;
 							line-height: 1.1em;
@@ -925,6 +945,12 @@ a:hover {
 				vertical-align: bottom;
                 line-height: 35px;
 			}
+        
+            a.button_black {
+                line-height: normal;
+                margin-right: 1px;
+                .fright;
+            }
 
 			&:after {
 				content: "";
@@ -1554,6 +1580,47 @@ div.screen_user_home {
 }
 
 div.screen_event {
+    
+    #hero {
+        
+        #hero_foreground {
+            
+            .event-location {
+                .absolute;
+                .bottomright(14px, 18px);
+                .tcenter;
+                
+                border: 2px solid @color-text;
+                background: @color-bg;
+                color: @color-text;
+                padding: 8px 11px 11px 11px;
+                max-width: 220px;
+                min-height: 140px;
+                
+                h3 {
+                    .tupper;
+                    .ffamily(18px, @font-proxima, bold);
+                    
+                    margin-bottom: 0.6em;
+                    
+                }
+                
+                p {
+                    .ffamily(17px, @font-minion);
+                    
+                    line-height: 1.1em;
+                    color: @color-text-gray-dark;
+                    
+                    span {
+                        line-height: 1.2em;
+                        font-size: 18px;
+                        color: @color-text;
+                    }
+                }
+            }
+        }
+        
+    }
 	
 	.textual {
 		
@@ -1592,7 +1659,7 @@ div.screen_event {
 						
 						h2 {
 							position: absolute;
-							background: @color-background;
+							background: @color-bg;
 							bottom: 20px;
 							left: 14px;
 							padding: 2px 12px;

@@ -26,9 +26,9 @@
 			<?=$form['end_hour']->renderError()?>
 		</div>
 		<div class="section upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
-			<p class="notice">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 450px</p>
 			<?=$form['logo']?>
 			<?=$form['logo']->renderError()?>
+            <p class="notice">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 582px</p>
 		</div>
 		<div class="section long description<?php if($form['description']->hasError()) { ?> error<? } ?>">
 			<?=$form['description']?>

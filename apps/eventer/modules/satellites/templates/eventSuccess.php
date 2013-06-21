@@ -29,9 +29,9 @@ if($color = $event->getListingColor()) {
                 <div id="hero_background"></div>
                 <div id="hero_foreground">
                     <div class="event-location">
-                        <h2>Where?</h2>
+                        <h3>Where</h3>
     
-                        <p><?php echo $event->getVenueName() ?><br />
+                        <p><span><?php echo $event->getVenueName() ?></span><br />
                             <?=$event->getVenueAddress()?><br />
                             <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
                             GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
