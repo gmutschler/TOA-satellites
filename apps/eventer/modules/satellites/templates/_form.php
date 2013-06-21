@@ -89,11 +89,6 @@
 	<div class="section_controls">
 		<p class="notice">By clicking the button, you agree to our <a href="#TODO">terms and conditions</a>.</p>
 		<input type="submit" class="button_red" value="<?=$form->getObject()->isNew() ? 'Create event' : 'Update event'?>" />
-
-<?php // TODO: deletion - think of it? ?>
-          <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'satellites/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-          <?php endif; ?>
 	</div>
 
 <?php // background stuff ?>

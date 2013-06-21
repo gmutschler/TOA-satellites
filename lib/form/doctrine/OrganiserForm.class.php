@@ -24,13 +24,20 @@ class OrganiserForm extends BaseOrganiserForm {
 		));
 
 		// widgets and validators
-		$this->setWidget('logo', new sfWidgetFormInputFile());
+		$this->setWidget('logo', new sfWidgetFormInputFileEditable(array(
+
+			'file_src'	=> '/uploads/organiser_images/' . $this->getObject()->logo,
+			'edit_mode'     => !$this->isNew(),
+			'is_image'      => true,
+			'with_delete'   => false	// TODO: think about it
+		)));
 		$this->setValidator('logo', new sfValidatorFile(array(
 
 			'mime_types'	=> 'web_images',
-			'path'		=> sfConfig::get('sf_upload_dir') . '/organizers',	// TODO: create this dir
+			'path'		=> sfConfig::get('sf_upload_dir') . '/organiser_images',
 			'required'	=> false
 		)));
+		$this->validatorSchema['logo_delete'] = new sfValidatorBoolean();
 
 		$this->setWidget('name', new sfWidgetFormInput(
 
@@ -64,7 +71,7 @@ class OrganiserForm extends BaseOrganiserForm {
 	// override the saving method
 	public function doSave($con = null) {
 
-		// TODO: assign user!
+		// LATER: think if we need assigning to user or does it happen automagically?
 		return parent::doSave($con);
 	}
 }

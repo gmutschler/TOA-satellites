@@ -21,7 +21,7 @@
 <?php	foreach($events as $event) include_partial('listing_item', array(
 
 	'big_link'	=> url_for('satellites/event?id=' . $event->getId()),
-	'image'		=> '/images/content/test_event_thumb.png',		// TODO
+	'image'		=> $event->getLogo() ? '/uploads/event_images/thumbs/' . $event->getLogo() : '/images/content/test_event_thumb.png',
 	'start_hour'	=> $event->getStartHour(),
 	'end_hour'	=> $event->getEndHour(),
 	'title'		=> $event->getTitle(),
@@ -32,12 +32,6 @@
 	'ven_addr'	=> $event->getVenueAddress(),
 	'ven_post'	=> $event->getVenuePostalCode(),
 	'ven_city'	=> $event->getVenueCity()
-/*
-	'ven_name'	=> $event->getVenue()->getName(),
-	'ven_addr'	=> $event->getVenue()->getAddress(),
-	'ven_post'	=> $event->getVenue()->getPostalCode(),
-	'ven_city'	=> $event->getVenue()->getCity()
-*/
 )) ?>
 		</ul>
 <?php endif ?>

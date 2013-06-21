@@ -17,7 +17,7 @@
 <?php	foreach($events as $event) include_partial('satellites/listing_item', array(
 
 	'big_link'	=> url_for('satellites/edit?id=' . $event->getId()),
-	'image'		=> '/images/content/test_event_thumb.png',		// TODO
+	'image'		=> $event->getLogo() ? '/uploads/event_images/thumbs/' . $event->getLogo() : '/images/content/test_event_thumb.png',
 	'start_hour'	=> $event->getStartHour(),
 	'end_hour'	=> $event->getEndHour(),
 	'title'		=> $event->getTitle(),

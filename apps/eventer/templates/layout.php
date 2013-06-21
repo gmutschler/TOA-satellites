@@ -21,9 +21,8 @@
 
 			<p><strong><a href="<?=url_for('home/login')?>">Log in with Eventbrite</a></strong></p>
 <?php else: ?>
-			<p><?=link_to('Hi, '.$sf_user->getGuardUser()->getFirstName(), 'user/index')?> | <?=link_to('Logout', 'sf_guard_signout') ?></p>
 
-<?php /* <p>Logged in with <?=$sf_user->getMelody('eventbrite')->getToken()->getTokenKey()?>! <?=link_to('Logout', 'sf_guard_signout') ?></p> */ ?>
+			<p><?=link_to('Hi, '.$sf_user->getGuardUser()->getFirstName(), 'user/index')?> | <?=link_to('Logout', 'sf_guard_signout') ?></p>
 <?php endif ?>
 		</div>
 
@@ -58,7 +57,6 @@
 
  </div>
 
-<?php // TODO: consider if not to grab footer_menu above footer_text in DOM structure for easier JavaScript fun ?>
  <div id="footer">
     <div id="footer-sitemap">
         <div class="footer-column">
@@ -74,7 +72,7 @@
             <h4>Tech Open Air</h4>
             <ul>
                 <li><a href="<?=url_for('about/index')?>">About Us</a></li>
-                <li><a hred="<?=url_for('about/team')?>">The Team</a></li>
+                <li><a href="<?=url_for('about/team')?>">The Team</a></li>
                 <li><a href="<?=url_for('about/contact')?>">Contact</a></li>
                 <li><a href="<?=url_for('home/colophon')?>">Colophon</a></li>
             </ul>
@@ -83,7 +81,7 @@
             <h4>For the Pros</h4>
             <ul>
                 <li><a href="<?=url_for('about/press')?>">Press</a></li>
-                <li><a hred="<?=url_for('partners/supportus')?>">Become a partner</a></li>
+                <li><a href="<?=url_for('partners/supportus')?>">Become a partner</a></li>
                 <li>Developer API (to come)</li>
             </ul>
         </div>
@@ -91,7 +89,7 @@
             <h4>Follow us</h4>
             <ul>
                 <li><a href="http://blog.toaberlin.com">Blog</a></li>
-                <li><a hred="http://www.facebook.com/TechOpenAir">Facebook</a></li>
+                <li><a href="http://www.facebook.com/TechOpenAir">Facebook</a></li>
                 <li><a href="http://twitter.com/TOABerlin/">Twitter</a></li>
                 <li><a href="http://vimeo.com/channels/toaberlin">Vimeo</a></li>
             </ul>

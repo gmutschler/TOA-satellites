@@ -31,10 +31,11 @@ class EventForm extends BaseEventForm {
 
 		// widgets and validators
 		$this->setWidget('logo', new sfWidgetFormInputFileEditable(array(
-			'file_src'	=> sfConfig::get('sf_upload_dir') . '/event_images/' . $this->getObject()->logo,
+
+			'file_src'	=> '/uploads/event_images/' . $this->getObject()->logo,
 			'edit_mode'	=> !$this->isNew(),
 			'is_image'	=> true,
-			'with_delete'	=> false
+			'with_delete'	=> false	// TODO: think about it
 		)));
 		$this->setValidator('logo', new sfValidatorFile(array(
 
@@ -42,6 +43,7 @@ class EventForm extends BaseEventForm {
 			'path'		=> sfConfig::get('sf_upload_dir') . '/event_images',
 			'required'	=> false
 		)));
+		$this->validatorSchema['logo_delete'] = new sfValidatorBoolean();
 
 		$this->setWidget('title', new sfWidgetFormInput(
 

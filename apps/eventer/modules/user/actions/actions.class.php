@@ -51,22 +51,41 @@ class userActions extends sfActions {
 		$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
 		$this->forward404Unless($organiser = Doctrine_Core::getTable('Organiser')->find(array($request->getParameter('id'))), sprintf('Object organiser does not exist (%s).', $request->getParameter('id')));
 
-		// ** think if not to check if the user is actually the owner of the form?
+		// TODO check if the user is actually the owner of the form?
 		$this->form = new OrganiserForm($organiser);
 		$this->processForm($request, $this->form);
 
-		$this->setTemplate('index');	// ** change this if moving organiser somewhere else
+		// set some vars for the view
+		$this->user = $this->getUser()->getGuardUser();
+
+		$this->setTemplate('index');
 	}
 
 	public function processForm(sfWebRequest $request, sfForm $form) {
 
 		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
 
-		if ($form->isValid()) {
+		if($form->isValid()) {
 
 			$organiser = $form->save();
 
+			// rework image
+			if($organiser->getLogo()) {
+
+				$dirImages = sfConfig::get('sf_upload_dir') . '/organiser_images/';
+
+				$logo = new sfThumbnail(245);
+				$logo->loadFile($dirImages . $organiser->getLogo());
+				$logo->save($dirImages . $organiser->getLogo());
+			}
+
+			// message
+			$this->getUser()->setFlash('info', 'Your organiser profile have been saved!');
+
+			// redir
 			$this->redirect('user/index');
 		}
+
+		else $this->getUser()->setFlash('error', 'There was a problem saving your organiser profile!');
 	}
 }

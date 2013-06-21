@@ -49,47 +49,49 @@ if($color = $event->getListingColor()) {
 		<div class="bicolumn">
 
 			<div class="column fleft">
-
 				<div class="event-image">
-                    <?=$event->getLogo()?>
+<?php if($event->getLogo()): ?>
+					<img src="/uploads/event_images/<?=$event->getLogo()?>" alt="<?=$event->getTitle()?>" />
+<?php endif ?>
 
-				    <h2>Event details</h2>
-                </div>
+					<h2>Event details</h2>
+				</div>
 
 				<div class="content-box-inner"><p><?=$event->getDescription()?></p></div>
 			</div>
 
 			<div class="column fright">
-                <div class="content-box-inner">
+				<div class="content-box-inner">
 
-                    <h3>Organizer</h3>
-    
-                    <?=$event->getOrganiser()->getLogo()?>
-    
-                    <h4><?=$event->getOrganiser()->getName()?></h4>
-    
-                    <p><?=$event->getOrganiser()->getDescription()?></p>
-                    
-                    <a href="mailto:<?=$event->getOrganiser()->getGuardUser()->getEmailAddress()?>" class="button_black button_black_small" target="_blank">Contact the organizer</a>
-    
-                    <p class="tright">
-                    <a href="<?=$event->getOrganiser()->getTwitter()?>" class="twitter-link" target="_blank"></a>
-                    <a href="<?=$event->getOrganiser()->getFacebook()?>" class="facebook-link" target="_blank"></a>
-                    <a href="<?=$event->getOrganiser()->getUrl()?>" class="website-link" target="_blank"></a>
-                    </p>
-                </div>
+					<h3>Organizer</h3>
+		   
+		<?php if($event->getOrganiser()->getLogo()): ?>
+					<img src="/uploads/organiser_images/<?=$event->getOrganiser()->getLogo()?>" alt="<?=$event->getOrganiser()->getName()?>" />
+		<?php endif ?>
+		    
+					<h4><?=$event->getOrganiser()->getName()?></h4>
+		    
+					<p><?=$event->getOrganiser()->getDescription()?></p>
+				    
+					<a href="mailto:<?=$event->getOrganiser()->getGuardUser()->getEmailAddress()?>" class="button_black button_black_small" target="_blank">Contact the organizer</a>
+		    
+					<p class="tright">
+						<a href="<?=$event->getOrganiser()->getTwitter()?>" class="twitter-link" target="_blank"></a>
+						<a href="<?=$event->getOrganiser()->getFacebook()?>" class="facebook-link" target="_blank"></a>
+						<a href="<?=$event->getOrganiser()->getUrl()?>" class="website-link" target="_blank"></a>
+					</p>
+				</div>
 			</div>
-            <p>TODO: This event belongs to category: <a href="#link-to-category-there-will-be"><?=$event->getCategory()->getName()?></a></p>
+
+			<p>TODO: This event belongs to category: <a href="#link-to-category-there-will-be"><?=$event->getCategory()->getName()?></a></p>
 			<div class="clear"></div>
 		</div>
-
-		
 
 <?php if($event->getTickets()->count()): ?>
 
 		<h2>Tickets information</h2>
 		<ul class="tickets_list">
-<?php	foreach($event->getTickets() as $ticket): // TODO: consider making this a re-usable partial (f.e. for user account) ?>
+<?php	foreach($event->getTickets() as $ticket): // LATER: consider making this a re-usable partial (f.e. for user account) ?>
 <?php			// ** paid ticket ?>
 			<li>
 				<span class="title"><span class="qty fright"><?=$ticket->getQuantityPaid()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEndDate()))?></span><?=$ticket->getName()?></span>

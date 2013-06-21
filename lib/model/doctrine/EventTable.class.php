@@ -11,6 +11,21 @@ class EventTable extends Doctrine_Table {
 
 	public function getEventsForPage($page = 0) {
 
+		// base query
+		$q = $this->createQuery()
+
+			->from('Event e')
+			->where('moderated = ?', true)
+		;
+
+		// hourly pagination hacks
+		if(is_numeric($page) and $page > 0) {
+
+			$end_hour = 3 * $page;	// ** HARDCODED
+
+			$q->addWhere('e.end_hour <= ADDDATE(e.start_hour, INTERVAL ? HOUR)', $end_hour);
+		}
+		/*
 		if($page == 0) {
 
 			$events = $this->createQuery('a')
@@ -22,15 +37,16 @@ class EventTable extends Doctrine_Table {
 			// TODO: calculate referal hour from $page variable
 
 			$sql = 'SELECT * FROM event e WHERE e.start_date <= ADDDATE(e.start_date, INTERVAL 3 HOUR)';
-	/*
 			$date_start = $page * 
 
 			$events = $this->createQuery('a')
 			->
-	*/
 		}
+		*/
 
-		return $events;
+		// sort and execute
+		$q->orderBy('start_date');
+		return $q->execute();
 	}
 
 	// user-to-event getters

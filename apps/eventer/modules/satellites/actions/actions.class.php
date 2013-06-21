@@ -71,8 +71,13 @@ class satellitesActions extends sfActions {
 	}
 	public function executeEdit(sfWebRequest $request) {
 
-		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
 		$this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
+
+		if(!$this->getUser()->isAuthenticated()) {
+
+			$this->getUser()->setAttribute('loginCallback', 'satellites/edit?id=' . $request->getParameter('id'));
+			$this->forward('home', 'login');
+		}
 
 		// TODO: make sure the event belongs to the user
 
@@ -80,6 +85,8 @@ class satellitesActions extends sfActions {
 	}
 	// TODO: make sure the event belongs to the userwork on below actions
 	public function executeUpdate(sfWebRequest $request) {
+
+		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
 
 		$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
 		$this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
@@ -96,38 +103,34 @@ class satellitesActions extends sfActions {
 
 		if($form->isValid()) {
 
-			// prepare stuff for thumbnails
-			// TODO: rethink
-			$file = $this->form->getValue('logo');
-			$extension = $file->getExtension($file->getOriginalExtension());
-			$dir = sfConfig::get('sf_upload_dir') . '/event_images/';
-
+			// save the event with all the data
 			$event = $form->save();
 
-			// thumbnails
+			// rework image and thumbnail
 			if($event->getLogo()) {
 
+				// some defaults
+				$dirImages = sfConfig::get('sf_upload_dir') . '/event_images/';
+				$dirThumbs = $dirImages . 'thumbs/';
+
+				// override the original with shrinked image
+				$big = new sfThumbnail(582);
+				$big->loadFile($dirImages . $event->getLogo());
+				$big->save($dirImages . $event->getLogo());
+
+				// make thumbnail
 				$thumb = new sfThumbnail(174, 126, false, true, 100, 'sfImageMagickAdapter', array('method' => 'shave_all'), true, 'center', 'middle');
-				$thumb->loadFile($dir . $event->getLogo());
-				$thumb->save($dir . $event->getLogo());
+				$thumb->loadFile($dirImages . $event->getLogo());
+				$thumb->save($dirThumbs . $event->getLogo());
 			}
 
 			// message
-			$this->getUser()->setFlash('info', 'Your event has been saved!');
+			$this->getUser()->setFlash('info', 'Your event have been saved!');
 
 			// redir
 			$this->redirect('satellites/edit?id='.$event->getId());
 		}
+
+		else $this->getUser()->setFlash('error', 'There was a problem saving your event!');
 	}
-
-
-  // TODO: deprecate this totally
-  public function executeDelete(sfWebRequest $request) {
-    $request->checkCSRFProtection();
-
-    $this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
-    $event->delete();
-
-    $this->redirect('satellites/index');
-  }
 }

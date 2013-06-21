@@ -1,0 +1,11 @@
+
+# 2013-06-21
+- Added working image code for events (creating, editing, listing, single
+  event view, user's own events view)
+- Completely removed event deletion by user (as suggested)
+- Added few sanity checks in event editing methods (checking if user is logged
+  in)
+- Added working image code for organisers (creating, editing, single event
+  view)
+- Added few good and bad flash messages (event saving, organiser saving)
+- Some (sadly failish) coding around the time pagination

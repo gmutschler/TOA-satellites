@@ -17,7 +17,9 @@
 			<?=$form['description']?>
 			<?=$form['description']->renderError()?>
 		</div>
-		<div class="section long<?php if($form['logo']->hasError()) { ?> error<? } ?>">
+		<div class="section long upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
+			<p class="notice">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 245px</p>
+
 			<?=$form['logo']?>
 			<?=$form['logo']->renderError()?>
 		</div>
