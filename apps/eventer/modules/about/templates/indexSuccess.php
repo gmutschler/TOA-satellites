@@ -2,8 +2,9 @@
 
 	<div id="hero">
 
-		<div id="hero_background"></div>
-		<div id="hero_foreground"></div>
+		<div id="hero_background"><img src="/images/content/aboutus-hero-bg.jpg" /></div>
+		<div id="hero_foreground">
+        </div>
 	</div>
 
 <?php include_partial('submenu') ?>

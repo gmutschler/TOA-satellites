@@ -2,14 +2,18 @@
 
         <div id="hero">
 
-                <div id="hero_background"></div>
-                <div id="hero_foreground"></div>
+                <div id="hero_background">
+                <img src="/images/content/satellite-home-hero-bg.jpg" />
+                <span  class="photo_credit">Photo by Thomas Charbit</span>
+                </div>
+                <div id="hero_foreground">
+                    <h1><span>Discover more than 50 events</span><br /><span>all around the city</span></h1>
+                </div>
         </div>
 
 <?php include_partial('submenu') ?>
 
 	<div class="textual">
-        <h1>The Satellites</h1>
         <p class="lead">On the second day, TOA becomes a platform for the Berlin ecosystem to build upon.<br />
         <small>Showcase your product, gather likeminded people over coffe or throw a party. The format is up to you, we help you along the way.</small></p>
     </div>

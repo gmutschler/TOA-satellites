@@ -276,7 +276,7 @@ a:hover {
   
 		// local scope variables for hero and submenus
 		@height-local-menu: 33px;
-		@height-local-media: 490px;
+		@height-local-media: 480px;
         margin-top: 18px;
 
 
@@ -293,8 +293,50 @@ a:hover {
                 .absolute;
                 .topright(0, 0);
             }
+        
+            #hero_background {z-index: -10;}
+            #hero_foreground {z-index: 0;}
+        
+            h1 {
+                color: @color-text;
+                .absolute;
+                .topleft(35%, 15px);
+            
+                span {
+                    font-size: 31px;
+                    display: inline-block;
+                    margin-bottom: 1px;
+                    padding: 6px 15px;
+                    background: @color-bg;
+                    font-style: normal;
+                
+                    .tupper;
+                }
+                
+                &:after {
+                    content:"";
+                    height: 0;
+                    border-top: none;
+                }
+            }
 
-
+            span.photo_credit {
+                .absolute;
+                .bottomright(5px,10px);
+                .ffamily(13px, @font-minion);
+            
+                font-style: italic;
+                color: @color-bg;
+                filter : alpha(opacity=60);
+                opacity: 0.6;
+            
+                
+                a {
+                    text-decoration: none;
+                    &:hover {color: @color-bg;}
+                }
+            }
+            
 			#hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
 		} // end #hero
 
