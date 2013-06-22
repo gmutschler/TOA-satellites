@@ -160,9 +160,6 @@ class sfEventbriteMelody extends sfMelody2 {
 	}
 	public function getEventsForUser($email) {
 
-		// ** enhace with more params if needed
-		// TODO: make it not importing passed events
-		// http://developer.eventbrite.com/doc/users/user_list_events/
 		return $this->localGet('user_list_events', array(
 
 			'email'	=> $email
@@ -175,5 +172,9 @@ class sfEventbriteMelody extends sfMelody2 {
 			'email' => $email,
 			'type' => 'all'
 		));
+	}
+	public function getOrganisersForCurrentUser() {
+
+		return $this->localGet('user_list_organizers');	// NOTE: This fails
 	}
 }

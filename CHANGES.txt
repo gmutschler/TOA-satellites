@@ -1,5 +1,14 @@
+# 2013-06-22 (day)
+- Modified database schema to handle 7 digits after coma for latitude and
+  longitude storing
+- The user creation process will make basic organiser and attendee profiles
+  for the user
+- Partially fixed the logout bug causing circular login redirections in
+  certain situations
 
-# 2013-06-22
+
+
+# 2013-06-22 (night)
 - Added custom map pin image creation with ImageMagick (pins are saved to
   web/uploads/event_images/pins/%event_id.png)
 - Incorporated basic pagination logic

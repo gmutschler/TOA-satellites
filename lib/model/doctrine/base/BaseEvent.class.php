@@ -20,8 +20,8 @@
  * @property string $venue_address
  * @property string $venue_city
  * @property integer $venue_postal_code
- * @property float $venue_latitude
- * @property float $venue_longitude
+ * @property decimal $venue_latitude
+ * @property decimal $venue_longitude
  * @property integer $venue_eventbrite_id
  * @property integer $eventbrite_id
  * @property string $eventbrite_logo_url
@@ -46,8 +46,8 @@
  * @method string              getVenueAddress()        Returns the current record's "venue_address" value
  * @method string              getVenueCity()           Returns the current record's "venue_city" value
  * @method integer             getVenuePostalCode()     Returns the current record's "venue_postal_code" value
- * @method float               getVenueLatitude()       Returns the current record's "venue_latitude" value
- * @method float               getVenueLongitude()      Returns the current record's "venue_longitude" value
+ * @method decimal             getVenueLatitude()       Returns the current record's "venue_latitude" value
+ * @method decimal             getVenueLongitude()      Returns the current record's "venue_longitude" value
  * @method integer             getVenueEventbriteId()   Returns the current record's "venue_eventbrite_id" value
  * @method integer             getEventbriteId()        Returns the current record's "eventbrite_id" value
  * @method string              getEventbriteLogoUrl()   Returns the current record's "eventbrite_logo_url" value
@@ -154,11 +154,15 @@ abstract class BaseEvent extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 6,
              ));
-        $this->hasColumn('venue_latitude', 'float', null, array(
-             'type' => 'float',
+        $this->hasColumn('venue_latitude', 'decimal', 10, array(
+             'type' => 'decimal',
+             'length' => 10,
+             'scale' => '7',
              ));
-        $this->hasColumn('venue_longitude', 'float', null, array(
-             'type' => 'float',
+        $this->hasColumn('venue_longitude', 'decimal', 10, array(
+             'type' => 'decimal',
+             'length' => 10,
+             'scale' => '7',
              ));
         $this->hasColumn('venue_eventbrite_id', 'integer', 16, array(
              'type' => 'integer',

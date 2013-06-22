@@ -8,4 +8,5 @@
  <li><a href="<?=url_for('apitests/me')?>">user_get</a></li>
  <li><a href="<?=url_for('apitests/userlistevents')?>">user_list_events</a></li>
  <li><a href="<?=url_for('apitests/userlisttickets')?>">user_list_tickets</a></li>
+ <li><a href="<?=url_for('apitests/userlistorganisers')?>">user_list_organisers</a></li>
 </ul>

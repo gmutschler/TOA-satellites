@@ -4,9 +4,6 @@
 #  - If the event has paid tickets, and the user already bought the main ticket, only the free tickets should be displayed
 #    (dig around their API); probably do some user flag sayign "main ticket bought"
 #
-#  TODO:
-#  - Check how the fuck to add float with more spaces after coma FOR FUCKS SAKE
-#
 #  LATER:
 #  - Optimize certain defined values basing on real world examples
 #  - Add optimizations as notnulls, primary keys, indexes, etc.
@@ -182,9 +179,9 @@ Event:
     venue_postal_code:
       type: integer(6)
     venue_latitude:
-      type: float  # TODO: try forcing more stuff after coma
+      type: decimal(10,7)       # ** gmaps lat/lng sometimes need ever 15 places after coma
     venue_longitude:
-      type: float  # TODO: ^^
+      type: decimal(10,7)
     venue_eventbrite_id:
       type: integer(16)
 

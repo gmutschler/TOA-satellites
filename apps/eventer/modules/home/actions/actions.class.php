@@ -28,11 +28,13 @@ class homeActions extends sfActions {
 		if(!$this->getUser()->isAuthenticated()) $this->getUser()->connect('eventbrite');
 		else $this->forward('home', 'index');
 	}
-	public function executeLogout(sfWebRequest $request) {	// FIXME copy sfGuard logout action here and UNSET SESSION STUFF there as it bugs!
+	/*
+	public function executeLogout(sfWebRequest $request) {	// ** CONSIDER copy sfGuard logout action here and UNSET SESSION STUFF there as it bugs!
 
 		if($this->getUser()->isAuthenticated()) $this->getUser()->getMelodyUser()->logOut(); // ** notice: this eats all our memory and dies
 		else $this->forward('home', 'index');
 	}
+	*/
 	public function executeLoggedin(sfWebRequest $request) {
 
 		// We have propper settings from the main plugin actions
@@ -44,10 +46,11 @@ class homeActions extends sfActions {
 			$this->getUser()->getAttributeHolder()->remove('melody');
 			$this->getUser()->getAttributeHolder()->remove('melody_user');
 
-			//print($melodyObj->getToken()->getTokenKey());		// get the token key
-
-			// fetch API user data					TODO: check response for errors
+			// fetch API user data
 			$userData = $melodyObj->getUserData(null);
+
+			// check for errors
+			if(isset($userData['error'])) throw new sfException('Oops... something went wrong with the Eventbrite API response!');
 
 			// check if we have a user of given			** this query could be moved to some model method like FindOneByEmail()
 			$q = Doctrine_Query::create()
@@ -72,8 +75,18 @@ class homeActions extends sfActions {
 				$userObj->setEmailAddress($userData['user']['email']);
 				$userObj->save();
 
-				// TODO: create the organiser profile rightaway as well!
+				// create the organiser and attendee profiles too
+				$organiserObj = new Organiser();
+				$organiserObj->setGuardUser($userObj);
+				$organiserObj->setName($userObj->getFirstName() . ' ' . $userObj->getLastName());
+				$organiserObj->save();
+				
+				$attendeeObj = new Attendee();
+				$attendeeObj->setGuardUser($userObj);
+				$attendeeObj->save();
 			}
+
+			// TODO: check for main ticket!
 
 			// sign in and save the user
 			$this->getUser()->signin($userObj, sfConfig::get('app_melody_remember_user', true));
