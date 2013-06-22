@@ -18,6 +18,22 @@ class userActions extends sfActions {
 			$this->forward('home', 'login');
 		}
 		$this->user = $this->getUser()->getGuardUser();
+		$this->melody = $this->getUser()->getMelody('eventbrite');
+
+/*
+		// TEST: check if user has main ticket
+		$apiTickets = $this->melody->getTicketsForUser($this->user->getEmailAddress());
+		$mainTickets = sfConfig::get('app_mainevent_tickets');
+
+		// check if we got the proper response
+		if(isset($apiTickets) and isset($apiTickets['user_tickets'])) {
+
+			// TODO: check how to iterate here!
+			var_dump($apiTickets['user_tickets'][1]);
+
+		}
+		die();
+*/
 
 		// Form for the organisers
 		$this->form = new OrganiserForm($this->user->getOrganiser());

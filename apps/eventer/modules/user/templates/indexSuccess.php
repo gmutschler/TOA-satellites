@@ -20,7 +20,7 @@
 <?php include_partial('form', array('form' => $form)) ?>
 	       </div>
         </div>
-<?php include_partial('main_ticket', array('user' => $user)) ?>
+<?php include_partial('main_ticket', array('user' => $user, 'melody' => $melody)) ?>
         <div class="clear"></div>
 	</div>
 

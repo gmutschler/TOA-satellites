@@ -168,4 +168,12 @@ class sfEventbriteMelody extends sfMelody2 {
 			'email'	=> $email
 		));
 	}
+	public function getTicketsForUser($email) {
+
+		return $this->localGet('user_list_tickets', array(
+
+			'email' => $email,
+			'type' => 'all'
+		));
+	}
 }

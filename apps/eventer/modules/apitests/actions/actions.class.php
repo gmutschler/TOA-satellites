@@ -42,4 +42,11 @@ class apitestsActions extends sfActions {
 
 		$this->events = $this->getUser()->getMelody('eventbrite')->getEventsForUser($this->getUser()->getGuardUser()->getEmailAddress());
 	}
+
+	public function executeUserlisttickets(sfWebRequest $request) {
+
+		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
+
+		$this->tickets = $this->getUser()->getMelody('eventbrite')->getTicketsForUser($this->getUser()->getGuardUser()->getEmailAddress());
+	}
 }

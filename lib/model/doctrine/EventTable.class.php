@@ -59,15 +59,22 @@ class EventTable extends Doctrine_Table {
 		// 1a. check if user has anything in the API
 		if($eventsAPI and is_array($eventsAPI) and isset($eventsAPI['events']) and count($eventsAPI['events'])) {
 
-			// fetch stuff from local DB
-			$eventsDB = $this->getForUser($user);
+			$output = $eventsAPI['events'];
 
-			// 2. check if the user has any events hosted in our database
-			if($eventsDB and count($eventsDB)) {
+			// 2. rule out events that don't match our date
+			$goodDate = strtotime(sfConfig::get('app_satellites_date'));
+			foreach($output as $keyAPI => $eventAPI) {
 
-				// 3a. rule out duplicates
-				$output = $eventsAPI['events'];
+				$eventDate = strtotime($eventAPI['event']['start_date']);
 
+				// allow -24h and +24h tolerance; rule out everything else
+				if($eventDate < $goodDate - (24 * 3600) or $eventDate > $goodDate + (24 * 3600)) unset($output[$keyAPI]);
+			}
+
+			// 3. fetch check if the user has any events hosted in our database
+			if($eventsDB = $this->getForUser($user) and count($eventsDB)) {
+
+				// 4. rule out duplicates
 				// LATER: adjust it as probably massive-iterating the API response would be faster than iterating the Doctrine_Collection
 				foreach($output as $keyAPI => $eventAPI) {
 
@@ -78,12 +85,10 @@ class EventTable extends Doctrine_Table {
 						if($eventAPI['event']['id'] == $eventDB->getEventbriteId()) unset($output[$keyAPI]);
 					}
 				}
-
-				return $output;
 			}
 
-			// 3b. return all of the API events
-			else return $eventsAPI['events'];
+			// 5. return formatted output
+			return $output;
 		}
 
 		// 1b. return false
