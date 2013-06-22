@@ -9,7 +9,7 @@ class EventTable extends Doctrine_Table {
 
 	public static function getInstance() { return Doctrine_Core::getTable('Event'); }
 
-	public function getEventsForPage($page = 0) {
+	public function getEventsForPageAndCategory($page = 0, $category = null) {
 
 		// base query
 		$q = $this->createQuery()
@@ -18,31 +18,23 @@ class EventTable extends Doctrine_Table {
 			->where('moderated = ?', true)
 		;
 
-		// hourly pagination hacks
+		// defaults
+		$start_hour = sfConfig::get('app_pagination_start_hour');
+		$end_hour = sfConfig::get('app_pagination_end_hour');
+
+		// higher pages
 		if(is_numeric($page) and $page > 0) {
 
-			$end_hour = 3 * $page;	// ** HARDCODED
-
-			$q->addWhere('e.end_hour <= ADDDATE(e.start_hour, INTERVAL ? HOUR)', $end_hour);
+			$start_hour = date('G:i:s', strtotime($start_hour) + ($page * intval(sfConfig::get('app_pagination_hours_per_page')) * 3600));
+			$end_hour = date('G:i:s', strtotime($end_hour) + ($page * intval(sfConfig::get('app_pagination_hours_per_page')) * 3600));
 		}
-		/*
-		if($page == 0) {
 
-			$events = $this->createQuery('a')
-			->orderBy('start_date')
-			->execute();
-		}
-		else {
+		// add hourly pagination
+		$q->addWhere('e.start_hour >= ?', $start_hour);
+		$q->addWhere('e.end_hour <= ?', $end_hour);
 
-			// TODO: calculate referal hour from $page variable
-
-			$sql = 'SELECT * FROM event e WHERE e.start_date <= ADDDATE(e.start_date, INTERVAL 3 HOUR)';
-			$date_start = $page * 
-
-			$events = $this->createQuery('a')
-			->
-		}
-		*/
+		// add category
+		if(!is_null($category)) $q->addWhere('e.category_id = ?', $category->getId());
 
 		// sort and execute
 		$q->orderBy('start_date');

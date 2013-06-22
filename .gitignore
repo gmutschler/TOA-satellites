@@ -2,3 +2,4 @@ cache/
 config/databases.yml
 web/css/main.css
 apps/eventer/config/app.yml
+*.swp

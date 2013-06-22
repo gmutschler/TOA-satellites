@@ -15,7 +15,11 @@ class satellitesActions extends sfActions {
 
 	public function executeBook(sfWebRequest $request) {
 
-		$this->events = Doctrine_Core::getTable('Event')->getEventsForPage($request->getParameter('page'));
+		$this->page = $request->getParameter('page');
+		$this->category = $request->getParameter('category') ? Doctrine_Core::getTable('Category')->findOneById($request->getParameter('category')) : null;
+		$this->events = Doctrine_Core::getTable('Event')->getEventsForPageAndCategory($this->page, $this->category);
+
+		$this->categories = Doctrine_Core::getTable('Category')->findAll();
 	}
 
 	public function executeEvent(sfWebRequest $request) {
@@ -122,6 +126,23 @@ class satellitesActions extends sfActions {
 				$thumb = new sfThumbnail(174, 126, false, true, 100, 'sfImageMagickAdapter', array('method' => 'shave_all'), true, 'center', 'middle');
 				$thumb->loadFile($dirImages . $event->getLogo());
 				$thumb->save($dirThumbs . $event->getLogo());
+			}
+
+			// create (or overwrite) the map pointer image with proper color for the event
+			// ** http://www.imagemagick.org/Usage/color_mods/
+			if($event->getListingColor()) {
+
+				// make sure the color starts with a hash
+				$color = preg_match('/^#/', $event->getListingColor()) ? $event->getListingColor() : '#' . $event->getListingColor();
+
+				$command = sprintf('%s %s/images/content/pin-map.png +level-colors "%s", %s',
+
+					sfConfig::get('app_imagemagick_path'),
+					sfConfig::get('sf_web_dir'),
+					$color,
+					sfConfig::get('sf_upload_dir') . '/event_images/pins/' . $event->getId() . '.png'
+				);
+				shell_exec($command . '>/dev/null');
 			}
 
 			// message

@@ -83,7 +83,7 @@ if($color = $event->getListingColor()) {
 				</div>
 			</div>
 
-			<p>TODO: This event belongs to category: <a href="#link-to-category-there-will-be"><?=$event->getCategory()->getName()?></a></p>
+			<p>This event belongs to category: <a href="<?=url_for('satellites/book?category=' . $event->getCategory()->getId())?>"><?=$event->getCategory()->getName()?></a></p>
 			<div class="clear"></div>
 		</div>
 

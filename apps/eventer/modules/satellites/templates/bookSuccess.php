@@ -10,6 +10,9 @@
 
 <?php include_partial('listing', array(
 
-	'events' => $events
+	'events'	=> $events,
+	'categories'	=> $categories,
+	'page'		=> $page,
+	'category'	=> $category
 )) ?>
 </div>

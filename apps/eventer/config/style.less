@@ -448,22 +448,28 @@ a:hover {
 
 				// TODO: redo it in the manner pixprapromo is built
 				.measure {
-					@width-local-measure: 153px;
-					@left-local-start: 51px;
+					@width-local-measure: 152px;
+					@left-local-start: 180px;
 					.disblock(@width-local-measure, @height-local-widget);
 
 					background-color: rgba(255, 0, 0, .5);
 
 					.absolute;
 
-					&.pos1 {
+					&.pos0 {
 						left: @left-local-start;
 					}
-					&.pos2 {
+					&.pos1 {
 						left: @left-local-start + @width-local-measure;
 					}
-					&.pos3 {
+					&.pos2 {
 						left: @left-local-start + 2 * @width-local-measure;
+					}
+					&.pos3 {
+						left: @left-local-start + 3 * @width-local-measure;
+					}
+					&.pos4 {
+						left: @left-local-start + 4 * @width-local-measure;
 					}
 
 

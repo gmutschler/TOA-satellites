@@ -1,18 +1,19 @@
+<?php if(!isset($page)) $page = 0; // small fix for easier linking ?>
 <?php use_helper('Text') ?>
 	<div class="listing">
 
 <?php include_partial('listing_widget', array(
 
-	'type' => 'upper'
+	'type'		=> 'upper',
+	'page'		=> $page,
+	'category'	=> $category
 )) ?>
 
         <ul class="event-categories">
-            <li class="selected"><a href="">All</a></li>
-            <li><a href="">Category 1</a></li>
-            <li><a href="">Category 2</a></li>
-            <li><a href="">Category 3</a></li>
-            <li><a href="">Category 4</a></li>
-            <li><a href="">Category 5</a></li>
+            <li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?page=' . $page)?>">All</a></li>
+<?php foreach($categories as $loopCategory): ?>
+	    <li<?php if(isset($category) and !is_null($category) and $category->getId() === $loopCategory->getId()) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?category=' . $loopCategory->getId() . '&page=' . $page)?>"><?=$loopCategory->getName()?></a></li>
+<?php endforeach ?>
         </ul>
 
 <?php if(isset($events) and count($events)): ?>
@@ -37,6 +38,9 @@
 <?php endif ?>
 		<div class="clear"></div>
 
-<?php include_partial('listing_widget') ?>
+<?php include_partial('listing_widget', array(
 
+	'page'		=> $page,
+	'category'	=> $category
+)) ?>
 	</div>

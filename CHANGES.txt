@@ -1,4 +1,12 @@
 
+# 2013-06-22
+- Added custom map pin image creation with ImageMagick (pins are saved to
+  web/uploads/event_images/pins/%event_id.png)
+- Incorporated basic pagination logic
+- Added support for categories display (book view, single event view)
+
+
+
 # 2013-06-21
 - Added working image code for events (creating, editing, listing, single
   event view, user's own events view)
