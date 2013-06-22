@@ -7,9 +7,14 @@
  * 
  * @package    toaberlin
  * @subpackage model
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Attendee extends BaseAttendee
-{
+class Attendee extends BaseAttendee {
+
+	public function checkForMainTicket() {
+
+		// TODO: check for main ticket rrrrrrrrrright here amigo! ;)
+
+	}
 }

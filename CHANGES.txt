@@ -1,3 +1,10 @@
+# 2013-06-23 (night)
+- In user profile the link "Events you host" will not appear for people not
+  hosting any events
+- Changed the event description characters limit to unlimited
+
+
+
 # 2013-06-22 (day)
 - Modified database schema to handle 7 digits after coma for latitude and
   longitude storing

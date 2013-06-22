@@ -147,7 +147,7 @@ Event:
       type: string(64)
       notnull: true
     description:
-      type: string(512)
+      type: text
       notnull: true
     start_date:
       type: timestamp

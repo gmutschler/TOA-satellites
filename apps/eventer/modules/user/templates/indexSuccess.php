@@ -1,6 +1,6 @@
 <div id="content" class="screen_user_home">
 
-<?php include_partial('submenu') ?>
+<?php include_partial('submenu', array('user' => $user)) ?>
 
 	<div class="textual">
 

@@ -8,7 +8,7 @@
  * @property integer $category_id
  * @property integer $organiser_id
  * @property string $title
- * @property string $description
+ * @property text $description
  * @property timestamp $start_date
  * @property timestamp $end_date
  * @property time $start_hour
@@ -34,7 +34,7 @@
  * @method integer             getCategoryId()          Returns the current record's "category_id" value
  * @method integer             getOrganiserId()         Returns the current record's "organiser_id" value
  * @method string              getTitle()               Returns the current record's "title" value
- * @method string              getDescription()         Returns the current record's "description" value
+ * @method text                getDescription()         Returns the current record's "description" value
  * @method timestamp           getStartDate()           Returns the current record's "start_date" value
  * @method timestamp           getEndDate()             Returns the current record's "end_date" value
  * @method time                getStartHour()           Returns the current record's "start_hour" value
@@ -105,10 +105,9 @@ abstract class BaseEvent extends sfDoctrineRecord
              'notnull' => true,
              'length' => 64,
              ));
-        $this->hasColumn('description', 'string', 512, array(
-             'type' => 'string',
+        $this->hasColumn('description', 'text', null, array(
+             'type' => 'text',
              'notnull' => true,
-             'length' => 512,
              ));
         $this->hasColumn('start_date', 'timestamp', null, array(
              'type' => 'timestamp',
