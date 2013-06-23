@@ -58,7 +58,9 @@ if($color = $event->getListingColor()) {
 				</div>
 
 				<div class="content-box-inner"><p><?=$event->getDescription()?></p></div>
+                <p class="single-event-category">Posted in: <a href="<?=url_for('satellites/book?category=' . $event->getCategory()->getId())?>"><?=$event->getCategory()->getName()?></a></p>
 			</div>
+
 
 			<div class="column fright">
 				<div class="content-box-inner">
@@ -75,15 +77,14 @@ if($color = $event->getListingColor()) {
 				    
 					<a href="mailto:<?=$event->getOrganiser()->getGuardUser()->getEmailAddress()?>" class="button_black button_black_small" target="_blank">Contact the organizer</a>
 		    
-					<p class="tright">
+					<div class="organizer-social-icons">
 						<a href="<?=$event->getOrganiser()->getTwitter()?>" class="twitter-link" target="_blank"></a>
 						<a href="<?=$event->getOrganiser()->getFacebook()?>" class="facebook-link" target="_blank"></a>
 						<a href="<?=$event->getOrganiser()->getUrl()?>" class="website-link" target="_blank"></a>
-					</p>
+					</div>
 				</div>
 			</div>
 
-			<p>This event belongs to category: <a href="<?=url_for('satellites/book?category=' . $event->getCategory()->getId())?>"><?=$event->getCategory()->getName()?></a></p>
 			<div class="clear"></div>
 		</div>
 

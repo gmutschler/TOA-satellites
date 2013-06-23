@@ -908,10 +908,10 @@ a:hover {
 						width: @width-local-form - 4px;
 
 						margin-top: 44px;
-						padding: 10px 0;
+						padding:0 0 10px 0;
                     
                         img {
-                            max-width: 450px;
+                            max-width: 540px;
                             margin: -1px;
                         }
 
@@ -1636,8 +1636,10 @@ div.screen_event {
                 background: @color-bg;
                 color: @color-text;
                 padding: 8px 11px 11px 11px;
+                min-width: 160px;
                 max-width: 220px;
                 min-height: 140px;
+                max-height: 210px;
                 
                 h3 {
                     .tupper;
@@ -1683,6 +1685,7 @@ div.screen_event {
 			
 			.column {
 				border: 1px solid @color-border;
+                .relative;
 				
 				&.fleft {
 					width: 580px;
@@ -1707,11 +1710,23 @@ div.screen_event {
 							padding: 2px 12px;
 						}
 					}
+                    
+                    p.single-event-category {
+                        .disblock;
+                        .absolute;
+                        .bottomright(5px, 10px);
+                        .tright;
+                        margin-bottom: 0 !important;
+                        font-size: 16px;
+                        color: @color-text-gray;
+                        font-style: italic;
+                    }
 				}
 				
 				&.fright {
 					width: 340px;
 					.tcenter;
+                    padding-bottom: 32px;
 					
 					h3 {.tupper;}
 					h4 {
@@ -1723,6 +1738,28 @@ div.screen_event {
 						max-height: 120px;
 						width: auto;
 					}
+                    
+                    .organizer-social-icons {
+                        .absolute;
+                        .bottomright(2px, 2px);
+                        height: 32px;
+                        
+                        a {
+                            display: inline-block;
+                            width: 32px;
+                            height: 32px;
+                            
+                            &.twitter-link{ background: url('/images/layout/twitter-icon.png'); }
+                            &.facebook-link{ background: url('/images/layout/fb-icon.png'); }
+                            &.website-link{ background: url('/images/layout/website-icon.png'); }
+                            
+                            &:hover {                  
+                                filter : alpha(opacity=60);
+                                opacity: 0.6;
+                            }
+                        
+                        }
+                    }
 				}
 			}
 		}
