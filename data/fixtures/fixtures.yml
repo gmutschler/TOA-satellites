@@ -8,6 +8,7 @@ sfGuardUser:
     username:           administrateur
     password:           toa4ever
     email_address:      siteadmin@toaberlin.com
+    is_super_admin:     true
 <?php for($i = 1; $i < 6; $i++): ?>
   tUser<?=$i?>:
     first_name:         Timmy<?=$i?>

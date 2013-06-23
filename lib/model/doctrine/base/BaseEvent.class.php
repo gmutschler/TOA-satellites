@@ -16,6 +16,7 @@
  * @property string $logo
  * @property string $listing_color
  * @property boolean $moderated
+ * @property boolean $synchronized
  * @property string $venue_name
  * @property string $venue_address
  * @property string $venue_city
@@ -42,6 +43,7 @@
  * @method string              getLogo()                Returns the current record's "logo" value
  * @method string              getListingColor()        Returns the current record's "listing_color" value
  * @method boolean             getModerated()           Returns the current record's "moderated" value
+ * @method boolean             getSynchronized()        Returns the current record's "synchronized" value
  * @method string              getVenueName()           Returns the current record's "venue_name" value
  * @method string              getVenueAddress()        Returns the current record's "venue_address" value
  * @method string              getVenueCity()           Returns the current record's "venue_city" value
@@ -67,6 +69,7 @@
  * @method Event               setLogo()                Sets the current record's "logo" value
  * @method Event               setListingColor()        Sets the current record's "listing_color" value
  * @method Event               setModerated()           Sets the current record's "moderated" value
+ * @method Event               setSynchronized()        Sets the current record's "synchronized" value
  * @method Event               setVenueName()           Sets the current record's "venue_name" value
  * @method Event               setVenueAddress()        Sets the current record's "venue_address" value
  * @method Event               setVenueCity()           Sets the current record's "venue_city" value
@@ -132,6 +135,10 @@ abstract class BaseEvent extends sfDoctrineRecord
              'length' => 8,
              ));
         $this->hasColumn('moderated', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
+        $this->hasColumn('synchronized', 'boolean', null, array(
              'type' => 'boolean',
              'default' => false,
              ));

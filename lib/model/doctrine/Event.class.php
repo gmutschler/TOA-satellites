@@ -7,7 +7,7 @@
  * 
  * @package    toaberlin
  * @subpackage model
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 class Event extends BaseEvent {
@@ -19,6 +19,11 @@ class Event extends BaseEvent {
 	public function getEndHour() {
 
 		return date('H:i', strtotime($this->getEndDate()));
+	}
+	public function toggleModerated() {
+
+		$this->setModerated($this->getModerated() ? false : true);
+		$this->save();
 	}
 	public function sendEventToAPI() {
 

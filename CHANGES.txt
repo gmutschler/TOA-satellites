@@ -1,3 +1,14 @@
+# 2013-06-23 (day)
+- Added simple moderation flag toggle in Administrateur app (batch_action and
+  object_action)
+- Added "synchronized" flag on Event object; that flag is auto unset on every
+  manual event saving and (will be) set on every Eventbrite synchronization process
+- Modified hourly pagination to rely only on start_hour for the ranges
+- Completely removed web/uploads/ from Git repository structure, added a
+  simple hack script to bring it all back
+
+
+
 # 2013-06-23 (night)
 - In user profile the link "Events you host" will not appear for people not
   hosting any events
@@ -7,7 +18,6 @@
   main ticket
 - Fixed pin path in actions.class (according to filesystem change)
 - Added support for colorized social icons (through ImageMagick)
-
 
 
 

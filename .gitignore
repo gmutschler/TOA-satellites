@@ -1,5 +1,6 @@
 cache/
 config/databases.yml
 web/css/main.css
+web/uploads/
 apps/eventer/config/app.yml
 *.swp

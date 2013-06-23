@@ -16,8 +16,15 @@ generator:
       actions: ~
       fields:  ~
       list:
-        display: [=title, start_hour, end_hour, category, organiser, moderated]
+        display: [=title, start_hour, end_hour, category, organiser, moderated, synchronized]
         max_per_page: 500
+        object_actions:
+          moderate:     ~
+          _edit:        ~
+          _delete:      ~
+        batch_actions:
+          moderate:     ~
+          _delete:      ~
       filter:
         display: [category_id, organiser_id, title, description, start_hour, end_hour, listing_color, moderated, venue_name, venue_city, venue_postal_code, eventbrite_id]
         fields:

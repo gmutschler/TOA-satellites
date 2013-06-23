@@ -110,6 +110,9 @@ class satellitesActions extends sfActions {
 			// save the event with all the data
 			$event = $form->save();
 
+			// unset the synchronization flag and save again! \o/
+			$event->setSynchronized(false)->save();
+
 			// rework image and thumbnail
 			if($event->getLogo()) {
 

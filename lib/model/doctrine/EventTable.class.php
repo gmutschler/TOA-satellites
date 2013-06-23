@@ -31,7 +31,8 @@ class EventTable extends Doctrine_Table {
 
 		// add hourly pagination
 		$q->addWhere('e.start_hour >= ?', $start_hour);
-		$q->addWhere('e.end_hour <= ?', $end_hour);
+		$q->addWhere('e.start_hour <= ?', $end_hour);
+		//$q->addWhere('e.end_hour <= ?', $end_hour);
 
 		// add category
 		if(!is_null($category)) $q->addWhere('e.category_id = ?', $category->getId());

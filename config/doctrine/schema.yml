@@ -167,6 +167,9 @@ Event:
     moderated:
       type: boolean
       default: false
+    synchronized:
+      type: boolean
+      default: false
 
     venue_name:
       type: string(64)
