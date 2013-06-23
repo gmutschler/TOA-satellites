@@ -12,9 +12,36 @@
  */
 class Attendee extends BaseAttendee {
 
-	public function checkForMainTicket() {
+	public function updateMainTicketForUser(sfUser $user) {		// ** due to API gayness, this method is a real bullshit and may cause errors...
 
-		// TODO: check for main ticket rrrrrrrrrright here amigo! ;)
+		// fetch stuff from API
+		$ordersAPI = $user->getMelody('eventbrite')->getTicketsForUser($user->getGuardUser()->getEmailAddress());
 
+		// 1. check if we got proper response and any tickets inside
+		if(isset($ordersAPI) and isset($ordersAPI['user_tickets']) and isset($ordersAPI['user_tickets'][1]) and count($ordersAPI['user_tickets'][1]) and isset($ordersAPI['user_tickets'][1]['orders']) and count($ordersAPI['user_tickets'][1]['orders'])) {
+
+			// 2. fetch main event IDs from the config
+			$mainEvents = sfConfig::get('app_mainevent_events');
+
+			// 3. iterate through the API tickets and try to spot IDs from our main 
+			$found = false;
+			foreach($ordersAPI['user_tickets'][1]['orders'] as $order) {
+
+				if(is_array($order) and isset($order['order']) and isset($order['order']['event'])) {
+
+					if(isset($order['order']['event']['id']) and !is_null($order['order']['event']['id'])) {
+
+						if(in_array($order['order']['event']['id'], $mainEvents)) $found = true;
+					}
+				}
+			}
+
+			// 4. check if found and set the proper flag here if yes!
+			if($found) {
+
+				$this->setHasMainTicket(true);
+				$this->save();
+			}
+		}
 	}
 }

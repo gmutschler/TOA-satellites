@@ -86,14 +86,16 @@ class homeActions extends sfActions {
 				$attendeeObj->save();
 			}
 
-			// TODO: check for main ticket!
-
 			// sign in and save the user
 			$this->getUser()->signin($userObj, sfConfig::get('app_melody_remember_user', true));
 
 			// token methods
 			$melodyObj->getToken()->setUserId($userObj->getId());
 			$this->getUser()->addToken($melodyObj->getToken());
+
+			// update user's main ticket information 		** NOTE: ONLY FOR USERS WHO DON'T HAVE IT!
+			$attendee = $this->getUser()->getGuardUser()->getAttendee();
+			if(!$attendee->getHasMainTicket()) $attendee->updateMainTicketForUser($this->getUser());
 		}
 
 		// Something went wrong and we should not be here

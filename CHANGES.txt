@@ -2,6 +2,12 @@
 - In user profile the link "Events you host" will not appear for people not
   hosting any events
 - Changed the event description characters limit to unlimited
+- Refactored the main ticket checking logic: it uses event ids to compare and
+  it is launched in the login action only for the users who don't have the
+  main ticket
+- Fixed pin path in actions.class (according to filesystem change)
+- Added support for colorized social icons (through ImageMagick)
+
 
 
 

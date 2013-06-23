@@ -6,6 +6,12 @@ if($color = $event->getListingColor()) {
 	// small fix for # in front
 	// NOTE: we support ONLY hexadecimal values here; might be an idea to check for hexadecimal input here l8r
 	$color = preg_match('/^\#/', $color) ? $color : '#' . $color;
+
+	// some icon hardcodes
+	$icon_prefix = '/uploads/event_images/social_icons/' . $event->getId();
+	$icon_fb = $icon_prefix . '-fb-icon.png';
+	$icon_tw = $icon_prefix . '-twitter-icon.png';
+	$icon_w3 = $icon_prefix . '-website-icon.png';
 ?>
 <style type="text/css">
 	#content h1 span {
@@ -18,6 +24,19 @@ if($color = $event->getListingColor()) {
 	#content a.button_custom {
 
 		background-color: <?=$color?>;
+	}
+
+	div.screen_event .textual .bicolumn .column.fright .organizer-social-icons a.facebook-link {
+
+		background-image: url('<?=$icon_fb?>');
+	}
+	div.screen_event .textual .bicolumn .column.fright .organizer-social-icons a.twitter-link {
+
+		background-image: url('<?=$icon_tw?>');
+	}
+	div.screen_event .textual .bicolumn .column.fright .organizer-social-icons a.website-link {
+
+		background-image: url('<?=$icon_w3?>');
 	}
 </style>
 <?php } // & custom color?>
@@ -78,9 +97,15 @@ if($color = $event->getListingColor()) {
 					<a href="mailto:<?=$event->getOrganiser()->getGuardUser()->getEmailAddress()?>" class="button_black button_black_small" target="_blank">Contact the organizer</a>
 		    
 					<div class="organizer-social-icons">
+<?php if($event->getOrganiser()->getTwitter()): ?>
 						<a href="<?=$event->getOrganiser()->getTwitter()?>" class="twitter-link" target="_blank"></a>
+<?php endif ?>
+<?php if($event->getOrganiser()->getFacebook()): ?>
 						<a href="<?=$event->getOrganiser()->getFacebook()?>" class="facebook-link" target="_blank"></a>
+<?php endif ?>
+<?php if($event->getOrganiser()->getUrl()): ?>
 						<a href="<?=$event->getOrganiser()->getUrl()?>" class="website-link" target="_blank"></a>
+<?php endif ?>
 					</div>
 				</div>
 			</div>

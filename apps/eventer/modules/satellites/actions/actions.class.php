@@ -128,14 +128,15 @@ class satellitesActions extends sfActions {
 				$thumb->save($dirThumbs . $event->getLogo());
 			}
 
-			// create (or overwrite) the map pointer image with proper color for the event
+			// create (or overwrite) the map pointer and social icon images with proper color for the event
 			// ** http://www.imagemagick.org/Usage/color_mods/
 			if($event->getListingColor()) {
 
 				// make sure the color starts with a hash
 				$color = preg_match('/^#/', $event->getListingColor()) ? $event->getListingColor() : '#' . $event->getListingColor();
 
-				$command = sprintf('%s %s/images/content/pin-map.png +level-colors "%s", %s',
+				// 1. the map pointer
+				$command = sprintf('%s %s/images/layout/pin-map.png +level-colors "%s", %s',
 
 					sfConfig::get('app_imagemagick_path'),
 					sfConfig::get('sf_web_dir'),
@@ -143,6 +144,20 @@ class satellitesActions extends sfActions {
 					sfConfig::get('sf_upload_dir') . '/event_images/pins/' . $event->getId() . '.png'
 				);
 				shell_exec($command . '>/dev/null');
+
+				// 2. social icons
+				foreach(array('fb-icon.png', 'twitter-icon.png', 'website-icon.png') as $icon) {
+
+					$command = sprintf('%s %s/images/layout/%s +level-colors "%s", %s',
+
+						sfConfig::get('app_imagemagick_path'),
+						sfConfig::get('sf_web_dir'),
+						$icon,
+						$color,
+						sfConfig::get('sf_upload_dir') . '/event_images/social_icons/' . $event->getId() . '-' . $icon
+					);
+					shell_exec($command . '>/dev/null');
+				}
 			}
 
 			// message
