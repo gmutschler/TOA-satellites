@@ -36,7 +36,7 @@
                 <li><a href="http://blog.toaberlin.com">News</a></li>
                 <li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Partners</a></li>
                 <li><a href="<?=url_for('about/index')?>"<?php if($sf_context->getModuleName() == 'about') { ?> class="selected"<?php } ?>>About us</a></li>
-                <li><a class="highlighted" href="#">Buy tickets</a></li>
+                <li><a class="highlighted" href="http://toaberlin2013.eventbrite.com/" target="_blank">Buy tickets</a></li>
             </ul>
     
             <div class="clear"></div>

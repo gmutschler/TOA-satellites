@@ -437,6 +437,39 @@ a:hover {
             -moz-column-gap: 25px;
             column-gap: 25px;
         }
+    
+        .bicolumn {
+        
+            .column {
+                border: 1px solid @color-border;
+                width: 413px;
+                margin: 5px 15px;
+            
+                &.fright { margin-right: 0; }
+                &.fleft { margin-left: 0; }
+            }
+        }
+    
+        a.slider_nav {
+                    background: #ffffff;
+                    border: 1px solid @color-border;
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    .absolute;
+                
+                    &:hover {border: 1px solid @color-text;}
+                
+                    &.slider_previous {
+                        background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
+                        &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
+                    }
+                    &.slider_next {
+                        background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
+                        &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
+                    }
+                
+                }
 	
 
 		// ! common for known blocks
@@ -1073,7 +1106,7 @@ a:hover {
 		strong { font-weight: 700; }
 		em { font-style: italic; }
 	
-		a.seemore {
+		span.seemore, a.seemore {
 			display: block;
 			margin-bottom: 60px;
 			.ffamily(14px, @font-proxima);
@@ -1135,7 +1168,7 @@ a:hover {
 	
 
 		&.screen_about_contact .textual .fourcolumns {
-			
+			margin-top: 80px;
 			.tcenter;
 		
 			.element {
@@ -1159,29 +1192,18 @@ a:hover {
 				white-space: nowrap;
 				overflow: hidden;
 			}
-		
-			a.slider_nav {
-				background: #ffffff;
-				border: 1px solid @color-border;
-				display: block;
-				width: 40px;
-				height: 40px;
-				.absolute;
-			
-				&:hover {border: 1px solid @color-text;}
-			
-				&.slider_previous {
-					.topleft(63px, -6px);
-					background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
-					&:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
-				}
-				&.slider_next {
-					.topright(63px, -6px);
-					background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
-					&:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
-				}
-			
-			}
+        
+            a.slider_nav {
+                
+                    &.slider_previous {
+                        .topleft(63px, -6px);
+                    }
+                    &.slider_next {
+                        .topright(63px, -6px);
+                    }
+                
+                }
+        
 		}
 		
 		.table {
@@ -1617,6 +1639,166 @@ a:hover {
 
 // # content screens
 // they apply to anything below #content div and can override or add certain unique looks
+div.screen_home#content {
+    
+    .textual {
+        
+        .bicolumn {
+            a.column {
+                .relative;
+                .content-box-inner;
+                
+                h3 { .tupper; }
+                
+                span.seemore {
+                    .absolute;
+                    .bottomright(8px, 14px);
+                    margin-bottom: 0;
+                }
+                
+                &:hover {
+                    border: 1px solid @color-text;
+                    
+                    span.seemore {
+                        color: @color-red;
+                    }
+                }
+            }
+        }
+        
+        &.slider-container {
+            margin-top: 0;
+            .relative;
+            .tcenter;
+            
+            .swipe {
+                .relative;
+                margin-top: 80px;
+                padding-top: 25px;
+                padding-bottom: 20px;
+                
+                .slide {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 876px;
+                    padding: 0 42px;
+                    white-space: normal;
+                    
+                    img { margin-bottom: 15px; }
+                    
+                    blockquote {
+                        .tcenter;
+                        
+                        p {
+                            .tcenter;
+                            margin-bottom: 8px;
+                            font-family: Times, Times New Roman, serif;
+                            font-size: 32px;
+                            line-height: 1.4em;
+                            font-style: italic;
+                            color: @color-text;   
+                        }
+                        
+                        footer{
+                            &:before{content: "\2014";}
+                        }
+                    }
+                }
+            }
+                    
+            .swipecontrol {
+
+                a.slider_nav {   
+                    &.slider_previous {
+                        .topleft(80px, -6px);
+                    }
+                    &.slider_next {
+                        .topright(80px, -6px);
+                    }
+                
+                }
+            }
+        }
+        
+        .tumblr-posts{
+            border-top: 1px solid @color-border;
+            
+            .three-columns.blog-entry {
+                .relative;
+                .fleft;
+                width: 301px;
+                height: 200px;
+                overflow: hidden;
+                margin: 15px 28px 15px 0;
+                
+                &:nth-child(3n) {margin-right: 0;}
+                
+                .post-content {
+                    h1, h2, h3, ul {display: none;}
+                    p {
+                        
+                        img {
+                            z-index: 10;
+                            display: inline-block;
+                            min-height: 220px;
+                            min-width: 342px;
+                            margin: -10px -20px;
+                            background: @color-text;
+                            .tcenter;
+                            .absolute;
+                            .topleft(0,0);
+                            
+                        }
+                    }
+                }
+                
+                a.post-title {
+                    .post-overlay {
+                        width: 100%;
+                        height: 100%;
+                        z-index: 11;
+                        .absolute;
+                        .topleft(0,0);
+                        background: @color-bg;
+                        filter : alpha(opacity=70);
+                        opacity: 0.7;
+                        .c3transition(800ms);
+                    }
+                    
+                    &:hover {
+                        .post-overlay {
+                            filter : alpha(opacity=10);
+                            opacity: 0.1;
+                            .c3transition(280ms);
+                        }
+                    }
+                    
+                    h1 {
+                        padding: 10px;
+                        font-size: 21px;
+                        line-height: 28px;
+                        color: @color-text;
+                        z-index: 12;
+                        .absolute;
+                        width: 281px;
+                        .bottomleft(0,0);
+                        
+                        &:after {
+                            content='';
+                            border-top: none;
+                            width: 301px;
+                            height: 8px;
+                            background: @color-text;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 div.screen_host {	// host event (selection)
 
 	.textual {
@@ -1724,11 +1906,10 @@ div.screen_event {
 			margin-bottom: 85px;
 			
 			.column {
-				border: 1px solid @color-border;
                 .relative;
 				
 				&.fleft {
-					width: 580px;
+					width: 580px !important;
 					
 					.event-image {
 						min-height: 85px;
@@ -1764,7 +1945,7 @@ div.screen_event {
 				}
 				
 				&.fright {
-					width: 340px;
+					width: 340px !important;
 					.tcenter;
                     padding-bottom: 32px;
 					

@@ -18,7 +18,6 @@
             <a href="mailto:hello@toaberlin.com">hello@toaberlin.com</a>
         </p>
 
-        <hr>
         <div class="fourcolumns">
             <div class="element">
                 <h3>Sponsoring</h3>
@@ -48,7 +47,7 @@
                 <h3>Satellites</h3>
                 <h2>Kerstin Bock</h2>
                 <p>
-                    <a href="mailto:satellite@toaberlin.com" target="_blank">press@toaberlin.com</a>
+                    <a href="mailto:satellite@toaberlin.com" target="_blank">satellite@toaberlin.com</a>
                 </p>
             </div>
             
