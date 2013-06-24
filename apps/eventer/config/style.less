@@ -21,11 +21,15 @@
 @color-border-dark: #ccc;
 @color-red: #DC142C;
 @color-red-light: #FC354C;
+@color-red-dark: #711e2a;
 
 @color-bg-gray: #FBFBF9;
 @color-bg-gray-dark: #F4F4F3;
 @color-bg-hero: #EFEDEC;
 @color-bg-red: #FFF5F2;
+
+@color-green: #0ABFBC;
+@color-green-dark: #137475;
 
 @color-retro-bg: #A19F73;
 @color-retro-text: #ffffff;
@@ -271,6 +275,33 @@ a:hover {
 
     
 	}
+
+    #flashMessage {
+        position: fixed;
+        width: 100%;
+        z-index: 1002;
+        .tcenter;
+        .topleft(17px, 0);
+    
+        .flashMessage_container {
+            .ffamily(15px, @font-proxima, 600);
+            
+            display: inline-block;
+            padding: 5px 14px;
+            border: 1px solid @color-text;
+            background: @color-text-gray;
+            color: @color-bg;
+        
+            &.error{
+                background: @color-red;
+                border: 1px solid @color-red-dark;
+            }
+            &.notice, &.info{
+                background: @color-green;
+                border: 1px solid @color-green-dark;
+            }
+        }
+    }
 
 	#content {
   

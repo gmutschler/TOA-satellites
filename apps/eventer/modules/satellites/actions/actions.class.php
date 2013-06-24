@@ -164,12 +164,12 @@ class satellitesActions extends sfActions {
 			}
 
 			// message
-			$this->getUser()->setFlash('info', 'Your event have been saved!');
+			$this->getUser()->setFlash('info', 'Your event has been saved and is awaiting moderation. Thank you for your entry.');
 
 			// redir
 			$this->redirect('satellites/edit?id='.$event->getId());
 		}
 
-		else $this->getUser()->setFlash('error', 'There was a problem saving your event!');
+		else $this->getUser()->setFlash('error', 'There was a problem saving your event! Please review the fields in red');
 	}
 }

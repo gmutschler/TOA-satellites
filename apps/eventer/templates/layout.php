@@ -46,7 +46,19 @@
 
 <?php if($sf_user->hasFlash('info') or $sf_user->hasFlash('notice') or $sf_user->hasFlash('error')): ?>
 	<div id="flashMessage">
-		<h2><?php print $sf_user->getFlash('info') . $sf_user->getFlash('notice') . $sf_user->getFlash('error') ?></h2>
+        <?php 
+            echo '<div class="flashMessage_container';
+            if ( $sf_user->getFlash('error') ) {
+                echo ' error';
+            } elseif ( $sf_user->getFlash('notice') ) {
+                echo ' notice';
+            } elseif ( $sf_user->getFlash('info') ) {
+                echo ' info';
+            }
+            echo '">';
+        ?>
+		  <?php print $sf_user->getFlash('info') . $sf_user->getFlash('notice') . $sf_user->getFlash('error') ?>
+        </div>
 	</div>
 <?php endif ?>
 
