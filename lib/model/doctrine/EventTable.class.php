@@ -95,4 +95,17 @@ class EventTable extends Doctrine_Table {
 		// 1b. return false
 		else return false;
 	}
+	public function getUnsynchronized() {
+
+		// base query
+		$q = $this->createQuery()
+
+			->from('Event e')
+			->where('e.moderated = ?', true)
+			->addWhere('e.test = ?', false)
+			->addWhere('e.synchronized = ?', false)
+		;
+
+		return $q->execute();
+	}
 }

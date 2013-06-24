@@ -25,8 +25,215 @@ class Event extends BaseEvent {
 		$this->setModerated($this->getModerated() ? false : true);
 		$this->save();
 	}
-	public function sendEventToAPI() {
 
-		// TODO: remember to push privacy and and status as 1
+	// # Eventbrite API methods
+	public function sendToAPIForUser(sfUser $user) {
+
+		// 0. Check if anything is actually needed here
+		if($this->getSynchronized()) return true;
+
+		// 1. Sync the organiser
+		if(!$organiser_eb_id = $this->syncOrganiserForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite: Improper response from API!');
+
+		// 2. Sync the venue
+		if(!$venue_eb_id = $this->syncVenueForUser($user)) throw new sfException('Cannot sync Venue with Eventbrite: Improper response from API!');
+
+
+		// 3. Sync the event
+		// REMEMBER: set privacy and and status as 1 on production environment!
+		if(!$event_eb_id = $this->syncEventForUser($user)) throw new sfException('Cannot sync Event with Eventbrite: Improper response from API!');
+
+		// TODO: 4. Sync the tickets
+		// REMEMBER: duplicate the tickets setting one as private, other one as public!
+
+
+		// Return true on success, false on failure
+		return $organiser_eb_id and $venue_eb_id ? true : false;
+	}
+
+	// Event
+	// ** in this case we don't need to check the synchronized flag since if we're here, 
+	//    it was certainly set to false and we need action to be taken
+	protected function syncEventForUser(sfUser $user) {
+
+		// Prepare data defaults
+		$data = array(
+
+			'title'			=> $this->getTitle(),
+			'description'		=> $this->getDescription(),
+			'start_date'		=> $this->getStartDate(),
+			'end_date'		=> $this->getEndDate(),
+			'timezone'		=> sfConfig::get('app_push_defaults_timezone'),
+			'privacy'		=> 0,	// TODO: change to 1 on production!
+			'venue_id'		=> $this->getVenueEventbriteId(),
+			'organizer_id'		=> $user->getGuardUser()->getOrganiser()->getEventbriteId(),
+			'currency'		=> sfConfig::get('app_push_defaults_currency'),
+			'locale'		=> sfConfig::get('app_push_defaults_locale'),
+			'status'		=> 'draft',	// TODO: change to "live" on production! Allowed values are “draft”, “live”, “canceled”, “deleted”.
+			'confirmation_page'	=> ''	// TODO: declare it when making the buying process live
+		);
+
+		// TODO: Calculate capacity from all the tickets by iteration OR fallback to defaults
+		$data['capacity'] = sfConfig::get('app_push_defaults_capacity');
+
+		// Add the colors
+		if($this->getListingColor()) {
+
+			// TODO: colorize some fields according to http://developer.eventbrite.com/doc/events/event_new/
+		}
+
+		// Check for method and extra fields
+		if($this->getEventbriteId()) {
+
+			$method = 'event_update';
+			$data['id'] = $this->getEventbriteId();
+		}
+		else {
+
+			$method = 'event_new';
+			$data['personalized_url'] = sprintf('%s-%s-%s', 
+
+				sfConfig::get('app_push_defaults_url_prefix'),
+				Doctrine_Inflector::urlize($this->getTitle()),
+				rand(1, 99)
+			);
+
+			// ** the event_update method uses 'url' field, while event_new goes for 'personalized_url'; check if it matters
+			// ** yet again, we will never update that url - once it is set
+		}
+
+		// Make the call
+		if($event_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->customCall($method, $data))) {
+
+			// Save the ID for 'new' calls
+			if(!$this->getEventbriteId()) $this->setEventbriteId($event_eb_id);
+
+			// Set that we're synced now
+			$this->setSynchronized(true)->save();
+
+			// Return the ID
+			return $event_eb_id;
+		}
+
+		// Some errors occured
+		else return false;
+	}
+
+	// Venue
+	// ** consider if not to fetch everything and check if updates are needed! (that may actually be even more work)
+	// ** also consider if not to add venue_synchronized flag (that could be a bit more work on the form saving)
+	protected function syncVenueForUser(sfUser $user) {
+
+		// Prepare data defaults to be always pushed
+		$data = array(
+
+			'name'		=> $this->getVenueName(),
+			'address'	=> $this->getVenueAddress(),
+			// ** we skip address2
+			'city'		=> $this->getVenueCity(),
+			// ** we skip region
+			'postal_code'	=> $this->getVenuePostalCode(),
+			'country_code'	=> sfConfig::get('app_push_defaults_country_code')
+		);
+
+		// Check for method and extra fields
+		if($this->getVenueEventbriteId()) {
+
+			$method = 'venue_update';
+			$data['id'] = $this->getVenueEventbriteId();
+		}
+		else {
+
+			$method = 'venue_new';
+			$data['organizer_id'] = $user->getGuardUser()->getOrganiser()->getEventbriteId();
+		}
+
+		// Make the call and analyse the answer
+		if($venue_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->customCall($method, $data))) {
+
+			// Save the ID for 'new' calls
+			if(!$this->getVenueEventbriteId()) $this->setVenueEventbriteId($venue_eb_id)->save();
+
+			// Return our ID
+			return $venue_eb_id;
+		}
+
+		// Some errors occured
+		else return false;
+	}
+
+	// Organiser
+	// TODO: DRY it up
+	protected function syncOrganiserForUser(sfUser $user) {
+
+		$organiser = $user->getGuardUser()->getOrganiser();
+
+		// Create
+		if(!$organiser->getEventbriteId()) {
+
+			if($organiser_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->newOrganiser(array(
+
+				'name'		=> $organiser->getName(),
+				'description'	=> !is_null($organiser->getDescription()) ? $organiser->getDescription() : 'No information provided.'
+			)))) {
+
+				// All good? Save and return
+				$organiser->setEventbriteId($organiser_eb_id);
+				$organiser->setSynchronized(true);
+				$organiser->save();
+
+				return $organiser_eb_id;
+			}
+
+			// Errors :(
+			else return false;
+		}
+
+		// Update
+		else if(!$organiser->getSynchronized()) {
+
+			if($organiser_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->updateOrganiser(array(
+
+				'id'		=> $organiser->getEventbriteId(),
+				'name'		=> $organiser->getName(),
+				'description'	=> !is_null($organiser->getDescription()) ? $organiser->getDescription() : 'No information provided.'
+			)))) {
+
+				// Save and return
+				$organiser->setSynchronized(true);
+				$organiser->save();
+
+				return $organiser_eb_id;
+			}
+
+			// Errors :(
+			else return false;
+		}
+
+		// Just return the ID
+		else return $organiser->getEventbriteId();
+	}
+
+	// Helper methods
+	private function analyseBasicResponse($response) {
+
+		if($response and is_array($response)) {
+
+			// KNOWN ERROR
+			if($response['error']) throw new sfException(sprintf('%s: %s',
+
+				$response['error']['error_type'],
+				$response['error']['error_message']
+			));
+
+			// GOOD
+			else if($response['process'] and $response['process']['id']) return $response['process']['id'];
+
+			// UNKNOWN ERROR
+			else return false;
+		}
+
+		// UNKNOWN ERROR
+		else return false;
 	}
 }

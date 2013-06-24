@@ -41,6 +41,10 @@ Organiser:
     facebook:
       type: string(128)
 
+    synchronized:
+      type: boolean
+      default: false
+
     eventbrite_id:
       type: integer(16)
 
@@ -164,6 +168,9 @@ Event:
     listing_color:
       type: string(8)
 
+    test:
+      type: boolean
+      default: false
     moderated:
       type: boolean
       default: false

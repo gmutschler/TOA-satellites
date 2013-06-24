@@ -12,6 +12,7 @@
  * @property string $url
  * @property string $twitter
  * @property string $facebook
+ * @property boolean $synchronized
  * @property integer $eventbrite_id
  * @property Doctrine_Collection $Events
  * @property sfGuardUser $GuardUser
@@ -23,6 +24,7 @@
  * @method string              getUrl()           Returns the current record's "url" value
  * @method string              getTwitter()       Returns the current record's "twitter" value
  * @method string              getFacebook()      Returns the current record's "facebook" value
+ * @method boolean             getSynchronized()  Returns the current record's "synchronized" value
  * @method integer             getEventbriteId()  Returns the current record's "eventbrite_id" value
  * @method Doctrine_Collection getEvents()        Returns the current record's "Events" collection
  * @method sfGuardUser         getGuardUser()     Returns the current record's "GuardUser" value
@@ -33,6 +35,7 @@
  * @method Organiser           setUrl()           Sets the current record's "url" value
  * @method Organiser           setTwitter()       Sets the current record's "twitter" value
  * @method Organiser           setFacebook()      Sets the current record's "facebook" value
+ * @method Organiser           setSynchronized()  Sets the current record's "synchronized" value
  * @method Organiser           setEventbriteId()  Sets the current record's "eventbrite_id" value
  * @method Organiser           setEvents()        Sets the current record's "Events" collection
  * @method Organiser           setGuardUser()     Sets the current record's "GuardUser" value
@@ -73,6 +76,10 @@ abstract class BaseOrganiser extends sfDoctrineRecord
         $this->hasColumn('facebook', 'string', 128, array(
              'type' => 'string',
              'length' => 128,
+             ));
+        $this->hasColumn('synchronized', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
              ));
         $this->hasColumn('eventbrite_id', 'integer', 16, array(
              'type' => 'integer',

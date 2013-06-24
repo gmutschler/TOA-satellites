@@ -73,6 +73,9 @@ class userActions extends sfActions {
 
 			$organiser = $form->save();
 
+			// unset the synchronization flag and save again! \o/
+			$organiser->setSynchronized(false)->save();
+
 			// rework image
 			if($organiser->getLogo()) {
 

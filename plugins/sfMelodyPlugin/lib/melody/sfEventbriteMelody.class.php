@@ -3,7 +3,7 @@
 	Eventbrite.com implementation for sfMelody plugin
 	Maciej Taranienko <maciej@canadel.ee>
 
-	rev 2013-06-13
+	rev 2013-06-24
 */
 
 class sfEventbriteMelody extends sfMelody2 {
@@ -117,7 +117,7 @@ class sfEventbriteMelody extends sfMelody2 {
 	}
 
 	// Local form of get() method
-	// TODO: consider refactoring parent's get() method to this somehow
+	// L8R: consider refactoring parent's get() method to this somehow
 	protected function localGet($action, $params = array()) {
 
 		$this->setCallParameter('app_key', $this->getKey());
@@ -130,7 +130,7 @@ class sfEventbriteMelody extends sfMelody2 {
 		return json_decode($response, true);
 	}
 
-	// # Eventbrite API communication methods
+	// # Eventbrite API GET communication methods
 	public function getEvent($id) {
 
 		return $this->localGet('event_get', array(
@@ -176,5 +176,24 @@ class sfEventbriteMelody extends sfMelody2 {
 	public function getOrganisersForCurrentUser() {
 
 		return $this->localGet('user_list_organizers');	// NOTE: This fails
+	}
+
+	// Custom, unverified calls
+	public function customCall($callPath, $callData) {
+
+		return $this->localGet($callPath, $callData);
+	}
+
+	// # Eventbrite API CREATE/UPDATE communication methods
+	// organizer_new, http://developer.eventbrite.com/doc/organizers/organizer_new/
+	public function newOrganiser($data) {
+
+		return $this->localGet('organizer_new', $data);
+	}
+
+	// organizer_update, http://developer.eventbrite.com/doc/organizers/organizer_update/
+	public function updateOrganiser($data) {
+
+		return $this->localGet('organizer_update', $data);
 	}
 }

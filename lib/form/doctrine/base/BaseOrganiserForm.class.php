@@ -23,6 +23,7 @@ abstract class BaseOrganiserForm extends BaseFormDoctrine
       'url'           => new sfWidgetFormInputText(),
       'twitter'       => new sfWidgetFormInputText(),
       'facebook'      => new sfWidgetFormInputText(),
+      'synchronized'  => new sfWidgetFormInputCheckbox(),
       'eventbrite_id' => new sfWidgetFormInputText(),
     ));
 
@@ -35,6 +36,7 @@ abstract class BaseOrganiserForm extends BaseFormDoctrine
       'url'           => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'twitter'       => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'facebook'      => new sfValidatorString(array('max_length' => 128, 'required' => false)),
+      'synchronized'  => new sfValidatorBoolean(array('required' => false)),
       'eventbrite_id' => new sfValidatorInteger(array('required' => false)),
     ));
 

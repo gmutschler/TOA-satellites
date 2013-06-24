@@ -15,6 +15,7 @@
  * @property time $end_hour
  * @property string $logo
  * @property string $listing_color
+ * @property boolean $test
  * @property boolean $moderated
  * @property boolean $synchronized
  * @property string $venue_name
@@ -42,6 +43,7 @@
  * @method time                getEndHour()             Returns the current record's "end_hour" value
  * @method string              getLogo()                Returns the current record's "logo" value
  * @method string              getListingColor()        Returns the current record's "listing_color" value
+ * @method boolean             getTest()                Returns the current record's "test" value
  * @method boolean             getModerated()           Returns the current record's "moderated" value
  * @method boolean             getSynchronized()        Returns the current record's "synchronized" value
  * @method string              getVenueName()           Returns the current record's "venue_name" value
@@ -68,6 +70,7 @@
  * @method Event               setEndHour()             Sets the current record's "end_hour" value
  * @method Event               setLogo()                Sets the current record's "logo" value
  * @method Event               setListingColor()        Sets the current record's "listing_color" value
+ * @method Event               setTest()                Sets the current record's "test" value
  * @method Event               setModerated()           Sets the current record's "moderated" value
  * @method Event               setSynchronized()        Sets the current record's "synchronized" value
  * @method Event               setVenueName()           Sets the current record's "venue_name" value
@@ -133,6 +136,10 @@ abstract class BaseEvent extends sfDoctrineRecord
         $this->hasColumn('listing_color', 'string', 8, array(
              'type' => 'string',
              'length' => 8,
+             ));
+        $this->hasColumn('test', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
              ));
         $this->hasColumn('moderated', 'boolean', null, array(
              'type' => 'boolean',

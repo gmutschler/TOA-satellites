@@ -82,6 +82,7 @@ Event:
     logo:               null
     listing_color:      17DBB5
     moderated:          true
+    test:               true
 
     venue_eventbrite_id:      <?=rand(5000,200000)?>
 

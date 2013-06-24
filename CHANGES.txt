@@ -1,3 +1,14 @@
+# 2013-06-24 (night)
+- Added "synchronized" flag for the Organiser object; the flag is auto unset
+  on every manual organiser saving and will be set on Eventbrite
+  synchronization process
+- Added background event synchronization task, that will synchronize
+  Organisers, Venues, Events and Tickets (last one still on TODO list)
+  The task (for now) can be executed manually by calling: 
+  ./symfony toa:pushEventbrite
+
+
+
 # 2013-06-23 (day)
 - Added simple moderation flag toggle in Administrateur app (batch_action and
   object_action)

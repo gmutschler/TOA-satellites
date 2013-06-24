@@ -37,11 +37,7 @@ class Attendee extends BaseAttendee {
 			}
 
 			// 4. check if found and set the proper flag here if yes!
-			if($found) {
-
-				$this->setHasMainTicket(true);
-				$this->save();
-			}
+			if($found) $this->setHasMainTicket(true)->save();
 		}
 	}
 }
