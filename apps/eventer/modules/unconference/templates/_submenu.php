@@ -5,6 +5,5 @@
 
 		'About the first day' => 'unconference/index',
 		'The Speakers' => 'unconference/speakers',
-		'Time Schedule' => 'unconference/schedule'
 	)
 )) ?>

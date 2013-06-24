@@ -13,6 +13,6 @@ class partnersActions extends sfActions {
 	public function executeIndex(sfWebRequest $request) {
 	}
 
-	public function executeHow(sfWebRequest $request) {
+	public function executeSupportus(sfWebRequest $request) {
 	}
 }

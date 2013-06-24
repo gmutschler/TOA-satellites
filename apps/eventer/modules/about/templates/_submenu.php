@@ -3,8 +3,7 @@
 	'submenu_title' => 'About us',
 	'links' => array(
 
-		'About us'	=> 'about/index',
-		'The Team'	=> 'about/team',
+		'Raison d’être '	=> 'about/index',
 		'Press'		=> 'about/press',
 		'Contact us'	=> 'about/contact'
 	)
