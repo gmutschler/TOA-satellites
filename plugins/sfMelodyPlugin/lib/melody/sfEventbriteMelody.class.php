@@ -3,7 +3,7 @@
 	Eventbrite.com implementation for sfMelody plugin
 	Maciej Taranienko <maciej@canadel.ee>
 
-	rev 2013-06-24
+	rev 2013-06-25
 */
 
 class sfEventbriteMelody extends sfMelody2 {
@@ -130,7 +130,7 @@ class sfEventbriteMelody extends sfMelody2 {
 		return json_decode($response, true);
 	}
 
-	// # Eventbrite API GET communication methods
+	// # Eventbrite API GET predefined communication methods
 	public function getEvent($id) {
 
 		return $this->localGet('event_get', array(
@@ -173,27 +173,31 @@ class sfEventbriteMelody extends sfMelody2 {
 			'type' => 'all'
 		));
 	}
-	public function getOrganisersForCurrentUser() {
 
-		return $this->localGet('user_list_organizers');	// NOTE: This fails
-	}
-
-	// Custom, unverified calls
+	// # Eventbrite API custom calls and their basic validation
 	public function customCall($callPath, $callData) {
 
 		return $this->localGet($callPath, $callData);
 	}
+	public function analyseBasicResponse($response) {
 
-	// # Eventbrite API CREATE/UPDATE communication methods
-	// organizer_new, http://developer.eventbrite.com/doc/organizers/organizer_new/
-	public function newOrganiser($data) {
+		if($response and is_array($response)) {
 
-		return $this->localGet('organizer_new', $data);
-	}
+			// KNOWN ERROR
+			if($response['error']) throw new sfException(sprintf('%s: %s',
 
-	// organizer_update, http://developer.eventbrite.com/doc/organizers/organizer_update/
-	public function updateOrganiser($data) {
+				$response['error']['error_type'],
+				$response['error']['error_message']
+			));
 
-		return $this->localGet('organizer_update', $data);
+			// GOOD
+			else if($response['process'] and $response['process']['id']) return $response['process']['id'];
+
+			// UNKNOWN ERROR
+			else return false;
+		}
+
+		// UNKNOWN ERROR
+		else return false;
 	}
 }

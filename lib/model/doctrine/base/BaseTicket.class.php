@@ -9,42 +9,39 @@
  * @property string $name
  * @property string $description
  * @property float $price
- * @property timestamp $end_date
  * @property integer $quantity_declared
  * @property integer $quantity_paid
  * @property integer $quantity_free
  * @property integer $eventbrite_id
- * @property integer $evenbrite_id_free
+ * @property integer $eventbrite_hidden_id
  * @property Event $Event
  * @property Doctrine_Collection $Attendees
  * @property Doctrine_Collection $AttendeeTickets
  * 
- * @method integer             getEventId()           Returns the current record's "event_id" value
- * @method string              getName()              Returns the current record's "name" value
- * @method string              getDescription()       Returns the current record's "description" value
- * @method float               getPrice()             Returns the current record's "price" value
- * @method timestamp           getEndDate()           Returns the current record's "end_date" value
- * @method integer             getQuantityDeclared()  Returns the current record's "quantity_declared" value
- * @method integer             getQuantityPaid()      Returns the current record's "quantity_paid" value
- * @method integer             getQuantityFree()      Returns the current record's "quantity_free" value
- * @method integer             getEventbriteId()      Returns the current record's "eventbrite_id" value
- * @method integer             getEvenbriteIdFree()   Returns the current record's "evenbrite_id_free" value
- * @method Event               getEvent()             Returns the current record's "Event" value
- * @method Doctrine_Collection getAttendees()         Returns the current record's "Attendees" collection
- * @method Doctrine_Collection getAttendeeTickets()   Returns the current record's "AttendeeTickets" collection
- * @method Ticket              setEventId()           Sets the current record's "event_id" value
- * @method Ticket              setName()              Sets the current record's "name" value
- * @method Ticket              setDescription()       Sets the current record's "description" value
- * @method Ticket              setPrice()             Sets the current record's "price" value
- * @method Ticket              setEndDate()           Sets the current record's "end_date" value
- * @method Ticket              setQuantityDeclared()  Sets the current record's "quantity_declared" value
- * @method Ticket              setQuantityPaid()      Sets the current record's "quantity_paid" value
- * @method Ticket              setQuantityFree()      Sets the current record's "quantity_free" value
- * @method Ticket              setEventbriteId()      Sets the current record's "eventbrite_id" value
- * @method Ticket              setEvenbriteIdFree()   Sets the current record's "evenbrite_id_free" value
- * @method Ticket              setEvent()             Sets the current record's "Event" value
- * @method Ticket              setAttendees()         Sets the current record's "Attendees" collection
- * @method Ticket              setAttendeeTickets()   Sets the current record's "AttendeeTickets" collection
+ * @method integer             getEventId()              Returns the current record's "event_id" value
+ * @method string              getName()                 Returns the current record's "name" value
+ * @method string              getDescription()          Returns the current record's "description" value
+ * @method float               getPrice()                Returns the current record's "price" value
+ * @method integer             getQuantityDeclared()     Returns the current record's "quantity_declared" value
+ * @method integer             getQuantityPaid()         Returns the current record's "quantity_paid" value
+ * @method integer             getQuantityFree()         Returns the current record's "quantity_free" value
+ * @method integer             getEventbriteId()         Returns the current record's "eventbrite_id" value
+ * @method integer             getEventbriteHiddenId()   Returns the current record's "eventbrite_hidden_id" value
+ * @method Event               getEvent()                Returns the current record's "Event" value
+ * @method Doctrine_Collection getAttendees()            Returns the current record's "Attendees" collection
+ * @method Doctrine_Collection getAttendeeTickets()      Returns the current record's "AttendeeTickets" collection
+ * @method Ticket              setEventId()              Sets the current record's "event_id" value
+ * @method Ticket              setName()                 Sets the current record's "name" value
+ * @method Ticket              setDescription()          Sets the current record's "description" value
+ * @method Ticket              setPrice()                Sets the current record's "price" value
+ * @method Ticket              setQuantityDeclared()     Sets the current record's "quantity_declared" value
+ * @method Ticket              setQuantityPaid()         Sets the current record's "quantity_paid" value
+ * @method Ticket              setQuantityFree()         Sets the current record's "quantity_free" value
+ * @method Ticket              setEventbriteId()         Sets the current record's "eventbrite_id" value
+ * @method Ticket              setEventbriteHiddenId()   Sets the current record's "eventbrite_hidden_id" value
+ * @method Ticket              setEvent()                Sets the current record's "Event" value
+ * @method Ticket              setAttendees()            Sets the current record's "Attendees" collection
+ * @method Ticket              setAttendeeTickets()      Sets the current record's "AttendeeTickets" collection
  * 
  * @package    toaberlin
  * @subpackage model
@@ -71,9 +68,6 @@ abstract class BaseTicket extends sfDoctrineRecord
         $this->hasColumn('price', 'float', null, array(
              'type' => 'float',
              ));
-        $this->hasColumn('end_date', 'timestamp', null, array(
-             'type' => 'timestamp',
-             ));
         $this->hasColumn('quantity_declared', 'integer', 5, array(
              'type' => 'integer',
              'notnull' => true,
@@ -91,7 +85,7 @@ abstract class BaseTicket extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 16,
              ));
-        $this->hasColumn('evenbrite_id_free', 'integer', 16, array(
+        $this->hasColumn('eventbrite_hidden_id', 'integer', 16, array(
              'type' => 'integer',
              'length' => 16,
              ));

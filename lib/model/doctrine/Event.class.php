@@ -33,30 +33,63 @@ class Event extends BaseEvent {
 		if($this->getSynchronized()) return true;
 
 		// 1. Sync the organiser
-		if(!$organiser_eb_id = $this->syncOrganiserForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite: Improper response from API!');
+		if(!$organiser_eb_id = $this->syncOrganiserForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite API!');
 
 		// 2. Sync the venue
-		if(!$venue_eb_id = $this->syncVenueForUser($user)) throw new sfException('Cannot sync Venue with Eventbrite: Improper response from API!');
+		if(!$venue_eb_id = $this->syncVenueForUser($user)) throw new sfException('Cannot sync Venue with Eventbrite API!');
 
 
 		// 3. Sync the event
-		// REMEMBER: set privacy and and status as 1 on production environment!
-		if(!$event_eb_id = $this->syncEventForUser($user)) throw new sfException('Cannot sync Event with Eventbrite: Improper response from API!');
+		// REMEMBER: duplicate the events, setting one as private, other one as public; private will have free tickets, while public paid
+		if(!$event_eb_id = $this->syncEventForUser($user)) throw new sfException('Cannot sync Event with Eventbrite API!');
+		if(!$event_eb_hidden_id = $this->syncEventForUser($user, true)) throw new sfException('Cannot sync Hidden Event with Eventbrite API!');
+		$this->setSynchronized(true)->save();
 
-		// TODO: 4. Sync the tickets
-		// REMEMBER: duplicate the tickets setting one as private, other one as public!
+		// 4. Sync the tickets (without checking the synced flags)
+		if($tickets = $this->getTickets() and count($tickets)) {
 
+			$ticket_eb_ids = array();
+			$ticket_eb_hidden_ids = array();
 
-		// Return true on success, false on failure
-		return $organiser_eb_id and $venue_eb_id ? true : false;
+			foreach($tickets as $ticket) {
+
+				if(!$ticket_eb_id = $ticket->syncForUser($user)) throw new sfException('Cannot sync Ticket with Eventbrite API!');
+				if(!$ticket_eb_hidden_id = $ticket->syncForUser($user, true)) throw new sfException('Cannot sync Hidden Ticket with Eventbrite API!');
+
+				$ticket_eb_ids[] = $ticket_eb_id;
+				$ticket_eb_hidden_ids[] = $ticket_eb_hidden_id;
+			}
+		}
+
+		// Debug
+		printf("Organiser ID: %s\nVenue ID: %s\nEvent ID: %s\nEvent Hidden ID: %s\n",
+
+			$organiser_eb_id,
+			$venue_eb_id,
+			$event_eb_id,
+			$event_eb_hidden_id
+		);
+		if(count($tickets)) {
+
+			print "Ticket IDs:\n";
+			print_r($ticket_eb_ids);
+
+			print "Ticket Hidden IDs:\n";
+			print_r($ticket_eb_hidden_ids);
+		}
+
+		// If we made it down here without exception, we surely don't have errors :)
+		return true;
 	}
 
 	// Event
 	// ** in this case we don't need to check the synchronized flag since if we're here, 
 	//    it was certainly set to false and we need action to be taken
-	protected function syncEventForUser(sfUser $user) {
+	// ** the $hidden flag is used for our "hidden events" workaround
+	protected function syncEventForUser(sfUser $user, $hidden = false) {
 
 		// Prepare data defaults
+		$melody = $user->getMelody('eventbrite');
 		$data = array(
 
 			'title'			=> $this->getTitle(),
@@ -64,17 +97,15 @@ class Event extends BaseEvent {
 			'start_date'		=> $this->getStartDate(),
 			'end_date'		=> $this->getEndDate(),
 			'timezone'		=> sfConfig::get('app_push_defaults_timezone'),
-			'privacy'		=> 0,	// TODO: change to 1 on production!
+			'privacy'		=> 1,	// 0 for a private event, 1 for a public event
 			'venue_id'		=> $this->getVenueEventbriteId(),
 			'organizer_id'		=> $user->getGuardUser()->getOrganiser()->getEventbriteId(),
+			'capacity'		=> $this->calculateCapacity(),
 			'currency'		=> sfConfig::get('app_push_defaults_currency'),
 			'locale'		=> sfConfig::get('app_push_defaults_locale'),
-			'status'		=> 'draft',	// TODO: change to "live" on production! Allowed values are “draft”, “live”, “canceled”, “deleted”.
+			'status'		=> sfConfig::get('app_push_defaults_status'),
 			'confirmation_page'	=> ''	// TODO: declare it when making the buying process live
 		);
-
-		// TODO: Calculate capacity from all the tickets by iteration OR fallback to defaults
-		$data['capacity'] = sfConfig::get('app_push_defaults_capacity');
 
 		// Add the colors
 		if($this->getListingColor()) {
@@ -82,11 +113,18 @@ class Event extends BaseEvent {
 			// TODO: colorize some fields according to http://developer.eventbrite.com/doc/events/event_new/
 		}
 
+		// Override some fields for hidden events
+		if($hidden) {
+
+			$data['privacy'] = 0;
+			$data['title'] .= ' ' . sfConfig::get('app_push_defaults_attendee_suffix');
+		}
+
 		// Check for method and extra fields
-		if($this->getEventbriteId()) {
+		if( (!$hidden and $this->getEventbriteId()) or ($hidden and $this->getEventbriteHiddenId()) ) {
 
 			$method = 'event_update';
-			$data['id'] = $this->getEventbriteId();
+			$data['id'] = $hidden ? $this->getEventbriteHiddenId() : $this->getEventbriteId();
 		}
 		else {
 
@@ -98,21 +136,23 @@ class Event extends BaseEvent {
 				rand(1, 99)
 			);
 
+			// add some stuff for hidden event
+			if($hidden) $data['personalized_url'] .= '-h';
+
 			// ** the event_update method uses 'url' field, while event_new goes for 'personalized_url'; check if it matters
 			// ** yet again, we will never update that url - once it is set
 		}
 
 		// Make the call
-		if($event_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->customCall($method, $data))) {
+		if($return_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
 
 			// Save the ID for 'new' calls
-			if(!$this->getEventbriteId()) $this->setEventbriteId($event_eb_id);
+			if(!$hidden and !$this->getEventbriteId()) $this->setEventbriteId($return_id);
+			if($hidden and !$this->getEventbriteHiddenId()) $this->setEventbriteHiddenId($return_id);
 
-			// Set that we're synced now
-			$this->setSynchronized(true)->save();
-
-			// Return the ID
-			return $event_eb_id;
+			// Save and return the ID
+			$this->save();
+			return $return_id;
 		}
 
 		// Some errors occured
@@ -125,6 +165,7 @@ class Event extends BaseEvent {
 	protected function syncVenueForUser(sfUser $user) {
 
 		// Prepare data defaults to be always pushed
+		$melody = $user->getMelody('eventbrite');
 		$data = array(
 
 			'name'		=> $this->getVenueName(),
@@ -149,7 +190,7 @@ class Event extends BaseEvent {
 		}
 
 		// Make the call and analyse the answer
-		if($venue_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->customCall($method, $data))) {
+		if($venue_eb_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
 
 			// Save the ID for 'new' calls
 			if(!$this->getVenueEventbriteId()) $this->setVenueEventbriteId($venue_eb_id)->save();
@@ -162,78 +203,63 @@ class Event extends BaseEvent {
 		else return false;
 	}
 
-	// Organiser
-	// TODO: DRY it up
+	// Organiser	
 	protected function syncOrganiserForUser(sfUser $user) {
 
-		$organiser = $user->getGuardUser()->getOrganiser();
+		$organiser = $user->getGuardUser()->getOrganiser();	// FIXME: move this code to Organiser model and then remove $organiser reference
+									// FIXME: Why the fuck wont we get organiser from Event?... token keys maybe
 
-		// Create
+		// Prepare data defaults
+		$melody = $user->getMelody('eventbrite');
+		$data = array(
+
+			'name'		=> $organiser->getName(),
+			'description'	=> !is_null($organiser->getDescription()) ? $organiser->getDescription() : 'No information provided.'
+		);
+
+		// Check for method and extra fields
 		if(!$organiser->getEventbriteId()) {
 
-			if($organiser_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->newOrganiser(array(
-
-				'name'		=> $organiser->getName(),
-				'description'	=> !is_null($organiser->getDescription()) ? $organiser->getDescription() : 'No information provided.'
-			)))) {
-
-				// All good? Save and return
-				$organiser->setEventbriteId($organiser_eb_id);
-				$organiser->setSynchronized(true);
-				$organiser->save();
-
-				return $organiser_eb_id;
-			}
-
-			// Errors :(
-			else return false;
+			$method = 'organizer_new';
 		}
-
-		// Update
 		else if(!$organiser->getSynchronized()) {
 
-			if($organiser_eb_id = $this->analyseBasicResponse($user->getMelody('eventbrite')->updateOrganiser(array(
-
-				'id'		=> $organiser->getEventbriteId(),
-				'name'		=> $organiser->getName(),
-				'description'	=> !is_null($organiser->getDescription()) ? $organiser->getDescription() : 'No information provided.'
-			)))) {
-
-				// Save and return
-				$organiser->setSynchronized(true);
-				$organiser->save();
-
-				return $organiser_eb_id;
-			}
-
-			// Errors :(
-			else return false;
+			$method = 'organizer_update';
+			$data['id'] = $organiser->getEventbriteId();
 		}
 
-		// Just return the ID
+		// ... or just return the ID and stop execution here
 		else return $organiser->getEventbriteId();
+
+		// Make the call
+		if($organiser_eb_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
+
+			// Save the ID for 'new' calls
+			if(!$organiser->getEventbriteId()) $organiser->setEventbriteId($organiser_eb_id);
+
+			// Save and return
+			$organiser->setSynchronized(true)->save();
+			return $organiser_eb_id;
+		}
 	}
 
 	// Helper methods
-	private function analyseBasicResponse($response) {
+	private function calculateCapacity() {
 
-		if($response and is_array($response)) {
+		// If we have tickets - calculate their places sum
+		if($tickets = $this->getTickets() and count($tickets)) {
 
-			// KNOWN ERROR
-			if($response['error']) throw new sfException(sprintf('%s: %s',
+			$capacity = 0;
 
-				$response['error']['error_type'],
-				$response['error']['error_message']
-			));
+			// FIXME: quantity_declared can be easily cheated, but on the other hand - 
+			//        we can't base on the real quantity_free and quantity_paid, as
+			//        those values can be different and entire API call fail
+			foreach($tickets as $ticket) $capacity += $ticket->getQuantityDeclared();
 
-			// GOOD
-			else if($response['process'] and $response['process']['id']) return $response['process']['id'];
-
-			// UNKNOWN ERROR
-			else return false;
+			return $capacity;
 		}
 
-		// UNKNOWN ERROR
-		else return false;
+		// If we don't - go for defaults
+		return sfConfig::get('app_push_defaults_capacity');
 	}
 }

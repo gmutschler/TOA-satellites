@@ -26,6 +26,7 @@
  * @property decimal $venue_longitude
  * @property integer $venue_eventbrite_id
  * @property integer $eventbrite_id
+ * @property integer $eventbrite_hidden_id
  * @property string $eventbrite_logo_url
  * @property timestamp $eventbrite_created
  * @property timestamp $eventbrite_modified
@@ -33,60 +34,62 @@
  * @property Organiser $Organiser
  * @property Doctrine_Collection $Tickets
  * 
- * @method integer             getCategoryId()          Returns the current record's "category_id" value
- * @method integer             getOrganiserId()         Returns the current record's "organiser_id" value
- * @method string              getTitle()               Returns the current record's "title" value
- * @method text                getDescription()         Returns the current record's "description" value
- * @method timestamp           getStartDate()           Returns the current record's "start_date" value
- * @method timestamp           getEndDate()             Returns the current record's "end_date" value
- * @method time                getStartHour()           Returns the current record's "start_hour" value
- * @method time                getEndHour()             Returns the current record's "end_hour" value
- * @method string              getLogo()                Returns the current record's "logo" value
- * @method string              getListingColor()        Returns the current record's "listing_color" value
- * @method boolean             getTest()                Returns the current record's "test" value
- * @method boolean             getModerated()           Returns the current record's "moderated" value
- * @method boolean             getSynchronized()        Returns the current record's "synchronized" value
- * @method string              getVenueName()           Returns the current record's "venue_name" value
- * @method string              getVenueAddress()        Returns the current record's "venue_address" value
- * @method string              getVenueCity()           Returns the current record's "venue_city" value
- * @method integer             getVenuePostalCode()     Returns the current record's "venue_postal_code" value
- * @method decimal             getVenueLatitude()       Returns the current record's "venue_latitude" value
- * @method decimal             getVenueLongitude()      Returns the current record's "venue_longitude" value
- * @method integer             getVenueEventbriteId()   Returns the current record's "venue_eventbrite_id" value
- * @method integer             getEventbriteId()        Returns the current record's "eventbrite_id" value
- * @method string              getEventbriteLogoUrl()   Returns the current record's "eventbrite_logo_url" value
- * @method timestamp           getEventbriteCreated()   Returns the current record's "eventbrite_created" value
- * @method timestamp           getEventbriteModified()  Returns the current record's "eventbrite_modified" value
- * @method Category            getCategory()            Returns the current record's "Category" value
- * @method Organiser           getOrganiser()           Returns the current record's "Organiser" value
- * @method Doctrine_Collection getTickets()             Returns the current record's "Tickets" collection
- * @method Event               setCategoryId()          Sets the current record's "category_id" value
- * @method Event               setOrganiserId()         Sets the current record's "organiser_id" value
- * @method Event               setTitle()               Sets the current record's "title" value
- * @method Event               setDescription()         Sets the current record's "description" value
- * @method Event               setStartDate()           Sets the current record's "start_date" value
- * @method Event               setEndDate()             Sets the current record's "end_date" value
- * @method Event               setStartHour()           Sets the current record's "start_hour" value
- * @method Event               setEndHour()             Sets the current record's "end_hour" value
- * @method Event               setLogo()                Sets the current record's "logo" value
- * @method Event               setListingColor()        Sets the current record's "listing_color" value
- * @method Event               setTest()                Sets the current record's "test" value
- * @method Event               setModerated()           Sets the current record's "moderated" value
- * @method Event               setSynchronized()        Sets the current record's "synchronized" value
- * @method Event               setVenueName()           Sets the current record's "venue_name" value
- * @method Event               setVenueAddress()        Sets the current record's "venue_address" value
- * @method Event               setVenueCity()           Sets the current record's "venue_city" value
- * @method Event               setVenuePostalCode()     Sets the current record's "venue_postal_code" value
- * @method Event               setVenueLatitude()       Sets the current record's "venue_latitude" value
- * @method Event               setVenueLongitude()      Sets the current record's "venue_longitude" value
- * @method Event               setVenueEventbriteId()   Sets the current record's "venue_eventbrite_id" value
- * @method Event               setEventbriteId()        Sets the current record's "eventbrite_id" value
- * @method Event               setEventbriteLogoUrl()   Sets the current record's "eventbrite_logo_url" value
- * @method Event               setEventbriteCreated()   Sets the current record's "eventbrite_created" value
- * @method Event               setEventbriteModified()  Sets the current record's "eventbrite_modified" value
- * @method Event               setCategory()            Sets the current record's "Category" value
- * @method Event               setOrganiser()           Sets the current record's "Organiser" value
- * @method Event               setTickets()             Sets the current record's "Tickets" collection
+ * @method integer             getCategoryId()           Returns the current record's "category_id" value
+ * @method integer             getOrganiserId()          Returns the current record's "organiser_id" value
+ * @method string              getTitle()                Returns the current record's "title" value
+ * @method text                getDescription()          Returns the current record's "description" value
+ * @method timestamp           getStartDate()            Returns the current record's "start_date" value
+ * @method timestamp           getEndDate()              Returns the current record's "end_date" value
+ * @method time                getStartHour()            Returns the current record's "start_hour" value
+ * @method time                getEndHour()              Returns the current record's "end_hour" value
+ * @method string              getLogo()                 Returns the current record's "logo" value
+ * @method string              getListingColor()         Returns the current record's "listing_color" value
+ * @method boolean             getTest()                 Returns the current record's "test" value
+ * @method boolean             getModerated()            Returns the current record's "moderated" value
+ * @method boolean             getSynchronized()         Returns the current record's "synchronized" value
+ * @method string              getVenueName()            Returns the current record's "venue_name" value
+ * @method string              getVenueAddress()         Returns the current record's "venue_address" value
+ * @method string              getVenueCity()            Returns the current record's "venue_city" value
+ * @method integer             getVenuePostalCode()      Returns the current record's "venue_postal_code" value
+ * @method decimal             getVenueLatitude()        Returns the current record's "venue_latitude" value
+ * @method decimal             getVenueLongitude()       Returns the current record's "venue_longitude" value
+ * @method integer             getVenueEventbriteId()    Returns the current record's "venue_eventbrite_id" value
+ * @method integer             getEventbriteId()         Returns the current record's "eventbrite_id" value
+ * @method integer             getEventbriteHiddenId()   Returns the current record's "eventbrite_hidden_id" value
+ * @method string              getEventbriteLogoUrl()    Returns the current record's "eventbrite_logo_url" value
+ * @method timestamp           getEventbriteCreated()    Returns the current record's "eventbrite_created" value
+ * @method timestamp           getEventbriteModified()   Returns the current record's "eventbrite_modified" value
+ * @method Category            getCategory()             Returns the current record's "Category" value
+ * @method Organiser           getOrganiser()            Returns the current record's "Organiser" value
+ * @method Doctrine_Collection getTickets()              Returns the current record's "Tickets" collection
+ * @method Event               setCategoryId()           Sets the current record's "category_id" value
+ * @method Event               setOrganiserId()          Sets the current record's "organiser_id" value
+ * @method Event               setTitle()                Sets the current record's "title" value
+ * @method Event               setDescription()          Sets the current record's "description" value
+ * @method Event               setStartDate()            Sets the current record's "start_date" value
+ * @method Event               setEndDate()              Sets the current record's "end_date" value
+ * @method Event               setStartHour()            Sets the current record's "start_hour" value
+ * @method Event               setEndHour()              Sets the current record's "end_hour" value
+ * @method Event               setLogo()                 Sets the current record's "logo" value
+ * @method Event               setListingColor()         Sets the current record's "listing_color" value
+ * @method Event               setTest()                 Sets the current record's "test" value
+ * @method Event               setModerated()            Sets the current record's "moderated" value
+ * @method Event               setSynchronized()         Sets the current record's "synchronized" value
+ * @method Event               setVenueName()            Sets the current record's "venue_name" value
+ * @method Event               setVenueAddress()         Sets the current record's "venue_address" value
+ * @method Event               setVenueCity()            Sets the current record's "venue_city" value
+ * @method Event               setVenuePostalCode()      Sets the current record's "venue_postal_code" value
+ * @method Event               setVenueLatitude()        Sets the current record's "venue_latitude" value
+ * @method Event               setVenueLongitude()       Sets the current record's "venue_longitude" value
+ * @method Event               setVenueEventbriteId()    Sets the current record's "venue_eventbrite_id" value
+ * @method Event               setEventbriteId()         Sets the current record's "eventbrite_id" value
+ * @method Event               setEventbriteHiddenId()   Sets the current record's "eventbrite_hidden_id" value
+ * @method Event               setEventbriteLogoUrl()    Sets the current record's "eventbrite_logo_url" value
+ * @method Event               setEventbriteCreated()    Sets the current record's "eventbrite_created" value
+ * @method Event               setEventbriteModified()   Sets the current record's "eventbrite_modified" value
+ * @method Event               setCategory()             Sets the current record's "Category" value
+ * @method Event               setOrganiser()            Sets the current record's "Organiser" value
+ * @method Event               setTickets()              Sets the current record's "Tickets" collection
  * 
  * @package    toaberlin
  * @subpackage model
@@ -182,6 +185,10 @@ abstract class BaseEvent extends sfDoctrineRecord
              'length' => 16,
              ));
         $this->hasColumn('eventbrite_id', 'integer', 16, array(
+             'type' => 'integer',
+             'length' => 16,
+             ));
+        $this->hasColumn('eventbrite_hidden_id', 'integer', 16, array(
              'type' => 'integer',
              'length' => 16,
              ));

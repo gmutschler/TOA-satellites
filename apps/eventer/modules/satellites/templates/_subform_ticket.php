@@ -1,4 +1,8 @@
-		<p class="notice">Ticket 1 (TODO: count)</p>
+<?php if(isset($new) and isset($key)): ?>
+		<p class="notice">New Ticket <?=$key + 1?></p>
+<?php elseif(isset($key)): ?>
+		<p class="notice">Ticket <?=$key + 1?></p>
+<?php endif ?>
 
 		<div class="section long<?php if($ticket['name']->hasError()) { ?> error<? } ?>">
 			<?=$ticket['name']?>

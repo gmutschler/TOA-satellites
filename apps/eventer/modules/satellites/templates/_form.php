@@ -62,9 +62,11 @@
 			</div>
 			<div class="clear"></div>
 		</div>
+<?php /*
 		<div class="section gmap">
-			Map widget will be there ;)
+			TODO: Map widget will be there ;)
 		</div>
+*/ ?>
 	</div>
 
 
@@ -80,6 +82,7 @@
 
 <?php	foreach($form['newTickets'] as $key => $ticket) include_partial('subform_ticket', array(
 
+			'new' => true,
 			'key' => $key,
 			'ticket' => $ticket
 )) ?>

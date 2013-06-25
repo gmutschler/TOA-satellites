@@ -27,7 +27,7 @@
 		include_partial('listing_item', array(
 
 			'big_link'	=> url_for('satellites/import?id=' . $event['id']),
-			'image'		=> $event['logo'],
+			'image'		=> isset($event['logo']) ? $event['logo'] : '/images/content/test_event_thumb.png',
 			'start_hour'	=> date('G:i', strtotime($event['start_date'])),
 			'end_hour'	=> date('G:i', strtotime($event['end_date'])),
 			'title'		=> $event['title'],

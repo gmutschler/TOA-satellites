@@ -1,3 +1,21 @@
+# 2013-06-25 (night)
+- Added counter on tickets in the form
+- Small cleanup of useless models
+- Added hardcoded method for ticket places calculation (TODO! Fix this ASAP as
+  this may lead to fails)
+- Fixed a bug causing logo errors on events imported from Eventbrite
+- Moved ticket quantity calculating (declared/free/paid) to Ticket model. It
+  will allow to declare this only for the first time (when creating new
+  ticket) and it will totally block it later on (this is to be
+  reconsidered/tweaked when there's more time)
+- Added "eventbrite_hidden_id" fields for Ticket and Event
+- The synchronization process will now create two separate Events; one
+  private (for free tickets), another one public (for paid tickets)
+- Tickets will be pushed to Eventbrite together with the events; also one
+  hidden and one public
+
+
+
 # 2013-06-24 (night)
 - Added "synchronized" flag for the Organiser object; the flag is auto unset
   on every manual organiser saving and will be set on Eventbrite

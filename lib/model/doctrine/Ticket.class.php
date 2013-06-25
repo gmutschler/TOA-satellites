@@ -7,9 +7,92 @@
  * 
  * @package    toaberlin
  * @subpackage model
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Ticket extends BaseTicket
-{
+class Ticket extends BaseTicket {
+
+	// Very nasty hack allowing ticket quantities to be set ONCE, when it is first saved
+	public function save(Doctrine_Connection $conn = null) {
+
+		// 1. If the user is actually adding a new ticket - our quantity_free and quantity_paid will be calculated
+		if($this->getQuantityDeclared() and (!$this->getQuantityPaid() and !$this->getQuantityFree())) {
+
+			// round it up
+			$half = floor($this->getQuantityDeclared() / 2);
+
+			// set it
+			$this->setQuantityPaid($half);
+			$this->setQuantityFree($half);
+
+			// see if we had an even number, or shall we round it up
+			if($half != $this->getQuantityDeclared()) $this->setQuantityDeclared(2 * $half);
+		}
+
+		// 2. If the user is changing the quantities AND the fields were previously declared
+		else if($this->getQuantityDeclared() and ($this->getQuantityPaid() and $this->getQuantityFree())) {
+
+			// TODO: allow such actions for admins only
+			// TODO: or bring back the previous value
+		}
+
+		// Save
+		return parent::save($conn);
+	}
+
+	// Eventbrite API synchronization method
+	// ** the $hidden flag is used for our "hidden events" workaround
+	public function syncForUser(sfUser $user, $hidden = false) {
+
+		// Prepare defaults
+		$melody = $user->getMelody('eventbrite');
+		$data = array(
+
+			'is_donation'		=> 0,
+			'name'			=> $this->getName(),
+			'description'		=> $this->getDescription(),
+			'price'			=> $this->getPrice(),
+			'quantity_available'	=> $this->getQuantityPaid(),
+			'end_date'		=> $this->getEvent()->getEndDate(),
+			'include_fee'		=> sfConfig::get('app_push_defaults_tickets_fee'),
+			'min'			=> sfConfig::get('app_push_defaults_tickets_min'),
+			'max'			=> sfConfig::get('app_push_defaults_tickets_max')
+		);
+
+		// Stuff for hidden
+		if($hidden) {
+
+			$data['name'] .= ' ' . sfConfig::get('app_push_defaults_attendee_suffix');
+			$data['price'] = '0.00';
+			$data['quantity_available'] = $this->getQuantityFree();
+		}
+
+		// Check for method and extra fields
+		if( (!$hidden and $this->getEventbriteId()) or ($hidden and $this->getEventbriteHiddenId()) ) {
+
+			$method = 'ticket_update';
+			$data['id'] = $hidden ? $this->getEventbriteHiddenId() : $this->getEventbriteId();
+		}
+		else {
+
+			$method = 'ticket_new';
+			$data['event_id'] = $hidden ? $this->getEvent()->getEventbriteHiddenId() : $this->getEvent()->getEventbriteId();
+			$data['start_date'] = date('Y-m-d H:i:s');
+		}
+
+		// Make the call
+		if($return_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
+
+			// Save the ID for 'new' calls
+			if(!$hidden and !$this->getEventbriteId()) $this->setEventbriteId($return_id);
+			if($hidden and !$this->getEventbriteHiddenId()) $this->setEventbriteHiddenId($return_id);
+
+			// Save and return the ID
+			$this->save();
+			return $return_id;
+		}
+
+		// Errors occured
+		else return false;
+	}
 }

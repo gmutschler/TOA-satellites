@@ -76,7 +76,7 @@ if($color = $event->getListingColor()) {
 					<h2>Event details</h2>
 				</div>
 
-				<div class="content-box-inner"><p><?=$event->getDescription()?></p></div>
+				<div class="content-box-inner"><p><?=nl2br($event->getDescription())?></p></div>
                 <p class="single-event-category">Posted in: <a href="<?=url_for('satellites/book?category=' . $event->getCategory()->getId())?>"><?=$event->getCategory()->getName()?></a></p>
 			</div>
 
@@ -92,7 +92,7 @@ if($color = $event->getListingColor()) {
 		    
 					<h4><?=$event->getOrganiser()->getName()?></h4>
 		    
-					<p><?=$event->getOrganiser()->getDescription()?></p>
+					<p><?=nl2br($event->getOrganiser()->getDescription())?></p>
 				    
 					<a href="mailto:<?=$event->getOrganiser()->getGuardUser()->getEmailAddress()?>" class="button_black button_black_small" target="_blank">Contact the organizer</a>
 		    
@@ -120,7 +120,7 @@ if($color = $event->getListingColor()) {
 <?php	foreach($event->getTickets() as $ticket): // LATER: consider making this a re-usable partial (f.e. for user account) ?>
 <?php			// ** paid ticket ?>
 			<li>
-				<span class="title"><span class="qty fright"><?=$ticket->getQuantityPaid()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEndDate()))?></span><?=$ticket->getName()?></span>
+				<span class="title"><span class="qty fright"><?=$ticket->getQuantityPaid()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEvent()->getEndDate()))?></span><?=$ticket->getName()?></span>
 				<span class="clear line"></span>
 
 				<span class="desc"><?=$ticket->getDescription()?></span>
@@ -138,7 +138,7 @@ TODO:
 			<li>
 				<span class="overlay-container"><span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="#" onclick="alert('Booo!'); return false;">Buy yours now</a></span></span>
 
-				<span class="title"><span class="qty fright"><?=$ticket->getQuantityFree()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEndDate()))?></span><?=$ticket->getName()?> for TOA Attendees</span>
+				<span class="title"><span class="qty fright"><?=$ticket->getQuantityFree()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEvent()->getEndDate()))?></span><?=$ticket->getName()?> for TOA Attendees</span>
 				<span class="clear line"></span>
 
 				<span class="desc"><?=$ticket->getDescription()?></span>
