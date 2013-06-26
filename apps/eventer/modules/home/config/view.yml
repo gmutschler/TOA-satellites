@@ -1,0 +1,3 @@
+# HOME module
+indexSuccess:
+  javascripts: ['controllers/e_home_index.js']

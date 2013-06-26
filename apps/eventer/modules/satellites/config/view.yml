@@ -1,0 +1,6 @@
+# SATELLITES module
+indexSuccess:
+  javascripts: ['controllers/e_satellites_index.js']
+
+hostSuccess:
+  javascripts: ['libs/colorpicker.js', 'controllers/e_satellites_host.js']

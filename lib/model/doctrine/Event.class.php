@@ -61,6 +61,9 @@ class Event extends BaseEvent {
 			}
 		}
 
+		// TODO: hide tickets
+		// TODO: push access codes
+
 		// Debug
 		printf("Organiser ID: %s\nVenue ID: %s\nEvent ID: %s\nEvent Hidden ID: %s\n",
 
