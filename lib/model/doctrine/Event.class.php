@@ -27,27 +27,33 @@ class Event extends BaseEvent {
 	}
 
 	// # Eventbrite API methods
-	public function sendToAPIForUser(sfUser $user) {
+	public function sendToAPIForUser(sfUser $user, $debug = false) {
+
+//		$this->syncAccessCodeForUser($user);
 
 		// 0. Check if anything is actually needed here
 		if($this->getSynchronized()) return true;
 
-		// 1. Sync the organiser
-		if(!$organiser_eb_id = $this->syncOrganiserForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite API!');
+		// 1. Sync the organiser (if needed)
+		if(!$this->getOrganiser()->getSynchronized()) {
+
+			if(!$organiser_eb_id = $this->getOrganiser()->syncForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite API!');	
+		}
+		else $organiser_eb_id = $this->getOrganiser()->getEventbriteId();
 
 		// 2. Sync the venue
 		if(!$venue_eb_id = $this->syncVenueForUser($user)) throw new sfException('Cannot sync Venue with Eventbrite API!');
 
-
 		// 3. Sync the event
-		// REMEMBER: duplicate the events, setting one as private, other one as public; private will have free tickets, while public paid
 		if(!$event_eb_id = $this->syncEventForUser($user)) throw new sfException('Cannot sync Event with Eventbrite API!');
-		if(!$event_eb_hidden_id = $this->syncEventForUser($user, true)) throw new sfException('Cannot sync Hidden Event with Eventbrite API!');
-		$this->setSynchronized(true)->save();
 
-		// 4. Sync the tickets (without checking the synced flags)
+		// 4. Update the payment
+		if(!$event_eb_payment_id = $this->syncPaymentForUser($user)) throw new sfException('Cannot sync Payment with Eventbrite API!');
+
+		// 5. Sync the tickets and access codes
 		if($tickets = $this->getTickets() and count($tickets)) {
 
+			// 5a. The tickets
 			$ticket_eb_ids = array();
 			$ticket_eb_hidden_ids = array();
 
@@ -59,26 +65,33 @@ class Event extends BaseEvent {
 				$ticket_eb_ids[] = $ticket_eb_id;
 				$ticket_eb_hidden_ids[] = $ticket_eb_hidden_id;
 			}
+
+			// 5b. The access codes
+			if(!$event_eb_access_id = $this->syncAccessCodeForUser($user)) throw new sfException('Cannot sync Access Code with Eventbrite API!');
 		}
 
-		// TODO: hide tickets
-		// TODO: push access codes
+		// 6. Set that we're synchronized now
+		$this->setSynchronized(true)->save();
 
 		// Debug
-		printf("Organiser ID: %s\nVenue ID: %s\nEvent ID: %s\nEvent Hidden ID: %s\n",
+		if($debug) {
 
-			$organiser_eb_id,
-			$venue_eb_id,
-			$event_eb_id,
-			$event_eb_hidden_id
-		);
-		if(count($tickets)) {
+			printf("Organiser ID: %s\nVenue ID: %s\nEvent ID: %s\nEvent Payment ID: %s\nEvent AccessCode ID: %s\n",
 
-			print "Ticket IDs:\n";
-			print_r($ticket_eb_ids);
+				$organiser_eb_id,
+				$venue_eb_id,
+				$event_eb_id,
+				$event_eb_payment_id,
+				$event_eb_access_id
+			);
+			if(count($tickets)) {
 
-			print "Ticket Hidden IDs:\n";
-			print_r($ticket_eb_hidden_ids);
+				print "Ticket IDs:\n";
+				print_r($ticket_eb_ids);
+
+				print "Ticket Hidden IDs:\n";
+				print_r($ticket_eb_hidden_ids);
+			}
 		}
 
 		// If we made it down here without exception, we surely don't have errors :)
@@ -88,8 +101,7 @@ class Event extends BaseEvent {
 	// Event
 	// ** in this case we don't need to check the synchronized flag since if we're here, 
 	//    it was certainly set to false and we need action to be taken
-	// ** the $hidden flag is used for our "hidden events" workaround
-	protected function syncEventForUser(sfUser $user, $hidden = false) {
+	protected function syncEventForUser(sfUser $user) {
 
 		// Prepare data defaults
 		$melody = $user->getMelody('eventbrite');
@@ -100,7 +112,7 @@ class Event extends BaseEvent {
 			'start_date'		=> $this->getStartDate(),
 			'end_date'		=> $this->getEndDate(),
 			'timezone'		=> sfConfig::get('app_push_defaults_timezone'),
-			'privacy'		=> 1,	// 0 for a private event, 1 for a public event
+			'privacy'		=> 1,
 			'venue_id'		=> $this->getVenueEventbriteId(),
 			'organizer_id'		=> $user->getGuardUser()->getOrganiser()->getEventbriteId(),
 			'capacity'		=> $this->calculateCapacity(),
@@ -116,18 +128,11 @@ class Event extends BaseEvent {
 			// TODO: colorize some fields according to http://developer.eventbrite.com/doc/events/event_new/
 		}
 
-		// Override some fields for hidden events
-		if($hidden) {
-
-			$data['privacy'] = 0;
-			$data['title'] .= ' ' . sfConfig::get('app_push_defaults_attendee_suffix');
-		}
-
 		// Check for method and extra fields
-		if( (!$hidden and $this->getEventbriteId()) or ($hidden and $this->getEventbriteHiddenId()) ) {
+		if($this->getEventbriteId()) {
 
 			$method = 'event_update';
-			$data['id'] = $hidden ? $this->getEventbriteHiddenId() : $this->getEventbriteId();
+			$data['id'] = $this->getEventbriteId();
 		}
 		else {
 
@@ -138,10 +143,6 @@ class Event extends BaseEvent {
 				Doctrine_Inflector::urlize($this->getTitle()),
 				rand(1, 99)
 			);
-
-			// add some stuff for hidden event
-			if($hidden) $data['personalized_url'] .= '-h';
-
 			// ** the event_update method uses 'url' field, while event_new goes for 'personalized_url'; check if it matters
 			// ** yet again, we will never update that url - once it is set
 		}
@@ -150,8 +151,7 @@ class Event extends BaseEvent {
 		if($return_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
 
 			// Save the ID for 'new' calls
-			if(!$hidden and !$this->getEventbriteId()) $this->setEventbriteId($return_id);
-			if($hidden and !$this->getEventbriteHiddenId()) $this->setEventbriteHiddenId($return_id);
+			if(!$this->getEventbriteId()) $this->setEventbriteId($return_id);
 
 			// Save and return the ID
 			$this->save();
@@ -206,44 +206,72 @@ class Event extends BaseEvent {
 		else return false;
 	}
 
-	// Organiser	
-	protected function syncOrganiserForUser(sfUser $user) {
+	// Payment
+	protected function syncPaymentForUser(sfUser $user) {
 
-		$organiser = $user->getGuardUser()->getOrganiser();	// FIXME: move this code to Organiser model and then remove $organiser reference
-									// FIXME: Why the fuck wont we get organiser from Event?... token keys maybe
+		// Prepare data defaults
+		$melody = $user->getMelody('eventbrite');
+		$data = array(					// ** HARDCODED
+
+			'event_id'	=> $this->getEventbriteId(),
+			'accept_paypal'	=> 1,
+			'paypal_email'	=> $this->getPaypal() ? $this->getPaypal() : $this->getOrganiser()->getGuardUser()->getEmailAddress()
+		);
+
+		// Save
+		if($event_eb_payment_id = $melody->analyseBasicResponse($melody->customCall('payment_update', $data))) {
+
+			if(!$this->getEventbritePaymentId() or $this->getEventbritePaymentId() != $event_eb_payment_id) $this->setEventbritePaymentId($event_eb_payment_id)->save();
+
+			return $event_eb_payment_id;
+		}
+
+		// Errors
+		else return false;
+	}
+
+	// Access code
+	protected function syncAccessCodeForUser(sfUser $user) {
 
 		// Prepare data defaults
 		$melody = $user->getMelody('eventbrite');
 		$data = array(
 
-			'name'		=> $organiser->getName(),
-			'description'	=> !is_null($organiser->getDescription()) ? $organiser->getDescription() : 'No information provided.'
+			'code'		=> $this->randString(16),
+			'tickets'	=> join(',', $this->fetchHiddenTicketEventbriteIDs()),
+			//'quantity_available' => 999,
+			// ** we skip quantity_available
+			'end_date'	=> $this->getEndDate()
+
 		);
 
 		// Check for method and extra fields
-		if(!$organiser->getEventbriteId()) {
+		if($this->getEventbriteAccesscodeId()) {
 
-			$method = 'organizer_new';
+			$method = 'access_code_update';
+			$data['id'] = $this->getEventbriteAccesscodeId();
 		}
-		else if(!$organiser->getSynchronized()) {
+		else {
 
-			$method = 'organizer_update';
-			$data['id'] = $organiser->getEventbriteId();
+			$method = 'access_code_new';
+			$data['event_id'] = $this->getEventbriteId();
+			$data['start_date'] = date('Y-m-d H:i:s');
 		}
 
-		// ... or just return the ID and stop execution here
-		else return $organiser->getEventbriteId();
+		// Call
+		if($event_eb_access_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
 
-		// Make the call
-		if($organiser_eb_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
+			// Set the field for 'new' calls
+			if(!$this->getEventbriteAccesscodeId()) $this->setEventbriteAccesscodeId($event_eb_access_id);
 
-			// Save the ID for 'new' calls
-			if(!$organiser->getEventbriteId()) $organiser->setEventbriteId($organiser_eb_id);
+			// Save the access code
+			$this->setEventbriteAccesscode($data['code']);
 
-			// Save and return
-			$organiser->setSynchronized(true)->save();
-			return $organiser_eb_id;
+			return $event_eb_access_id;
 		}
+
+		// Errors
+		else return false;
 	}
 
 	// Helper methods
@@ -264,5 +292,32 @@ class Event extends BaseEvent {
 
 		// If we don't - go for defaults
 		return sfConfig::get('app_push_defaults_capacity');
+	}
+	private function fetchHiddenTicketEventbriteIDs() {
+
+		if($tickets = $this->getTickets() and count($tickets)) {
+
+			$hiddenIDs = array();
+
+			foreach($tickets as $ticket) if($ticket->getEventbriteHiddenId()) $hiddenIDs[] = $ticket->getEventbriteHiddenId();
+
+			return $hiddenIDs;
+		}
+
+		// errors?
+		else return false;
+	}
+
+	// ** L8R: this method should really be elsewhere ;)
+	private function randString($n=8, $chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
+
+		srand((double)microtime()*1000000);
+		$m=strlen($chars);
+
+		while($n--) {
+			$x.=substr($chars,rand()%$m,1);
+		}
+
+		return $x;
 	}
 }

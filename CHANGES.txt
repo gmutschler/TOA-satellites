@@ -3,6 +3,15 @@
 - Prepared DB schema to cope with Eventbrite's access_codes
 - Added some JavaScript includes
 
+- Organisers will now be synced independently from Events (if needed)
+- Both free and paid Tickets will now be created for the one event only;
+  additionally the free Tickets will be hidden with ticket_update method
+- Payment information will be saved on Events; it's defaults are set to
+  PayPal and hardcoded inside the Event model class
+- Access codes will be now generated for TOA attendees, sent to Eventbrite,
+  attached to events and displayed with the ticket widgets on single Event
+  page
+
 
 
 # 2013-06-25 (night)

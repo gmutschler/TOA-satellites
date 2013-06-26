@@ -113,9 +113,27 @@ if($color = $event->getListingColor()) {
 			<div class="clear"></div>
 		</div>
 
+<?php if($event->getSynchronized()): ?>
+		<h2>Tickets information</h2>
+
+<?php	if($sf_user->getGuardUser()->getAttendee()->getHasMainTicket()): ?>
+		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the ticket widget below does not display you the free tickets, please click <b>"Enter promotional code"</b> and paste this inside:</p>
+		<input type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" />
+<?php	endif ?>
+
+		<iframe src="http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->getGuardUser()->getAttendee()->getHasMainTicket()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+<?php else: ?>
+		<h2>This event is not yet synchronized with Eventbrite platform</h2>
+<?php endif ?>
+
+
+
+<?php // DEPRECATED; to be revoked when going away from Eventbrite
+/*
 <?php if($event->getTickets()->count()): ?>
 
 		<h2>Tickets information</h2>
+
 		<ul class="tickets_list">
 <?php	foreach($event->getTickets() as $ticket): // LATER: consider making this a re-usable partial (f.e. for user account) ?>
 <?php			// ** paid ticket ?>
@@ -129,11 +147,9 @@ if($color = $event->getListingColor()) {
 				<span class="clear"></span>
 			</li>
 <?php			// ** free ticket; 
-/*
-TODO: 
-- check if it's available
-- do not attach action to "FREE" button once it's unavailable
-*/
+//TODO: 
+//- check if it's available
+//- do not attach action to "FREE" button once it's unavailable
 ?>
 			<li>
 				<span class="overlay-container"><span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="http://toaberlin2013-TOAWebsite.eventbrite.com" onclick="alert('Booo!'); return false;">Buy yours now</a></span></span>
@@ -151,5 +167,6 @@ TODO:
 <?php else: ?>
 		<h2>This event has no tickets available</h2>
 <?php endif ?>
+*/ ?>
 	</div>
 </div>

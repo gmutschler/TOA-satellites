@@ -69,14 +69,15 @@
 */ ?>
 	</div>
 
-    <div class="section_block">
+	<div class="section_block">
 
 		<h3>The Payment option</h3>
-		<div class="section long">
-            <p class="notice">If you want to set up paid tickets, please provide a valid paypal account to get the payments</p>
-            <input placeholder="Paypal email address" type="text" name="paypal email" id="paypal_email_adress">
-        </div>
-    </div>
+		<div class="section long<?php if($form['paypal']->hasError()) { ?> error<? } ?>">
+			<?=$form['paypal']?>
+			<?=$form['paypal']->renderError()?>
+			<p class="notice">If you want to set up paid tickets, please provide a valid paypal account to get the payments</p>
+		</div>
+	</div>
     
 	<div class="section_block last">
 

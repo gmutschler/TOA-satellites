@@ -26,9 +26,11 @@
  * @property decimal $venue_latitude
  * @property decimal $venue_longitude
  * @property integer $venue_eventbrite_id
- * @property integer $eventbrite_id
  * @property string $eventbrite_logo_url
+ * @property string $eventbrite_accesscode
  * @property integer $eventbrite_accesscode_id
+ * @property integer $eventbrite_id
+ * @property integer $eventbrite_payment_id
  * @property Category $Category
  * @property Organiser $Organiser
  * @property Doctrine_Collection $Tickets
@@ -54,9 +56,11 @@
  * @method decimal             getVenueLatitude()            Returns the current record's "venue_latitude" value
  * @method decimal             getVenueLongitude()           Returns the current record's "venue_longitude" value
  * @method integer             getVenueEventbriteId()        Returns the current record's "venue_eventbrite_id" value
- * @method integer             getEventbriteId()             Returns the current record's "eventbrite_id" value
  * @method string              getEventbriteLogoUrl()        Returns the current record's "eventbrite_logo_url" value
+ * @method string              getEventbriteAccesscode()     Returns the current record's "eventbrite_accesscode" value
  * @method integer             getEventbriteAccesscodeId()   Returns the current record's "eventbrite_accesscode_id" value
+ * @method integer             getEventbriteId()             Returns the current record's "eventbrite_id" value
+ * @method integer             getEventbritePaymentId()      Returns the current record's "eventbrite_payment_id" value
  * @method Category            getCategory()                 Returns the current record's "Category" value
  * @method Organiser           getOrganiser()                Returns the current record's "Organiser" value
  * @method Doctrine_Collection getTickets()                  Returns the current record's "Tickets" collection
@@ -81,9 +85,11 @@
  * @method Event               setVenueLatitude()            Sets the current record's "venue_latitude" value
  * @method Event               setVenueLongitude()           Sets the current record's "venue_longitude" value
  * @method Event               setVenueEventbriteId()        Sets the current record's "venue_eventbrite_id" value
- * @method Event               setEventbriteId()             Sets the current record's "eventbrite_id" value
  * @method Event               setEventbriteLogoUrl()        Sets the current record's "eventbrite_logo_url" value
+ * @method Event               setEventbriteAccesscode()     Sets the current record's "eventbrite_accesscode" value
  * @method Event               setEventbriteAccesscodeId()   Sets the current record's "eventbrite_accesscode_id" value
+ * @method Event               setEventbriteId()             Sets the current record's "eventbrite_id" value
+ * @method Event               setEventbritePaymentId()      Sets the current record's "eventbrite_payment_id" value
  * @method Event               setCategory()                 Sets the current record's "Category" value
  * @method Event               setOrganiser()                Sets the current record's "Organiser" value
  * @method Event               setTickets()                  Sets the current record's "Tickets" collection
@@ -185,15 +191,23 @@ abstract class BaseEvent extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 16,
              ));
-        $this->hasColumn('eventbrite_id', 'integer', 16, array(
-             'type' => 'integer',
-             'length' => 16,
-             ));
         $this->hasColumn('eventbrite_logo_url', 'string', 128, array(
              'type' => 'string',
              'length' => 128,
              ));
+        $this->hasColumn('eventbrite_accesscode', 'string', 16, array(
+             'type' => 'string',
+             'length' => 16,
+             ));
         $this->hasColumn('eventbrite_accesscode_id', 'integer', 16, array(
+             'type' => 'integer',
+             'length' => 16,
+             ));
+        $this->hasColumn('eventbrite_id', 'integer', 16, array(
+             'type' => 'integer',
+             'length' => 16,
+             ));
+        $this->hasColumn('eventbrite_payment_id', 'integer', 16, array(
              'type' => 'integer',
              'length' => 16,
              ));

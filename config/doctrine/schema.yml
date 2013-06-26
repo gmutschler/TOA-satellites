@@ -41,6 +41,9 @@ Organiser:
     facebook:
       type: string(128)
 
+    test:
+      type: boolean
+      default: false
     synchronized:
       type: boolean
       default: false
@@ -99,6 +102,10 @@ Ticket:
     quantity_paid:
       type: integer(5)
     quantity_free:
+      type: integer(5)
+    sold_paid:
+      type: integer(5)
+    sold_free:
       type: integer(5)
 
     eventbrite_id:
@@ -195,10 +202,15 @@ Event:
     venue_eventbrite_id:
       type: integer(16)
 
-    eventbrite_id:
-      type: integer(16)
     eventbrite_logo_url:
       type: string(128)
 
+    eventbrite_accesscode:
+      type: string(16)
     eventbrite_accesscode_id:
+      type: integer(16)
+
+    eventbrite_id:
+      type: integer(16)
+    eventbrite_payment_id:
       type: integer(16)

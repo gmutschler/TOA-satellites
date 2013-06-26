@@ -20,6 +20,7 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
       'url'           => new sfWidgetFormFilterInput(),
       'twitter'       => new sfWidgetFormFilterInput(),
       'facebook'      => new sfWidgetFormFilterInput(),
+      'test'          => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'synchronized'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'eventbrite_id' => new sfWidgetFormFilterInput(),
     ));
@@ -32,6 +33,7 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
       'url'           => new sfValidatorPass(array('required' => false)),
       'twitter'       => new sfValidatorPass(array('required' => false)),
       'facebook'      => new sfValidatorPass(array('required' => false)),
+      'test'          => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'synchronized'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'eventbrite_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
@@ -61,6 +63,7 @@ abstract class BaseOrganiserFormFilter extends BaseFormFilterDoctrine
       'url'           => 'Text',
       'twitter'       => 'Text',
       'facebook'      => 'Text',
+      'test'          => 'Boolean',
       'synchronized'  => 'Boolean',
       'eventbrite_id' => 'Number',
     );
