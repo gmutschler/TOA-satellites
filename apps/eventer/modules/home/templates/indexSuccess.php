@@ -30,20 +30,6 @@
     
     <div class="textual slider-container">
         
-    <script type="text/javascript">  
-        function scrollDiv(divId, depl) {
-            var scroll_container = document.getElementById(divId);
-            scroll_container.scrollLeft -= depl;
-        }
-        function launchScroll(divId, depl) {
-            var time = 0
-            for (i=0; i<241; i++) {
-                setTimeout('scrollDiv("'+divId+'", '+depl+')', time);
-                time++;
-            }
-        }
-    </script>
-        
         <div id="slider0" class="swipe contentbox" style="overflow: hidden; visibility: visible; ">
             <div style="width: 4800px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
                 <div class="slide"><blockquote><img src="/images/content/presslogo/TheWallStreetJournal_logo.png" class="presslogo"><p>Even by the standards of alternative festivals, Tech Open Air is unusual... it is an interesting experiment!</p><footer>The Wallstreet Journal</footer></blockquote></div>
@@ -54,8 +40,8 @@
             </div> 
         </div>
         <div class="swipecontrol">
-            <a href="#" onclick="launchScroll('slider0', 4);return false;" class="slider_nav slider_previous"></a>
-            <a href="#" onclick="launchScroll('slider0', -4);return false;" class="slider_nav slider_next"></a>
+            <a href="javascript:;" class="slider_nav slider_previous" id="slider0_previous"></a>
+            <a href="javascript:;" class="slider_nav slider_next" id="slider0_next"></a>
         </div>
         <div class="clear"></div>
         <a href="/about/press/" class="seemore">All the press clippings ›</a>

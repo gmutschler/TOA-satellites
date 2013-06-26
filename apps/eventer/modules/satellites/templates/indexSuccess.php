@@ -20,14 +20,7 @@
     </div>
     
     <div class="textual">
-        <script type="text/javascript">   
-        var timer1;
-        function scrollDiv(divId, depl) {
-          var scroll_container = document.getElementById(divId);
-          scroll_container.scrollLeft -= depl;
-          timer1 = setTimeout('scrollDiv("'+divId+'", '+depl+')', 10);
-        }
-        </script>
+
         <h2>Our partner locations</h2>
         <div class="location_slider">
             <div id="scrollarea1" class="slider_content">
@@ -38,8 +31,8 @@
                 <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/locations/factory.jpg"></a>
                 <a href="http://www.sanktoberholz.de/" target="_blank"><img src="/images/content/locations/oberholz.jpg"></a>
             </div>
-            <a class="slider_nav slider_previous" onmouseover="scrollDiv('scrollarea1', 4)" onmouseout="clearTimeout(timer1)" onmousedown="scrollDiv('scrollarea1', 8)" onmouseup="clearTimeout(timer1)"></a>
-            <a class="slider_nav slider_next" onmouseover="scrollDiv('scrollarea1', -4)" onmouseout="clearTimeout(timer1)" onmousedown="scrollDiv('scrollarea1', -8)" onmouseup="clearTimeout(timer1)"></a>
+            <a class="slider_nav slider_previous" id="location_slider_previous"></a>
+            <a class="slider_nav slider_next" id="location_slider_next"></a>
         </div>
     </div>
         
