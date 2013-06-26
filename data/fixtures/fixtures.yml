@@ -99,10 +99,6 @@ Event:
 
     eventbrite_id:      <?php echo rand(5000,200000); ?>
 
-    eventbrite_created:  <?=date('Y-m-d H:i')?>
-
-    eventbrite_modified: <?=date('Y-m-d H:i')?>
-
     eventbrite_logo_url: null
 
 
@@ -123,12 +119,9 @@ Ticket:
 
     price:              <?=rand(15,99)?>
 
-#    end_date:           2013-08-02 00:00
-
     quantity_declared:  100
     quantity_paid:      50
     quantity_free:      50
-
 
     eventbrite_id:      <?php echo rand(5000,200000); ?>
 

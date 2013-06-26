@@ -93,8 +93,6 @@ Ticket:
       type: string(256)
     price:
       type: float
-#    end_date:
-#      type: timestamp          # ** we are going to use related Event's end date
     quantity_declared:
       type: integer(5)
       notnull: true
@@ -153,6 +151,8 @@ Event:
     description:
       type: text
       notnull: true
+    paypal:
+      type: string(128)
     start_date:
       type: timestamp
     end_date:
@@ -197,13 +197,8 @@ Event:
 
     eventbrite_id:
       type: integer(16)
-    eventbrite_hidden_id:
-      type: integer(16)
     eventbrite_logo_url:
       type: string(128)
-    eventbrite_created:         # FIXME we most likely don't need those two at all
-      type: timestamp
-    eventbrite_modified:
-      type: timestamp
 
-    # TODO: inject discount_id and discount_code for each event here
+    eventbrite_accesscode_id:
+      type: integer(16)

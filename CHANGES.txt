@@ -1,3 +1,10 @@
+# 2013-06-26 (day)
+- Added "paypal" field in Event's db table and form
+- Prepared DB schema to cope with Eventbrite's access_codes
+- Added some JavaScript includes
+
+
+
 # 2013-06-25 (night)
 - Added counter on tickets in the form
 - Small cleanup of useless models

@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css]
 
-  javascripts:    ['http://use.typekit.net/ios4gyb.js'] # that's our fonts :>
+  javascripts:    ['http://use.typekit.net/ios4gyb.js', 'libs/prmtoaculous-1.9.0p1.7.1.micro.js', 'controllers/e_common.js']
 
   has_layout:     true
   layout:         layout

@@ -20,6 +20,7 @@ class EventForm extends BaseEventForm {
 			'start_hour',
 			'end_hour',
 			'listing_color',
+			'paypal',
 
 			'venue_name',
 			'venue_address',
@@ -81,6 +82,13 @@ class EventForm extends BaseEventForm {
 			array('label' => 'City'),
 			array('placeholder' => 'City')
 		));
+		$this->setWidget('paypal', new sfWidgetFormInput(
+
+			array('label' => 'Paypal address'),
+			array('placeholder' => 'Paypal e-mail address')
+		));
+		$this->setValidator('paypal', new sfValidatorEmail());	// ** consider adding some options?
+
 
 
 		// TODO: add validators for start/end hours!
