@@ -136,7 +136,7 @@ TODO:
 */
 ?>
 			<li>
-				<span class="overlay-container"><span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="#" onclick="alert('Booo!'); return false;">Buy yours now</a></span></span>
+				<span class="overlay-container"><span class="overlay"><span>Sorry, this ticket is only available for people with<br />a ticket for the first day - Unconference</span><br /><a class="button_red" href="http://toaberlin2013-TOAWebsite.eventbrite.com" onclick="alert('Booo!'); return false;">Buy yours now</a></span></span>
 
 				<span class="title"><span class="qty fright"><?=$ticket->getQuantityFree()?> remaining</span><span class="date fright">Sales end on <?=date('M j, Y', strtotime($ticket->getEvent()->getEndDate()))?></span><?=$ticket->getName()?> for TOA Attendees</span>
 				<span class="clear line"></span>
