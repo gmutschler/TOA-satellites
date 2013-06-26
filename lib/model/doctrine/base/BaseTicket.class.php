@@ -12,6 +12,8 @@
  * @property integer $quantity_declared
  * @property integer $quantity_paid
  * @property integer $quantity_free
+ * @property integer $sold_paid
+ * @property integer $sold_free
  * @property integer $eventbrite_id
  * @property integer $eventbrite_hidden_id
  * @property Event $Event
@@ -25,6 +27,8 @@
  * @method integer             getQuantityDeclared()     Returns the current record's "quantity_declared" value
  * @method integer             getQuantityPaid()         Returns the current record's "quantity_paid" value
  * @method integer             getQuantityFree()         Returns the current record's "quantity_free" value
+ * @method integer             getSoldPaid()             Returns the current record's "sold_paid" value
+ * @method integer             getSoldFree()             Returns the current record's "sold_free" value
  * @method integer             getEventbriteId()         Returns the current record's "eventbrite_id" value
  * @method integer             getEventbriteHiddenId()   Returns the current record's "eventbrite_hidden_id" value
  * @method Event               getEvent()                Returns the current record's "Event" value
@@ -37,6 +41,8 @@
  * @method Ticket              setQuantityDeclared()     Sets the current record's "quantity_declared" value
  * @method Ticket              setQuantityPaid()         Sets the current record's "quantity_paid" value
  * @method Ticket              setQuantityFree()         Sets the current record's "quantity_free" value
+ * @method Ticket              setSoldPaid()             Sets the current record's "sold_paid" value
+ * @method Ticket              setSoldFree()             Sets the current record's "sold_free" value
  * @method Ticket              setEventbriteId()         Sets the current record's "eventbrite_id" value
  * @method Ticket              setEventbriteHiddenId()   Sets the current record's "eventbrite_hidden_id" value
  * @method Ticket              setEvent()                Sets the current record's "Event" value
@@ -78,6 +84,14 @@ abstract class BaseTicket extends sfDoctrineRecord
              'length' => 5,
              ));
         $this->hasColumn('quantity_free', 'integer', 5, array(
+             'type' => 'integer',
+             'length' => 5,
+             ));
+        $this->hasColumn('sold_paid', 'integer', 5, array(
+             'type' => 'integer',
+             'length' => 5,
+             ));
+        $this->hasColumn('sold_free', 'integer', 5, array(
              'type' => 'integer',
              'length' => 5,
              ));

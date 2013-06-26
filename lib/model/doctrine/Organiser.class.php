@@ -7,9 +7,48 @@
  * 
  * @package    toaberlin
  * @subpackage model
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Organiser extends BaseOrganiser
-{
+class Organiser extends BaseOrganiser {
+
+	// Eventbrite API synchronization method
+	public function syncForUser(sfUser $user) {
+
+		// Prepare data defaults
+		$melody = $user->getMelody('eventbrite');
+		$data = array(
+
+			'name'		=> $this->getName(),
+			'description'	=> !is_null($this->getDescription()) ? $this->getDescription() : 'No information provided.'
+		);
+
+		// Check for method and extra fields
+		if(!$this->getEventbriteId()) {
+
+			$method = 'organizer_new';
+		}
+		else if(!$this->getSynchronized()) {
+
+			$method = 'organizer_update';
+			$data['id'] = $this->getEventbriteId();
+		}
+
+		// ... or just return the ID and stop execution here
+		else return $this->getEventbriteId();
+
+		// Make the call
+		if($this_eb_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
+
+			// Save the ID for 'new' calls
+			if(!$this->getEventbriteId()) $this->setEventbriteId($this_eb_id);
+
+			// Save and return
+			$this->setSynchronized(true)->save();
+			return $this_eb_id;
+		}
+
+		// Errors occured
+		else return false;
+	}
 }

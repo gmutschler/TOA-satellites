@@ -33,6 +33,8 @@ Organiser:
     url:                http://www.eventbrite.com/org/2285317017
     twitter:            https://twitter.com/TOABerlin
     facebook:           https://www.facebook.com/TechOpenAir
+    test:               true
+
     GuardUser:          tUser<?=$i?>
 
 <?php endfor ?>

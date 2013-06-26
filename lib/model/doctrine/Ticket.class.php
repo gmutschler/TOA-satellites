@@ -40,8 +40,7 @@ class Ticket extends BaseTicket {
 		return parent::save($conn);
 	}
 
-	// Eventbrite API synchronization method
-	// ** the $hidden flag is used for our "hidden events" workaround
+	// # Eventbrite API synchronization method
 	public function syncForUser(sfUser $user, $hidden = false) {
 
 		// Prepare defaults
@@ -76,11 +75,11 @@ class Ticket extends BaseTicket {
 		else {
 
 			$method = 'ticket_new';
-			$data['event_id'] = $hidden ? $this->getEvent()->getEventbriteHiddenId() : $this->getEvent()->getEventbriteId();
+			$data['event_id'] = $this->getEvent()->getEventbriteId();
 			$data['start_date'] = date('Y-m-d H:i:s');
 		}
 
-		// Make the call
+		// Make the new/update call
 		if($return_id = $melody->analyseBasicResponse($melody->customCall($method, $data))) {
 
 			// Save the ID for 'new' calls
@@ -89,10 +88,24 @@ class Ticket extends BaseTicket {
 
 			// Save and return the ID
 			$this->save();
-			return $return_id;
+
+			// Make sure the ticket is really hidden
+			if($hidden and !$this->hideForUser($user)) return false;
+			else return $return_id;
 		}
 
 		// Errors occured
 		else return false;
+	}
+
+	protected function hideForUser(sfUser $user) {
+
+		$melody = $user->getMelody('eventbrite');
+
+		return $melody->analyseBasicResponse($melody->customCall('ticket_update', array(
+
+			'id'	=> $this->getEventbriteHiddenId(),
+			'hide'	=> 'y'
+		)));
 	}
 }

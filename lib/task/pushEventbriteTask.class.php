@@ -33,27 +33,51 @@ class pushEventbriteTask extends sfBaseTask {
 		sfContext::createInstance($configuration);
 
 		// push synchronization
+		// ** consider try/catch flow here not to break on single error :)
+		if($organisers = Doctrine_Core::getTable('Organiser')->getUnsynchronized() and count($organisers)) foreach($organisers as $organiser) $this->pushOrganiser($organiser);
 		if($events = Doctrine_Core::getTable('Event')->getUnsynchronized() and count($events)) foreach($events as $event) $this->pushEvent($event);
 	}
 
 	// local methods
+	protected function pushOrganiser($organiser) {
+
+		$this->logSection('Eventbrite', sprintf('Pushing Organiser ID#%s "%s"...', $organiser->getId(), $organiser->getName()));
+
+		// user login
+		$user = $this->logUserIn($organiser->getGuardUser()->getId());
+
+		if($organiser->syncForUser($user)) $this->logSection('Eventbrite', 'OK!');
+		else $this->logSection('Eventbrite', 'FAIL!');
+	}
 	protected function pushEvent($event) {
 
-		// log something
 		$this->logSection('Eventbrite', sprintf('Pushing Event ID#%s "%s"...', $event->getId(), $event->getTitle()));
 
-		// 1. log user out if any1 is logged
-		if(sfContext::getInstance()->getUser()->isAuthenticated()) sfContext::getInstance()->getUser()->signOut();
+		// user login
+		$user = $this->logUserIn($event->getOrganiser()->getGuardUser()->getId());
 
-		// 2. find the owner of the event and log him in
-		$userObj = Doctrine_Core::getTable('SfGuardUser')->findOneById($event->getOrganiser()->getGuardUser()->getId());
+		// send the event to API
+		if($event->sendToAPIForUser($user)) $this->logSection('Eventbrite', 'OK!');
+		else $this->logSection('Eventbrite', 'FAIL!');
+	}
+	
+	// helpers
+	private function logUserOut() {
+
+		if(sfContext::getInstance()->getUser()->isAuthenticated()) sfContext::getInstance()->getUser()->signOut();
+	}
+	private function logUserIn($id) {
+
+		$this->logUserOut();
+
+		$userObj = Doctrine_Core::getTable('SfGuardUser')->findOneById($id);
 		sfContext::getInstance()->getUser()->signin($userObj, false);
 
-		// 3. send the event to API
-		if($event->sendToAPIForUser(sfContext::getInstance()->getUser())) $this->logSection('Eventbrite', 'OK!');
-		else $this->logSection('Eventbrite', 'FAIL!');
+		return sfContext::getInstance()->getUser();
+	}
 
-		// test the API connection :)
-		//print_r(sfContext::getInstance()->getUser()->getMelody('eventbrite')->getUserData(null));
+	private function dbg_testAPIConnection() {
+
+		print_r(sfContext::getInstance()->getUser()->getMelody('eventbrite')->getUserData(null));
 	}
 }
