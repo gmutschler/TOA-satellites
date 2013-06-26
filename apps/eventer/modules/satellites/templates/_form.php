@@ -69,7 +69,15 @@
 */ ?>
 	</div>
 
+    <div class="section_block">
 
+		<h3>The Payment option</h3>
+		<div class="section long">
+            <p class="notice">If you want to set up paid tickets, please provide a valid paypal account to get the payments</p>
+            <input placeholder="Paypal email address" type="text" name="paypal email" id="paypal_email_adress">
+        </div>
+    </div>
+    
 	<div class="section_block last">
 
 		<h3>The tickets <a class="button_black button_black_small fright" href="#TODO" onclick="alert('This function is under construction. For now - new ticket form will appeaer whenever you submit a valid ticket.')">&plus; Add more tickets</a></h3>
