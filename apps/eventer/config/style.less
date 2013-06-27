@@ -41,7 +41,7 @@
 @images-content: '../images/content';
 
 @width-layout: 960px;
-@height-header: 151px;
+@height-header: 101px;
 
 // # global definitions, classes and less mixins
 .fleft {	float: left		}
@@ -180,17 +180,26 @@ a:hover {
 	.tleft;
 	.mauto;
 
-	margin-top: 32px;
+	margin-top: 5px;
 		width: @width-layout;
 }
 	#header {
 		height: @height-header;
+        .relative;
 
 		#logo {
-			.disblock(250px, @height-header);
-			.bglay('logo_top.gif');
-			.mauto;
+            .absolute(0, 3);
+			.disblock(172px, @height-header);
+			.bglay('logo-top.png');
+            z-index: 1001;
 		}
+    
+        .festival_dates {
+            .absolute(20, 345);
+			.disblock(270px, 55px);
+            .bglay('tagline-header.png');
+            z-index: 1001;
+        }
 
         #loginbox { 
             position: fixed;
@@ -199,7 +208,7 @@ a:hover {
             z-index: 1000;
             height: 0;
         
-            .login-bg {
+            #login-bg {
                 display: block;
                 position: absolute;
                 width: 100%;
@@ -208,11 +217,11 @@ a:hover {
                 top: 0;
                 left: 0;
                 z-index: -10;
-                border-bottom: 1px solid #DEDEDE;
+                //border-bottom: 1px solid #DEDEDE;
             }
             
             p {
-                width: @width-layout - 24px;
+                width: @width-layout + 8px;
                 padding-top: 6px;
                 .ffamily(14px, @font-proxima);
                 .mauto;
@@ -314,7 +323,7 @@ a:hover {
 		// local scope variables for hero and submenus
 		@height-local-menu: 33px;
 		@height-local-media: 480px;
-        margin-top: 18px;
+        margin-top: 8px;
 
 
 		// # hero unit block
@@ -404,8 +413,9 @@ a:hover {
 
                 h3, ul { .fleft }
     
-                h3 {
+                h3#sect {
                     .tupper;
+                    .c3transition(360ms);
     
                     margin: 0 8px 0 12px;
                     padding-right: 16px;

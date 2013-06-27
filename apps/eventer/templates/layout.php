@@ -15,7 +15,7 @@
 	<div id="header">
 
 		<div id="loginbox">
-        <div class="login-bg"></div>
+        <div id="login-bg"></div>
 
 <?php if(!$sf_user->isAuthenticated()): ?>
 
@@ -27,6 +27,7 @@
 		</div>
 
 		<a id="logo" title="Tech Open Air Berlin 2013" href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"></a>
+        <div class="festival_dates"></div>
         <div id="header_menu">
 
             <ul>

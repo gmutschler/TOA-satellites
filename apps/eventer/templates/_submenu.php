@@ -17,7 +17,7 @@ $local_route = $sf_context->getRouting()->getCurrentInternalUri();
 	<div id="hero_submenu">
         <div id="submenu-bg"></div>
         <div id="submenu-content">
-            <h3><?=$submenu_title?></h3>
+            <h3 id="sect"><?=$submenu_title?></h3>
     <?php	if(isset($links) and count($links)): ?>
             <ul>
     <?php		foreach($links as $link_title => $link_route): ?>
