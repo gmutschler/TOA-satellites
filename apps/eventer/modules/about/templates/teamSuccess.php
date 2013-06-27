@@ -1,10 +1,10 @@
+<div id="hero">
+
+        <div id="hero_background"></div>
+        <div id="hero_foreground"></div>
+</div>
+
 <div id="content" class="screen_about_team">
-
-        <div id="hero">
-
-                <div id="hero_background"></div>
-                <div id="hero_foreground"></div>
-        </div>
 
 <?php include_partial('submenu') ?>
 

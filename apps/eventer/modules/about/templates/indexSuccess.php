@@ -1,12 +1,12 @@
+<div id="hero">
+
+    <div id="hero_background"><img src="/images/content/aboutus-hero-bg.jpg" /></div>
+    <div id="hero_foreground">
+        <h1><span>We help you better understand</span><br /><span>the world you change.</span></h1>
+    </div>
+</div>
+
 <div id="content" class="screen_about_index">
-
-	<div id="hero">
-
-		<div id="hero_background"><img src="/images/content/aboutus-hero-bg.jpg" /></div>
-		<div id="hero_foreground">
-            <h1><span>We help you better understand</span><br /><span>the world you change.</span></h1>
-        </div>
-	</div>
 
 <?php include_partial('submenu') ?>
     

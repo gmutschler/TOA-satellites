@@ -1,18 +1,17 @@
+<div id="hero">
+
+        <div id="hero_background">
+        <img src="/images/content/satellite-home-hero-bg.jpg" />
+        </div>
+        <div id="hero_foreground">
+            <h1><span>Discover more than 50 events</span><br /><span>all around the city</span></h1>
+            <span  class="photo_credit">Photo by Thomas Charbit</span>
+        </div>
+</div>
+
 <div id="content" class="screen_satellites">
 
-        <div id="hero">
-
-                <div id="hero_background">
-                <img src="/images/content/satellite-home-hero-bg.jpg" />
-                <span  class="photo_credit">Photo by Thomas Charbit</span>
-                </div>
-                <div id="hero_foreground">
-                    <h1><span>Discover more than 50 events</span><br /><span>all around the city</span></h1>
-                </div>
-        </div>
-
 <?php include_partial('submenu') ?>
-
 	<div class="textual">
         <h1>The Satellite events<span>&nbsp; August 2, 2013</span></h1>
         <p class="lead">On the second day the ecosystem takes over and self‑organizes events all over the city.<br />

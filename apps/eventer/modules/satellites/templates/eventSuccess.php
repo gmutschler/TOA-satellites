@@ -41,23 +41,23 @@ if($color = $event->getListingColor()) {
 </style>
 <?php } // & custom color?>
 
-<div id="content" class="screen_event">
+<div id="hero">
 
-        <div id="hero">
+        <div id="hero_background"></div>
+        <div id="hero_foreground">
+            <div class="event-location">
+                <h3>Where</h3>
 
-                <div id="hero_background"></div>
-                <div id="hero_foreground">
-                    <div class="event-location">
-                        <h3>Where</h3>
-    
-                        <p><span><?php echo $event->getVenueName() ?></span><br />
-                            <?=$event->getVenueAddress()?><br />
-                            <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
-                            GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
-                        </p>
-                    </div>
-                </div>
+                <p><span><?php echo $event->getVenueName() ?></span><br />
+                    <?=$event->getVenueAddress()?><br />
+                    <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
+                    GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
+                </p>
+            </div>
         </div>
+</div>
+
+<div id="content" class="screen_event">
 
 <?php include_partial('submenu') ?>
 

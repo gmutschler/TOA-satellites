@@ -318,73 +318,76 @@ a:hover {
         }
     }
 
+    // # hero unit block
+    #hero {
+    
+		@height-local-media: 480px;
+
+        .disblock(@height-local-media);
+        .relative;
+        width: @width-layout;
+        margin-top: 8px;
+        margin-bottom: -8px;
+    
+        #hero_background, #hero_foreground {
+            .disblock(100%, 100%);
+            .absolute;
+            .topright(0, 0);
+        }
+    
+        #hero_background {z-index: -10;}
+        #hero_foreground {z-index: 0;}
+    
+        h1 {
+            color: @color-text;
+            .absolute;
+            .topleft(32%, 15px);
+        
+            span {
+                font-size: 28px;
+                display: inline-block;
+                margin-bottom: 1px;
+                padding: 6px 15px;
+                background: @color-bg;
+                font-style: normal;
+            
+                .tupper;
+            }
+            
+            &:after {
+                content:"";
+                height: 0;
+                border-top: none;
+            }
+        }
+
+        span.photo_credit {
+            .absolute;
+            .bottomright(5px,10px);
+            .ffamily(13px, @font-minion);
+        
+            font-style: italic;
+            color: @color-bg;
+            filter : alpha(opacity=60);
+            opacity: 0.6;
+        
+            
+            a {
+                text-decoration: none;
+                &:hover {color: @color-bg;}
+            }
+        }
+        
+        #hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
+    } // end #hero
+
 	#content {
   
 		// local scope variables for hero and submenus
 		@height-local-menu: 33px;
-		@height-local-media: 480px;
         margin-top: 8px;
+        background: @color-bg;
 
-
-		// # hero unit block
-		#hero {
-
-			//.disblock(@height-local-media + @height-local-menu);
-			.disblock(@height-local-media);
-            .relative;
-            width: @width-layout + 2;
-        
-            #hero_background, #hero_foreground {
-                .disblock(100%, 100%);
-                .absolute;
-                .topright(0, 0);
-            }
-        
-            #hero_background {z-index: -10;}
-            #hero_foreground {z-index: 0;}
-        
-            h1 {
-                color: @color-text;
-                .absolute;
-                .topleft(32%, 15px);
-            
-                span {
-                    font-size: 28px;
-                    display: inline-block;
-                    margin-bottom: 1px;
-                    padding: 6px 15px;
-                    background: @color-bg;
-                    font-style: normal;
-                
-                    .tupper;
-                }
-                
-                &:after {
-                    content:"";
-                    height: 0;
-                    border-top: none;
-                }
-            }
-
-            span.photo_credit {
-                .absolute;
-                .bottomright(5px,10px);
-                .ffamily(13px, @font-minion);
-            
-                font-style: italic;
-                color: @color-bg;
-                filter : alpha(opacity=60);
-                opacity: 0.6;
-            
-                
-                a {
-                    text-decoration: none;
-                    &:hover {color: @color-bg;}
-                }
-            }
-            
-			#hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
-		} // end #hero
 
 		#hero_submenu {
 			.ffamily(16px, @font-proxima);
@@ -398,7 +401,7 @@ a:hover {
             #submenu-bg {
                 border: 1px solid @color-border;
                 background-color: @color-bg-hero;
-                width: 100%;
+                width: @width-layout - 2;
                 height: 100%;
                 
                 .absolute;
@@ -489,7 +492,7 @@ a:hover {
 	
 
 		// ! common for known blocks
-		.listing, .textual { margin-top: 50px }
+		.listing, .textual { padding-top: 50px }
 
 		// > listing block
 		.listing {

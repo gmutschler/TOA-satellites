@@ -47,4 +47,18 @@ document.observe("dom:loaded", function() {
                   $('hero_background').setStyle({'margin-left':'0'});
                }
      });
+     
+     new ScrollSpy({
+               container: window,
+               min: 580,
+               onEnter: function(c) {
+                  $('hero').setStyle({'visibility': 'Hidden'});
+
+				},
+                  
+               onLeave: function(c) {
+                  $('hero').setStyle({'visibility': 'visible'});
+               }
+     });
+
 });

@@ -1,10 +1,10 @@
+<div id="hero">
+
+    <div id="hero_background"></div>
+    <div id="hero_foreground">caroussel to come. But what to display in it ?</div>
+</div>
+
 <div id="content" class="screen_home">
-
-	<div id="hero">
-
-		<div id="hero_background"></div>
-		<div id="hero_foreground">caroussel to come. But what to display in it ?</div>
-	</div>
 
 	<div class="textual">
         <h2>A Two-day Tech, Music, Art & Science festival</h2>
