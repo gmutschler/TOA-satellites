@@ -9,11 +9,14 @@
  *  - Customizable by CSS
  *
  * Written and maintained by Jeremy Jongsma (jeremy@jongsma.org)
+ * modified 2013 by Maciej Taranienko (maciej@canadel.ee)
  */
 if (window.Control == undefined) Control = {};
 
 Control.ColorPicker = Class.create();
 Control.ColorPicker.prototype = {
+
+	// init
 	initialize: function (element, options) {
 		this.element = $(element);
 		this.options = Object.extend({
@@ -37,15 +40,32 @@ Control.ColorPicker.prototype = {
 		this.element.parentNode.replaceChild(cont, this.element);
 		cont.appendChild(this.element);
 
+		// create swatch
 		this.swatch = document.createElement('div');
+		this.swatch.title = 'Open color palette';
+		this.swatch.className = 'inputExtension';
+
+		/*
 		var top = '3px';
 		var size = (this.element.offsetHeight - 8);
 		var left = (this.element.offsetLeft + this.element.offsetWidth - (size + 5)) + 'px';
-		Element.setStyle(this.swatch, {'border': '1px solid gray', 'position': 'absolute', 'left': left, 'top': top, 'fontSize': '1px', 'width': size + 'px', 'height': size + 'px', 'backgroundColor': this.element.value});
-		this.swatch.title = 'Open color palette';
-		this.swatch.className = 'inputExtension';
+		*/
+
+		Element.setStyle(this.swatch, {
+/*
+			'border': '1px solid gray',
+			'position': 'absolute',
+			'left': left,
+			'top': top,
+			'width': size + 'px',
+			'height': size + 'px',
+*/
+			'fontSize': '1px',
+			'backgroundColor': this.element.getValue() ? this.element.getValue() : '#fff'
+		});
 		cont.appendChild(this.swatch);
 
+		// register observers
 		this.element.onchange = this.textChanged.bindAsEventListener(this);
 		this.element.onblur = this.hidePicker.bindAsEventListener(this);
 		this.swatch.onclick = this.togglePicker.bindAsEventListener(this);

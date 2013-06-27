@@ -62,11 +62,12 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-<?php /*
 		<div class="section gmap">
-			TODO: Map widget will be there ;)
+			<div id="gmap">
+			</div>
+
+			<?php // TODO: render hidden inputs for lat and lang here ?>
 		</div>
-*/ ?>
 	</div>
 
 	<div class="section_block">
