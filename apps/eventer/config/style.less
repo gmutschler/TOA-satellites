@@ -169,6 +169,12 @@ a:hover {
 	.c3transition(260ms);
 }
 
+.colorpickerControl {	// ** color picker widget defaults
+
+	.formborder;
+	td div { cursor: pointer }
+}
+
 
 #main {
 	.tleft;
@@ -997,9 +1003,20 @@ a:hover {
 					}
 					&.color {
 
+						@padding-local-left: 38px;
+
 						input {
-							width: 210px - 2 * @padding-leftright-fields - 2px;
+							width: 210px - @padding-leftright-fields - @padding-local-left - 2px;
+							padding-left: @padding-local-left;
 							// TODO: consider proper left padding for the background image, when adding the picker
+						}
+
+						.inputExtension {
+							.disblock(29px, 29px);
+							.absolute(4,4);
+							.formborder;
+
+							cursor: pointer;
 						}
 					}
 					&.city {
@@ -1008,6 +1025,13 @@ a:hover {
 						}
 						.fright input {
 							width: 430px - 2 * @padding-leftright-fields - 2px;
+						}
+					}
+					&.gmap {
+
+						#gmap {
+							.disblock(273px);
+							background-color: gray;	// TODO: some "Google map loading" bg message?
 						}
 					}
 					&.price {

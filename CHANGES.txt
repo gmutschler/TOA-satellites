@@ -1,3 +1,9 @@
+# 2013-06-27 (night)
+- Added basic, swatches-driven color picker in Event hosting and editing
+- Started working with Google Maps; did some styling on them :)
+
+
+
 # 2013-06-26 (day)
 - Added "paypal" field in Event's db table and form
 - Prepared DB schema to cope with Eventbrite's access_codes
