@@ -631,8 +631,9 @@ a:hover {
                             .absolute;
                             .topleft(0, 0);
                             z-index: 0;
-                            filter : alpha(opacity=80);
-                            opacity: 0.8;
+                            filter : alpha(opacity=30);
+                            opacity: 0.3;
+                            background: @color-bg;
                         }
 
 						span.time {
@@ -891,7 +892,8 @@ a:hover {
 
 				// sections
 				.section_block {
-					margin-bottom: 97px;
+					margin-bottom: 60px;
+                    margin-top: 25px;
 
 					&.last {
 						margin-bottom: 36px;
@@ -1013,8 +1015,8 @@ a:hover {
 
 						.inputExtension {
 							.disblock(29px, 29px);
-							.absolute(4,4);
-							.formborder;
+							.absolute(6,4);
+							border: 1px solid @color-border-dark;
 
 							cursor: pointer;
 						}
@@ -1140,6 +1142,17 @@ a:hover {
 			
 			&:hover { color: @color-red; }
 		}
+    
+        a.button_back {
+            color: @color-text-gray;
+            vertical-align: middle;
+            text-decoration: none;
+        
+            .tupper;
+            .ffamily(15px, @font-proxima, 700);
+        
+            &:hover { color: @color-text; }
+        }
 
 		a.button_red, input.button_red, a.button_custom {
 

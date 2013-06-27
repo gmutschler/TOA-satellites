@@ -3,7 +3,7 @@
 <?php include_partial('submenu', array('user' => $user)) ?>
 
 	<div class="textual">
-
+        <a href="<?=url_for('satellites/host')?>" class="button_black button_black_small fright" style="z-index: 10; margin-right: 1px;">&#43; Create a new event</a>
 		<h1>The events you host</h1>
 
 <?php if(count($events)): ?>

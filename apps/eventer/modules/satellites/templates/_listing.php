@@ -32,7 +32,8 @@
 	'ven_name'	=> $event->getVenueName(),
 	'ven_addr'	=> $event->getVenueAddress(),
 	'ven_post'	=> $event->getVenuePostalCode(),
-	'ven_city'	=> $event->getVenueCity()
+	'ven_city'	=> $event->getVenueCity(),
+    'color'    => $event->getListingColor()
 )) ?>
 		</ul>
 <?php endif ?>

@@ -62,7 +62,7 @@ if($color = $event->getListingColor()) {
 <?php include_partial('submenu') ?>
 
 	<div class="textual">
-
+        <a href="/satellites/book/" class="button_back"><big>&lsaquo;</big> All the events</a>
 		<h1><?=$event->getTitle()?><span class="time"><?=$event->getStartHour()?> - <?=$event->getEndHour()?></span></h1>
 
 		<div class="bicolumn">

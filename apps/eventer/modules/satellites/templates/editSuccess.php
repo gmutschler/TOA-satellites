@@ -8,9 +8,10 @@
 
 <?php include_partial('submenu') ?>
 
-	<div class="forms">
+	<div class="textual forms">
 
-		<h2>Edit your event</h2>
+        <a href="/user/hostedevents/" class="button_back"><big>&lsaquo;</big> All your events</a>
+		<h1>Edit your event</h1>
 
 		<?php include_partial('form', array('form' => $form)) ?> 
 	</div>
