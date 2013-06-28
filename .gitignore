@@ -4,3 +4,4 @@ web/css/main.css
 web/uploads/
 apps/eventer/config/app.yml
 *.swp
+web/*_dev.php
