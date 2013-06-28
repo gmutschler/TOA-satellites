@@ -1,4 +1,7 @@
-			<li><a class="big_link" href="<?=$big_link?>">
+<?php
+    $colorhash = '#'.$color;
+?>
+            <li><a class="big_link" href="<?=$big_link?>">
                     <span class="photo">
                         <span class="bg-color" style='background:<?php if ($color) { echo $color;} else {echo "#DC142A";} ?>'></span>
                         <img src='<?=$image?>' />

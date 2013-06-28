@@ -214,7 +214,7 @@
         </div>
     </div><!--END TEXTUAL-->
     
-    <div class="textual">
+    <div class="textual" id="logos">
         <h1>Graphic Ressources</h1>
         <h2>Logos</h2>
         <div class="logo-download first">

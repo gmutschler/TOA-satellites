@@ -14,7 +14,7 @@
  <div id="main">
 	<div id="header">
 
-		<div id="loginbox">
+		<div id="loginbox" style="-webkit-transform: translate3d(0px, 0px, 0px)">
         <div id="login-bg"></div>
 
 <?php if(!$sf_user->isAuthenticated()): ?>
@@ -28,7 +28,7 @@
 
 		<a id="logo" title="Tech Open Air Berlin 2013" href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"></a>
         <div class="festival_dates"></div>
-        <div id="header_menu">
+        <div id="header_menu" style="-webkit-transform: translate3d(0px, 0px, 0px)">
 
             <ul>
                 <li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"<?php if($sf_context->getModuleName() == 'home') { ?> class="selected"<?php } ?>>Home</a></li>

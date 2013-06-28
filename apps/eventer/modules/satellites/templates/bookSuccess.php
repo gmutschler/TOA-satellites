@@ -1,6 +1,6 @@
 <div id="hero">
 
-        <div id="hero_background"></div>
+        <div id="hero_background"><div id="hero_background_map" style="height: 480px; width: 960px; -webkit-transform: translate3d(0px, 0px, 0px)"></div></div>
         <div id="hero_foreground"></div>
 </div>
 

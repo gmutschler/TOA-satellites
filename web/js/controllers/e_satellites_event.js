@@ -5,8 +5,9 @@ document.observe("dom:loaded", function() {
 	new Displaymap({
 
 		// elms
-		map: 'hero_background',
+		map: 'hero_background_map',
 		data: 'map_data_pulp',
+		scrollwheel: false,
 
 		// conf
 		conf: {
@@ -14,7 +15,7 @@ document.observe("dom:loaded", function() {
 			multi: false,
 
 			// geographical defaults
-			gmap_zoom: 11,
+			gmap_zoom: 15,
 			gmap_y: 52.5095350,
 			gmap_x: 13.3923340,
 

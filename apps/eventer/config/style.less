@@ -331,9 +331,10 @@ a:hover {
         margin-bottom: -8px;
     
         #hero_background, #hero_foreground {
-            .disblock(100%, 100%);
+            .disblock(@height-local-media);
             .absolute;
             .topright(0, 0);
+            width: @width-layout;
         }
     
         #hero_background {z-index: -10;}
@@ -681,7 +682,7 @@ a:hover {
                         img {
                             .absolute;
                             .topleft(0, 0);
-                            z-index: 0;
+                            z-index: 1;
                             filter : alpha(opacity=30);
                             opacity: 0.3;
                             background: @color-bg;
@@ -700,7 +701,7 @@ a:hover {
 							.topleft(0, 0);
                             .disblock(100%, 100%);
                             
-                            z-index: -10;
+                            z-index: 0;
                         }
 					}
 					span.data {
