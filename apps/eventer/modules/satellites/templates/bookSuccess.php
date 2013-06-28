@@ -15,4 +15,8 @@
 	'page'		=> $page,
 	'category'	=> $category
 )) ?>
+
 </div>
+
+<?php // Hidden stuff for Google Map driving ?>
+<input type="hidden" id="map_data_pulp" value="<?=$map_data_pulp?>" />

@@ -38,7 +38,7 @@ class EventTable extends Doctrine_Table {
 		if(!is_null($category)) $q->addWhere('e.category_id = ?', $category->getId());
 
 		// sort and execute
-		$q->orderBy('start_date');
+		$q->orderBy('start_hour');
 		return $q->execute();
 	}
 

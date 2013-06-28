@@ -50,8 +50,8 @@ if($color = $event->getListingColor()) {
 
                 <p><span><?php echo $event->getVenueName() ?></span><br />
                     <?=$event->getVenueAddress()?><br />
-                    <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?><br />
-                    GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>
+                    <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?>
+<?php /*		    <br />GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>	*/ ?>
                 </p>
             </div>
         </div>
@@ -170,3 +170,6 @@ if($color = $event->getListingColor()) {
 */ ?>
 	</div>
 </div>
+
+<?php // Hidden stuff for Google Map driving ?>
+<input type="hidden" id="map_data_pulp" value="<?=$map_data_pulp?>" />

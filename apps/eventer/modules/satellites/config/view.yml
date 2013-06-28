@@ -14,3 +14,9 @@ createSuccess:
 
 updateSuccess:
   javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/scriptaculous-controls.js', 'libs/colorpicker.js', 'libs/formmap.js', 'controllers/e_satellites_host_edit.js']
+
+bookSuccess:
+  javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/displaymap.js', 'controllers/e_satellites_book.js']
+
+eventSuccess:
+  javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/displaymap.js', 'controllers/e_satellites_event.js']

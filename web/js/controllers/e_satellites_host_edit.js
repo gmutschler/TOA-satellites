@@ -19,31 +19,7 @@ document.observe("dom:loaded", function() {
 			gmap_y: 52.5095350,
 			gmap_x: 13.3923340,
 
-			// map colors according to: 
-			// - http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
-			// - https://developers.google.com/maps/documentation/javascript/styling
-			gmap_styles: [
-				{
-					stylers: [
-						{ saturation: -100 }
-					]
-				},
-				{
-					featureType: 'road',
-					elementType: 'geometry',
-					stylers: [
-						{ lightness: 100 },
-						{ visibility: 'simplified' }
-					]
-				},
-				{
-					featureType: 'road',
-					elementType: 'labels',
-					stylers: [
-						{ visibility: 'off' }
-					]
-				}
-			]
+			gmap_styles: GoogleMapStyles
 		}
 	});
 });

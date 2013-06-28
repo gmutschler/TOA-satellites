@@ -59,7 +59,7 @@ Formmap = Class.create({
 		this.latitude = $F(this.elmHiddenLat) ? parseFloat($F(this.elmHiddenLat)) : parseFloat(params.conf.gmap_y);
 		this.longitude = $F(this.elmHiddenLng) ? parseFloat($F(this.elmHiddenLng)) : parseFloat(params.conf.gmap_x);
 
-		// load Google Maps object and set it's styles
+		// load Google Map object and set it's styles
 		this.objGoogleMapStyle = new google.maps.StyledMapType(params.conf.gmap_styles, { name: 'TOA Berlin' });
 		this.objGoogleMap = new google.maps.Map(this.elmMap, {
 

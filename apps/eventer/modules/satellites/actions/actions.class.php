@@ -17,15 +17,19 @@ class satellitesActions extends sfActions {
 
 		$this->page = $request->getParameter('page');
 		$this->category = $request->getParameter('category') ? Doctrine_Core::getTable('Category')->findOneById($request->getParameter('category')) : null;
-		$this->events = Doctrine_Core::getTable('Event')->getEventsForPageAndCategory($this->page, $this->category);
 
+		$this->events = Doctrine_Core::getTable('Event')->getEventsForPageAndCategory($this->page, $this->category);
 		$this->categories = Doctrine_Core::getTable('Category')->findAll();
+
+		$this->map_data_pulp = $this->makeMapDataPulp($this->events);
 	}
 
 	public function executeEvent(sfWebRequest $request) {
 
 		$this->event = Doctrine_Core::getTable('Event')->findOneById($request->getParameter('id'));
 		$this->forward404Unless($this->event);
+
+		$this->map_data_pulp = $this->event->fetchMapDataPulpEncoded();
 	}
 
 	public function executeHost(sfWebRequest $request) {
@@ -173,5 +177,18 @@ class satellitesActions extends sfActions {
 		}
 
 		else $this->getUser()->setFlash('error', 'There was a problem saving your event! Please review the fields in red');
+	}
+
+	// helper methods
+	private function makeMapDataPulp(Doctrine_Collection $events) {
+
+		if($events and count($events)) {
+
+			$pulp = array();
+			foreach($events as $event) $pulp[] = $event->fetchMapDataPulp();
+
+			return urlencode(json_encode($pulp));
+		}
+		else return false;
 	}
 }

@@ -25,6 +25,19 @@ class Event extends BaseEvent {
 		$this->setModerated($this->getModerated() ? false : true);
 		$this->save();
 	}
+	public function fetchMapDataPulp() {
+
+		return array(
+
+			'id'	=> $this->getId(),
+			'lat'	=> $this->getVenueLatitude(),
+			'lng'	=> $this->getVenueLongitude()
+		);
+	}
+	public function fetchMapDataPulpEncoded() {
+
+		return urlencode(json_encode($this->fetchMapDataPulp()));
+	}
 
 	// # Eventbrite API methods
 	public function sendToAPIForUser(sfUser $user, $debug = false) {

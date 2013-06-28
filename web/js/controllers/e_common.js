@@ -1,6 +1,33 @@
 // # COMMON screen controller
 document.observe("dom:loaded", function() {
 
+    // Google Maps default layout styling
+    // - http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
+    // - https://developers.google.com/maps/documentation/javascript/styling
+    GoogleMapStyles = [
+	{
+		stylers: [
+			{ saturation: -100 }
+		]
+	},
+	{
+		featureType: 'road',
+		elementType: 'geometry',
+		stylers: [
+			{ lightness: 100 },
+			{ visibility: 'simplified' }
+		]
+	},
+	{
+		featureType: 'road',
+		elementType: 'labels',
+		stylers: [
+			{ visibility: 'off' }
+		]
+	}
+    ];
+
+     // Parallax-alike scrolling
      if ($('hero') == undefined) {
      	var submenu_offset = 116;
      } else {
