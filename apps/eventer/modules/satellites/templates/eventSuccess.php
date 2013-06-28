@@ -117,11 +117,10 @@ if($color = $event->getListingColor()) {
 		<h2>Tickets information</h2>
 
 <?php	if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()): ?>
-		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the ticket widget below does not display you the free tickets, please click <b>"Enter promotional code"</b> and paste this inside:</p>
-		<input type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" />
+		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the free tickets are not displayed below, please use the following as a promotionnal code:<input class="accesscode" type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" /></p>
 <?php	endif ?>
 
-		<iframe src="http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->getGuardUser()->getAttendee()->getHasMainTicket()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+		<iframe src="http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
 <?php else: ?>
 		<h2>This event is not yet synchronized with Eventbrite platform</h2>
 <?php endif ?>
