@@ -116,7 +116,7 @@ if($color = $event->getListingColor()) {
 <?php if($event->getSynchronized()): ?>
 		<h2>Tickets information</h2>
 
-<?php	if($sf_user->getGuardUser()->getAttendee()->getHasMainTicket()): ?>
+<?php	if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()): ?>
 		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the ticket widget below does not display you the free tickets, please click <b>"Enter promotional code"</b> and paste this inside:</p>
 		<input type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" />
 <?php	endif ?>
