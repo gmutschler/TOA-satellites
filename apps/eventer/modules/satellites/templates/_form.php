@@ -65,9 +65,6 @@
 		<div class="section gmap">
 			<div id="gmap">
 			</div>
-
-			<?=$form['venue_longitude']?>
-			<?=$form['venue_latitude']?>
 		</div>
 	</div>
 

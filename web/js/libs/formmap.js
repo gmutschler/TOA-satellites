@@ -3,7 +3,7 @@
  *
  *  Single-point Google map to be embedded in simple forms
  *  
- *  rev 2013-06-27
+ *  rev 2013-06-28
  *
  *  (c) Maciej Taranienko <maciej@canadel.ee>
  *
@@ -12,18 +12,13 @@
  *  - Scriptaculous 1.9.0+
  *  - Google Maps API v3.X
  *
- *  TODO:
- *  - Add gmap pointer with possibility to drag/drop
- *  - Add reactive events
- *  - Kill the option to change from TOA style to normal
- *
  *  LATER:
- *  - Add some sanity checks in the class init
+ *  - Add plenty sanity checks around ;)
 **/
 Formmap = Class.create({
 
 	// config
-	config: undefined,	// ** consider if we ever need this
+	config: undefined,
 
 	// elms
 	elmMap: undefined,
@@ -39,13 +34,16 @@ Formmap = Class.create({
 	// objs
 	objGoogleMap: undefined,
 	objGoogleMapStyle: undefined,
-	// TODO: geocoder? point?
-	objLatLang: undefined,
+	objGeocoder: undefined,
 	objMarker: undefined,
 
 	// storage
 	latitude: 0,
 	longitude: 0,
+	lastSearched: null,
+
+	// states
+	isProcessingGeocode: false,
 
 	// init
 	initialize: function(params) {
@@ -67,10 +65,8 @@ Formmap = Class.create({
 
 			zoom: params.conf.gmap_zoom,
 			center: new google.maps.LatLng(this.latitude, this.longitude),
-			mapTypeControlOptions: {
-
-				mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-			}
+			mapTypeId: 'map_style',
+			disableDefaultUI: true
 		});
 		this.objGoogleMap.mapTypes.set('map_style', this.objGoogleMapStyle);
 		this.objGoogleMap.setMapTypeId('map_style');
@@ -79,16 +75,90 @@ Formmap = Class.create({
 		this.objLatLng = new google.maps.LatLng(this.latitude, this.longitude);
 		this.objMarker = new google.maps.Marker({
 
-			position: this.objLatLang,
-			map: this.objGoogleMap
+			position: new google.maps.LatLng(this.latitude, this.longitude),
+			map: this.objGoogleMap,
+			draggable: true
 		});
 
+		// create geocoder object
+		this.objGeocoder = new google.maps.Geocoder();
 
-		//console.log(this.latitude);
-		//console.log(this.longitude);
+		// register observers
+		this.elmsInputsReactive.each(function(elmInput) {
 
+			new Form.Element.DelayedObserver(elmInput, 0.75, this.onDelayedInput.bindAsEventListener(this));
+		}.bind(this));
+		google.maps.event.addListener(this.objMarker, 'dragstart', this.onDragMarker.bindAsEventListener(this));
+		google.maps.event.addListener(this.objMarker, 'dragend', this.onDropMarker.bindAsEventListener(this));
+	},
 
-		// TODO: start observers
-		//this.elmsInputsReactive.invoke('on', 'focus', this.onFocusInput.bindAsEventListener(this));
+	// public interface
+	save: function() {
+
+		if(this.objMarker && this.elmHiddenLat && this.elmHiddenLng) {
+
+			// fetch latlng object locally
+			objLatLng = this.objMarker.getPosition();
+
+			// write the values
+			this.elmHiddenLat.setValue(objLatLng.lat().toString());
+			this.elmHiddenLng.setValue(objLatLng.lng().toString());
+		}
+		else throw 'Formmap: Cannot save data, some errors occured!';
+	},
+
+	// private methods
+	_buildSearchString: function() {
+
+		searchString = '';
+		this.elmsInputsReactive.each(function(elmInput, index) {
+
+			if(elmInput.getValue()) {
+
+				searchString += elmInput.getValue();
+				if(index < this.elmsInputsReactive.length - 1) searchString += ', ';
+			}
+		}.bind(this));
+
+		return searchString;
+	},
+
+	_moveViewportAndMarker: function(geometry) {
+
+		this.objGoogleMap.fitBounds(geometry.viewport);
+		this.objMarker.setPosition(geometry.location);
+		this.objMarker.setAnimation(google.maps.Animation.DROP);
+
+		this.save();
+	},
+
+	// calbacks
+	onDelayedInput: function(e) {
+
+		if(!this.isProcessingGeocode) {
+
+			// don't flood geocoder if we happened to fire on exactly the same input text
+			searchString = this._buildSearchString();
+			if(searchString && searchString != this.lastSearched) {
+
+				this.objGeocoder.geocode({ address: searchString }, this.onGeocodeComplete.bind(this));
+				this.lastSearched = searchString;
+				this.isProcessingGeocode = true;
+
+				console.log('Geocoder sent for: ' + searchString);
+			}
+		}
+	},
+	onGeocodeComplete: function(results, status) {
+
+		if(status == google.maps.GeocoderStatus.OK) this._moveViewportAndMarker(results[0].geometry);
+
+		this.isProcessingGeocode = false;
+	},
+	onDragMarker: function(e) {
+	},
+	onDropMarker: function(e) {
+
+		this.save();
 	}
 });

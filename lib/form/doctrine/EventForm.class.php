@@ -86,13 +86,13 @@ class EventForm extends BaseEventForm {
 		));
 		$this->setWidget('venue_latitude', new sfWidgetFormInputHidden());
 		$this->setWidget('venue_longitude', new sfWidgetFormInputHidden());
+		//$this->getWidget('venue_latitude')->setDefault('test value');		// TODO: think of adding def values in app.yml?
 		$this->setWidget('paypal', new sfWidgetFormInput(
 
 			array('label' => 'Paypal address'),
 			array('placeholder' => 'Paypal e-mail address')
 		));
 		$this->setValidator('paypal', new sfValidatorEmail());	// ** consider adding some options?
-
 
 
 		// TODO: add validators for start/end hours!
