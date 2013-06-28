@@ -85,25 +85,35 @@ class satellitesActions extends sfActions {
 
 		if(!$this->getUser()->isAuthenticated()) {
 
-			$this->getUser()->setAttribute('loginCallback', 'satellites/edit?id=' . $request->getParameter('id'));
+			$this->getUser()->setAttribute('loginCallback', 'satellites/edit?id=' . $request->getParameter('id'));	// TODO: this bugs
 			$this->forward('home', 'login');
 		}
 
-		// TODO: make sure the event belongs to the user
+		// make sure the event belongs to the user
+		if( !$this->getUser()->getGuardUser()->getIsSuperAdmin() and ($this->getUser()->getGuardUser() != $event->getOrganiser()->getGuardUser()) ) {
+
+			$this->getUser()->setFlash('error', "You don't have permission to edit this event!");
+			$this->redirect('satellites/book');
+		}
 
 		$this->form = new EventForm($event);
 	}
-	// TODO: make sure the event belongs to the userwork on below actions
 	public function executeUpdate(sfWebRequest $request) {
-
-		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
 
 		$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
 		$this->forward404Unless($event = Doctrine_Core::getTable('Event')->find(array($request->getParameter('id'))), sprintf('Object event does not exist (%s).', $request->getParameter('id')));
+
+		// credentials
+		if(!$this->getUser()->isAuthenticated()) $this->forward('home', 'login');
+
+		if( !$this->getUser()->getGuardUser()->getIsSuperAdmin() and ($this->getUser()->getGuardUser() != $event->getOrganiser()->getGuardUser()) ) {
+
+			$this->getUser()->setFlash('error', "You don't have permission to edit this event!");
+			$this->redirect('satellites/book');
+		}
+
 		$this->form = new EventForm($event);
-
 		$this->processForm($request, $this->form);
-
 		$this->setTemplate('edit');
 	}
 
