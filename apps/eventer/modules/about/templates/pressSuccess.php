@@ -9,7 +9,6 @@
 <?php include_partial('submenu') ?>
 
 	<div class="textual">
-        <h1>Press</h1>
         <div class="press-publications">
             <div class="press-review">
                 <div class="press-review-header">

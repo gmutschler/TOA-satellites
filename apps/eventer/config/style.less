@@ -248,6 +248,7 @@ a:hover {
         .bottomleft(0, 0);
         
         width: 100%;
+        min-width: 960px;
         position: fixed;
 		border-top: 1px solid @color-border;
         background-color: @color-bg-gray;
@@ -347,7 +348,7 @@ a:hover {
                 font-size: 28px;
                 display: inline-block;
                 margin-bottom: 1px;
-                padding: 6px 15px;
+                padding: 8px 15px 2px 15px;
                 background: @color-bg;
                 font-style: normal;
             
@@ -377,6 +378,42 @@ a:hover {
                 &:hover {color: @color-bg;}
             }
         }
+    
+        .event-location {
+            .absolute;
+            .bottomright(14px, 18px);
+            .tcenter;
+            
+            border: 2px solid @color-text;
+            background: @color-bg;
+            color: @color-text;
+            padding: 8px 11px 11px 11px;
+            min-width: 160px;
+            max-width: 220px;
+            min-height: 140px;
+            max-height: 210px;
+            
+            h3 {
+                .tupper;
+                .ffamily(18px, @font-proxima, bold);
+                
+                margin-bottom: 0.6em;
+                
+            }
+            
+            p {
+                .ffamily(17px, @font-minion);
+                
+                line-height: 1.1em;
+                color: @color-text-gray-dark;
+                
+                span {
+                    line-height: 1.2em;
+                    font-size: 18px;
+                    color: @color-text;
+                }
+            }
+        }
         
         #hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
     } // end #hero
@@ -387,6 +424,7 @@ a:hover {
 		@height-local-menu: 33px;
         margin-top: 8px;
         background: @color-bg;
+        min-height: 520px;
 
 
 		#hero_submenu {
@@ -500,6 +538,7 @@ a:hover {
 
 			// the fancy widget
 			h1, h2, .listing_widget { .tleft }
+            h1 { width: 840px; }
 			.listing_widget {
 				.relative;
 
@@ -528,7 +567,6 @@ a:hover {
 				}
 			
 				&.upper {
-					.negmargin-top;
 					border-top: 1px solid @color-border-dark;
                     margin-bottom: 30px;
 
@@ -957,10 +995,12 @@ a:hover {
 
 								.disblock(34px, 100%);
 								background-image: url(@{images-layout}/select_bg_small.png);
+                                z-index: 10;
 							}
 
 							&:before {
-								.topright(0, 8);
+                                .absolute;
+								.topright(0, 8px);
 							}
 							&:after {
 								.absolute(0, 42);	// ** NOTICE: this can be very tricky on some browsers
@@ -1090,37 +1130,24 @@ a:hover {
 
 		// > content typography defaults
 		h1 {
-			.ffamily(46px, @font-minion);
+			.ffamily(41px, @font-minion);
 			.tupper;
 			position: relative;
-			z-index: -10;
-			line-height: 42px;
+			line-height: 38px;
 
 			span {
 				.tnouper;
 				.titalic;
-				font-size: 28px;
+				font-size: 26px;
 				font-weight: normal;
 				display: inline-block;
-				vertical-align: bottom;
-                line-height: 36px;
+                line-height: 41px;
 			}
 
-			&:after {
-				content: "";
-				width: 100%;
-				height: 8px;
-				background: #fff;
-				border-top: 1px solid @color-border-dark;
-				position: absolute;
-				bottom: 0;
-				display: inline-block;
-				left: 0;
-			}
 		}
 
 		h2 {
-			.ffamily(32px, @font-minion);
+			.ffamily(26px, @font-minion);
 			.tupper;
 		}
 
@@ -1371,7 +1398,7 @@ a:hover {
 				display: inline-block;
 				border: 1px solid @color-border;
 				vertical-align: top;
-				margin: 40px 4px;
+				margin: 40px 10px 40px 0;
 				background: @color-bg-gray-dark;
 				.tcenter;
 			
@@ -1894,49 +1921,6 @@ div.screen_user_home {
 }
 
 div.screen_event {
-    
-    #hero {
-        
-        #hero_foreground {
-            
-            .event-location {
-                .absolute;
-                .bottomright(14px, 18px);
-                .tcenter;
-                
-                border: 2px solid @color-text;
-                background: @color-bg;
-                color: @color-text;
-                padding: 8px 11px 11px 11px;
-                min-width: 160px;
-                max-width: 220px;
-                min-height: 140px;
-                max-height: 210px;
-                
-                h3 {
-                    .tupper;
-                    .ffamily(18px, @font-proxima, bold);
-                    
-                    margin-bottom: 0.6em;
-                    
-                }
-                
-                p {
-                    .ffamily(17px, @font-minion);
-                    
-                    line-height: 1.1em;
-                    color: @color-text-gray-dark;
-                    
-                    span {
-                        line-height: 1.2em;
-                        font-size: 18px;
-                        color: @color-text;
-                    }
-                }
-            }
-        }
-        
-    }
 	
 	.textual {
 		
@@ -1944,8 +1928,7 @@ div.screen_event {
 			padding-right: 200px;
 			
 			span.time {
-				font-size: 38px !important;
-				margin-top: 5px;
+				font-size: 32px !important;
 				margin-right: -199px;
 				.fright;
 			}

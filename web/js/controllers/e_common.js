@@ -14,18 +14,18 @@ document.observe("dom:loaded", function() {
                   $('submenu-content').setStyle({'position':'fixed'});
                   $('submenu-content').setStyle({'left':'50%'});
                   $('submenu-content').setStyle({'top':'5px'});
-                  $('submenu-content').setStyle({'margin-left':'-480px'});
-                  $('sect').setStyle({'margin-left':'-6px'});
-                  $('login-bg').setStyle({'border-bottom':'1px solid #dedede'});
+                  $('submenu-content').setStyle({'margin':'0 0 0 -480px'});
+                  $('sect').setStyle({'margin':'0 8px 0 -6px'});
+                  $('login-bg').setStyle({'borderBottom':'1px solid #dedede'});
 				},
                   
                onLeave: function(c) {
                   $('submenu-content').setStyle({'position':'relative'});
                   $('submenu-content').setStyle({'left':'0'});
                   $('submenu-content').setStyle({'top':'7px'});
-                  $('submenu-content').setStyle({'margin-left':'0'});
-                  $('sect').setStyle({'margin-left':'12px'});
-                  $('login-bg').setStyle({'border-bottom':'none'});
+                  $('submenu-content').setStyle({'margin':'0'});
+                  $('sect').setStyle({'margin':'0 8px 0 12px'});
+                  $('login-bg').setStyle({'borderBottom':'none'});
 
                }
      });
@@ -37,14 +37,14 @@ document.observe("dom:loaded", function() {
                   $('hero_background').setStyle({'position':'fixed'});
                   $('hero_background').setStyle({'top':'30px'});
                   $('hero_background').setStyle({'left':'50%'});
-                  $('hero_background').setStyle({'margin-left':'-480px'});
+                  $('hero_background').setStyle({'margin':'0 0 0 -480px'});
 				},
                   
                onLeave: function(c) {
                   $('hero_background').setStyle({'position':'static'});
                   $('hero_background').setStyle({'top':'auto'});
                   $('hero_background').setStyle({'left':'auto'});
-                  $('hero_background').setStyle({'margin-left':'0'});
+                  $('hero_background').setStyle({'margin':'0'});
                }
      });
      

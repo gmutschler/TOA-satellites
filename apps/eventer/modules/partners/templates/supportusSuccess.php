@@ -5,7 +5,6 @@
 	<div class="textual">
         
         <p class="lead">Be part of something truly unique. It is not just about brand and PR exposure here. Partnering with TOA means truly connecting with the technologists and creative leaders of tomorrow.</p>
-		<h1>Make it happen</h1>
         <div id="sponsorpackages">
             <div class="tablecolumn">
                 <h2>Booster</h2>
