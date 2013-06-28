@@ -15,7 +15,7 @@ document.observe("dom:loaded", function() {
 			multi: true,
 
 			// geographical defaults
-			gmap_zoom: 13,
+			gmap_zoom: 12,
 			gmap_y: 52.5095350,
 			gmap_x: 13.3723340,
 
