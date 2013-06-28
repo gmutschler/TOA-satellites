@@ -25,7 +25,7 @@ class TicketFormValidatorSchema extends sfValidatorSchema {
 			if(($value['name'] or $value['price'] or $value['quantity_declared']) and !$value['description'])
 				$errorSchemaLocal->addError(new sfValidatorError($this, 'required'), 'description');
 
-			if(($value['name'] or $value['description'] or $value['quantity_declared']) and !$value['price'])
+			if(($value['name'] or $value['description'] or $value['quantity_declared']) and is_null($value['price']))
 				$errorSchemaLocal->addError(new sfValidatorError($this, 'required'), 'price');
 
 			if(($value['name'] or $value['description'] or $value['price']) and !$value['quantity_declared'])
