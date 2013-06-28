@@ -8,6 +8,8 @@ document.observe("dom:loaded", function() {
 	new Formmap({
 
 		map: 'gmap',
+		lat: 'event_venue_latitude',
+		lng: 'event_venue_longitude',
 		reactive: ['event_venue_name', 'event_venue_city', 'event_venue_address'],
 
 		conf: {

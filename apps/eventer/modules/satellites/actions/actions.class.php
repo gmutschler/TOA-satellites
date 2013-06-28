@@ -38,6 +38,7 @@ class satellitesActions extends sfActions {
 		}
 
 		// check if we should host a new event for the user, or allow him to select from Eventbrite ones already
+		/*
 		if($events = EventTable::getInstance()->getAPIUnhostedForUser($this->getUser())) {
 
 			// prepare variable for the layout
@@ -45,6 +46,7 @@ class satellitesActions extends sfActions {
 			foreach($events as $key => $event) $events[$key]['event']['description'] = trim(strip_tags($event['event']['description']));
 			$this->eventsArray = $events;
 		}
+		*/
 
 		// Create the new form for all cases
 		$this->form = new EventForm();

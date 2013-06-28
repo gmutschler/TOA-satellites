@@ -26,6 +26,8 @@ class EventForm extends BaseEventForm {
 			'venue_address',
 			'venue_city',
 			'venue_postal_code',
+			'venue_latitude',
+			'venue_longitude',
 
 			'category_id'
 		));
@@ -82,6 +84,8 @@ class EventForm extends BaseEventForm {
 			array('label' => 'City'),
 			array('placeholder' => 'City')
 		));
+		$this->setWidget('venue_latitude', new sfWidgetFormInputHidden());
+		$this->setWidget('venue_longitude', new sfWidgetFormInputHidden());
 		$this->setWidget('paypal', new sfWidgetFormInput(
 
 			array('label' => 'Paypal address'),

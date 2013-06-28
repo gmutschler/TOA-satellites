@@ -66,7 +66,8 @@
 			<div id="gmap">
 			</div>
 
-			<?php // TODO: render hidden inputs for lat and lang here ?>
+			<?=$form['venue_longitude']?>
+			<?=$form['venue_latitude']?>
 		</div>
 	</div>
 
