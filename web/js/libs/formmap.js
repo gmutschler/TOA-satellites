@@ -87,6 +87,8 @@ Formmap = Class.create({
 		this.elmsInputsReactive.each(function(elmInput) {
 
 			new Form.Element.DelayedObserver(elmInput, 0.75, this.onDelayedInput.bindAsEventListener(this));
+			elmInput.observe('blur', this.onDelayedInput.bindAsEventListener(this));
+
 		}.bind(this));
 		google.maps.event.addListener(this.objMarker, 'dragstart', this.onDragMarker.bindAsEventListener(this));
 		google.maps.event.addListener(this.objMarker, 'dragend', this.onDropMarker.bindAsEventListener(this));
