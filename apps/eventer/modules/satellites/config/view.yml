@@ -9,6 +9,9 @@ hostSuccess:
 editSuccess: 
   javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/scriptaculous-controls.js', 'libs/colorpicker.js', 'libs/formmap.js', 'controllers/e_satellites_host_edit.js']
 
+newSuccess:
+  javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/scriptaculous-controls.js', 'libs/colorpicker.js', 'libs/formmap.js', 'controllers/e_satellites_host_edit.js']
+
 createSuccess:
   javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/scriptaculous-controls.js', 'libs/colorpicker.js', 'libs/formmap.js', 'controllers/e_satellites_host_edit.js']
 
