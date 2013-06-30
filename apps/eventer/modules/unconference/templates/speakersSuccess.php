@@ -10,6 +10,5 @@
 
 	<div class="textual">
 
-		<h1>The Speakers</h1>
 	</div>
 </div>

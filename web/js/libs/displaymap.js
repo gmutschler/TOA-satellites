@@ -82,9 +82,8 @@ Displaymap = Class.create({
 
 				// vomit out those markers without any global storage ;)
 				this.pointsData.each(function(point) {
-
-					objMarker = this._renderSinglePoint(point);
-					google.maps.event.addListener(objMarker, 'click', this.onClickPoint.bindAsEventListener(this, point));
+						objMarker = this._renderSinglePoint(point);
+						google.maps.event.addListener(objMarker, 'click', this.onClickPoint.bindAsEventListener(this, point));
 				}.bind(this));
 			}
 
