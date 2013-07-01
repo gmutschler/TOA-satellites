@@ -7,7 +7,7 @@
 
 	<div class="section_block">
 
-		<h3>The Event Details</h3>
+		<h3>Event Details</h3>
 
 		<div class="section long dropdown dropdown_big<?php if($form['category_id']->hasError()) { ?> error<? } ?>">
 			<?=$form['category_id']?>
@@ -25,10 +25,10 @@
 			<?=$form['start_hour']->renderError()?>
 			<?=$form['end_hour']->renderError()?>
 		</div>
-		<div class="section upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
+		<div class="separator section upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
 			<?=$form['logo']?>
 			<?=$form['logo']->renderError()?>
-            <p class="notice">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 582px</p>
+            <p class="notice tcenter">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 582px.</p>
 		</div>
 		<div class="section long description<?php if($form['description']->hasError()) { ?> error<? } ?>">
 			<?=$form['description']?>
@@ -70,17 +70,18 @@
 
 	<div class="section_block">
 
-		<h3>The Payment option</h3>
+		<h3>Payment option</h3>
 		<div class="section long<?php if($form['paypal']->hasError()) { ?> error<? } ?>">
 			<?=$form['paypal']?>
 			<?=$form['paypal']->renderError()?>
-			<p class="notice">If you want to set up paid tickets, please provide a valid paypal account to get the payments</p>
+			<p class="notice">If you want to set up paid tickets, please provide a valid paypal account to recieve the payments</p>
 		</div>
 	</div>
     
 	<div class="section_block last">
 
-		<h3>The tickets <a class="button_black button_black_small fright" href="#TODO" onclick="alert('This function is under construction. For now - new ticket form will appeaer whenever you submit a valid ticket.')">&plus; Add more tickets</a></h3>
+		<h3>Tickets <a class="button_black button_black_small fright" href="#TODO" onclick="alert('This function is under construction. For now - new ticket form will appeaer whenever you submit a valid ticket.')" style="margin-top: -1em;">&plus; Add more tickets</a></h3>
+        <p class="notice">Please be aware that 50% of each tickets will be in a first time reserved to Tech Open Air ticket holders</p>
 
 <?php	if(isset($form['Tickets']) and count($form['Tickets'])) foreach($form['Tickets'] as $key => $ticket) include_partial('subform_ticket', array(
 
@@ -98,8 +99,8 @@
 
 <?php // control panel :) ?>
 	<div class="section_controls">
-		<p class="notice">By clicking the button, you agree to our <a href="#TODO">terms and conditions</a>.</p>
-		<input type="submit" class="button_red" value="<?=$form->getObject()->isNew() ? 'Create event' : 'Update event'?>" />
+		<p class="notice">By clicking the button, you agree to our <a href="/home/privacy" target="_blank">terms and conditions</a>.</p>
+		<p><input type="submit" class="button_red" value="<?=$form->getObject()->isNew() ? 'Create event' : 'Update event'?>" /></p>
 	</div>
 
 <?php // background stuff ?>

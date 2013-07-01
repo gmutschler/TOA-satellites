@@ -36,18 +36,20 @@
     </div>
         
     <div class="textual">     
-        <h2>What to expect</h2>
-        <p><big>Have a look at some ideas below or come up with yours.</big></p>
+        <h2>What to do</h2>
+        <p><big>Have a look at some ideas below or come up with your own.</big></p>
         <div class="table">
             <div class="three-columns first">
                 <div class="three-columns-header">
                     <img src="/images/content/networking.jpg" alt="networking address book">
-                    <h3>Networking</h3>
+                    <h3>Network</h3>
                 </div>
                 <div class="content-box-inner">
                     <p>Share memorable moments to connect with your audience!</p>
                     <ul>
-                        <li>Breakfast, Lunch or Dinner Meetups</li>
+                        <li>Breakfast</li>
+                        <li>Lunch</li>
+                        <li>Dinner</li>
                         <li>Open Office Hours</li>
                         <li>Recruiting Events</li>
                         <li>Cocktails Receptions, Pup Crawls</li>
@@ -61,7 +63,7 @@
             <div class="three-columns">
                 <div class="three-columns-header">
                     <img src="/images/content/making.jpg" alt="kitchen accessories">
-                    <h3>Making</h3>
+                    <h3>Make</h3>
                 </div>
                 <div class="content-box-inner">
                     <p>When people from different disciplines put their though into action, an innovation is born!</p>
@@ -78,7 +80,7 @@
             <div class="three-columns last">
                 <div class="three-columns-header">
                     <img src="/images/content/learning.jpg" alt="Old schooldesk">
-                    <h3>Learning</h3>
+                    <h3>Learn</h3>
                 </div>
                 <div class="content-box-inner">
                     <p>Share your knowledge and Karma will be your friend!</p>
@@ -93,6 +95,6 @@
             </div>
         </div>
         <a href="/satellites/book" class="seemore">See all the satellites events &rsaquo;</a>
-        <div class="tcenter"><h3 class="tupper"><big>Your Idea ?</big></h3><a  href="/satellites/host" class="button_black">&#43; Host your own</a></div>
+        <div class="tcenter"><h3 class="tupper"><big>Another Idea ?</big></h3><a  href="/satellites/host" class="button_black">&#43; Host your own</a></div>
     </div>
 </div>

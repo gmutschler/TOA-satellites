@@ -13,21 +13,36 @@
 		<h1>The Unconference<span>&nbsp; August 1, 2013</span></h1>
     
         <div id="about-2013">
+        	<h2>Reset Tomorrow!</h2>
+			<p class="lead">The theme of this year is called “Reset tomorrow!” and will build upon the concept of <a href="https://en.wikipedia.org/wiki/Retro-futurism" target="_blank">retrofuturism</a>.</p> 
             <div id="theme-description">
-                <h2>Edition 2013 - Reset Tomorrow</h2>
-                <h3 class="tupper">An ode to Retrofuturism</h3>
-                <p>Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper.</p>
-                <p>Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+            	<h3>What to expect</h3>
+            	<p>At this year’s unconference on Day 1 we want to take a critical view of what Technology has achieved over the last decades and whether the expectations we had when we were little kids watching Blade Runner were actually met.<br>
+In some areas technology has clearly over-delivered, but in other areas it still falls short. Not that it should be considered a sign of ultimate human achievement, but isn’t it crazy that 20 years ago we were able to fly across the Atlantic in half the time. And why the hell do cars still use four wheels to get us from A to B.</p>
+
+				<p>Dude, where is my Hover-board?</p>
+
+				<p>It also seems that more and more people are beginning to question whether applied science will achieve its earlier promise that life would inevitably improve through technological progress. Many start to feel that the desired or expected future has failed to materialise and are increasingly keen on switching off and living off the grid.<br>
+				Join us for a day where we'll get smart thinkers and doers together to look at both the alienating and empowering effects of technology.</p>
+
+				<p>If you would like to highlight a specific angle of technology in a talk or would like to recommend someone, please get in touch with us.<break>
+				We can't wait to see you at the unconference.</p>
+
+				<p>And no worries, you’ll be able to park your hover-boards outside!</p>
             </div>
             
             <div id="sidebar-expect">
                 <h3 class="tupper">What to expect</h3>
                 <ul>
-                    <li>Workshops</li>
-                    <li>Talks</li>
-                    <li>Pitch Contests</li>
+                    <li>Inspiring Talks</li>
+                    <li>GrowShop</li>
+                    <li>Debates</li>
+                    <li>Pitches</li>
+                    <li>VC Confession Chair</li>
+                    <li>Pillow Talk</li>
                     <li>Art Installation</li>
                     <li>Live Music & DJ Sets</li>
+                    <li>BBQ</li>
                 </ul>
             </div>
             
@@ -44,12 +59,12 @@
                     </div>
                 </div>
                 <div id="location-description">
-                    <p>Located in a ancient soap factory on the banks of the Spree, the <a href="http://www.katerholzig.de/" target="_blank">Kater Holzig</a> is the epitome of an alternative Berlin club. Founded by the people behind  <a href="http://www.youtube.com/watch?v=HQpZQj3TY80&amp;hd=1" target="_blank">the infamous Bar25</a>, a club credited with building the famous Berlin techno scene. This is a wonderland where freaks from all over town like to hang out once the weekend arrives.</p>
-                    <p>If you are the kind of person who likes to enjoy good times in a cool atmosphere, this venue alone should be enough to convince you to snap up your ticket for TOA Berlin.</p>
+                    <p>Located in a ancient soap factory on the banks of the Spree, the <a href="http://www.katerholzig.de/" target="_blank">Kater Holzig</a> is the epitome of an alternative Berlin club. Founded by the people behind  <a href="http://www.youtube.com/watch?v=HQpZQj3TY80&amp;hd=1" target="_blank">the infamous Bar25</a>, a club credited with building the famous Berlin techno scene. This is a wonderland where people from all over the world dance the nights AND days away.</p>
+                    <p>If you are the kind of person who likes to enjoy good times in a cool atmosphere, this venue alone should be enough to convince you to snap up your ticket.</p>
                 </div>
             </div>
     
-            <div class="location" class="even">
+            <div class="location even">
                 <div class="location-illustration">
                     <img src="/images/content/fluxbau.jpg">
                     <div id="location-address">

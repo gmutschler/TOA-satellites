@@ -7,10 +7,9 @@
         <a href="/user/hostedevents/" class="button_back"><big>&lsaquo;</big> All your events</a>
 		<h1>Host an event</h1>
 
-	</div>
-
-	<div class="forms">
-
-		<?php include_partial('form', array('form' => $form)) ?>
+        <div class="forms">
+    
+            <?php include_partial('form', array('form' => $form)) ?>
+        </div>
 	</div>
 </div>

@@ -3,6 +3,7 @@
     <div id="hero_background"><img src="/images/content/aboutus-hero-bg.jpg" /></div>
     <div id="hero_foreground">
         <h1><span>We help you better understand</span><br /><span>the world you change.</span></h1>
+        <span class="photo_credit">Michael Ronen giving a Growshop at TOA12<br>Photo by <a href="http://ailineliefeld.com/">Ailine Lefield</a></span>
     </div>
 </div>
 
@@ -13,9 +14,11 @@
     <div class="textual">
         
         <p class="lead"><big>Our mission is to connect, grow and inspire the creative, entrepreneurial and scientific community through knowledge exchange and collaboration.</big></p>
-        
+    </div>
+    
+    <div class="textual">    
         <h1>Our Story</h1>
-        <div class="multicolumns" style="margin-top:25px">
+        <div class="multicolumns" style="margin-top:15px">
             <p>In 2012 a bunch of Berlin startup folks came together to create a new kind of Festival, bound by the desire to build a bridge between the tech, music, art and science worlds.</p>
             <p>Technology is a transformative power that disrupts entire industries and touches every angle of life. By bringing together technological changemakers with representatives of different disciplines, we help the disrupted better anticipate the future and the technologists better understand the world they change.<br />
             From the onset we wished for it to become a collaborative effort by the community. In crafting our vision we held multiple open town hall meet-ups with representatives of the various communities and ultimately became the first European Festival to crowdfund itself.</p>

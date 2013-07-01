@@ -6,9 +6,8 @@
                 <h3>Main contact</h3>
                 <p>
                     <span>Tech Open UG</span><br />
-                    Windscheid Str. 18<br />
-                    (zweites Hinterhaus)<br />
-                    10627 Berlin<br />
+                    Sophinestr. 24<br />
+                    10178 Berlin<br />
                     <a href="mailto:hello@toaberlin.com">hello@toaberlin.com</a>
                 </p>
             </div>

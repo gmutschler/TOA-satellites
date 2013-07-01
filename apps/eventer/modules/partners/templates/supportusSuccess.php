@@ -4,7 +4,7 @@
 
 	<div class="textual">
         
-        <p class="lead">Be part of something truly unique. It is not just about brand and PR exposure here. Partnering with TOA means truly connecting with the technologists and creative leaders of tomorrow.</p>
+        <p class="lead">Be part of something truly unique. It is not just about brand and PR exposure here. Partnering with TOA means truly connecting with the technologists and creative leaders of tomorrow. Please also <a href="mailto:sponsoring@toaberlin.com" target="_blank">get in touch</a> for custom packages, food, drinks, Wifi, award or party sponsorship opportunities or if you are intersted in bartering a service.</p>
         <div id="sponsorpackages">
             <div class="tablecolumn">
                 <h2>Booster</h2>
@@ -79,8 +79,6 @@
                 </ul>
                 <a href="mailto:sponsoring@toaberlin.com" target="_blank"  class="button_black button_black_small">Sponsor Us</a>
             </div>
-            <div><p class="lead">Please also <a href="mailto:sponsoring@toaberlin.com" target="_blank">get in touch</a> for custom packages, food, drinks, Wifi, award or party sponsorship opportunities or if you are intersted in bartering a service.</p>
-        </div>
         </div>
 	</div>
 </div>

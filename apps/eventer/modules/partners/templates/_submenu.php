@@ -1,6 +1,6 @@
 <?php include_partial('global/submenu', array(
 
-	'submenu_title' => 'Partners',
+	'submenu_title' => 'Supporters',
 	'links' => array(
 
 		'Thank you'	=> 'partners/index',

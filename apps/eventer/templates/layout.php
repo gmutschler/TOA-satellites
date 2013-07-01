@@ -27,7 +27,6 @@
 		</div>
 
 		<a id="logo" title="Tech Open Air Berlin 2013" href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"></a>
-        <div class="festival_dates"></div>
         <div id="header_menu" style="-webkit-transform: translate3d(0px, 0px, 0px)">
 
             <ul>
@@ -35,7 +34,7 @@
                 <li><a href="<?=url_for('unconference/index')?>"<?php if($sf_context->getModuleName() == 'unconference') { ?> class="selected"<?php } ?>>The Unconference</a></li>
                 <li><a href="<?=url_for('satellites/index')?>"<?php if($sf_context->getModuleName() == 'satellites') { ?> class="selected"<?php } ?>>The Satellites</a></li>
                 <li><a href="http://blog.toaberlin.com">News</a></li>
-                <li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Partners</a></li>
+                <li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Supporters</a></li>
                 <li><a href="<?=url_for('about/index')?>"<?php if($sf_context->getModuleName() == 'about') { ?> class="selected"<?php } ?>>About us</a></li>
                 <li><a class="highlighted" href="http://toaberlin2013-TOAWebsite.eventbrite.com" target="_blank">Buy tickets</a></li>
             </ul>
@@ -75,23 +74,25 @@
                 <li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>">Home</a></li>
                 <li><a href="<?=url_for('unconference/index')?>">The Unconference</a></li>
                 <li><a href="<?=url_for('satellites/index')?>">The Satellite Events</a></li>
-                <li><a href="http://toaberlin2013.eventbrite.com/">Buy your ticket</a></li>
+                <li><a href="http://toaberlin2013.eventbrite.com/" target="_blank">Buy your ticket</a></li>
             </ul>
         </div>
         <div class="footer-column">
             <h4>Tech Open Air</h4>
             <ul>
                 <li><a href="<?=url_for('about/index')?>">About Us</a></li>
-                <li><a href="<?=url_for('about/team')?>">The Team</a></li>
+                <!--<li><a href="<?=url_for('about/team')?>">The Team</a></li>-->
                 <li><a href="<?=url_for('about/contact')?>">Contact</a></li>
                 <li><a href="<?=url_for('home/colophon')?>">Colophon</a></li>
+                <li><a href="<?=url_for('home/privacy')?>">Terms & Condition</a></li>
+                <li><a href="<?=url_for('home/privacy#privacy-policy')?>">Privacy Policy</a></li>
             </ul>
         </div>
         <div class="footer-column">
             <h4>For the Pros</h4>
             <ul>
                 <li><a href="<?=url_for('about/press')?>">Press</a></li>
-                <li><a href="<?=url_for('partners/supportus')?>">Become a partner</a></li>
+                <li><a href="<?=url_for('partners/supportus')?>">Become a supporter</a></li>
                 <li>Developer API (to come)</li>
             </ul>
         </div>

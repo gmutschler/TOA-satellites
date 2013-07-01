@@ -51,12 +51,12 @@ class EventForm extends BaseEventForm {
 		$this->setWidget('title', new sfWidgetFormInput(
 
 			array('label' => 'Title'),
-			array('placeholder' => 'Name of your event')
+			array('placeholder' => 'Event Name')
 		));
 		$this->setWidget('description', new sfWidgetFormTextarea(
 
 			array('label' => 'Description'),
-			array('placeholder' => 'Describe your event here')
+			array('placeholder' => 'Event Description')
 		));
 		$this->setWidget('listing_color', new sfWidgetFormInput(
 
@@ -67,12 +67,12 @@ class EventForm extends BaseEventForm {
 		$this->setWidget('venue_name', new sfWidgetFormInput(
 
 			array('label' => 'Venue name'),
-			array('placeholder' => 'Name of your venue')
+			array('placeholder' => 'Venue Name')
 		));
 		$this->setWidget('venue_address', new sfWidgetFormInput(
 
 			array('label' => 'Venue address'),
-			array('placeholder' => 'Address of your venue')
+			array('placeholder' => 'Venue Address')
 		));
 		$this->setWidget('venue_postal_code', new sfWidgetFormInput(
 

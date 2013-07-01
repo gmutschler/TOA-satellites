@@ -159,7 +159,7 @@
 // # common (global) block elements
 body {
 	.tcenter;
-	font: 17px 'Minion Pro', sans-serif;
+	font: 17px 'minion-pro', sans-serif;
 	background-color: @color-bg;
 }
 a {
@@ -193,13 +193,6 @@ a:hover {
 			.bglay('logo-top.png');
             z-index: 1001;
 		}
-    
-        .festival_dates {
-            .absolute(20, 345);
-			.disblock(270px, 55px);
-            .bglay('tagline-header.png');
-            z-index: 1001;
-        }
 
         #loginbox { 
             position: fixed;
@@ -349,7 +342,7 @@ a:hover {
                 font-size: 28px;
                 display: inline-block;
                 margin-bottom: 1px;
-                padding: 8px 15px 2px 15px;
+                padding: 4px 15px 3px 15px;
                 background: @color-bg;
                 font-style: normal;
             
@@ -367,16 +360,20 @@ a:hover {
             .absolute;
             .bottomright(5px,10px);
             .ffamily(13px, @font-minion);
+            .tright;
         
             font-style: italic;
             color: @color-bg;
-            filter : alpha(opacity=60);
-            opacity: 0.6;
-        
+            filter : alpha(opacity=80);
+            opacity: 0.8;
+            
             
             a {
-                text-decoration: none;
-                &:hover {color: @color-bg;}
+                color: @color-bg;
+                &:hover {
+                    color: @color-bg;
+                    text-decoration: none;
+                }
             }
         }
     
@@ -1050,7 +1047,6 @@ a:hover {
 
 						width: @width-local-form - 4px;
 
-						margin-top: 44px;
 						padding:0 0 10px 0;
                     
                         img {
@@ -1303,7 +1299,10 @@ a:hover {
 				
 				.content-box-inner {padding: 15px;}
 		
-				p {font-size: 21px;}
+				p {
+                    font-size: 17px;
+                    line-height: 21px;
+                }
 				ul {
 					font-size: 15px;
 				
@@ -1645,7 +1644,7 @@ a:hover {
 // they apply to anything below #content div and can override or add certain unique look
 div.screen_unconference_index#content { 
     
-    p, h2, h3 { color: @color-retro-text;}
+    p, h2, h3, a, p.lead { color: @color-retro-text;}
     
     #hero_submenu {
         h3 { color: @color-text; }
@@ -1683,7 +1682,7 @@ div.screen_unconference_index#content {
     }
     
     .location {
-        width: 470px;
+        width: 475px;
         margin-right: 10px;
 
         .fleft;
@@ -1715,7 +1714,7 @@ div.screen_unconference_index#content {
             margin-top: -8px;
             height: 225px;
             
-            p {color: @color-retro-bg;}
+            p, a {color: @color-retro-bg;}
         }
     }
 }
@@ -1726,10 +1725,18 @@ div.screen_home#content {
         
         .bicolumn {
             a.column {
+                text-decoration: none;
                 .relative;
                 .content-box-inner;
                 
-                h3 { .tupper; }
+                h3 {
+                    .tupper;
+                    text-decoration: none;
+                    color: @color-text;
+                }
+                p {
+                    text-decoratione: none;
+                }
                 
                 span.seemore {
                     .absolute;
@@ -1890,7 +1897,7 @@ div.screen_about_contact#content {
         .element {
             vertical-align: top;
             display: inline-block;
-            width: 215px;
+            width: 214px;
             height: 180px;
             padding: 10px;
             border: 1px solid @color-border;
@@ -1926,14 +1933,14 @@ div.screen_host_form {	// "edit" and "new" screens for the event
 div.screen_user_home {
 	&#content{
 		.textual {
-			.profile-basic-infos {
+			.profile-basic-infos, .satellites_tickets {
 				.fleft;
 				width: 50%;
 				margin-right: 10%;
 				
 			}
 			.profile-main-ticket{
-				width: 280px;
+				width: 310px;
 				.fleft;
 				.content-box-inner;
 				border: 1px solid @color-border;

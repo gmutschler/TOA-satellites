@@ -59,7 +59,7 @@ Displaymap = Class.create({
 			zoom: this.config.gmap_zoom,
 			center: new google.maps.LatLng(this.latitude, this.longitude),
 			mapTypeId: 'map_style',
-			disableDefaultUI: true
+			scrollwheel: false,
 		});
 		this.objGoogleMap.mapTypes.set('map_style', this.objGoogleMapStyle);
 		this.objGoogleMap.setMapTypeId('map_style');
