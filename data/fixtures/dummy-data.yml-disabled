@@ -1,14 +1,7 @@
 # NOTE: Funny bug discovered here. Any line containing PHP code MUST BE finished with \n, otherwise fixture loading will produce a lot of strange, irrational and almost untraceable errors
 
-# 1 predefined superadmin and 5 random users that may be organisers
+# 5 random users that may be organisers
 sfGuardUser:
-  tUser0:
-    first_name:         TOA
-    last_name:          Administrator
-    username:           administrateur
-    password:           toa4ever
-    email_address:      siteadmin@toaberlin.com
-    is_super_admin:     true
 <?php for($i = 1; $i < 6; $i++): ?>
   tUser<?=$i?>:
     first_name:         Timmy<?=$i?>
@@ -46,17 +39,6 @@ Attendee:
     GuardUser:          tUser<?=$i?>
 
 <?php endfor ?>
-
-# 4 predefined categories
-Category:
-  tCategory0:
-    name: Making
-  tCategory1:
-    name: Learning
-  tCategory2:
-    name: Networking
-  tCategory3:
-    name: Performing
 
 # 15 random events
 Event:

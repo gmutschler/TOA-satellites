@@ -1,0 +1,21 @@
+# 1 predefined superadmin
+sfGuardUser:
+  tUser0:
+    first_name:         TOA
+    last_name:          Administrator
+    username:           administrateur
+    password:           toa4ever
+    email_address:      siteadmin@toaberlin.com
+    is_super_admin:     true
+
+
+# 4 predefined categories
+Category:
+  tCategory0:
+    name: Making
+  tCategory1:
+    name: Learning
+  tCategory2:
+    name: Networking
+  tCategory3:
+    name: Performing
