@@ -1,6 +1,6 @@
 <div id="hero">
 
-        <div id="hero_background"></div>
+        <div id="hero_background"><img src="/images/content/ill-2013-v1.jpg" /></div>
         <div id="hero_foreground"></div>
 </div>
 
@@ -54,11 +54,11 @@ In some areas technology has clearly over-delivered, but in other areas it still
             <div class="location">
                 <div class="location-illustration">
                     <img src="/images/content/kater.jpg">
-                    <div id="location-address">
+                    <div class="location-address">
                         <h3>Kater Holzig</h3><p>Michaelkirchstr. 23<br>(U-Bahn: Jannowitzbrücke)<br>10179 Berlin</p>
                     </div>
                 </div>
-                <div id="location-description">
+                <div class="location-description">
                     <p>Located in a ancient soap factory on the banks of the Spree, the <a href="http://www.katerholzig.de/" target="_blank">Kater Holzig</a> is the epitome of an alternative Berlin club. Founded by the people behind  <a href="http://www.youtube.com/watch?v=HQpZQj3TY80&amp;hd=1" target="_blank">the infamous Bar25</a>, a club credited with building the famous Berlin techno scene. This is a wonderland where people from all over the world dance the nights AND days away.</p>
                     <p>If you are the kind of person who likes to enjoy good times in a cool atmosphere, this venue alone should be enough to convince you to snap up your ticket.</p>
                 </div>
@@ -67,11 +67,11 @@ In some areas technology has clearly over-delivered, but in other areas it still
             <div class="location even">
                 <div class="location-illustration">
                     <img src="/images/content/fluxbau.jpg">
-                    <div id="location-address">
+                    <div class="location-address">
                         <h3>FluxFM FluxBau</h3><p>Pfuelstr. 5, zweiter Hofeingang<br>(U-Bahn: Schlesisches Tor)<br>10997 Berlin</p>
                     </div>
                 </div>
-                <div id="location-description">
+                <div class="location-description">
                     <p>Since its opening last summer, FluxBau has become a popular hangout for Berlin’s creative scene and has hosted numerous art exhibitions, readings, club nights and exclusive concerts by the likes of Passenger and We Are Augustines.</p>
                         <p>Stunningly located on the banks of the Spree, FluxBau offers tasty drinks at fair prices, excellent dining and a terrace with great views of the TV Tower and the Oberbaumbrücke.</p>
                 </div>

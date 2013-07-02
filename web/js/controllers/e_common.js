@@ -62,7 +62,7 @@ document.observe("dom:loaded", function() {
      });
      
      
-     if ($('hero-background') != undefined) {    
+     if ($('hero_background') != undefined) {    
 	     new ScrollSpy({
 	               container: window,
 	               min: 82,

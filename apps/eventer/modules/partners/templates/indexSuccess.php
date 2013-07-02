@@ -3,7 +3,7 @@
 <?php include_partial('submenu') ?>
 
 	<div class="textual">
-        <p class="lead">Muchas Gracias to our supporters without which this festival could not take place. If you are interested in supporting us, please have a look at our <a href="partners/supportus">supporter page</a>.</p>
+        <p class="lead">Muchas Gracias to our supporters without which this festival could not take place. If you are interested in supporting us, please have a look at our <a href="/supporters/supportus">supporter page</a>.</p>
 		<h2>Partners</h2>
         <div class="sponsors_logos">
             <a href="https://www.eventbrite.de/features/?ref=toa2013"><img src="/images/content/sponsors/eventbrite.png"></a>

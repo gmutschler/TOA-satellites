@@ -63,7 +63,7 @@
             <div class="three-columns">
                 <div class="three-columns-header">
                     <img src="/images/content/making.jpg" alt="kitchen accessories">
-                    <h3>Make</h3>
+                    <h3>Create</h3>
                 </div>
                 <div class="content-box-inner">
                     <p>When people from different disciplines put their though into action, an innovation is born!</p>
@@ -71,6 +71,7 @@
                         <li>Hackathons</li>
                         <li>DIY Workshops</li>
                         <li>Art Installations</li>
+                        <li>Performances</li>
                         <li>Jam Sessions</li>
                         <li>...</li>
                     </ul>

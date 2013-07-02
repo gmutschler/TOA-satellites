@@ -29,7 +29,7 @@
                         <a href="http://www.tagesspiegel.de/wirtschaft/south-by-southwest-2013-dont-panic-berlin-ist-nicht-deutschland/7917648.html" target="_blank"><h3>Don't panic – Berlin ist nicht Deutschland</h3><div class="date">Mar 13<sup>th</sup>, 2013 - Berlin Startup Academy</div></a>
                     </div>
                     
-                    <div class="press-coverage"> 
+                    <div class="press-coverage">
                         <a href="http://www.huffingtonpost.fr/elie-chevignard/berlin-tech-innovation_b_1846831.html" target="_blank"><h3>Berlin, la Mecque des Techs?</h3><div class="date">Sep 3<sup>rd</sup>, 2012 - Le Huffington Post</div></a>
                     </div>
                     
@@ -218,14 +218,19 @@
         <h1>Graphic Ressources</h1>
         <h2>Logos</h2>
         <div class="logo-download first">
+            <img src="/images/content/press/TOA_logo-small.png" style="" alt="TOA Berlin Logo - Color">
+            <h3><small>TOA Logo - Black</small></h3>
+            <a href="http://files.toaberlin.com/TOA-logo.png" class="button_black button_black_small" download>&darr; PNG Version (600x324)</a><a href="http://files.toaberlin.com/TOA-logo.eps" class="button_black button_black_small" download>&darr; Vector Version</a>
+        </div>
+        <div class="logo-download">
             <img src="/images/content/press/TOA_logo-black-small.png" style="" alt="TOA Berlin Logo - Dark">
             <h3><small>TOA Logo - Black</small></h3>
-            <a href="/images/content/press/TOA_logo-black.png" class="button_black button_black_small" download>&darr; PNG Version (600x600)</a><a href="/images/content/press/TOA_logo-black-vector.eps" class="button_black button_black_small" download>&darr; Vector Version</a>
+            <a href="http://files.toaberlin.com/TOA-logo-black.png" class="button_black button_black_small" download>&darr; PNG Version (600x324)</a><a href="http://files.toaberlin.com/TOA-logo-black.eps" class="button_black button_black_small" download>&darr; Vector Version</a>
         </div>
         <div class="logo-download last">
             <img src="/images/content/press/TOA_logo-white-small.png" class="black" alt="TOA Berlin Logo - Light">
             <h3><small>TOA Logo - White</small></h3>
-            <a href="/images/content/press/TOA_logo-white.png" class="button_black button_black_small" download>&darr; PNG Version (600x600)</a><a href="/images/content/press/TOA_logo-white-vector.eps" class="button_black button_black_small" download>&darr; Vector Version</a>
+            <a href="http://files.toaberlin.com/TOA-logo-white.png" class="button_black button_black_small" download>&darr; PNG Version (600x324)</a><a href="http://files.toaberlin.com/TOA-logo-white.eps" class="button_black button_black_small" download>&darr; Vector Version</a>
         </div>
         <div class="clear"></div>
         
@@ -233,30 +238,30 @@
         
         <h2>2012 Photo Gallery</h2>
         <div class="photo_gallery">
-            <a href="/images/content/press/photos_2012/TOA12_MG_0339.jpg" download><img src="/images/content/press/photos_2012/_MG_0339_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0393.jpg" download><img src="/images/content/press/photos_2012/_MG_0393_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0434.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_0434_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0613.jpg" download><img src="/images/content/press/photos_2012/_MG_0613_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0701.jpg" download><img src="/images/content/press/photos_2012/_MG_0701_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0794.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_0794_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0796.jpg" download><img src="/images/content/press/photos_2012/_MG_0796_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0797.jpg" download><img src="/images/content/press/photos_2012/_MG_0797_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0833.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_0833_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0852.jpg" download><img src="/images/content/press/photos_2012/_MG_0852_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_0878.jpg" download><img src="/images/content/press/photos_2012/_MG_0878_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1061.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_1061_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1118.jpg" download><img src="/images/content/press/photos_2012/_MG_1118_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1126.jpg" download><img src="/images/content/press/photos_2012/_MG_1126_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1132.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_1132_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1154.jpg" download><img src="/images/content/press/photos_2012/_MG_1154_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1219.jpg" download><img src="/images/content/press/photos_2012/_MG_1219_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1240.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_1240_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1241.jpg" download><img src="/images/content/press/photos_2012/_MG_1241_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1307.jpg" download><img src="/images/content/press/photos_2012/_MG_1307_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
-            <a href="/images/content/press/photos_2012/TOA12_MG_1310.jpg" class="third" download><img src="/images/content/press/photos_2012/_MG_1310_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0339.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0339_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0393.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0393_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0434.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_0434_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0613.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0613_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0701.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0701_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0794.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_0794_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0796.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0796_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0797.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0797_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0833.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_0833_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0852.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0852_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_0878.jpg" download=""><img src="/images/content/press/photos_2012/_MG_0878_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1061.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_1061_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1118.jpg" download=""><img src="/images/content/press/photos_2012/_MG_1118_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1126.jpg" download=""><img src="/images/content/press/photos_2012/_MG_1126_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1132.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_1132_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1154.jpg" download=""><img src="/images/content/press/photos_2012/_MG_1154_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1219.jpg" download=""><img src="/images/content/press/photos_2012/_MG_1219_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1240.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_1240_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1241.jpg" download=""><img src="/images/content/press/photos_2012/_MG_1241_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1307.jpg" download=""><img src="/images/content/press/photos_2012/_MG_1307_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
+            <a href="http://files.toaberlin.com/_MG_1310.jpg" class="third" download=""><img src="/images/content/press/photos_2012/_MG_1310_thumb.jpg" alt="2012 Edition photo"><div class="button">↓ Download</div></a>
         </div>
         <div class="clear"></div>
-        <a href="/images/content/press/photos_2012/photo_2012.zip" class="button_black button_black_small fright" download>&darr; Download all</a>
+        <a href="http://files.toaberlin.com/2012-photos.zip" class="button_black button_black_small fright" download>&darr; Download all</a>
         
         <!--<h2>2013 Edition Illustrations</h2>-->
     

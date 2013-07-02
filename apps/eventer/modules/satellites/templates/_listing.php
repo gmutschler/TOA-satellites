@@ -8,17 +8,17 @@
 	'page'		=> $page,
 	'category'	=> $category
 )) ?>
-
-        <ul class="event-categories">
-            <li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?page=' . $page)?>">All</a></li>
+		<div class="listing-container">
+        	<ul class="event-categories">
+            	<li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?page=' . $page)?>">All</a></li>
 <?php foreach($categories as $loopCategory): ?>
-	    <li<?php if(isset($category) and !is_null($category) and $category->getId() === $loopCategory->getId()) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?category=' . $loopCategory->getId() . '&page=' . $page)?>"><?=$loopCategory->getName()?></a></li>
+	    		<li<?php if(isset($category) and !is_null($category) and $category->getId() === $loopCategory->getId()) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?category=' . $loopCategory->getId() . '&page=' . $page)?>"><?=$loopCategory->getName()?></a></li>
 <?php endforeach ?>
-        </ul>
+        	</ul>
 
 <?php if(isset($events) and count($events)): ?>
 
-		<ul class="listing_list">
+			<ul class="listing_list">
 <?php	foreach($events as $event) include_partial('listing_item', array(
 
 	'big_link'	=> url_for('satellites/event?id=' . $event->getId()),
@@ -35,12 +35,13 @@
 	'ven_city'	=> $event->getVenueCity(),
     'color'    => $event->getListingColor()
 )) ?>
-		</ul>
+			</ul>
 <?php else: ?>
 
-		<p>There are no events hosted at this time.</p>
+			<p class="no-content">No events for this time-slot. Guess what, you can just <a href="/satellite/host">create one</a></p>
 <?php endif ?>
-		<div class="clear"></div>
+			<div class="clear"></div>
+		</div>
 
 <?php include_partial('listing_widget', array(
 

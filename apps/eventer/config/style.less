@@ -31,8 +31,8 @@
 @color-green: #0ABFBC;
 @color-green-dark: #137475;
 
-@color-retro-bg: #FFFFFF;
-@color-retro-text: #A19F73;
+@color-retro-bg: #e6d6b8;
+@color-retro-text: #2a3741;
 
 @font-minion: 'minion-pro', serif;
 @font-proxima: 'proxima-nova', sans-serif;
@@ -290,7 +290,7 @@ a:hover {
         width: 100%;
         z-index: 1002;
         .tcenter;
-        .topleft(17px, 0);
+        .topleft(35px, 0);
     
         .flashMessage_container {
             .ffamily(15px, @font-proxima, 600);
@@ -330,8 +330,8 @@ a:hover {
             width: @width-layout;
         }
     
-        #hero_background {z-index: -10;}
-        #hero_foreground {z-index: 0;}
+        #hero_background {z-index: 0;}
+        #hero_foreground {z-index: 10;}
     
         h1 {
             color: @color-text;
@@ -431,6 +431,7 @@ a:hover {
         margin-top: 8px;
         background: @color-bg;
         min-height: 520px;
+        .relative;
 
 
 		#hero_submenu {
@@ -544,7 +545,7 @@ a:hover {
 
 			// the fancy widget
 			h1, h2, .listing_widget { .tleft }
-            h1 { width: 840px; }
+            h1 { width: 810px; }
 			.listing_widget {
 				.relative;
 
@@ -640,146 +641,162 @@ a:hover {
             }
 
 			// the entire list
-			ul.listing_list {
-				.disblock;
-				@padding-local-leftright: 1px;
-
-				margin-top: 7px;
-				padding: 0 @padding-local-leftright;
-
-				li {
-					@height-local-li: 126px;
-					@width-local-photo: 174px;
-
-					margin-bottom: 18px;
-
-					&, & a.big_link {
-
-						.disblock(@height-local-li);
-					}
-
-					// hover effects
-					span.photo img, span.data { .c3transition(800ms) }
-					a.big_link:hover {
-                    
+            .listing-container {
+                min-height: 280px;
+            
+                p.no-content {
+                    font-size: 19px;
+                    margin: 4em 0;
+                    display: inline-block;
+                    padding: 5px 14px;
+                    border: 1px solid @color-red-dark;
+                    background: @color-red;
+                    color: @color-bg;
+                
+                    a {color:@color-bg;}
+                }
+            
+                ul.listing_list {
+                    .disblock;
+                    @padding-local-leftright: 1px;
+    
+                    margin-top: 7px;
+                    padding: 0 @padding-local-leftright;
+    
+                    li {
+                        @height-local-li: 126px;
+                        @width-local-photo: 174px;
+    
+                        margin-bottom: 18px;
+    
+                        &, & a.big_link {
+    
+                            .disblock(@height-local-li);
+                        }
+    
+                        // hover effects
+                        span.photo img, span.data { .c3transition(800ms) }
+                        a.big_link:hover {
+                        
+                            span.data {
+                                background:@color-bg;
+                                .c3transition(260ms)
+                            }
+                            span.photo img {
+                                filter : alpha(opacity=60);
+                                opacity: 0.6;
+                                .c3transition(260ms)
+                            }
+                        }
+    
+    
+                        span.photo, span.data, { .fleft }
+    
+                        span.photo {
+                            .disblock(@width-local-photo, @height-local-li);
+                            .relative;
+                            .ffamily(60px, @font-proxima, 600);
+    
+                            color: @color-bg-gray;
+                            overflow: hidden;
+                        
+                            img {
+                                .absolute;
+                                .topleft(0, 0);
+                                z-index: 1;
+                                filter : alpha(opacity=30);
+                                opacity: 0.3;
+                                background: @color-bg;
+                            }
+    
+                            span.time {
+                                .absolute;
+                                .bottomright(0, 2px);
+    
+                                margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
+                                z-index: 10;
+                            }
+                        
+                            span.bg-color {
+                                .absolute;
+                                .topleft(0, 0);
+                                .disblock(100%, 100%);
+                                
+                                z-index: 0;
+                            }
+                        }
                         span.data {
-                            background:@color-bg;
-                            .c3transition(260ms)
+    
+                            // we're removing 1 from width and 2 from height for the border size
+                            .disblock(@width-layout - 2 * @padding-local-leftright - @width-local-photo - 1, @height-local-li - 2);
+                            .crevborder(@color-border-dark);
+                            .tleft;
+                            .relative;
+    
+                            background-color: @color-bg-gray;
+    
+                            span {
+                                .absolute;
+                                @position-local-leftright: 14px;
+                                @position-local-topbottom: 14px;
+    
+                                line-height: 1em;
+                                color: @color-text;
+    
+                                &.title, &.desc {
+                                    width: 520px;
+                                    overflow: hidden;
+                                }	// ** hard-limiting widths here
+                                &.title, &.time { .ffamily(15px, @font-proxima, bold) }
+                                &.time, &.address { font-size: 16px }
+                                &.title {
+                                    .tupper;
+                                    .topleft(@position-local-topbottom, @position-local-leftright);
+                                    white-space: nowrap;
+                                }
+                                &.hosted {
+                                    .titalic;
+                                    .topleft(33px, @position-local-leftright);
+    
+                                    color: @color-text-gray;
+    
+                                    font-size: 14px;
+    
+                                    b {
+                                        color: @color-red;
+                                        text-decoration: underline;
+                                        cursor: pointer;
+                                    }
+                                }
+                                &.desc {
+                                    .topleft(51px, @position-local-leftright);
+    
+                                    color: @color-text-gray-dark;
+    
+                                    line-height: 1.25em;
+                                    max-height: 63px;
+                                    overflow: hidden;
+                                }
+                                &.address, &.time { .tright }
+                                &.address {
+                                    .topright(@position-local-topbottom, @position-local-leftright);
+    
+                                    line-height: 1.2em;
+                                    max-width: 225px;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                
+                                }
+                                &.time {
+                                    .bottomright(@position-local-topbottom, @position-local-leftright);
+    
+                                    color: @color-red;
+                                }
+                            }
                         }
-						span.photo img {
-                            filter : alpha(opacity=60);
-				            opacity: 0.6;
-                            .c3transition(260ms)
-                        }
-					}
-
-
-					span.photo, span.data, { .fleft }
-
-					span.photo {
-						.disblock(@width-local-photo, @height-local-li);
-						.relative;
-						.ffamily(60px, @font-proxima, 600);
-
-						color: @color-bg-gray;
-                        overflow: hidden;
-                    
-                        img {
-                            .absolute;
-                            .topleft(0, 0);
-                            z-index: 1;
-                            filter : alpha(opacity=30);
-                            opacity: 0.3;
-                            background: @color-bg;
-                        }
-
-						span.time {
-							.absolute;
-							.bottomright(0, 2px);
-
-							margin-bottom: -12px;	// ** EXPERIMENTAL, test cross-browser
-                            z-index: 10;
-						}
-                    
-                        span.bg-color {
-                            .absolute;
-							.topleft(0, 0);
-                            .disblock(100%, 100%);
-                            
-                            z-index: 0;
-                        }
-					}
-					span.data {
-
-						// we're removing 1 from width and 2 from height for the border size
-						.disblock(@width-layout - 2 * @padding-local-leftright - @width-local-photo - 1, @height-local-li - 2);
-						.crevborder(@color-border-dark);
-						.tleft;
-						.relative;
-
-						background-color: @color-bg-gray;
-
-						span {
-							.absolute;
-							@position-local-leftright: 14px;
-							@position-local-topbottom: 14px;
-
-							line-height: 1em;
-							color: @color-text;
-
-							&.title, &.desc {
-                                width: 520px;
-                                overflow: hidden;
-                            }	// ** hard-limiting widths here
-							&.title, &.time { .ffamily(15px, @font-proxima, bold) }
-							&.time, &.address { font-size: 16px }
-							&.title {
-								.tupper;
-								.topleft(@position-local-topbottom, @position-local-leftright);
-                                white-space: nowrap;
-							}
-							&.hosted {
-								.titalic;
-								.topleft(33px, @position-local-leftright);
-
-								color: @color-text-gray;
-
-								font-size: 14px;
-
-								b {
-									color: @color-red;
-									text-decoration: underline;
-									cursor: pointer;
-								}
-							}
-							&.desc {
-								.topleft(51px, @position-local-leftright);
-
-								color: @color-text-gray-dark;
-
-								line-height: 1.25em;
-                                max-height: 63px;
-                                overflow: hidden;
-							}
-							&.address, &.time { .tright }
-							&.address {
-								.topright(@position-local-topbottom, @position-local-leftright);
-
-								line-height: 1.2em;
-                                max-width: 225px;
-                                white-space: nowrap;
-                                overflow: hidden;
-                            
-							}
-							&.time {
-								.bottomright(@position-local-topbottom, @position-local-leftright);
-
-								color: @color-red;
-							}
-						}
-					}
-				}
-			}
+                    }
+                }
+            }
 		} // & end listing block
 
 		// > textual block
@@ -1471,8 +1488,8 @@ a:hover {
 		}
 	
 		.logo-download {
-			width: 470px;
-			margin: 10px;
+			width: 310px;
+			margin: 7px;
 			.fleft;
 			.tcenter;
 			.relative;
@@ -1488,7 +1505,7 @@ a:hover {
 			h3 {
 				.tupper;
 				.absolute;
-				.topright(440px, 15px);
+				.bottomleft(35px, 10px);
 			}
 			a.button_black {margin: 2px;}
 		}
@@ -1647,18 +1664,23 @@ div.screen_unconference_index#content {
     p, h2, h3, a, p.lead { color: @color-retro-text;}
     
     #hero_submenu {
-        h3 { color: @color-text; }
+        h3 { color: @color-retro-text; }
         
         #submenu-content {
             ul {
                 li {
                     a {
-                        &.selected, &:hover {color: @color-retro-text;}
+                        color: @color-retro-text;
+                        &.selected, &:hover {
+                            color: @color-retro-text;
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
         }
     }
+    
 		
     #about-2013 {
     
@@ -1693,9 +1715,9 @@ div.screen_unconference_index#content {
             .relative;
             line-height: 0;
         
-            #location-address {
-                border: 2px solid @color-retro-text;
-                background: @color-retro-bg;
+            .location-address {
+                border: 2px solid @color-retro-bg;
+                background: @color-retro-text;
                 .absolute;
                 .bottomleft(10px, 12px);
                 padding: 5px;
@@ -1703,18 +1725,110 @@ div.screen_unconference_index#content {
             
                 h3, p {
                     .tcenter;
-                    font-size: 15px
+                    font-size: 15px;
+                    color: @color-retro-bg;
                 }
             }            
         }
     
-        #location-description {
+        .location-description {
             .content-box-inner;
-            background: @color-retro-text;
+            background: @color-retro-bg;
             margin-top: -8px;
             height: 225px;
             
-            p, a {color: @color-retro-bg;}
+            p, a {color: @color-retro-color;}
+        }
+    }
+}
+
+div.screen_unconference_speakers#content {
+    
+    p, h2, h3, a, p.lead { color: @color-retro-text;}
+    
+    #hero_submenu {
+        h3 { color: @color-retro-text; }
+        
+        #submenu-content {
+            ul {
+                li {
+                    a {
+                        color: @color-retro-text;
+                        &.selected, &:hover {
+                            color: @color-retro-text;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .textual {
+        .speakers-list {
+            @portrait-size: 192px;
+            
+            .speaker-container {
+                .relative;
+                .fleft;
+                width: @portrait-size;
+                height: @portrait-size;
+                overflow: hidden;
+                
+                .speaker-meta {
+                    .absolute;
+                    .topleft(0,0);
+                    width: @portrait-size;
+                    height: @portrait-size;
+                    
+                    h3 {
+                        font-size: 28px;
+                        .tupper;
+                        margin: 8px;
+                        .absolute;
+                        .topleft(0, 0);
+                        line-height: 26px;
+                        color: @color-retro-bg;
+                    }
+                    
+                    span.speaker-position {
+                        color: @color-bg;
+                        .absolute;
+                        .bottomleft(5px,0);
+                        display: none;
+                        width: 100%;
+                        font-size: 14px;
+                        .tcenter;
+                        color: @color-retro-bg;
+                    }
+                }
+                
+                &:hover {
+                    .speaker-meta {
+                        background: @color-retro-text;
+                        
+                        h3 {
+                            color: @color-retro-bg;
+                        }
+                        
+                        span.speaker-position {
+                            display: block;
+                        }
+                    }
+                
+                }
+                
+                &.more {
+                    background: @color-retro-text;
+                    .tcenter;
+                    
+                    h3 {
+                    color: @color-retro-bg;
+                    font-size: 24px;
+                    margin: 60px 20px;
+                    }
+                }
+            }
         }
     }
 }
