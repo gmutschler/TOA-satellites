@@ -3,8 +3,9 @@
 // Default links
 $links = array(
 
-	'Your Profile'		=> 'user/index',
+	'Your Profile'		=> 'user/index'/*,
 	'Your tickets'		=> 'user/tickets'
+*/
 );
 
 // add hosted link for people who host something

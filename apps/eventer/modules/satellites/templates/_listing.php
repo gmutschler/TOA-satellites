@@ -36,6 +36,9 @@
     'color'    => $event->getListingColor()
 )) ?>
 		</ul>
+<?php else: ?>
+
+		<p>There are no events hosted at this time.</p>
 <?php endif ?>
 		<div class="clear"></div>
 
