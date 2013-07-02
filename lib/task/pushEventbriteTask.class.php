@@ -46,8 +46,15 @@ class pushEventbriteTask extends sfBaseTask {
 		// user login
 		$user = $this->logUserIn($organiser->getGuardUser()->getId());
 
-		if($organiser->syncForUser($user)) $this->logSection('Eventbrite', 'OK!');
-		else $this->logSection('Eventbrite', 'FAIL!');
+		// send the event to API
+		try {
+			$organiser->syncForUser($user);
+			$this->logSection('Eventbrite', 'OK!');
+		}
+		catch(sfException $e) {
+
+			$this->logSection('Eventbrite', sprintf('FAIL! %s', $e->getMessage()));
+		}
 	}
 	protected function pushEvent($event) {
 
@@ -57,8 +64,15 @@ class pushEventbriteTask extends sfBaseTask {
 		$user = $this->logUserIn($event->getOrganiser()->getGuardUser()->getId());
 
 		// send the event to API
-		if($event->sendToAPIForUser($user)) $this->logSection('Eventbrite', 'OK!');
-		else $this->logSection('Eventbrite', 'FAIL!');
+		try {
+
+			$event->sendToAPIForUser($user);
+			$this->logSection('Eventbrite', 'OK!');
+		}
+		catch(sfException $e) {
+
+			$this->logSection('Eventbrite', sprintf('FAIL! %s', $e->getMessage()));
+		}
 	}
 	
 	// helpers

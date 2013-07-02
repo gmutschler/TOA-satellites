@@ -51,7 +51,12 @@ class Event extends BaseEvent {
 		// 1. Sync the organiser (if needed)
 		if(!$this->getOrganiser()->getSynchronized()) {
 
-			if(!$organiser_eb_id = $this->getOrganiser()->syncForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite API!');	
+			throw new sfException(sprintf('Cannot push event: Organiser ID#%d "%s" is not synchronized.', 
+
+				$this->getOrganiser()->getId(),
+				$this->getOrganiser()->getName()
+			));
+			//if(!$organiser_eb_id = $this->getOrganiser()->syncForUser($user)) throw new sfException('Cannot sync Organiser with Eventbrite API!');	
 		}
 		else $organiser_eb_id = $this->getOrganiser()->getEventbriteId();
 
