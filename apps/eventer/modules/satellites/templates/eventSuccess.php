@@ -43,18 +43,16 @@ if($color = $event->getListingColor()) {
 
 <div id="hero">
 
-        <div id="hero_background"><div id="hero_background_map" style="height: 480px; width: 960px; -webkit-transform: translate3d(0px, 0px, 0px)"></div></div>
-        <div id="hero_foreground">
-            <div class="event-location">
-                <h3>Where</h3>
+    <div id="hero_background"><div id="hero_background_map" style="height: 480px; width: 960px; -webkit-transform: translate3d(0px, 0px, 0px)"></div></div>
+    <div class="event-location">
+        <h3>Where</h3>
 
-                <p><span><?php echo $event->getVenueName() ?></span><br />
-                    <?=$event->getVenueAddress()?><br />
-                    <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?>
+        <p><span><?php echo $event->getVenueName() ?></span><br />
+            <?=$event->getVenueAddress()?><br />
+            <?=$event->getVenuePostalCode()?> <?=$event->getVenueCity()?>
 <?php /*		    <br />GPS locations: <?=$event->getVenueLatitude()?> x <?=$event->getVenueLongitude()?>	*/ ?>
-                </p>
-            </div>
-        </div>
+        </p>
+    </div>
 </div>
 
 <div id="content" class="screen_event">

@@ -1,7 +1,7 @@
 <?php if(isset($new) and isset($key)): ?>
-		<p class="notice">New Ticket <?=$key + 1?></p>
+		<h3 style="text-transform: none;"><strong>New Ticket <?=$key + 1?></strong></h3>
 <?php elseif(isset($key)): ?>
-		<p class="notice">Ticket <?=$key + 1?></p>
+	   <h3 style="text-transform: none;"><strong>Ticket <?=$key + 1?></strong></h3>
 <?php endif ?>
 
 		<div class="section long<?php if($ticket['name']->hasError()) { ?> error<? } ?>">
@@ -18,7 +18,7 @@
 				<?=$ticket['price']->renderError()?>
 			</div>
 			<div class="column fright<?php if($ticket['quantity_declared']->hasError()) { ?> error<? } ?>">
-				<p class="notice">Quantity available: <?=$ticket['quantity_declared']?></p>
+				<p class="notice">Total quantity: <?=$ticket['quantity_declared']?></p>
 				<?=$ticket['quantity_declared']->renderError()?>
 			</div>
 			<div class="clear"></div>

@@ -1,4 +1,4 @@
-// # SATELLITES/EVENT screen controller
+// # ABOUT/CONTACT screen controller
 document.observe("dom:loaded", function() {
 
 	// Load the map
@@ -7,6 +7,7 @@ document.observe("dom:loaded", function() {
 		// elms
 		map: 'hero_background_map',
 		data: 'map_data_pulp',
+		scrollwheel: false,
 
 		// conf
 		conf: {
@@ -14,14 +15,14 @@ document.observe("dom:loaded", function() {
 			multi: false,
 
 			// geographical defaults
-			gmap_zoom: 15,
-			gmap_y: 52.5095350,
-			gmap_x: 13.3923340,
+			gmap_zoom: 16,
+			gmap_y: 52.505733,
+			gmap_x: 13.299347,
 
 			gmap_styles: GoogleMapStyles,
 
 			// custom pointer path
-			pointer_path: '/uploads/event_images/pins/#{id}.png'
+			pointer_path: '/images/content/pin-contact.png'
 		}
 	});
 });

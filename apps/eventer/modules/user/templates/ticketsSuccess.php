@@ -3,20 +3,20 @@
 <?php include_partial('submenu', array('user' => $user)) ?>
 
 	<div class="textual">
-
-		<h1>The tickets you have</h1>
-
+		
+		<div class="satellites_tickets">
+			<h2>Your Satellite Events tickets</h2>
 <?php if(count($user->getAttendee()->getTickets())): ?>
-		<h3>Satellite event tickets you have</h3>
-		<ul>
+			<ul>
 <?php	foreach($user->getAttendee()->getTickets() as $ticket): ?>
-			<li><?=$ticket->getName()?> for event <?=$ticket->getEvent()->getTitle()?></li>
+				<li><?=$ticket->getName()?> for event <?=$ticket->getEvent()->getTitle()?></li>
 <?php	endforeach ?>
-		</ul>
+			</ul>
 <?php else: ?>
-		<h3>You don't have any satellite tickets</h3>
+			<p>You don't have any satellite tickets now. <a href="/satellites/book/">Book some</a></php_user_filter>
 <?php endif ?>
-
+		</div>
+		
 <?php include_partial('main_ticket', array('user' => $user)) ?>
         <div class="clear"></div>
 

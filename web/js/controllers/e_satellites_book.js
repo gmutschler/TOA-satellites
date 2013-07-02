@@ -7,7 +7,6 @@ document.observe("dom:loaded", function() {
 		// elms
 		map: 'hero_background_map',
 		data: 'map_data_pulp',
-		scrollwheel: false,
 
 		// conf
 		conf: {

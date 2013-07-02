@@ -18,7 +18,7 @@
                 
                 <div class="press-review-content"> 
                     <div class="press-coverage">
-                        <a href="http://fueled.com/blogpost/5-of-the-worlds-most-inspiring-tech-events-youve-never-heard-of/" target="_blank"><h3>5 of the World’s Most Inspiring Tech Events You’ve Never Heard of</h3><div class="date">Jun 14<sup>st</sup>, 2013 - Berlin Startup Academy</div></a>
+                        <a href="http://fueled.com/blogpost/5-of-the-worlds-most-inspiring-tech-events-youve-never-heard-of/" target="_blank"><h3>5 of the World’s Most Inspiring Tech Events You’ve Never Heard of</h3><div class="date">Jun 14<sup>st</sup>, 2013 - Fueled.com</div></a>
                     </div>
                     
                     <div class="press-coverage">
@@ -231,7 +231,7 @@
         
         <hr>
         
-        <h2>2012 Photos Gallery</h2>
+        <h2>2012 Photo Gallery</h2>
         <div class="photo_gallery">
             <a href="/images/content/press/photos_2012/TOA12_MG_0339.jpg" download><img src="/images/content/press/photos_2012/_MG_0339_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>
             <a href="/images/content/press/photos_2012/TOA12_MG_0393.jpg" download><img src="/images/content/press/photos_2012/_MG_0393_thumb.jpg" alt="2012 Edition photo"><div class="button">&darr; Download</div></a>

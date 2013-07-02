@@ -1,92 +1,165 @@
-<div id="content" class="screen_privacy">
+<div id="content" class="screen_terms">
 
 	<div class="textual">
-        
+     	<h1>Terms & Conditions</h1>
+
+		<h2>Tickets</h2>
+		
+		<h3>Refunds</h3>
+		<p>Only tickets purchased directly from Tech Open Air through the Eventbrite platform may be refunded. Requests for refunds must be made in writing to helpdesk@toaberlin.com by the person who purchased the ticket. We will endeavour to process your refund as quickly as possible. All refunds will be done through the Eventbrite platform (or relevant 3rd party payment processor e.g. PayPal, where applicable). Tech Open will not refund any tickets in cash.</p>
+		<p>Refunds may be requested up to 24hrs before the start of the festival. Any requests issued thereafter may not be deemed applicable.</p>
+		<p><strong>All 3rd-party fees incurred by Tech Open are non-refundable.</strong></p>
+		
+		<h3>Transferability</h3>
+		<p>All purchased tickets are fully transferrable any may be used by any person - whether named on the ticket or not.</p>
+		
+		<h2>Satellite Events</h2>
+		
+		<h3>Organisers</h3>
+		<p>Organisation of Satellite Events is open to anyone.</p>
+		<p>All satellite events must be registered on the Tech Open platform at www.toaberlin.com, which integrates with Eventbrite and tickets for the events must also be purchased through this platform.</p>
+		<p>Tech Open UG is not responsible for the accuracy of information posted by satellite event organisers. Nor shall it be held liable for any damage or injury to organisers or visitors resulting from participation in a satellite event.</p>
+		
+		<h3>Ticket Allocation</h3>
+		<p>It is not necessary to hold a Tech Open Air Berlin ticket in order to attend a satellite event. All satellite event tickets must be purchased/reserved through the Tech Open platform.</p>
+		<p>Satellite event organisers guarantee an allocation of 50% of their total available tickets to Tech Open Air ticket holders up until 24hrs before the start of the festival. After this point, the complete ticket allocation is available to the event organiser.</p>
+		
+		Tech Open UG does not guarantee availability for all ticket holders for all satellite events. Reservations are done on a first-come-first-served basis.
+	</div>	
+	<div class="textual" id="privacy-policy">
 		<h1>Privacy Policy</h1>
-        
-        <p>The Personal Data and Browser Data (hereinafter collectively referred to as &ldquo;Data&rdquo;), automatically collected from this website (hereinafter the &ldquo;Site&rdquo;), by means of automated systems or freely entered by the User or the Interested Party, are collected for the purposes, and processed, as follows below.</p>
-        <h2>Parties processing the data</h2>
-        <h3>Owner of the Data Processing System</h3>
-        <p>Tech Open Air Berlin,<br /><a href="mailto:legal@toaberlin.com">
-            legal@toaberlin.com</a></p>
-        <h2>Kinds of Data</h2>
-        <p>The Data that may be collected by this Site are name, surname, address, phone number, email, fax, social security number, IP address and other Data relating to the User&rsquo;s identity or technical access to the Site by the User. When Sensitive Personal Data are transferred (personal data revealing racial or ethnic, religious, philosophical or other beliefs, political opinions, membership of political parties, trade unions, associations or organizations of a religious, philosophical or political nature, and personal data disclosing information about health and sex life), it may be necessary to obtain consent in order to process them.</p>
-        <p>The Browser Data referring to the technical use of the Site must be collected, and transfer is not optional. The User may freely provide the remaining Data, including personal information, unless it is expressly indicated otherwise.</p>
-        <p>Failure to process certain Data (e.g. contact details, or addresses, or data concerning behavior or user preferences, etc.) may make it impossible for the Site to provide its services.</p>
-        <p>If the User utilizes the Site to publish or otherwise share Personal Data with third parties, he or she assumes full responsibility: the User states possession of the right to communicate or disclose personal data to third parties, and that they have received prior information thereto, thus relieving the Site of all responsibility for their improper use following disclosure or dissemination.</p>
-        <h2>Mode and place of processing of the information obtained</h2>
-        <h3>Method of Processing</h3>
-        <p>The Data Controller processes the Data of the Interested Parties and Users in a lawful and proper manner and shall take appropriate security measures to prevent unauthorized access, disclosure, modification or unauthorized destruction of the Data. Processing is carried out using computers and / or telematic means, with organizational methods and logics strictly related to the stated purposes. In addition to the owner, in some cases, access to the Data may be available to personnel involved in the organization of the Site (administrative, commercial, marketing, legal, system administrators) or external parties (such as third party technical service providers, mail carriers , hosting providers, IT companies, communications agencies) appointed, if necessary, as Managers by the Owner of the Processing procedure. The updated list of Managers can be requested from the Owner by contacting the above address at any time.</p>
-        <h3>Place</h3>
-        <p>The Data are processed at the headquarters of the Data Controller. Any processing of Data outside one of the EU Member States may require the consent of the User or the Interested Party.</p>
-        <h3>Time</h3>
-        <p>The Data are kept for the time necessary to perform the service requested by the User, and the User can always ask for removal from the servers of the Site for legitimate reasons.</p>
-        <h2>The use of the collected Data</h2>
-        <p>the provision of the service or delivery of goods for sale purchased on the Site, and more generally, for administrative and accounting or technical purposes;</p>
-        <ul class="bullet">
-        <li><span title="translation missing: en.privacy_policy_page.doc.legal.the_provision_of_the_service">The Provision Of The Service</span></li>
-        <li>a response to specific requests for information by the User;</li>
-        <li>a User update on new products or services provided by the Site or concerning particular business offers;</li>
-        <li>the User to be informed of any Site maintenance or inconvenience;</li>
-        <li>any commercial profiling of the User;</li>
-        <li>to display banners related to User interests (behavioral targeting / advertising);</li>
-        <li>defense by the Website Owner, in court or in the stages leading to possible legal action, against improper use of the same or related services by the User.</li>
-        </ul>
-        <p>Some forms of processing (sending promotional information, commercial profiling, behavioral advertising, geolocation, etc.) may require the express consent of the User or the Interested Party.<br />
-            Specific information may be shown on the pages of the Site in connection with particular services or processing of Data provided by the User or by the Interested Party.</p>
-        <h2>Purpose of the information collected and Services utilized on the website</h2>
-        <p>The purpose of the treatment of the personal information, the personal information collected and any suppliers of third party services involved are mentioned hereinafter.</p>
-        <ul>
-        <li>
-        <h3>Analytics</h3>
-        <p>The services contained in this section, provided by third parties, are used to track User behavior and, in case of profiling, they can require the User's express consent.</p>
-        <h4>Google Analytics (Google)</h4>
-        <p>Google Analytics is a web analysis service supplied by Google, Inc. ("Google"), which uses "cookies" to collect Users&rsquo; Personal Data which are forwarded to, and deposited on, Google's servers in the United States. Google uses the Data collected to (i) track and examine the Website&rsquo;s usage, (ii) prepare reports on the Website&rsquo;s activities for the website managers and (iii) supply other optional services. Google may use the Data collected to carry out behavioral targeting of the Website&rsquo;s Users. Google does not associate the user's IP address with any other information in Google's possession. Any refusal to utilize the cookies, by selecting the appropriate setup on your browser, may prevent the use of some functions of this Website.</p>
-        <p>Place of Data Processing: USA More information:<a href="http://www.google.com/intl/en/analytics/privacyoverview.html">www.google.com/intl/en/analytics/privacyoverview.html</a></p>
-        <p>The personal data collected are: Cookie and IP.</p>
-        </li>
-        <li>
-        <h3>Email management</h3>
-        <p>These services, provided by third parties, allow the Site to manage and monitor lists of the email addresses of their Users and communicate with them via email.</p>
-        <h4>Mailchimp (Mailchimp)</h4>
-        <p>Mailchimp is a mailing list service supplied by Mailchimp Inc., which makes possible to manage a contacts database in order to send e-mails connected to the services offered by the Website. The service allows the Data Controller to collect information about the date and time when the e-mails are visualized by the User, as well as information about User&rsquo;s clicks on the addresses contained in the e-mail sent.</p>
-        <p>Place of Data Processing: USA More information:<a href="http://www.mailchimp.com/legal/privacy/">www.mailchimp.com/legal/privacy/</a></p>
-        <p>The personal data collected are: Email.</p>
-        </li>
-        <li>
-        <h3>Social Networks</h3>
-        <p>The User can share information and Data supplied to this Site with the social networks with which the User is registered, accepting their privacy policy.</p>
-        <h4>Twitter social buttons/widgets (Twitter)</h4>
-        <p>This is a service supplied by Twitter, a company that complies with the Safe Harbor Privacy Policy Framework initiative, guaranteeing the handling of Personal Data in compliance with European security standards. By simply clicking on the Twitter push-button on the Site ("Twitter Button"), the service makes it possible to share liking of the Site on Twitter.com, without having to exit the Website&rsquo;s page. In this way the User links his/her/its Twitter profile to the Webite and makes this information accessible to anyone on the web.</p>
-        <p>Place of Data Processing: USA More information:<a href="http://twitter.com/privacy">twitter.com/privacy</a>.</p>
-        <p>The personal data collected are: Cookie and IP.</p>
-        <h4>Facebook social buttons/widgets (Facebook)</h4>
-        <p>Facebook Social button is a service run by Facebook Inc., a company that complies with the Safe Harbor Privacy Policy Framework initiative, guaranteeing the handling of Personal Data in compliance with European security standards. The service makes it possible to interact with the social network via this Website. Facebook, through the User click, acquires information about his/her/its visit to the Site. Facebook does not share any information or data in its possession with the Site or the Data Controller.</p>
-        <p>Place of Data Processing: USA More information:<a href="http://www.facebook.com/privacy/explanation.php">www.facebook.com/privacy/explanation.php</a></p>
-        <p>The personal data collected are: Cookie and IP.</p>
-        </li>
-        </ul>
-        <h2>The Rights of Interested Parties</h2>
-        <p>Those persons to whom the Data refer, have the right, at any time, to obtain confirmation of the existence or otherwise of information by consulting the Data Controller, to learn about their contents and origin, to verify their accuracy or to ask for their integration, cancellation, update or correction, their transformation into anonymous format or to block any data held in violation of the law, as well as to oppose their treatment for any and all legitimate reasons. Requests should be sent to the Data Processor at the address cited in the &ldquo;Data Controller&rdquo; section.</p>
-        <h2>Information about this privacy policy</h2>
-        <p>This privacy policy was prepared autonomously and with full assumption of responsibility by the data controller starting from the modules provided by Iubenda and hosted on the Iubenda's servers.</p>
-        <h3>Definitions and legal references</h3>
-        <h4>Personal information</h4>
-        <p>Any information regarding a natural person, a legal person, an institution or an association, which is, or can be, identified, even indirectly, by reference to any other information, including a personal identification number.</p>
-        <h4>Browsing Details</h4>
-        <p>Details collected automatically from the site, including the IP addresses or domain names of the computers utilized by the users who connect to the site, the URI addresses (Uniform Resource Identifier), the time of the request, the method utilized to submit the request to the server, the size of the file obtained in reply, the numerical code indicating the status of the server&rsquo;s answer (successful outcome, error, etc.), the country of provenance, the features of the browser and the operating system utilized by the visitor, the various time details per visit (for instance the time spent on each page) and the details about the path followed within the site with special reference to the sequence of pages visited, other parameters about the operating system and the user&rsquo;s IT environment.</p>
-        <h4>User</h4>
-        <p>Means the individual user of the Site&rsquo;s services or products</p>
-        <h4>Interested Party</h4>
-        <p>Indicates the subject to which the Personal Data refers, using the services or the products of the site.</p>
-        <h4>Data Processor</h4>
-        <p>The natural person, legal person, public administration or any other organization, association or organization designated by the Data Controller for the Personal Data processing system.</p>
-        <h4>Data Controller</h4>
-        <p>The natural person, legal person, public administration or any other organization, association or organization with the right, also jointly with another Data Controller, to make decisions regarding the purposes, and the methods of processing of Personal Data and the means used, including the security measures concerning the operation and use of this Site.</p>
-        <hr />
-        <h4>Legal information</h4>
-        <p>This privacy statement has been prepared in fulfillment of the obligations under Art. 10 of EC Directive n. 95/46/EC, and under the provisions of Directive 2002/58/EC, as revised by Directive 2009/136/EC, on the subject of cookies.</p>
-        <p>This privacy statement applies solely to the Site and is not meant to refer to other sites whose links are possibly contained therein.</p>
+		
+		<p>This Website collects some Personal Data from its Users.</p>
+		<p>Personal Data collected for the following purposes and using the following services:</p>
+		
+		<ul class="bullet">
+			<li>Data Controller and Owner</li>
+			<li>Tech Open UG (contact: helpdesk@toaberlin.com)</li>
+		</ul>
+		
+		<h2>Types of Data collected</h2>
+		<p>Among the types of Personal Data that this Website collects, by itself or through third parties, there are: Cookie, Usage Data and Email.</p>
+		<p>Other Personal Data collected may be described in other sections of this privacy policy or by dedicated explanation text contextually with the Data collection. The Personal Data may be freely provided by the User, or collected automatically when using this Website.<br>
+		Any use of Cookies - or of other tracking tools - by the Website or by the owners of third party services used by this Website, unless stated otherwise, serves to identify Users and remember their preferences, for the sole purpose of providing the service required by the User.<br>
+		Failure to provide certain Personal Data may make it impossible for this Website to provide its services.</p>
+		
+		<p>The User assumes responsibility for the Personal Data of third parties published or shared through this Website and declares to have the right to communicate or broadcast them, thus relieving the Data Controller of all responsibility.</p>
+		
+		
+		
+		<h2>Mode and place of processing the data</h2>
+		
+		<h3>Method of processing</h3>
+		<p>The Data Controller processes the Data of Users in proper manner and shall take appropriate security measures to prevent unauthorized access, disclosure, modification or unauthorized destruction of the Data.<br>
+		<p>Access to the Data may be available to Data Processors such as employees involved with the processing or to external parties providing services to the Data Controller, third party technical service providers, mail carriers, hosting providers, IT companies, communication agencies. The updated list of these parties may be requested from the Data Controller at any time.</p>
+		
+		<h3>Place</h3>
+		<p>The Data is processed at the Data Controller headquarters, unless stated otherwise in the rest of this document.</p>
+		
+		<h3>Conservation Time</h3>
+		<p>The Data is kept for the time necessary to provide the service requested by the User, or stated by the purposes outlined in this document, and the User can always request the Data Controller for their suspension or removal.</p>
+		
+		<h2>The use of the collected Data</h2>
+		<p>The Data concerning the User is collected to allow the Website to provide its services, as well as for the following purposes: Analytics, Managing email addresses and sending messages and Displaying content from external platforms.</p>
+		<p>The Personal Data used for each purpose is outlined in the specific sections of this document.</p>
+		
+		
+		
+		<h2>Detailed information on the processing of Personal Data</h2>
+		<p>Personal Data is collected for the following purposes and using the following services:</p>
+		
+		<h3>Analytics</h3>
+		<p>The services contained in this section enable the Owner to monitor and analyze web traffic and can be used to keep track of User behavior.</p>
+		
+		<h3>Google Analytics (Google)</h3>
+		<p>Google Analytics is a web analysis service provided by Google Inc. (“Google”). Google utilizes the Data collected to track and examine the use of this Website, to prepare reports on its activities and share them with other Google services.<br>
+		Google may use the Data collected to contextualize and personalize the ads of its own advertising network.</p>
+		
+		<ul class="bullet">
+			<li><strong>Personal data collected:</strong> Cookie and Usage Data.</li>
+			<li><strong>Place of processing:</strong> USA – Privacy Policy</li>
+		</ul>
+		
+		<h2>Displaying content from external platforms</h2>
+		<p>These services allow you to view content hosted on external platforms directly from the pages of this Website and interact with them.<br>
+		If a service of this kind is installed, it may still collect web traffic data for the pages where the service is installed, even when users do not use it.</p>
+		
+		<h3>Vimeo video (Vimeo, LLC)</h3>
+		<p>Vimeo is a video content visualization service provided by Vimeo, LLC that allows this Website to incorporate content of this kind on its pages.</p>
+		
+		<ul class="bullet">
+			<li><strong>Personal data collected:</strong> Cookie and Usage Data.</li>
+			<li><strong>Place of processing:</strong> USA – Privacy Policy</li>
+		</ul>
+		
+		<h2>Managing email addresses and sending messages</h2>
+		<p>These services make it possible to manage a database of email contacts to communicate with the User via email.<br>
+		The services are used to collect data concerning the date and time when the mail is viewed by the User, as well as when the User interacts with incoming mail, such as by clicking on links included in the email.</p>
+		
+		<h3>Mailchimp (Mailchimp)</h3>
+		<p>Mailchimp is an email address management and message sending service provided by Mailchimp Inc.</p>
+		
+		<ul class="bullet">
+			<li><strong>Personal data collected:</strong> Email.</li>
+			<li><strong>Place of processing:</strong> USA – Privacy Policy</li>
+		</ul>
+		
+		
+		<h2>Additional information about Data collection and processing</h2>
+		
+		<h3>Legal action</h3>
+		<p>The User's Personal Data may be used for legal purposes by the Data Controller, in Court or in the stages leading to possible legal action arising from improper use of this Website or the related services.</p>
+		
+		<h3>Additional Information about User's Personal Data</h3>
+		<p>In addition to the information in this privacy policy, this Website may provide the User with contextual information concerning particular services or the collection and processing of Personal Data.</p>
+		
+		<h3>System Logs and Maintenance</h3>
+		<p>For operation and maintenance purposes, this Website and any third party services may collect files that record interaction with this Website (System Logs) or use for this purpose other Personal Data (such as IP Address).</p>
+		
+		<h2>Information not contained in this policy</h2>
+		<p>More details concerning the collection or processing of Personal Data may be requested from the Data Controller at any time at its contact information.</p>
+		
+		<h2>The rights of Users</h2>
+		<p>Users have the right, at any time, to know whether their Personal Data has been stored and can consult the Data Controller to learn about their contents and origin, to verify their accuracy or to ask for them to be supplemented, cancelled, updated or corrected, or for their transformation into anonymous format or to block any data held in violation of the law, as well as to oppose their treatment for any and all legitimate reasons. Requests should be sent to the Data Controller at the contact information set out above.</p>
+		
+		<h2>Changes to this privacy policy</h2>
+		<p>The Data Controller reserves the right to make changes to this privacy policy at any time by giving notice to its Users on this page. It is strongly recommended to check this page often, referring to the date of the last modification listed at the bottom. If a User objects to any of the changes to the Policy, the User must cease using this Website and can request the Data Controller to erase the Personal Data. Unless stated otherwise, the then-current privacy policy applies to all Personal Data the Data Controller has about Users.</p>
+		
+		
+		<h2>Information about this privacy policy</h2>
+		<p>The Data Controller is responsible for this privacy policy, prepared starting from the modules provided by Iubenda and hosted on the Iubenda's servers.</p>
+		
+		<h2>Definitions and legal references</h2>
+		
+		<h3>Personal Data (or Data)</h3>
+		<p>Any information regarding a natural person, a legal person, an institution or an association, which is, or can be, identified, even indirectly, by reference to any other information, including a personal identification number.</p>
+		
+		<h3>Usage Data</h3>
+		<p>Information collected automatically from this Website (or third party services employed in this Website ), which can include: the IP addresses or domain names of the computers utilized by the Users who use this Website, the URI addresses (Uniform Resource Identifier), the time of the request, the method utilized to submit the request to the server, the size of the file received in response, the numerical code indicating the status of the server's answer (successful outcome, error, etc.), the country of origin, the features of the browser and the operating system utilized by the User, the various time details per visit (e.g., the time spent on each page within the Website) and the details about the path followed within the Website with special reference to the sequence of pages visited, and other parameters about the device operating system and/or the User's IT environment.</p>
+		
+		<h3>User</h3>
+		<p>The individual using this Website, which must coincide with or be authorized by the Data Subject, to whom the Personal Data refer.</p>
+		
+		<h3>Data Subject</h3>
+		<p>The legal or natural person to whom the Personal Data refers to.</p>
+		
+		<h3>Data Processor</h3>
+		<p>The natural person, legal person, public administration or any other body, association or organization authorized by the Data Controller to process the Personal Data in compliance with this privacy policy.</p>
+		
+		<h3>Data Controller (or Website Owner, or Owner)</h3>
+		<p>The natural person, legal person, public administration or any other body, association or organization with the right, also jointly with another Data Controller, to make decisions regarding the purposes, and the methods of processing of Personal Data and the means used, including the security measures concerning the operation and use of this Website. The Data Controller, unless otherwise specified, is the Owner of this Website.</p>
+		
+		<h3>This Website</h3>
+		<p>The hardware or software tool by which the User Personal Data is collected.</p>
+		
+		<h3>Cookie</h3>
+		<p>Small piece of data stored by the Website in the User's device.</p>
+		
+		<h3>Legal information</h3>
+		<p>Notice to European Users: this privacy statement has been prepared in fulfillment of the obligations under Art. 10 of EC Directive n. 95/46/EC, and under the provisions of Directive 2002/58/EC, as revised by Directive 2009/136/EC, on the subject of Cookies.</p>
+		
+		<p><strong>This privacy policy is solely about this Website.</strong></p>
+
         
 	</div>
 

@@ -10,14 +10,14 @@
         <h2>A Two-day Tech, Music, Art & Science festival</h2>
 		
         <div class="tcenter bicolumn">
-	            <a class="column fleft">
+	            <a class="column fleft"  href="/unconference">
 	            	<img src="/images/content/micro.jpg">
 	            	<h3>Unconference at Kater Holzig</h3>
 	                <p>A first day to connect with creators across various fields, countries and disciplines at a magical location. More than 50 top‑class artists, scientists and entrepreneurs speaking about what keeps their inner flame burning and what they truly aspire to change.</p>
                     <span href="/unconference/index" class="seemore">More about the unconference &rsaquo;</span>
 	            </a>
 	            
-	            <a class="column fright">
+	            <a class="column fright" href="/satellites/book">
 	            	<img src="/images/content/satellite_sponso.jpg">
 	            	<h3>Satellite Events across the city</h3>
 	                <p>On the second day, the ecosystem takes over and self‑organizes events all over the city. Attendees will get the opportunity to visit startup offices, enjoy corporate perks, participate in workshops and network with smart people at meet‑ups and memorable parties.</p>
@@ -63,7 +63,7 @@
                 
         ?>
         <div class="clear"></div>
-        <a href="blog.toaberlin.com" class="seemore">Read more news ›</a>
+        <a href="http://blog.toaberlin.com" class="seemore">Read more news ›</a>
         </div>
     </div>
 

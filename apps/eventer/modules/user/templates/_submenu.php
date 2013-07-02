@@ -3,7 +3,7 @@
 // Default links
 $links = array(
 
-	'Overview'		=> 'user/index',
+	'Your Profile'		=> 'user/index',
 	'Your tickets'		=> 'user/tickets'
 );
 

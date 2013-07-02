@@ -3,7 +3,7 @@
 	'submenu_title' => 'The Unconference',
 	'links' => array(
 
-		'About the first day' => 'unconference/index',
-		'The Speakers' => 'unconference/speakers',
+		'What to expect' => 'unconference/index',
+		'Our Speakers' => 'unconference/speakers',
 	)
 )) ?>

@@ -6,34 +6,40 @@
 	<?php echo $form->renderGlobalErrors() ?>
 
 	<div class="section_block last">
-
-		<h3>Data displayed on hosted events</h3>
-
-		<div class="section long<?php if($form['name']->hasError()) { ?> error<? } ?>">
-			<?=$form['name']?>
-			<?=$form['name']->renderError()?>
-		</div>
-		<div class="section long<?php if($form['description']->hasError()) { ?> error<? } ?>">
-			<?=$form['description']?>
-			<?=$form['description']->renderError()?>
-		</div>
-		<div class="section long upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
-			<?=$form['logo']?>
-			<?=$form['logo']->renderError()?>
-            <p class="notice tcenter">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 245px</p>
-		</div>
-		<div class="section long<?php if($form['url']->hasError()) { ?> error<? } ?>">
-			<?=$form['url']?>
-			<?=$form['url']->renderError()?>
-		</div>
-		<div class="section long<?php if($form['twitter']->hasError()) { ?> error<? } ?>">
-			<?=$form['twitter']?>
-			<?=$form['twitter']->renderError()?>
-		</div>
-		<div class="section long<?php if($form['facebook']->hasError()) { ?> error<? } ?>">
-			<?=$form['facebook']?>
-			<?=$form['facebook']->renderError()?>
-		</div>
+        <div class="separator">
+            <h3>Main informations</h3>
+            <div class="section long<?php if($form['name']->hasError()) { ?> error<? } ?>">
+                <?=$form['name']?>
+                <?=$form['name']->renderError()?>
+            </div>
+            <div class="section long<?php if($form['description']->hasError()) { ?> error<? } ?>">
+                <?=$form['description']?>
+                <?=$form['description']->renderError()?>
+            </div>
+        </div>
+        <div class="separator">
+            <h3>Your Logo</h3>
+            <div class="section long upload<?php if($form['logo']->hasError()) { ?> error<? } ?>">
+                <?=$form['logo']?>
+                <?=$form['logo']->renderError()?>
+                <p class="notice tcenter">Your image must be JPG, GIF or PNG format and not exceed 2MB.<br />It will be resized to make it's width 245px</p>
+            </div>
+        </div>
+        <div class="separator">
+            <h3>Elswhere</h3>
+            <div class="section long<?php if($form['url']->hasError()) { ?> error<? } ?>">
+                <?=$form['url']?>
+                <?=$form['url']->renderError()?>
+            </div>
+            <div class="section long<?php if($form['twitter']->hasError()) { ?> error<? } ?>">
+                <?=$form['twitter']?>
+                <?=$form['twitter']->renderError()?>
+            </div>
+            <div class="section long<?php if($form['facebook']->hasError()) { ?> error<? } ?>">
+                <?=$form['facebook']?>
+                <?=$form['facebook']->renderError()?>
+            </div>
+        </div>
 	</div>
 
 	<div class="section_controls">
