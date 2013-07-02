@@ -33,8 +33,11 @@ class pushEventbriteTask extends sfBaseTask {
 		sfContext::createInstance($configuration);
 
 		// push synchronization
-		// ** consider try/catch flow here not to break on single error :)
-		if($organisers = Doctrine_Core::getTable('Organiser')->getUnsynchronized() and count($organisers)) foreach($organisers as $organiser) $this->pushOrganiser($organiser);
+		if($organisers = Doctrine_Core::getTable('Organiser')->getUnsynchronized() and count($organisers)) foreach($organisers as $organiser) {
+
+			// push only if organiser has events (is not just an attendee)
+			if($organiser->getEvents() and count($organiser->getEvents())) $this->pushOrganiser($organiser);
+		}
 		if($events = Doctrine_Core::getTable('Event')->getUnsynchronized() and count($events)) foreach($events as $event) $this->pushEvent($event);
 	}
 
