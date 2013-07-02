@@ -212,7 +212,11 @@ class EventForm extends BaseEventForm {
 		}
 
 		// override organizer by attaching it to currently logged on user
-		if($organiser = sfContext::getInstance()->getUser()->getGuardUser()->getOrganiser()) $this->getObject()->setOrganiser($organiser);
+		// TODO: fix this logic when going for more credentials
+		if(!sfContext::getInstance()->getUser()->getGuardUser()->getIsSuperAdmin() and $organiser = sfContext::getInstance()->getUser()->getGuardUser()->getOrganiser()) {
+		
+			$this->getObject()->setOrganiser($organiser);
+		}
 
 		return parent::doSave($con);
 	}

@@ -61,7 +61,12 @@ if($color = $event->getListingColor()) {
 
 	<div class="textual">
         <a href="/satellites/book/" class="button_back"><big>&lsaquo;</big> All the events</a>
-		<h1><?=$event->getTitle()?><span class="time"><?=$event->getStartHour()?> - <?=$event->getEndHour()?></span></h1>
+
+<?php if($sf_user->isAuthenticated() and $event->getOrganiser()->getGuardUser() == $sf_user->getGuardUser()): ?>
+	<a class="button_black button_small" href="<?=url_for('satellites/edit?id=' . $event->getId())?>">Edit the event</a>
+<?php endif ?>
+
+		<h1><?=$event->getTitle()?><span class="time"><?=$event->getStartHourClean()?> - <?=$event->getEndHourClean()?></span></h1>
 
 		<div class="bicolumn">
 

@@ -80,7 +80,7 @@
     
 	<div class="section_block last">
 
-		<h3>Tickets <a class="button_black button_black_small fright" href="#TODO" onclick="alert('This function is under construction. For now - new ticket form will appeaer whenever you submit a valid ticket.')" style="margin-top: -1em;">&plus; Add more tickets</a></h3>
+		<h3>Tickets<?php /* <a class="button_black button_black_small fright" href="#" style="margin-top: -1em;" id="js_add_new">&plus; Add more tickets</a>*/?></h3>
         <p class="notice">Please be aware that 50% of each tickets will be in a first time reserved to Tech Open Air ticket holders</p>
 
 <?php	if(isset($form['Tickets']) and count($form['Tickets'])) foreach($form['Tickets'] as $key => $ticket) include_partial('subform_ticket', array(

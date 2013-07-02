@@ -3,6 +3,13 @@
 
 # default values
 all:
+
+  # Application defaults
+  imagemagick_path: '/usr/bin/convert'    # important when migrating to other server
+
+  satellites_date: '2013-08-02'           # when are the satellites going to happen
+
+  # sfAdminDash plugin
   sf_admin_dash:
     web_dir:                    /sfAdminDashPlugin
     image_dir:                  /sfAdminDashPlugin/images/icons/
@@ -31,4 +38,3 @@ all:
           Attendees:
             url:    attendee
             image:  addusers.png
-# TODO

@@ -7,8 +7,8 @@ $links = array(
     'Host'          => 'satellites/host'
 );
 
-// add hosted link for people who host something
-if($sf_user->isAuthenticated() and count($sf_user->getGuardUser()->getOrganiser()->getEvents())) $links['Manage'] = 'user/hostedevents';
+// add hosted link for people who host something;		** TEMPORARY DEPRECATED
+//if($sf_user->isAuthenticated() and count($sf_user->getGuardUser()->getOrganiser()->getEvents())) $links['Manage'] = 'user/hostedevents';
 
 include_partial('global/submenu', array(
 

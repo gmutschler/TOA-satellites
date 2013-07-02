@@ -12,6 +12,14 @@ loggedin:
   url:   /home/loggedin
   param: { module: home, action: loggedin }
 
+# partners/supporters hack
+supporters_index:
+  url:   /supporters
+  param: { module: partners, action: index }
+supporters:
+  url:   /supporters/:action/*
+  param: { module: partners }
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:

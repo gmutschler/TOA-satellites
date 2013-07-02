@@ -12,14 +12,15 @@
  */
 class Event extends BaseEvent {
 
-	public function getStartHour() {
+	public function getStartHourClean() {
 
 		return date('H:i', strtotime($this->getStartDate()));
 	}
-	public function getEndHour() {
+	public function getEndHourClean() {
 
 		return date('H:i', strtotime($this->getEndDate()));
 	}
+
 	public function toggleModerated() {
 
 		$this->setModerated($this->getModerated() ? false : true);

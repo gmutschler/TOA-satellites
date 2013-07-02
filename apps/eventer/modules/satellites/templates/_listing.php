@@ -23,8 +23,8 @@
 
 	'big_link'	=> url_for('satellites/event?id=' . $event->getId()),
 	'image'		=> $event->getLogo() ? '/uploads/event_images/thumbs/' . $event->getLogo() : '/images/content/test_event_thumb.png',
-	'start_hour'	=> $event->getStartHour(),
-	'end_hour'	=> $event->getEndHour(),
+	'start_hour'	=> $event->getStartHourClean(),
+	'end_hour'	=> $event->getEndHourClean(),
 	'title'		=> $event->getTitle(),
 	'desc'		=> $event->getDescription(),
 	'org_name'	=> $event->getOrganiser()->getName(),

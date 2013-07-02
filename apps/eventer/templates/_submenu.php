@@ -21,7 +21,14 @@ $local_route = $sf_context->getRouting()->getCurrentInternalUri();
     <?php	if(isset($links) and count($links)): ?>
             <ul>
     <?php		foreach($links as $link_title => $link_route): ?>
-                <li><a href="<?=url_for($link_route)?>"<?php if($link_route == $local_route) { ?> class="selected"<?php } ?>><?=$link_title?></a></li>
+
+    <?php			// highlighted logic hack	** HARDCODED
+		    		$highlighted = false;
+				if(($link_route == $local_route) or ($link_route == 'satellites/book' and preg_match('/^satellites\/event/', $local_route)))
+					$highlighted = true;
+    ?>
+
+                <li><a href="<?=url_for($link_route)?>"<?php if($highlighted) { ?> class="selected"<?php } ?>><?=$link_title?></a></li>
     <?php		endforeach ?>
             </ul>
     <?php 	endif ?>

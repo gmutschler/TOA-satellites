@@ -180,7 +180,8 @@ class satellitesActions extends sfActions {
 			}
 
 			// message
-			$this->getUser()->setFlash('info', 'Your event has been saved and is awaiting moderation. Thank you for your entry.');
+			$message = $event->getModerated() ? 'Your changes have been saved.' : 'Your event has been saved and is awaiting moderation. Thank you for your entry.';
+			$this->getUser()->setFlash('info', $message);
 
 			// redir
 			$this->redirect('satellites/edit?id='.$event->getId());
