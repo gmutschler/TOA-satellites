@@ -24,6 +24,9 @@
             From the onset we wished for it to become a collaborative effort by the community. In crafting our vision we held multiple open town hall meet-ups with representatives of the various communities and ultimately became the first European Festival to crowdfund itself.</p>
             <p>The bridge we envision is an open one and rather than moulding people and ideas into one format, we seek to provide a platform for you to build upon.</p>
         </div>
+        <div id="last-year-video">
+            <iframe src="http://player.vimeo.com/video/55219069?byline=0&amp;portrait=0&amp;color=ff0179" width="960" height="540" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
         <!--<div class="story_timeline">
             
             

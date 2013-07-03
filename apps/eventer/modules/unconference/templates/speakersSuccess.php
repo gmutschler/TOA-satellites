@@ -1,7 +1,7 @@
 <div id="hero">
 
         <div id="hero_background"><img src="/images/content/ill-2013-v1.jpg" /></div>
-        <div id="hero_foreground"></div>
+        <div id="hero_foreground"><h1><span>Reset Tomorrow!</span><br><span>An ode to retro-futurism</span></h1></div>
 </div>
 
 <div id="content" class="screen_unconference_speakers">

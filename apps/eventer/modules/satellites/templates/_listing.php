@@ -38,7 +38,7 @@
 			</ul>
 <?php else: ?>
 
-			<p class="no-content">No events for this time-slot. Guess what, you can just <a href="/satellite/host">create one</a></p>
+			<p class="no-content">No events for this time-slot. Guess what, you can just <a href="/satellites/host">create one</a></p>
 <?php endif ?>
 			<div class="clear"></div>
 		</div>
