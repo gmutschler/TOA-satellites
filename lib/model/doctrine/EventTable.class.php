@@ -26,7 +26,7 @@ class EventTable extends Doctrine_Table {
 		if(is_numeric($page) and $page > 0) {
 
 			$start_hour = date('G:i:s', strtotime($start_hour) + ($page * intval(sfConfig::get('app_pagination_hours_per_page')) * 3600));
-			$end_hour = date('G:i:s', strtotime($end_hour) + ($page * intval(sfConfig::get('app_pagination_hours_per_page')) * 3600));
+			$end_hour = date('G:i:s', strtotime($end_hour) + ($page * intval(sfConfig::get('app_pagination_hours_per_page')) * 3600) - 60);	// remove 1 minute
 		}
 
 		// add hourly pagination
