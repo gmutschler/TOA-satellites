@@ -1,7 +1,7 @@
 <div id="hero">
 
         <div id="hero_background"><img src="/images/content/ill-2013-v1.jpg" /></div>
-        <div id="hero_foreground"></div>
+        <div id="hero_foreground"><h1><span>Reset Tomorrow!</span><br><span>An ode to retro-futurism</span></h1></div>
 </div>
 
 <div id="content" class="screen_unconference_index">
@@ -13,7 +13,6 @@
 		<h1>The Unconference<span>&nbsp; August 1, 2013</span></h1>
     
         <div id="about-2013">
-        	<h2>Reset Tomorrow!</h2>
 			<p class="lead">The theme of this year is called “Reset tomorrow!” and will build upon the concept of <a href="https://en.wikipedia.org/wiki/Retro-futurism" target="_blank">retrofuturism</a>.</p> 
             <div id="theme-description">
             	<h3>What to expect</h3>

@@ -1,17 +1,15 @@
 <div id="hero">
 
     <div id="hero_background"><div id="hero_background_map" style="height: 480px; width: 960px; -webkit-transform: translate3d(0px, 0px, 0px)"></div></div>
-        <div id="hero_foreground">
-            <div class="event-location">
-                <h3>Main contact</h3>
-                <p>
-                    <span>Tech Open UG</span><br />
-                    Sophinestr. 24<br />
-                    10178 Berlin<br />
-                    <a href="mailto:hello@toaberlin.com">hello@toaberlin.com</a>
-                </p>
-            </div>
-        </div>
+    <div class="event-location">
+        <h3>Main contact</h3>
+        <p>
+            <span>Tech Open UG</span><br />
+            Sophinestr. 24<br />
+            10178 Berlin<br />
+            <a href="mailto:hello@toaberlin.com">hello@toaberlin.com</a>
+        </p>
+    </div>
 </div>
 
 <div id="content" class="screen_about_contact">

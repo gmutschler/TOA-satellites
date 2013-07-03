@@ -24,7 +24,7 @@ $local_route = $sf_context->getRouting()->getCurrentInternalUri();
 
     <?php			// highlighted logic hack	** HARDCODED
 		    		$highlighted = false;
-				if(($link_route == $local_route) or ($link_route == 'satellites/book' and preg_match('/^satellites\/event/', $local_route)))
+				if(($link_route == $local_route) or ($link_route == 'satellites/book' and preg_match('/^satellites\/event/', $local_route)) or ($link_route == 'satellites/book' and preg_match('/^satellites\/book/', $local_route)))
 					$highlighted = true;
     ?>
 

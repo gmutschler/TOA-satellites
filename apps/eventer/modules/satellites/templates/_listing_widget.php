@@ -28,8 +28,10 @@ if(isset($category) and $category !== null) {
 
 <div class="listing_widget<?php if(isset($type) and !is_null($type)) print ' ' . $type ?>">
 
+	<div class="measure pos<?=isset($page) ? $page : 0?>"></div>
+    <div class="beforefirst"></div>
+    
 	<a class="listing_widget_next"<?php if($page_next === false) { ?> href="#" onclick="return false;"<?php } else { ?> href="<?=url_for($link_next)?>"<?php } ?>></a>
 	<a class="listing_widget_prev"<?php if($page_prev === false) { ?> href="#" onclick="return false;"<?php } else { ?> href="<?=url_for($link_prev)?>"<?php } ?>></a>
 
-	<div class="measure pos<?=isset($page) ? $page : 0?>"></div>
 </div>

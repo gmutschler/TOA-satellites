@@ -175,6 +175,27 @@ a:hover {
 	td div { cursor: pointer }
 }
 
+a.slider_nav {
+            background: #ffffff;
+            border: 1px solid @color-border;
+            display: block;
+            width: 40px;
+            height: 40px;
+            .absolute;
+        
+            &:hover {border: 1px solid @color-text;}
+        
+            &.slider_previous {
+                background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
+                &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
+            }
+            &.slider_next {
+                background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
+                &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
+            }
+        
+        }
+
 
 #main {
 	.tleft;
@@ -420,8 +441,124 @@ a:hover {
                     
             }
         }
+
+        .press-release {
+            width: 320px;
+            height: 430px;
+            background: rgba(0, 0, 0, 0.6);
+            .fright;
+            .content-box-inner;
+            color: @color-bg;
+            .relative;
         
-        #hero_media { height: @height-local-media }	// TODO: change it to either hero_background or hero_foreground :)
+            h3 {
+                .ffamily(18px, @font-proxima, bold);
+                .tupper;
+                .absolute;
+                .topright(10px,10px);
+                
+            }
+        
+            h2 {
+                .ffamily(28px, @font-minion);
+                .tupper;
+                margin-top: 40px;
+                line-height: 32px;
+            }
+            
+            a {
+                margin: 1em 0.4em 0 0;
+                text-decoration: none;
+                display: inline-block;
+                background: @color-text;
+                color: @color-bg;
+                padding: 7px 19px;
+                border: 1px solid @color-border-dark;
+                text-align: center;
+                .ffamily(10px, @font-minion);
+                .tupper;
+            
+                &:hover {
+                    color: @color-text;
+                    background: @color-bg;
+                }
+            }
+        }
+    
+        &.home-hero {
+            overflow: hidden;
+        
+            .swipe {
+                .slide {
+                    height: 480px;
+                    width: 960px;
+                    .relative;
+                    .fleft;
+                }
+            }
+        
+            #hero_foreground {
+                .swipe {
+                    .slide {
+                        h3 {
+                            color: @color-red;
+                            background: @color-bg;
+                            border: 1px solid @color-red;
+                            padding: 6px 10px;
+                            .absolute;
+                            .topright(5px,5px);
+                            .ffamily(14px, @font-proxima, 600);
+                            .tupper;
+                        }
+                        
+                        a {
+                            h1{
+                                color: @color-text;
+                            
+                                span.readmore {
+                                    margin-top: 0.3em;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                    background: @color-bg;
+                                    color: @color-text;
+                                    padding: 9px 14px;
+                                    text-align: center;
+                                    .ffamily(14px, @font-minion);
+                                    .tupper;
+                                }
+                                                            
+                            }
+                            
+                            &:hover {
+                            
+                                h1 {    
+                                    span.readmore {
+                                        color: @color-bg;
+                                        background: @color-text;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                .swipecontrol {
+
+                    a.slider_nav {  
+                        margin-top: -21px;
+                        
+                        &.slider_previous {
+                            .bottomright(5px, 48px);
+                        }
+                        &.slider_next {
+                            .bottomright(5px, 5px);
+                        }
+                    
+                    }
+                }
+            }
+            
+        }
     } // end #hero
 
 	#content {
@@ -513,28 +650,6 @@ a:hover {
                 &.fleft { margin-left: 0; }
             }
         }
-    
-        a.slider_nav {
-                    background: #ffffff;
-                    border: 1px solid @color-border;
-                    display: block;
-                    width: 40px;
-                    height: 40px;
-                    .absolute;
-                
-                    &:hover {border: 1px solid @color-text;}
-                
-                    &.slider_previous {
-                        background: @color-bg no-repeat url(@{images-layout}/arrow_prev.gif) center center;
-                        &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_prev_white.gif) center center;}
-                    }
-                    &.slider_next {
-                        background: @color-bg no-repeat url(@{images-layout}/arrow_next.gif) center center;
-                        &:hover {background: @color-text no-repeat url(@{images-layout}/arrow_next_white.gif) center center;}
-                    }
-                
-                }
-	
 
 		// ! common for known blocks
 		.listing, .textual { padding-top: 50px }
@@ -597,22 +712,27 @@ a:hover {
 						left: @left-local-start;
 					}
 					&.pos1 {
-						left: @left-local-start + @width-local-measure;
+						left: @left-local-start + @width-local-measure - 1;
 					}
 					&.pos2 {
-						left: @left-local-start + 2 * @width-local-measure;
+						left: @left-local-start + 2 * (@width-local-measure - 1);
 					}
 					&.pos3 {
-						left: @left-local-start + 3 * @width-local-measure;
+						left: @left-local-start + 3 * (@width-local-measure - 1);
 					}
 					&.pos4 {
-						left: @left-local-start + 4 * @width-local-measure;
+						left: @left-local-start + 4 * (@width-local-measure - 1);
 					}
-
-
-
 					// slight modifications for the widget on top
 				}
+                
+                .beforefirst {
+                    .disblock(150px, @height-local-widget);
+                    background: rgba(0,0,0, 0.4);
+                    .absolute;
+                    left: 31px;
+                }
+            
 			}
         
             //Links to the categories
@@ -1950,7 +2070,7 @@ div.screen_home#content {
                             background: @color-text;
                             .tcenter;
                             .absolute;
-                            .topleft(0,0);
+                            .topleft(-50%,-50%);
                             
                         }
                     }

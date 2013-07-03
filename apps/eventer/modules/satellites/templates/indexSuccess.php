@@ -28,6 +28,7 @@
                 <a href="http://www.amanogroup.de/en/hotels/amano/" target="_blank"><img src="/images/content/locations/amano.jpg"></a>
                 <a href="http://betahaus.de/" target="_blank"><img src="/images/content/locations/betahaus.jpg"></a>
                 <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/locations/factory.jpg"></a>
+                <a href="http://www.mobilesuite.de/" target="_blank"><img src="/images/content/locations/mobilesuite.jpg"></a>
                 <a href="http://www.sanktoberholz.de/" target="_blank"><img src="/images/content/locations/oberholz.jpg"></a>
             </div>
             <a class="slider_nav slider_previous" id="location_slider_previous"></a>

@@ -15,5 +15,14 @@ var launchScroll = function(divId, depl) {
 document.observe("dom:loaded", function() {    
        document.getElementById('slider0_next').onclick = function() { launchScroll('slider0', -4); }
        document.getElementById('slider0_previous').onclick = function() { launchScroll('slider0', 4); }
-
+       
+       document.getElementById('hero_next').onclick = function() {
+       		launchScroll('slider1', -4);
+       		launchScroll('slider2', -4);
+       	}
+		
+		document.getElementById('hero_previous').onclick = function() {
+       		launchScroll('slider1', 4);
+       		launchScroll('slider2', 4);
+       	}
 });
