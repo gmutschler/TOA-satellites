@@ -25,6 +25,7 @@
                 </div>
                 
                 <div class="press-review-content"> 
+                    
                     <div class="press-coverage">
                         <a href="http://startup-termine.de/ai1ec_event/tech-open-air-berlin-2013/?instance_id=" target="_blank"><h3>Tech Open Air Berlin 2013</h3><div class="date">Startup-Termine</div></a>
                     </div>
@@ -34,7 +35,7 @@
                     </div>
                     
                     <div class="press-coverage">
-                        <a href="http://berlinwebweek.de/2013/04/22/tech-open-air-berlin-2013-1-8-2013/?lang=de" target="_blank"><h3>TECH OPEN AIR BERLIN 2013 – 1.8.2013</h3><div class="date">Jun 14<sup>st</sup>, 2013 - Fueled.com</div></a>
+                        <a href="http://berlinwebweek.de/2013/04/22/tech-open-air-berlin-2013-1-8-2013/?lang=de" target="_blank"><h3>TECH OPEN AIR BERLIN 2013 – 1.8.2013</h3><div class="date">Jun 14<sup>th</sup>, 2013 - Fueled.com</div></a>
                     </div>
                     
                     <div class="press-coverage">
@@ -42,19 +43,23 @@
                     </div>
                                        
                     <div class="press-coverage">
-                        <a href="http://www.youtube.com/watch?v=fkijAku7gng" target="_blank"><h3>Open Mic: Niko Woischnik Announcing Tech Open Air 2013(Video)</h3><div class="date">May 13<sup>st</sup>, 2013 - Friday at Six</div></a>
+                        <a href="http://www.youtube.com/watch?v=fkijAku7gng" target="_blank"><h3>Open Mic: Niko Woischnik Announcing Tech Open Air 2013(Video)</h3><div class="date">May 13<sup>th</sup>, 2013 - Friday at Six</div></a>
                     </div>
                     
                     <div class="press-coverage">
-                        <a href="http://venturevillage.eu/tech-open-air-returns" target="_blank"><h3>Tech Open Air Berlin returns this summer for two days of startups, music and ar</h3><div class="date">Apr 23<sup>st</sup>, 2013 - Venture Village</div></a>
+                        <a href="http://venturevillage.eu/tech-open-air-returns" target="_blank"><h3>Tech Open Air Berlin returns this summer for two days of startups, music and ar</h3><div class="date">Apr 23<sup>rd</sup>, 2013 - Venture Village</div></a>
                     </div>
                     
                     <div class="press-coverage">
-                        <a href="http://siliconallee.com/events/2013/04/22/tech-meets-music-and-art-toa-berlin-to-return-in-2013" target="_blank"><h3>Tech Meets Music and Art: TOA Berlin to Return in 2013</h3><div class="date">Apr 22<sup>st</sup>, 2013 - Sillicon Allee</div></a>
+                        <a href="http://www.trendsonline.co/news/tech-open-air-festival-in-berlin-try-something-different/" target="_blank"><h3>Tech Open Air Festival in Berlin, try something different</h3><div class="date">Apr 23<sup>rd</sup>, 2013 - Trendsonline.co</div></a>
+                    </div>
+                    
+                    <div class="press-coverage">
+                        <a href="http://siliconallee.com/events/2013/04/22/tech-meets-music-and-art-toa-berlin-to-return-in-2013" target="_blank"><h3>Tech Meets Music and Art: TOA Berlin to Return in 2013</h3><div class="date">Apr 22<sup>nd</sup>, 2013 - Sillicon Allee</div></a>
                     </div>
                                              
                     <div class="press-coverage">
-                        <a href="http://www.gruenderszene.de/allgemein/tech-open-air-berlin-2013" target="_blank"><h3>Raus aus den Büros, es ist Sommer!</h3><div class="date">Apr 22<sup>st</sup>, 2013 - Gruenderszene</div></a>
+                        <a href="http://www.gruenderszene.de/allgemein/tech-open-air-berlin-2013" target="_blank"><h3>Raus aus den Büros, es ist Sommer!</h3><div class="date">Apr 22<sup>nd</sup>, 2013 - Gruenderszene</div></a>
                     </div>
                     
                     <div class="press-coverage">

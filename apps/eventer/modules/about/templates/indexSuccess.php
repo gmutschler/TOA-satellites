@@ -3,7 +3,7 @@
     <div id="hero_background"><img src="/images/content/aboutus-hero-bg.jpg" /></div>
     <div id="hero_foreground">
         <h1><span>We help you better understand</span><br /><span>the world you change.</span></h1>
-        <span class="photo_credit">Michael Ronen giving a Growshop at TOA12<br>Photo by <a href="http://ailineliefeld.com/">Ailine Lefield</a></span>
+        <span class="photo_credit">Michael Ronen giving a Growshop at TOA12<br>Photo by <a href="http://ailineliefeld.com/" target="_blank">Ailine Lefield</a></span>
     </div>
 </div>
 

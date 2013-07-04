@@ -6,7 +6,7 @@ var scrollDiv = function(divId, depl) {
 
 var launchScroll = function(divId, depl) {
     var time = 0
-    for (i=0; i<241; i++) {
+    for (i=0; i<240; i++) {
         setTimeout('scrollDiv("'+divId+'", '+depl+')', time);
         time++;
     }
