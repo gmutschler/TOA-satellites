@@ -19,6 +19,9 @@ supporters_index:
 supporters:
   url:   /supporters/:action/*
   param: { module: partners }
+sponsoring:
+  url:   /sponsoring
+  param: { module: partners, action: supportus }
 
 # generic rules
 # please, remove them by adding more specific rules

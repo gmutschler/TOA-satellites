@@ -11,7 +11,44 @@ options:
   charset:            UTF8
   type:               innodb
 
+# CMS related tables
+Press:
+  actAs: 
+    Timestampable: ~
+  columns:
+    title:
+      type: string(128)
+      notnull: true
+    date:
+      type: timestamp
+    media:
+      type: string(128)
+    url:
+      type: string(128)
 
+Program:
+  actAs: 
+    Timestampable: ~
+  columns:
+    first_name:
+      type: string(64)
+    last_name:
+      type: string(64)
+    position:
+      type: string(48)
+    company:
+      type: string(32)
+    description:
+      type: string(512)
+    url:
+      type: string(128)
+    facebook:
+      type: string(128)
+    twitter:
+      type: string(128)
+
+
+# Satellite events related tables
 Category:
   columns:
     name:
