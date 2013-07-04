@@ -4,7 +4,7 @@
         <div id="hero_foreground">
             <div class="press-release">
             <h3>Press Release</h3>
-            <h2>Europe’s first truly interdisciplinary Festival unveils speakers and partners from all over the world.</h2>
+            <h2>Europe’s most inspiring interdisciplinary technology festival unveils speakers and partners from all over the world.</h2>
                 <a href="https://docs.google.com/a/toaberlin.com/document/d/1CpMF5ci0tGnXgUq2P9hOxMlF5eCZolhjsQJ1aKMFVdk" target="_blank">Read it in english &rarr;</a>
                 <a href="https://docs.google.com/a/toaberlin.com/document/d/1rnP5QgPr8Bo4oHCq73XcY8jBNd1N1yzprOh6hv43LLY" target="_blank">Auf deutsch lesen &rarr;</a>
             </div>

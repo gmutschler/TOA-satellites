@@ -2,7 +2,8 @@
 
     <div id="hero_background">
         <div id="slider1" class="swipe" style="overflow: hidden; ">
-            <div style="width: 2880px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
+            <div style="width: 3840px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
+                <div class="slide"><img src="/images/content/homeslider/ronnen.jpg" /></div>
                 <div class="slide"><img src="/images/content/homeslider/blogpost-reset.jpg" /></div>
                 <div class="slide"><img src="/images/content/homeslider/speaker-grid.jpg" /></div>
                 <div class="slide"><img src="/images/content/homeslider/video-ill.jpg" /></div>
@@ -11,10 +12,11 @@
     </div>
     <div id="hero_foreground">
         <div id="slider2" class="swipe" style="overflow: hidden; ">
-            <div style="width: 2880px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
+            <div style="width: 3840px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
+                <div class="slide"><a href="http://blog.toaberlin.com/post/54461948015/this-years-theme-reset-tomorrow"><h1><span>August 1-2, 2013</span><br><span>Two days of Tech, Music, Art & Science</span><br><span class="readmore">Buy your ticket now!</span></h1></a></div>
                 <div class="slide"><h3>Blog Post</h3><a href="http://blog.toaberlin.com/post/54461948015/this-years-theme-reset-tomorrow"><h1><span>This year's theme: Reset tomorrow!</span><br><span class="readmore">Read More &rarr;</span></h1></a></div>
                 <div class="slide"><h3>Speakers</h3><a href="/unconference/speakers"><h1><span>First Speakers announced</span><br><span class="readmore">See all speakers &rarr;</span></h1></a></div>
-                <div class="slide"><h3>2012 Edition</h3><a href="/about#last-year-video"><h1><span>What happened last year ?</span><br><span class="readmore">See the video &rarr;</span></h1></a></div>
+                <div class="slide"><h3>2012 Video</h3><a href="/about#last-year-video"><h1><span>This was Tech Open Air Berlin 2012</span><br><span class="readmore">See the video &rarr;</span></h1></a></div>
             </div>
         </div>
         <div class="swipecontrol">
@@ -27,7 +29,7 @@
 <div id="content" class="screen_home">
 
 	<div class="textual">
-        <h2>A Two-day Tech, Music, Art & Science festival</h2>
+        <!--<h2>A Two-day Tech, Music, Art & Science festival</h2>-->
 		
         <div class="tcenter bicolumn">
 	            <a class="column fleft"  href="/unconference">
