@@ -260,6 +260,7 @@ class Event extends BaseEvent {
 			'tickets'	=> join(',', $this->fetchHiddenTicketEventbriteIDs()),
 			//'quantity_available' => 999,
 			// ** we skip quantity_available
+			'start_date'    => date('Y-m-d H:i:s'),
 			'end_date'	=> $this->getEndDate()
 
 		);
@@ -274,7 +275,7 @@ class Event extends BaseEvent {
 
 			$method = 'access_code_new';
 			$data['event_id'] = $this->getEventbriteId();
-			$data['start_date'] = date('Y-m-d H:i:s');
+			//$data['start_date'] = date('Y-m-d H:i:s');
 		}
 
 		// Call
