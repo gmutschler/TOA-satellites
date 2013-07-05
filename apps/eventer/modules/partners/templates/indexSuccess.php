@@ -31,7 +31,7 @@
         </div>
         <h2>Media partners</h2>
         <div class="sponsors_logos">
-            <a href="http://www.amanogroup.de/"><img src="/images/content/sponsors/medianet.png"></a>
+            <a href="http://www.medianet-bb.de"><img src="/images/content/sponsors/medianet.png"></a>
             <div class="clear"></div>
         </div>
 	</div>
