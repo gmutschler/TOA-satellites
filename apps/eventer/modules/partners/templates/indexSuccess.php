@@ -29,5 +29,10 @@
             <a href="http://www.amanogroup.de/"><img src="/images/content/sponsors/amano.png"></a>
             <div class="clear"></div>
         </div>
+        <h2>Media partners</h2>
+        <div class="sponsors_logos">
+            <a href="http://www.amanogroup.de/"><img src="/images/content/sponsors/medianet.png"></a>
+            <div class="clear"></div>
+        </div>
 	</div>
 </div>
