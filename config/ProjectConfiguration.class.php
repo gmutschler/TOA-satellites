@@ -18,7 +18,8 @@ class ProjectConfiguration extends sfProjectConfiguration {
 
 			// administrateur app
 			'sfJqueryReloadedPlugin',
-			'sfAdminDashPlugin'
+			'sfAdminDashPlugin',
+			'csDoctrineActAsSortablePlugin'
 		));
 
 		//$this->enableAllPluginsExcept(array('sfPropelPlugin'));

@@ -25,7 +25,14 @@
                 </div>
                 
                 <div class="press-review-content"> 
-                    
+<?php if($releases and count($releases)) foreach($releases as $release): ?>
+
+			<div class="press-coverage">
+				<a href="<?=$release->getUrl()?>" target="_blank"><h3><?=$release->getTitle()?></h3><div class="date"><?=$release->getRaw('dateHtmlFormatted')?><?=$release->getMedia()?></div></a>
+			</div>
+<?php endforeach ?>
+
+<?php /*
                     <div class="press-coverage">
                         <a href="http://startup-termine.de/ai1ec_event/tech-open-air-berlin-2013/?instance_id=" target="_blank"><h3>Tech Open Air Berlin 2013</h3><div class="date">Startup-Termine</div></a>
                     </div>
@@ -237,6 +244,7 @@
                     <div class="press-coverage">
                         <a href="http://venturevillage.eu/tech-open-air-berlins-own-sxsw-set-to-launch-this-summer" target="_blank"><h3>Tech Open Air - A Startup Festival Without Walls</h3><div class="date">Mar 22<sup>nd</sup>, 2012 - Venture Village</div></a>
                     </div>
+*/ ?>
                 </div>
                 <div class="clear"></div>
             </div>

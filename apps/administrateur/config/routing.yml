@@ -1,3 +1,12 @@
+press:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Press
+    module:               press
+    prefix_path:          /press
+    column:               id
+    with_wildcard_routes: true
+
 attendee:
   class: sfDoctrineRouteCollection
   options:

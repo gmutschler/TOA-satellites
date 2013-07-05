@@ -17,6 +17,8 @@ class aboutActions extends sfActions {
 	}
 
 	public function executePress(sfWebRequest $request) {
+
+		$this->releases = Doctrine_Core::getTable('Press')->findAllSorted('asc');
 	}
 
 	public function executeContact(sfWebRequest $request) {

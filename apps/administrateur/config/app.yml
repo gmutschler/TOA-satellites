@@ -19,6 +19,11 @@ all:
     include_jquery_no_conflict: true
 
     categories:
+      CMS:
+        items:
+          Press:
+            url:    press
+            image:  addedit.png
       Events:
         items:
           Categories:

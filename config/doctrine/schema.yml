@@ -15,6 +15,7 @@ options:
 Press:
   actAs: 
     Timestampable: ~
+    Sortable: ~
   columns:
     title:
       type: string(128)
@@ -24,7 +25,7 @@ Press:
     media:
       type: string(128)
     url:
-      type: string(128)
+      type: string(192)
 
 Program:
   actAs: 
