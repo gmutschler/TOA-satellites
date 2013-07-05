@@ -96,6 +96,13 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/jbegemann.jpg" alt="Jens Begemann portrait" />
+                <div class="speaker-meta">
+                    <h3>Jens Begemann</h3>
+                    <span class="speaker-position">Founder &amp; CEO - Wooga</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/jerickson.jpg" alt="Jess Erickson portrait" />
                 <div class="speaker-meta">
                     <h3>Jess Erickson</h3>
