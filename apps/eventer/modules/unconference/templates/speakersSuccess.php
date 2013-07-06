@@ -26,6 +26,27 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/bschlomer.jpg" alt="Bernd Schlömer portrait" />
+                <div class="speaker-meta">
+                    <h3>Bernd Schlömer</h3>
+                    <span class="speaker-position">Chairman - Piratenpartei</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/cgrasse.jpg" alt="Christian Grasse portrait" />
+                <div class="speaker-meta">
+                    <h3>Christian Grasse</h3>
+                    <span class="speaker-position">Journalist, Author "Mein digitales Ich"</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/ckomm.jpg" alt="Christian Komm portrait" />
+                <div class="speaker-meta">
+                    <h3>Christian Komm</h3>
+                    <span class="speaker-position">General Manager - POKKETMIXER</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/chodge.jpg" alt="Colin Hodge portrait" />
                 <div class="speaker-meta">
                     <h3>Colin Hodge</h3>
@@ -54,10 +75,24 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/fhaak.jpg" alt="Dr. Friedhelm Haak portrait" />
+                <div class="speaker-meta">
+                    <h3>Dr. Friedhelm Haak</h3>
+                    <span class="speaker-position">Mediengruppe Madsack</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/mhelmstaedter.jpg" alt="Dr. Moritz Helmstaedter portrait" />
                 <div class="speaker-meta">
                     <h3>Dr. Moritz Helmstaedter</h3>
                     <span class="speaker-position">Creator - Brainflight</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/mkringelbach.jpg" alt="Dr. Morten Kringelbach portrait" />
+                <div class="speaker-meta">
+                    <h3>Dr. Morten Kringelbach</h3>
+                    <span class="speaker-position">Author of 'The Pleasure Centre' - Oxford University</span>
                 </div>
             </div>
             <div class="speaker-container">
@@ -103,10 +138,38 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/jreck.jpg" alt="Johannes Reck portrait" />
+                <div class="speaker-meta">
+                    <h3>Johannes Reck</h3>
+                    <span class="speaker-position">CEO - GetYourGuide</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/kgropper.jpg" alt="Klaus Gropper portrait" />
+                <div class="speaker-meta">
+                    <h3>Klaus Gropper</h3>
+                    <span class="speaker-position">Unit Director Tech, Media & Lifestyle - Point-Blank International Marketing Research & Consultancy</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/jerickson.jpg" alt="Jess Erickson portrait" />
                 <div class="speaker-meta">
                     <h3>Jess Erickson</h3>
                     <span class="speaker-position">Founder - Berlin Geekettes</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/mturrell.jpg" alt="Mark Turrell portrait" />
+                <div class="speaker-meta">
+                    <h3>Mark Turrell</h3>
+                    <span class="speaker-position">Founder - Integrated Air</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/mkuhn.jpg" alt="Markus Kühn portrait" />
+                <div class="speaker-meta">
+                    <h3>Markus Kühn</h3>
+                    <span class="speaker-position">Managing Partner - FluxFM</span>
                 </div>
             </div>
             <div class="speaker-container">
@@ -121,6 +184,13 @@
                 <div class="speaker-meta">
                     <h3>Matt Monahan</h3>
                     <span class="speaker-position">Angel Investor and Mentor - 500Startups</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/ounsal.jpg" alt="Oltac Unsal portrait" />
+                <div class="speaker-meta">
+                    <h3>Oltac Unsal</h3>
+                    <span class="speaker-position">Tech Entrepreneurship Enabler - Accidental Activist</span>
                 </div>
             </div>
             <div class="speaker-container">
@@ -152,6 +222,13 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/skim.jpg" alt="San Kim portrait" />
+                <div class="speaker-meta">
+                    <h3>San Kim</h3>
+                    <span class="speaker-position">co-founder and CEO of Showme</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/sglaenzer.jpg" alt="Stefan Glaenzer portrait" />
                 <div class="speaker-meta">
                     <h3>Stefan Glaenzer</h3>
@@ -159,10 +236,24 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/smarx.jpg" alt="Stefan Marx portrait" />
+                <div class="speaker-meta">
+                    <h3>Stefan Marx</h3>
+                    <span class="speaker-position">Experimental Philosopher - Wearable Technology</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/tgaan.jpg" alt="Tegan Monique Gaan portrait" />
                 <div class="speaker-meta">
                     <h3>Tegan Monique Gaan</h3>
                     <span class="speaker-position">Founder - Gigit</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/ylevtov.jpg" alt="Yuli Levtov portrait" />
+                <div class="speaker-meta">
+                    <h3>Yuli Levtov</h3>
+                    <span class="speaker-position">Founder - Reactify/8linq</span>
                 </div>
             </div>
             <div class="speaker-container more">
