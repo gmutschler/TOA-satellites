@@ -67,7 +67,7 @@ In some areas technology has clearly over-delivered, but in other areas it still
                 <div class="location-illustration">
                     <img src="/images/content/fluxbau.jpg">
                     <div class="location-address">
-                        <h3>FluxFM FluxBau</h3><p>Pfuelstr. 5, zweiter Hofeingang<br>(U-Bahn: Schlesisches Tor)<br>10997 Berlin</p>
+                        <h3>FluxBau</h3><p>Pfuelstr. 5, zweiter Hofeingang<br>(U-Bahn: Schlesisches Tor)<br>10997 Berlin</p>
                     </div>
                 </div>
                 <div class="location-description">

@@ -12,6 +12,13 @@
 
         <div class="speakers-list">
             <div class="speaker-container">
+                <img src="/images/content/speakers/afletcher.jpg" alt="Adam Fletcher portrait" />
+                <div class="speaker-meta">
+                    <h3>Adam Fletcher</h3>
+                    <span class="speaker-position">Writer and semi-professional chocolate eater - Owner of The Hipstery</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/arichter.jpg" alt="Andreas Richter portrait" />
                 <div class="speaker-meta">
                     <h3>Andreas Richter</h3>
@@ -70,7 +77,7 @@
             <div class="speaker-container">
                 <img src="/images/content/speakers/dmargulies.jpg" alt="Daniel Margulies portrait" />
                 <div class="speaker-meta">
-                    <h3>Daniel Margulies</h3>
+                    <h3>Dr. Daniel Margulies</h3>
                     <span class="speaker-position">Group leader - Max Planck Institure for Human Cognitive and Brain Sciences</span>
                 </div>
             </div>
@@ -79,6 +86,13 @@
                 <div class="speaker-meta">
                     <h3>Dr. Friedhelm Haak</h3>
                     <span class="speaker-position">Mediengruppe Madsack</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/imadisch.jpg" alt="Dr. Ijad Madisch portrait" />
+                <div class="speaker-meta">
+                    <h3>Dr. Ijad Madisch</h3>
+                    <span class="speaker-position">Founder - ResearchGate</span>
                 </div>
             </div>
             <div class="speaker-container">
@@ -124,13 +138,6 @@
                 </div>
             </div>
             <div class="speaker-container">
-                <img src="/images/content/speakers/imadisch.jpg" alt="Ijad Madisch portrait" />
-                <div class="speaker-meta">
-                    <h3>Ijad Madisch</h3>
-                    <span class="speaker-position">Founder - ResearchGate</span>
-                </div>
-            </div>
-            <div class="speaker-container">
                 <img src="/images/content/speakers/jbegemann.jpg" alt="Jens Begemann portrait" />
                 <div class="speaker-meta">
                     <h3>Jens Begemann</h3>
@@ -163,6 +170,13 @@
                 <div class="speaker-meta">
                     <h3>Mark Turrell</h3>
                     <span class="speaker-position">Founder - Integrated Air</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/mhallermann.jpg" alt="Markus Hallermann portrait" />
+                <div class="speaker-meta">
+                    <h3>Markus Hallermann</h3>
+                    <span class="speaker-position">CEO - Komoot</span>
                 </div>
             </div>
             <div class="speaker-container">
