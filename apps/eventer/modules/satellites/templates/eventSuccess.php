@@ -121,6 +121,12 @@ if($color = $event->getListingColor()) {
 
 <?php	if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()): ?>
 		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the free tickets are not displayed below, please use the following as a promotionnal code:<input class="accesscode" type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" /></p>
+<?php else: ?>
+        <div class="event-main-ticket">
+            <p class="lead">Don't have a Tech Open Air ticket yet?</p>
+            <p>With a ticket you will get access* to aspecially reserved contingent at every satellite event and also enjoy free entrance* to any paid event.<br /><em>* As long as satellite event is not completely sold out, incl. special TOA contingent.</em></p>
+            <a class="button_red" href="#" onclick="alert('TODO'); return false">Get yours now!</a>
+        </div>
 <?php	endif ?>
 
 		<iframe src="http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>" frameborder="0" height="256" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>

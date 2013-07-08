@@ -2193,7 +2193,7 @@ div.screen_user_home {
 	}
 }
 
-div.screen_event {
+div.screen_event#content {
 	
 	.textual {
 		
@@ -2206,6 +2206,21 @@ div.screen_event {
 				.fright;
 			}
 		}
+        
+        .event-main-ticket {
+            margin: 25px auto 40px auto;
+            .tcenter;
+            width: 620px;
+            
+            p{
+                .tcenter;
+                
+                &.lead {
+                    .tcenter;
+                    margin-bottom: 0;
+                }
+            }
+        }
 		
 		.bicolumn {
 			margin-top: 22px;
@@ -2290,6 +2305,7 @@ div.screen_event {
 				}
 			}
 		}
+        
         input.accesscode {			// ** CSS3 selectors sadly :/
 					.ffamily(14px, @font-proxima);
                     .tcenter;
