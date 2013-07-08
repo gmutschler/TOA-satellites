@@ -74,7 +74,6 @@ document.observe("dom:loaded", function() {
 	                  $('hero_background').setStyle({'top':'30px'});
 	                  $('hero_background').setStyle({'left':'50%'});
 	                  $('hero_background').setStyle({'margin':'0 0 0 -480px'});
-	                  $('bottom-logo').setStyle({'top':'-20px'});
 					},
 	                  
 	               onLeave: function(c) {
@@ -82,7 +81,6 @@ document.observe("dom:loaded", function() {
 	                  $('hero_background').setStyle({'top':'auto'});
 	                  $('hero_background').setStyle({'left':'auto'});
 	                  $('hero_background').setStyle({'margin':'0'});
-	                  $('bottom-logo').setStyle({'top':'60px'});
 	               }
 	     });
      }
@@ -102,5 +100,12 @@ document.observe("dom:loaded", function() {
 	               }
 	     });
      }
+     
+     new ScrollSpy({
+     	container: window,
+     	min: 96,
+     	onEnter: function( c ) { $('bottom-logo').setStyle({'top':'-20px'}); },
+     	onLeave: function( c ) { $('bottom-logo').setStyle({'top':'60px'}); }
+     });
 
 });
