@@ -254,54 +254,72 @@ a.slider_nav {
         
         }
     
-    	#header_menu {
+	#header_menu {
         z-index: 1001;
-        .ffamily(15px, @font-proxima, bold);
+        .ffamily(16px, @font-proxima, bold);
 		.tupper;
 		.tright;
         .bottomleft(0, 0);
         
         width: 100%;
-        min-width: 960px;
+        height: 54px;
         position: fixed;
-		border-top: 1px solid @color-border;
+		border-top: 1px solid @color-border-dark;
+        box-shadow: 0 8px 16px #000;
         background-color: @color-bg-gray;
-
-		ul {
-			.fright;
-			@padding-local-menu: 7px;
-			@padding-local-button: 7px;
-
-			padding: @padding-local-menu 0;
-            margin: 11px 7%;
-
-			li {
-				.fleft;
-				margin-left: 3px;	// FIXME: finetune; though it kind of cannot be done properly :(
-
-				a {
-					padding: @padding-local-button 10px;
-
-					text-decoration: none;
-					color: @color-text;
-
-					// states in proper sequence; highlighted at bottom so it overrides anything else
-					&.selected, &:hover {
-						color: @color-red;
-					}
-
-					&.highlighted {
-						color: @color-bg;
-						background-color: @color-red;
-                        margin-left: 7px;
-						&:hover {
-							background: @color-text;
-						}
-					}
-				}
-			}
-		}
+        
+        .menu-container {
+            width: 980px;
+            margin: 0 auto;
+            .relative;
+            
+            #bottom-logo {
+                .disblock(152px, 72px);
+                .bglay('logo-bottom.png');
+                .absolute(-20, -2);
+                .c3transition(300ms);
+            }
+    
+            ul {
+                .fright;
+                @padding-local-menu: 7px;
+                @padding-local-button: 7px;
+    
+                padding: @padding-local-menu 0;
+                margin: 9px 0;
+    
+                li {
+                    .fleft;
+                    margin-left: 1px;
+    
+                    a {
+                        padding: @padding-local-button 10px;
+    
+                        text-decoration: none;
+                        color: @color-text;
+                        vertical-align: middle;
+    
+                        // states in proper sequence; highlighted at bottom so it overrides anything else
+                        &.selected, &:hover {
+                            color: @color-red;
+                        }
+    
+                        &.highlighted {
+                            .ffamily(14px, @font-minion, normal);
+                            color: @color-bg;
+                            background-color: @color-red;
+                            margin-left: 9px;
+                            padding: (@padding-local-button + 1) 14px;
+                            &:hover {
+                                background: @color-text;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 	}
+
 
     
 	}
@@ -577,7 +595,7 @@ a.slider_nav {
 
 
 		#hero_submenu {
-			.ffamily(16px, @font-proxima);
+			.ffamily(17px, @font-proxima, 600);
             .relative;
 
 			@padding-local-top: 7px;
@@ -599,7 +617,7 @@ a.slider_nav {
                 z-index: 1000;
             
                 .absolute;
-                .topleft(7px, 0);
+                .topleft(8px, 0);
 
                 h3, ul { .fleft }
     
@@ -607,8 +625,9 @@ a.slider_nav {
                     .tupper;
                     .c3transition(360ms);
     
-                    margin: 0 8px 0 12px;
+                    margin: 0 6px 0 12px;
                     padding-right: 16px;
+                    line-height: 21px;
     
                     font-weight: bold;
     
@@ -624,6 +643,7 @@ a.slider_nav {
                         a {
                             color: @color-text-hero-submenu;
                             text-decoration: none;
+                            line-height: 21px;
     
                             &:hover, &.selected {
     
@@ -1787,26 +1807,7 @@ a.slider_nav {
 div.screen_unconference_index#content { 
     
     p, h2, h3, a, p.lead { color: @color-retro-text;}
-    
-    #hero_submenu {
-        h3 { color: @color-retro-text; }
-        
-        #submenu-content {
-            ul {
-                li {
-                    a {
-                        color: @color-retro-text;
-                        &.selected, &:hover {
-                            color: @color-retro-text;
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-		
+    		
     #about-2013 {
     
         #theme-description {
@@ -1870,24 +1871,6 @@ div.screen_unconference_index#content {
 div.screen_unconference_speakers#content {
     
     p, h2, h3, a, p.lead { color: @color-retro-text;}
-    
-    #hero_submenu {
-        h3 { color: @color-retro-text; }
-        
-        #submenu-content {
-            ul {
-                li {
-                    a {
-                        color: @color-retro-text;
-                        &.selected, &:hover {
-                            color: @color-retro-text;
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-        }
-    }
     
     .textual {
         .speakers-list {

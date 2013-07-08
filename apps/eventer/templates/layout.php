@@ -28,18 +28,21 @@
 
 		<a id="logo" title="Tech Open Air Berlin 2013" href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"></a>
         <div id="header_menu" style="-webkit-transform: translate3d(0px, 0px, 0px)">
-
-            <ul>
-                <li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"<?php if($sf_context->getModuleName() == 'home') { ?> class="selected"<?php } ?>>Home</a></li>
-                <li><a href="<?=url_for('unconference/index')?>"<?php if($sf_context->getModuleName() == 'unconference') { ?> class="selected"<?php } ?>>The Unconference</a></li>
-                <li><a href="<?=url_for('satellites/index')?>"<?php if($sf_context->getModuleName() == 'satellites') { ?> class="selected"<?php } ?>>The Satellites</a></li>
-                <li><a href="http://blog.toaberlin.com">News</a></li>
-                <li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Supporters</a></li>
-                <li><a href="<?=url_for('about/index')?>"<?php if($sf_context->getModuleName() == 'about') { ?> class="selected"<?php } ?>>About us</a></li>
-                <li><a class="highlighted" href="http://toaberlin2013-TOAWebsite.eventbrite.com" target="_blank">Buy tickets</a></li>
-            </ul>
+            <div class="menu-container">
+                <a id="bottom-logo" title="Tech Open Air Berlin 2013" href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"></a>
     
+                <ul>
+                    <li><a href="<?=$sf_request->getUriPrefix().$sf_request->getRelativeUrlRoot().$sf_request->getPathInfoPrefix()?>"<?php if($sf_context->getModuleName() == 'home') { ?> class="selected"<?php } ?>>Home</a></li>
+                    <li><a href="<?=url_for('unconference/index')?>"<?php if($sf_context->getModuleName() == 'unconference') { ?> class="selected"<?php } ?>>The Unconference</a></li>
+                    <li><a href="<?=url_for('satellites/index')?>"<?php if($sf_context->getModuleName() == 'satellites') { ?> class="selected"<?php } ?>>The Satellites</a></li>
+                    <li><a href="http://blog.toaberlin.com">News</a></li>
+                    <li><a href="<?=url_for('partners/index')?>"<?php if($sf_context->getModuleName() == 'partners') { ?> class="selected"<?php } ?>>Supporters</a></li>
+                    <li><a href="<?=url_for('about/index')?>"<?php if($sf_context->getModuleName() == 'about') { ?> class="selected"<?php } ?>>About us</a></li>
+                    <li><a class="highlighted" href="http://toaberlin2013-TOAWebsite.eventbrite.com" target="_blank">Buy tickets</a></li>
+                </ul>
+        
             <div class="clear"></div>
+            </div>
         </div>
         
 	</div>

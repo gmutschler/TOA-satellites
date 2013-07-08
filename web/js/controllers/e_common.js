@@ -1,5 +1,8 @@
 // # COMMON screen controller
 document.observe("dom:loaded", function() {
+	
+	
+	$('bottom-logo').setStyle({'top':'60px'});
 
     // Google Maps default layout styling
     // - http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
@@ -43,7 +46,7 @@ document.observe("dom:loaded", function() {
                   $('submenu-content').setStyle({'left':'50%'});
                   $('submenu-content').setStyle({'top':'5px'});
                   $('submenu-content').setStyle({'margin':'0 0 0 -480px'});
-                  $('sect').setStyle({'margin':'0 8px 0 -6px'});
+                  $('sect').setStyle({'margin':'0 6px 0 -6px'});
                	}
                   $('login-bg').setStyle({'borderBottom':'1px solid #dedede'});
 				},
@@ -52,9 +55,9 @@ document.observe("dom:loaded", function() {
                	if ($('submenu-content') != undefined) {
                   $('submenu-content').setStyle({'position':'relative'});
                   $('submenu-content').setStyle({'left':'0'});
-                  $('submenu-content').setStyle({'top':'7px'});
+                  $('submenu-content').setStyle({'top':'8px'});
                   $('submenu-content').setStyle({'margin':'0'});
-                  $('sect').setStyle({'margin':'0 8px 0 12px'});
+                  $('sect').setStyle({'margin':'0 6px 0 12px'});
                	}
                   $('login-bg').setStyle({'borderBottom':'none'});
 
@@ -71,6 +74,7 @@ document.observe("dom:loaded", function() {
 	                  $('hero_background').setStyle({'top':'30px'});
 	                  $('hero_background').setStyle({'left':'50%'});
 	                  $('hero_background').setStyle({'margin':'0 0 0 -480px'});
+	                  $('bottom-logo').setStyle({'top':'-20px'});
 					},
 	                  
 	               onLeave: function(c) {
@@ -78,6 +82,7 @@ document.observe("dom:loaded", function() {
 	                  $('hero_background').setStyle({'top':'auto'});
 	                  $('hero_background').setStyle({'left':'auto'});
 	                  $('hero_background').setStyle({'margin':'0'});
+	                  $('bottom-logo').setStyle({'top':'60px'});
 	               }
 	     });
      }
