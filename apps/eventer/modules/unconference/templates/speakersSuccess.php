@@ -166,9 +166,16 @@
                 </div>
             </div>
             <div class="speaker-container">
-                <img src="/images/content/speakers/mturrell.jpg" alt="Mark Turrell portrait" />
+                <img src="/images/content/speakers/mstilke.jpg" alt="Mark Turrell portrait" />
                 <div class="speaker-meta">
-                    <h3>Mark Turrell</h3>
+                    <h3>Mark Stilke</h3>
+                    <span class="speaker-position">CEO - Immobilienscout</span>
+                </div>
+            </div>
+            <div class="speaker-container">
+                <img src="/images/content/speakers/mturrell.jpg" alt="Marc Stilke portrait" />
+                <div class="speaker-meta">
+                    <h3>Marc Turrell</h3>
                     <span class="speaker-position">Founder - Integrated Air</span>
                 </div>
             </div>
