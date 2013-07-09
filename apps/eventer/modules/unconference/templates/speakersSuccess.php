@@ -54,13 +54,6 @@
                 </div>
             </div>
             <div class="speaker-container">
-                <img src="/images/content/speakers/chodge.jpg" alt="Colin Hodge portrait" />
-                <div class="speaker-meta">
-                    <h3>Colin Hodge</h3>
-                    <span class="speaker-position">CEO - Bang with Friends</span>
-                </div>
-            </div>
-            <div class="speaker-container">
                 <img src="/images/content/speakers/cfritzsch.jpg" alt="Conrad Fritzsch portrait" />
                 <div class="speaker-meta">
                     <h3>Conrad Fritzsch</h3>
@@ -208,17 +201,17 @@
                 </div>
             </div>
             <div class="speaker-container">
+                <img src="/images/content/speakers/mbutcher.jpg" alt="Mike Butcher portrait" />
+                <div class="speaker-meta">
+                    <h3>Mike Butcher</h3>
+                    <span class="speaker-position">Editor - TechCrunch Europe</span>
+                </div>
+            </div>
+            <div class="speaker-container">
                 <img src="/images/content/speakers/ounsal.jpg" alt="Oltac Unsal portrait" />
                 <div class="speaker-meta">
                     <h3>Oltac Unsal</h3>
                     <span class="speaker-position">Tech Entrepreneurship Enabler - Accidental Activist</span>
-                </div>
-            </div>
-            <div class="speaker-container">
-                <img src="/images/content/speakers/omor.jpg" alt="Omri Mor portrait" />
-                <div class="speaker-meta">
-                    <h3>Omri Mor</h3>
-                    <span class="speaker-position">Founder - ZIIBRA</span>
                 </div>
             </div>
             <div class="speaker-container">

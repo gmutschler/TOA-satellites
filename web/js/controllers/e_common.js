@@ -104,7 +104,7 @@ document.observe("dom:loaded", function() {
      new ScrollSpy({
      	container: window,
      	min: 96,
-     	onEnter: function( c ) { $('bottom-logo').setStyle({'top':'-20px'}); },
+     	onEnter: function( c ) { $('bottom-logo').setStyle({'top':'-13px'}); },
      	onLeave: function( c ) { $('bottom-logo').setStyle({'top':'60px'}); }
      });
 
