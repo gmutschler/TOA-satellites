@@ -4,7 +4,9 @@
             <li><a class="big_link" href="<?=$big_link?>">
                     <span class="photo">
                         <span class="bg-color" style='background:<?php if ($color) { echo $color;} else {echo "#DC142A";} ?>'></span>
+                        <?php if($image): ?>
                         <img src='<?=$image?>' />
+                        <?php endif ?>
 						<span class="time"><?=$start_hour?></span>
 					</span>
 

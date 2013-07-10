@@ -22,7 +22,7 @@
 <?php	foreach($events as $event) include_partial('listing_item', array(
 
 	'big_link'	=> url_for('satellites/event?id=' . $event->getId()),
-	'image'		=> $event->getLogo() ? '/uploads/event_images/thumbs/' . $event->getLogo() : '/images/content/test_event_thumb.png',
+	'image'		=> $event->getLogo() ? '/uploads/event_images/thumbs/' . $event->getLogo() : '',
 	'start_hour'	=> $event->getStartHourClean(),
 	'end_hour'	=> $event->getEndHourClean(),
 	'title'		=> $event->getTitle(),
