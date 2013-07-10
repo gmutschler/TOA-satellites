@@ -21,11 +21,6 @@ if(isset($category) and $category !== null) {
 
 ?>
 
-<?php if(isset($type) and $type == 'upper'): ?>
-<a href="<?=url_for('satellites/host')?>" class="button_black button_black_small fright" style="z-index: 10; margin-right: 1px;">&#43; Host your own</a>
-<h1>All events</h1>
-<?php endif ?>
-
 <?php /*
 <div class="listing_widget<?php if(isset($type) and !is_null($type)) print ' ' . $type ?>">
 

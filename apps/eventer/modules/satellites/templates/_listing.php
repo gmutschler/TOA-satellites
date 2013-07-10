@@ -9,6 +9,7 @@
 	'category'	=> $category
 )) ?>
 		<div class="listing-container">
+			<a href="<?=url_for('satellites/host')?>" class="button_black button_black_small fright" style="z-index: 10; margin-right: 1px; margin-top: -2px;">&#43; Host your own</a>
         	<ul class="event-categories">
 
 			<li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book')?>">All</a></li>
@@ -46,7 +47,7 @@
 			</ul>
 <?php else: ?>
 
-			<p class="no-content">No events for this time-slot. Guess what, you can just <a href="/satellites/host">create one</a></p>
+			<p class="no-content">Oh no! What a bummer, we don't have any event here for now. But guess what, you can just <a href="/satellites/host">create one</a></p>
 <?php endif ?>
 			<div class="clear"></div>
 		</div>
