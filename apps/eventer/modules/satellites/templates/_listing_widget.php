@@ -26,6 +26,7 @@ if(isset($category) and $category !== null) {
 <h1>All events</h1>
 <?php endif ?>
 
+<?php /*
 <div class="listing_widget<?php if(isset($type) and !is_null($type)) print ' ' . $type ?>">
 
 	<div class="measure pos<?=isset($page) ? $page : 0?>"></div>
@@ -35,3 +36,4 @@ if(isset($category) and $category !== null) {
 	<a class="listing_widget_prev"<?php if($page_prev === false) { ?> href="#" onclick="return false;"<?php } else { ?> href="<?=url_for($link_prev)?>"<?php } ?>></a>
 
 </div>
+*/ ?>

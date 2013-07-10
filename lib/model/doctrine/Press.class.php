@@ -27,4 +27,19 @@ class Press extends BasePress {
 		}
 		else return null;
 	}
+
+	public function save(Doctrine_Connection $conn = null) {
+
+		// Make sure we land on 1st position when saving a new object
+		if($this->isNew()) {
+		
+			$returnValue = parent::save($conn);
+			$this->moveToPosition(1);
+
+			return $returnValue;
+		}
+
+		// ...or just save otherwise
+		else return parent::save($conn);
+	}
 }

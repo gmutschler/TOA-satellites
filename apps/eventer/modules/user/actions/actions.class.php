@@ -81,7 +81,9 @@ class userActions extends sfActions {
 
 				$dirImages = sfConfig::get('sf_upload_dir') . '/organiser_images/';
 
-				$logo = new sfThumbnail(245);
+				// $maxWidth = null, $maxHeight = null, $scale = true, $inflate = true, $quality = 75, $adapterClass = null, $adapterOptions = array()
+				//$logo = new sfThumbnail(245);
+				$logo = new sfThumbnail(245, null, true, true, 100, 'sfImageMagickAdapter');
 				$logo->loadFile($dirImages . $organiser->getLogo());
 				$logo->save($dirImages . $organiser->getLogo());
 			}

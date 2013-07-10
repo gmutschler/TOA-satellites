@@ -11,7 +11,7 @@
 
 	'events'	=> $events,
 	'categories'	=> $categories,
-	'page'		=> $page,
+//	'page'		=> $page,
 	'category'	=> $category
 )) ?>
 

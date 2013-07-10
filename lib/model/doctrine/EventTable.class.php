@@ -9,13 +9,30 @@ class EventTable extends Doctrine_Table {
 
 	public static function getInstance() { return Doctrine_Core::getTable('Event'); }
 
+	public function getEventsForCategory($category = null) {
+
+		// base q
+		$q = $this->createQuery()
+
+			->from('Event e')
+			->where('e.moderated = ?', true)
+		;
+
+		// add category
+		if(!is_null($category)) $q->addWhere('e.category_id = ?', $category->getId());
+
+		// sort and execute
+		$q->orderBy('e.start_hour');
+		return $q->execute();
+	}
+
 	public function getEventsForPageAndCategory($page = 0, $category = null) {
 
 		// base query
 		$q = $this->createQuery()
 
 			->from('Event e')
-			->where('moderated = ?', true)
+			->where('e.moderated = ?', true)
 		;
 
 		// defaults
@@ -38,7 +55,7 @@ class EventTable extends Doctrine_Table {
 		if(!is_null($category)) $q->addWhere('e.category_id = ?', $category->getId());
 
 		// sort and execute
-		$q->orderBy('start_hour');
+		$q->orderBy('e.start_hour');
 		return $q->execute();
 	}
 

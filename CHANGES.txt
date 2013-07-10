@@ -1,3 +1,17 @@
+# 2013-07-10
+- Fixed alpha transparency bug in organiser logos
+- Removed pagination from satellite events (leaving categories working)
+- Fixed no-pin problems (saving event without any color will just copy the
+  original pin image to proper ID)
+- Fixed the ordering off the press reviews (new entries will always land on top)
+
+
+
+--- Plenty changes in the period between are not documented here, 
+--- please refer to GitHub commit messages.
+
+
+
 # 2013-06-27 (night)
 - Added basic, swatches-driven color picker in Event hosting and editing
 - Started working with Google Maps; did some styling on them :)

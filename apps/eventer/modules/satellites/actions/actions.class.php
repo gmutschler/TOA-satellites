@@ -15,10 +15,11 @@ class satellitesActions extends sfActions {
 
 	public function executeBook(sfWebRequest $request) {
 
-		$this->page = $request->getParameter('page');
+		//$this->page = $request->getParameter('page');
 		$this->category = $request->getParameter('category') ? Doctrine_Core::getTable('Category')->findOneById($request->getParameter('category')) : null;
 
-		$this->events = Doctrine_Core::getTable('Event')->getEventsForPageAndCategory($this->page, $this->category);
+		//$this->events = Doctrine_Core::getTable('Event')->getEventsForPageAndCategory($this->page, $this->category);
+		$this->events = Doctrine_Core::getTable('Event')->getEventsForCategory($this->category);
 		$this->categories = Doctrine_Core::getTable('Category')->findAll();
 
 		$this->map_data_pulp = $this->makeMapDataPulp($this->events);
@@ -177,6 +178,13 @@ class satellitesActions extends sfActions {
 					);
 					shell_exec($command . '>/dev/null');
 				}
+			}
+			
+			// just the sample map pin if the color does not exist
+			else {
+
+				if(file_exists($pin = sfConfig::get('sf_upload_dir') . '/event_images/pins/' . $event->getId() . '.png') and is_writable($pin)) unlink($pin);
+				copy(sfConfig::get('sf_web_dir') . '/images/layout/pin-map.png', $pin);
 			}
 
 			// message
