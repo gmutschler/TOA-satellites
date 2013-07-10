@@ -30,6 +30,7 @@
                 <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/locations/factory.jpg"></a>
                 <a href="http://www.mobilesuite.de/" target="_blank"><img src="/images/content/locations/mobilesuite.jpg"></a>
                 <a href="http://www.sanktoberholz.de/" target="_blank"><img src="/images/content/locations/oberholz.jpg"></a>
+                <a href="http://www.thewye.de/" target="_blank"><img src="/images/content/locations/wye.jpg"></a>
             </div>
             <a class="slider_nav slider_previous" id="location_slider_previous"></a>
             <a class="slider_nav slider_next" id="location_slider_next"></a>
