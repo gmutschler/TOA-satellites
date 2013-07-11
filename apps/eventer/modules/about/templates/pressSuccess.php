@@ -264,7 +264,7 @@
     </div><!--END TEXTUAL-->
     
     <div class="textual" id="logos">
-        <h1>Graphic Ressources</h1>
+        <h1>Graphic Ressource</h1>
         <h2>Logos</h2>
         <div class="logo-download first">
             <img src="/images/content/press/TOA_logo-small.png" style="" alt="TOA Berlin Logo - Color">

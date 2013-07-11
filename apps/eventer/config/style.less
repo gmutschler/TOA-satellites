@@ -1801,6 +1801,40 @@ a.slider_nav {
 		}
 		
 	}
+	
+	#mc-embedded-subscribe-form {
+		.separator;
+				
+		label {
+			.ffamily(14px, @font-proxima, 700);
+			.tupper;
+			.disblock;
+		}
+		
+		input#mailing-list-email {
+			.ffamily(17px, @font-minion);
+			color: @color-text;
+			border: none;
+			background-color: @color-bg-gray-dark;
+			padding: 6px 9px;
+			-webkit-border-radius: 0;
+			border-radius: 0;
+			width: 240px;
+		}
+		
+		button#mailing-list-submit {
+			.ffamily(17px, @font-minion);
+			border:none;
+			color: @color-bg;
+			background-color: @color-text;
+			padding: 6px 9px;
+			
+			&:hover {
+				background: @color-red;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 // # content screens

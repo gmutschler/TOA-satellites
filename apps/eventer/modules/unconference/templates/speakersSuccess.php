@@ -100,7 +100,7 @@
 		        <img src="/images/content/speakers/bheilemann.jpg" alt="Fabian and Ferry Heilemann portrait" />
 		        <div class="speaker-meta">
 		            <h3>Fabian and Ferry Heilemann</h3>
-		            <span class="speaker-position">Founders - DaylyDeal & Heilemann Ventures</span>
+		            <span class="speaker-position">Founders - DailyDeal & Heilemann Ventures</span>
 		        </div>
 		    </div>
 		    <div class="speaker-container">
@@ -115,6 +115,13 @@
 		        <div class="speaker-meta">
 		            <h3>Flo Meissner</h3>
 		            <span class="speaker-position">Founder - EyeEm</span>
+		        </div>
+		    </div>
+		    <div class="speaker-container">
+		        <img src="/images/content/speakers/hweidenmuller.jpg" alt="Horst Weidenmüller portrait" />
+		        <div class="speaker-meta">
+		            <h3>Horst Weidenmüller</h3>
+		            <span class="speaker-position">CEO - !K7 Records</span>
 		        </div>
 		    </div>
 		    <div class="speaker-container">
@@ -155,7 +162,7 @@
 		    <div class="speaker-container">
 		        <img src="/images/content/speakers/mstilke.jpg" alt="Mark Turrell portrait" />
 		        <div class="speaker-meta">
-		            <h3>Mark Stilke</h3>
+		            <h3>Marc Stilke</h3>
 		            <span class="speaker-position">CEO - Immobilienscout</span>
 		        </div>
 		    </div>

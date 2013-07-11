@@ -109,6 +109,12 @@
             </ul>
         </div>
         <div class="clear"></div>
+        
+		<form action="http://toaberlin.us5.list-manage.com/subscribe/post?u=d09d20f085f76107f0ba5e78e&amp;id=1271478ca6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="nl-form single-field" novalidate="">
+				<label for="mailing-list-email">Subscribe to our Newsletter</label>
+		        <input id="mailing-list-email" class="email" name="EMAIL" type="email" placeholder="Enter your email"><button id="mailing-list-submit" class="signup-submit">→</button>
+		</form>
+		     
      </div>
      
  </div>

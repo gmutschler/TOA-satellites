@@ -26,6 +26,7 @@
             <a href="http://www.deinbiogarten.de/" target="_blank"><img src="/images/content/sponsors/biogarten.png"></a>
             <a href="http://roccoandsanny.de/" target="_blank"><img src="/images/content/sponsors/roccosanny.png"></a>
             <a href="http://www.wonderpots.de/" target="_blank"><img src="/images/content/sponsors/wonderpots.png"></a>
+            <a href="http://www.coffeecircle.com/" target="_blank"><img src="/images/content/sponsors/coffecircle.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
