@@ -8,6 +8,7 @@
         <div class="sponsors_logos">
             <a href="https://www.eventbrite.de/features/?ref=toa2013" target="_blank"><img src="/images/content/sponsors/eventbrite.png"></a>
             <a href="http://www.termine24.de/" target="_blank"><img src="/images/content/sponsors/termine24.png"></a>
+            <a href="http://www.hubraum.com/" target="_blank"><img src="/images/content/sponsors/hubraum.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Boosters</h2>
@@ -16,7 +17,7 @@
             <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/sponsors/factory.png"></a>
             <a href="http://www.plista.com/" target="_blank"><img src="/images/content/sponsors/plista.png"></a>
             <a href="http://twisper.com/" target="_blank"><img src="/images/content/sponsors/twisper.png"></a>
-            <a href="http://www.hubraum.com/" target="_blank"><img src="/images/content/sponsors/hubraum.png"></a>
+            <a href="https://www.elance.com/q/berlin" target="_blank"><img src="/images/content/sponsors/elance.png"></a>
             <a href="http://www.kpmg.com/" target="_blank"><img src="/images/content/sponsors/kpmg.png"></a>
             <!--<a href="http://www.earlybird.com/" target="_blank"><img src="/images/content/sponsors/earlybird.png"></a>-->
             <div class="clear"></div>
