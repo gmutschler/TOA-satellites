@@ -13,6 +13,13 @@
 		        </div>
 		    </div>
 		    <div class="speaker-container">
+		        <img src="/images/content/speakers/aclay.jpg" alt="Alexa Clay portrait" />
+		        <div class="speaker-meta">
+		            <h3>Alexa Clay</h3>
+		            <span class="speaker-position">Writer, Provocateur, Sound Art Enthusiast</span>
+		        </div>
+		    </div>
+		    <div class="speaker-container">
 		        <img src="/images/content/speakers/arichter.jpg" alt="Andreas Richter portrait" />
 		        <div class="speaker-meta">
 		            <h3>Andreas Richter</h3>
@@ -59,6 +66,13 @@
 		        <div class="speaker-meta">
 		            <h3>Courtney Boyd Myers</h3>
 		            <span class="speaker-position">Founder - Audience.io</span>
+		        </div>
+		    </div>
+		    <div class="speaker-container">
+		        <img src="/images/content/speakers/agorlach.jpg" alt="Alexander Görlach portrait" />
+		        <div class="speaker-meta">
+		            <h3>Dr. Alexander Görlach</h3>
+		            <span class="speaker-position">Publisher & Editor-in-Chief - THE EUROPEAN</span>
 		        </div>
 		    </div>
 		    <div class="speaker-container">
@@ -118,6 +132,13 @@
 		        </div>
 		    </div>
 		    <div class="speaker-container">
+		        <img src="/images/content/speakers/gcegla.jpg" alt="Gilli Cegla portrait" />
+		        <div class="speaker-meta">
+		            <h3>Gilli Cegla</h3>
+		            <span class="speaker-position">Venture Partner - Telekom hub:raum</span>
+		        </div>
+		    </div>
+		    <div class="speaker-container">
 		        <img src="/images/content/speakers/hweidenmuller.jpg" alt="Horst Weidenmüller portrait" />
 		        <div class="speaker-meta">
 		            <h3>Horst Weidenmüller</h3>
@@ -157,6 +178,13 @@
 		        <div class="speaker-meta">
 		            <h3>Jess Erickson</h3>
 		            <span class="speaker-position">Founder - Berlin Geekettes</span>
+		        </div>
+		    </div>
+		    <div class="speaker-container">
+		        <img src="/images/content/speakers/mspitz.jpg" alt="Malte Spitz portrait" />
+		        <div class="speaker-meta">
+		            <h3>Malte Spitz</h3>
+		            <span class="speaker-position">National Executive Board - DIE GRÜNEN</span>
 		        </div>
 		    </div>
 		    <div class="speaker-container">
@@ -234,6 +262,13 @@
 		        <div class="speaker-meta">
 		            <h3>Riva-Melissa Tez</h3>
 		            <span class="speaker-position">Founder - Singularity Group Berlin</span>
+		        </div>
+		    </div>
+		    <div class="speaker-container">
+		        <img src="/images/content/speakers/rscoble.jpg" alt="Robert Scoble portrait" />
+		        <div class="speaker-meta">
+		            <h3>Robert Scoble<br /><small>(via Hanghout)</small></h3>
+		            <span class="speaker-position">Startup Liaison Officer - Rackspace</span>
 		        </div>
 		    </div>
 		    <div class="speaker-container">
