@@ -28,6 +28,7 @@
             <a href="http://roccoandsanny.de/" target="_blank"><img src="/images/content/sponsors/roccosanny.png"></a>
             <a href="http://www.wonderpots.de/" target="_blank"><img src="/images/content/sponsors/wonderpots.png"></a>
             <a href="http://www.coffeecircle.com/" target="_blank"><img src="/images/content/sponsors/coffecircle.png"></a>
+            <a href="http://www.happycups.de/" target="_blank"><img src="/images/content/sponsors/happycups.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
@@ -39,6 +40,8 @@
         <h2>Media partners</h2>
         <div class="sponsors_logos">
             <a href="http://www.medianet-bb.de" target="_blank"><img src="/images/content/sponsors/medianet.png"></a>
+            <a href="http://www.welt.de/" target="_blank"><img src="/images/content/sponsors/welt.png"></a>
+            <a href="http://www.welt.de/welt-kompakt/" target="_blank"><img src="/images/content/sponsors/weltkompakt.png"></a>
             <div class="clear"></div>
         </div>
 	</div>
