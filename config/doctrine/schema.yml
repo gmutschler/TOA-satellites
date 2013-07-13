@@ -5,7 +5,6 @@
 #    (dig around their API); probably do some user flag sayign "main ticket bought"
 #
 #  LATER:
-#  - Optimize certain defined values basing on real world examples
 #  - Add optimizations as notnulls, primary keys, indexes, etc.
 options:
   charset:            UTF8
@@ -27,10 +26,38 @@ Press:
     url:
       type: string(192)
 
+
 Program:
   actAs: 
     Timestampable: ~
   columns:
+    kind:
+      type: string(32)
+    title:
+      type: string(64)
+    description:
+      type: string(512)
+    start_hour:
+      type: time
+      notnull: true
+    end_hour:
+      type: time
+      notnull: true
+
+  relations:
+    Speakers:
+      class:            Speaker
+      refClass:         ProgramSpeaker
+      foreignAlias:     Programs
+
+
+Speaker:
+  actAs:
+    Timestampable: ~
+    Sortable: ~
+  columns:
+    face:
+      type: string(128)
     first_name:
       type: string(64)
     last_name:
@@ -47,6 +74,28 @@ Program:
       type: string(128)
     twitter:
       type: string(128)
+
+  relations:
+    Programs:
+      class:            Program
+      refClass:         ProgramSpeaker
+      foreignAlias:     Speakers
+
+
+ProgramSpeaker:
+  columns:
+    program_id:
+      type: integer
+      notnull: true
+    speaker_id:
+      type: integer
+      notnull: true
+
+  relations:
+    Program:
+      foreignAlias: ProgramSpeakers
+    Speaker:
+      foreignAlias: ProgramSpeakers
 
 
 # Satellite events related tables

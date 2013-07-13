@@ -1,40 +1,48 @@
 <?php
 
 /**
- * Program filter form base class.
+ * Speaker filter form base class.
  *
  * @package    toaberlin
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BaseProgramFormFilter extends BaseFormFilterDoctrine
+abstract class BaseSpeakerFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'kind'          => new sfWidgetFormFilterInput(),
-      'title'         => new sfWidgetFormFilterInput(),
+      'face'          => new sfWidgetFormFilterInput(),
+      'first_name'    => new sfWidgetFormFilterInput(),
+      'last_name'     => new sfWidgetFormFilterInput(),
+      'position'      => new sfWidgetFormFilterInput(),
+      'company'       => new sfWidgetFormFilterInput(),
       'description'   => new sfWidgetFormFilterInput(),
-      'start_hour'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'end_hour'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'url'           => new sfWidgetFormFilterInput(),
+      'facebook'      => new sfWidgetFormFilterInput(),
+      'twitter'       => new sfWidgetFormFilterInput(),
       'created_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'speakers_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Speaker')),
+      'programs_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Program')),
     ));
 
     $this->setValidators(array(
-      'kind'          => new sfValidatorPass(array('required' => false)),
-      'title'         => new sfValidatorPass(array('required' => false)),
+      'face'          => new sfValidatorPass(array('required' => false)),
+      'first_name'    => new sfValidatorPass(array('required' => false)),
+      'last_name'     => new sfValidatorPass(array('required' => false)),
+      'position'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'company'       => new sfValidatorPass(array('required' => false)),
       'description'   => new sfValidatorPass(array('required' => false)),
-      'start_hour'    => new sfValidatorPass(array('required' => false)),
-      'end_hour'      => new sfValidatorPass(array('required' => false)),
+      'url'           => new sfValidatorPass(array('required' => false)),
+      'facebook'      => new sfValidatorPass(array('required' => false)),
+      'twitter'       => new sfValidatorPass(array('required' => false)),
       'created_at'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-      'speakers_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Speaker', 'required' => false)),
+      'programs_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Program', 'required' => false)),
     ));
 
-    $this->widgetSchema->setNameFormat('program_filters[%s]');
+    $this->widgetSchema->setNameFormat('speaker_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -43,7 +51,7 @@ abstract class BaseProgramFormFilter extends BaseFormFilterDoctrine
     parent::setup();
   }
 
-  public function addSpeakersListColumnQuery(Doctrine_Query $query, $field, $values)
+  public function addProgramsListColumnQuery(Doctrine_Query $query, $field, $values)
   {
     if (!is_array($values))
     {
@@ -57,27 +65,31 @@ abstract class BaseProgramFormFilter extends BaseFormFilterDoctrine
 
     $query
       ->leftJoin($query->getRootAlias().'.ProgramSpeaker ProgramSpeaker')
-      ->andWhereIn('ProgramSpeaker.speaker_id', $values)
+      ->andWhereIn('ProgramSpeaker.program_id', $values)
     ;
   }
 
   public function getModelName()
   {
-    return 'Program';
+    return 'Speaker';
   }
 
   public function getFields()
   {
     return array(
       'id'            => 'Number',
-      'kind'          => 'Text',
-      'title'         => 'Text',
+      'face'          => 'Text',
+      'first_name'    => 'Text',
+      'last_name'     => 'Text',
+      'position'      => 'Number',
+      'company'       => 'Text',
       'description'   => 'Text',
-      'start_hour'    => 'Text',
-      'end_hour'      => 'Text',
+      'url'           => 'Text',
+      'facebook'      => 'Text',
+      'twitter'       => 'Text',
       'created_at'    => 'Date',
       'updated_at'    => 'Date',
-      'speakers_list' => 'ManyKey',
+      'programs_list' => 'ManyKey',
     );
   }
 }

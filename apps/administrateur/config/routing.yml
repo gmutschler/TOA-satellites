@@ -1,3 +1,21 @@
+speaker:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Speaker
+    module:               speaker
+    prefix_path:          /speaker
+    column:               id
+    with_wildcard_routes: true
+
+program:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Program
+    module:               program
+    prefix_path:          /program
+    column:               id
+    with_wildcard_routes: true
+
 press:
   class: sfDoctrineRouteCollection
   options:

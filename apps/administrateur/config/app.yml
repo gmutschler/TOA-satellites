@@ -24,6 +24,12 @@ all:
           Press:
             url:    press
             image:  addedit.png
+          Program:
+            url:    program
+            image:  menu.png
+          Speakers:
+            url:    speaker
+            image:  language.png
       Events:
         items:
           Categories:
