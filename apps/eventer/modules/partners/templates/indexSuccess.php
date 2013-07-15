@@ -35,6 +35,8 @@
         <div class="sponsors_logos">
             <a href="http://www.amanogroup.de/" target="_blank"><img src="/images/content/sponsors/amano.png"></a>
             <a href="http://samuelbraungroup.com/" target="_blank"><img src="/images/content/sponsors/sbraun.png"></a>
+            <a href="http://www.lux-eleven.com/" target="_blank"><img src="/images/content/sponsors/lux11.png"></a>
+            <a href="http://www.the-weinmeister.com/" target="_blank"><img src="/images/content/sponsors/weinmeister.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Media partners</h2>
