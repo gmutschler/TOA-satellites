@@ -12,7 +12,7 @@
 		        <img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?> portrait" />
 		        <div class="speaker-meta">
 		            <h3><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h3>
-		            <span class="speaker-position"><?=$speaker->getPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
+		            <span class="speaker-position"><?=$speaker->getCompanyPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
 		        </div>
 		    </div>
 
