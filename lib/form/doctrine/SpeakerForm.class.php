@@ -22,7 +22,7 @@ class SpeakerForm extends BaseSpeakerForm {
 		// widgets and validators
 		$this->setWidget('face', new sfWidgetFormInputFileEditable(array(
 
-			'file_src'	=> '/uploads/faces/' . $this->getObject()->face,
+			'file_src'	=> '/images/content/speakers-cms/' . $this->getObject()->face,
 			'edit_mode'     => !$this->isNew(),
 			'is_image'      => true,
 			'with_delete'   => false
@@ -30,7 +30,7 @@ class SpeakerForm extends BaseSpeakerForm {
 		$this->setValidator('face', new sfValidatorFile(array(
 
 			'mime_types'	=> 'web_images',
-			'path'		=> sfConfig::get('sf_upload_dir') . '/faces',
+			'path'		=> sfConfig::get('sf_web_dir') . '/images/content/speakers-cms/',
 			'required'	=> false
 		)));
 		$this->validatorSchema['face_delete'] = new sfValidatorBoolean();

@@ -15,5 +15,4 @@ class PressTable extends Doctrine_Table {
 		$q->orderBy($r . '.position');
 		return $q;
 	}
-
 }

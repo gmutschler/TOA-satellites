@@ -15,7 +15,9 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        table_method: getWithPosition
+        display: ['_position', '_face', =first_name, =last_name, company_position, company]
       filter:  ~
       form:    ~
       edit:    ~

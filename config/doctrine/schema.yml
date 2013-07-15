@@ -62,10 +62,10 @@ Speaker:
       type: string(64)
     last_name:
       type: string(64)
-    position:
-      type: string(48)
+    company_position:
+      type: string(96)
     company:
-      type: string(32)
+      type: string(64)
     description:
       type: string(512)
     url:

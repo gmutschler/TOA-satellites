@@ -3,8 +3,20 @@
 <?php include_partial('submenu') ?>
 
 	<div class="textual">
-		
+
+<?php if(isset($speakers) and count($speakers)): ?>
 		<div class="speakers-list">
+<?php	foreach($speakers as $speaker): ?>
+
+		    <div class="speaker-container">
+		        <img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?> portrait" />
+		        <div class="speaker-meta">
+		            <h3><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h3>
+		            <span class="speaker-position"><?=$speaker->getPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
+		        </div>
+		    </div>
+
+<?php /*
 		    <div class="speaker-container">
 		        <img src="/images/content/speakers/afletcher.jpg" alt="Adam Fletcher portrait" />
 		        <div class="speaker-meta">
@@ -306,13 +318,14 @@
 		            <span class="speaker-position">Founder - Reactify/8linq</span>
 		        </div>
 		    </div>
+*/ ?>
+<?php	endforeach ?>
 		    <div class="speaker-container more">
 		            <h3>More to be announced<br>...</h3>
 		    </div>
 		    
-		<div class="clear"></div>    
+		<div class="clear"></div>
 		</div>
-	
+<?php endif // & if speakers ?>
 	</div>
-
 </div>

@@ -1,0 +1,1 @@
+<a href="<?=url_for('speaker/edit?id=' . $speaker->getId())?>"><img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?>" width="60" height="60" /></a>
