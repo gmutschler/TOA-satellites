@@ -2,8 +2,8 @@
 
 // Default links
 $links = array(
-    'Introduction'  => 'satellites/index',
-    'Book'          => 'satellites/book',
+    'Book'          => 'satellites/index',
+    'About'         => 'satellites/about',
     'Host'          => 'satellites/host'
 );
 

@@ -14,12 +14,15 @@
 		            <h3><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h3>
 		            <span class="speaker-position"><?=$speaker->getCompanyPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
 		        </div>
+
+<?php /*
 		      	<div class="speaker-description">
                     <?php if($speaker->getDescription()) { ?><p><?=$speaker->getDescription() ?></p><? } ?>
                     <?php if($speaker->getTwitter()) { ?><div class="speaker-links first-link"><?=$speaker->getTwitter() ?></div><? } ?>
                     <?php if($speaker->getURL()) { ?><div class="speaker-links <?php if(!$speaker->getTwitter()) { ?>first-link"><? } ?><?=$speaker->getURL() ?></div><? } ?>
                     <?php if($speaker->getFacebook()) { ?><div class="speaker-links<?php if(!$speaker->getTwitter() && !$speaker->getURL()) { ?>first-link"><? } ?>"><?=$speaker->getFacebook() ?></div><? } ?>
-                </div>
+			</div>
+*/ ?>
 		    </div>
 
 <?php /*

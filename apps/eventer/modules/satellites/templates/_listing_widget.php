@@ -10,8 +10,8 @@ if($page == intval(sfConfig::get('app_pagination_last_page'))) $page_next = fals
 
 // categories
 // ** pretty stupid logic as we may override unused stuff, but who cares anyway
-$link_next = 'satellites/book?page=' . $page_next;
-$link_prev = 'satellites/book?page=' . $page_prev;
+$link_next = 'satellites/index?page=' . $page_next;
+$link_prev = 'satellites/index?page=' . $page_prev;
 
 if(isset($category) and $category !== null) {
 

@@ -39,11 +39,11 @@
                     <span href="/unconference/index" class="seemore">More about the unconference &rsaquo;</span>
 	            </a>
 	            
-	            <a class="column fright" href="/satellites/book">
+	            <a class="column fright" href="/satellites">
 	            	<img src="/images/content/satellite_sponso.jpg">
 	            	<h3>Satellite Events across the city</h3>
 	                <p>On the second day, the ecosystem takes over and self‑organizes events all over the city. Attendees will get the opportunity to visit startup offices, enjoy corporate perks, participate in workshops and network with smart people at meet‑ups and memorable parties.</p>
-                    <span href="/satellites/book" class="seemore">See all the satellite events &rsaquo;</span>
+                    <span href="/satellites" class="seemore">See all the satellite events &rsaquo;</span>
 	            </a>
                 <div class="clear"></div>
 	    	</div>

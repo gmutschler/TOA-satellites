@@ -11,9 +11,6 @@
 class satellitesActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
-	}
-
-	public function executeBook(sfWebRequest $request) {
 
 		//$this->page = $request->getParameter('page');
 		$this->category = $request->getParameter('category') ? Doctrine_Core::getTable('Category')->findOneById($request->getParameter('category')) : null;
@@ -23,6 +20,9 @@ class satellitesActions extends sfActions {
 		$this->categories = Doctrine_Core::getTable('Category')->findAll();
 
 		$this->map_data_pulp = $this->makeMapDataPulp($this->events);
+	}
+
+	public function executeAbout(sfWebRequest $request) {
 	}
 
 	public function executeEvent(sfWebRequest $request) {
@@ -94,7 +94,7 @@ class satellitesActions extends sfActions {
 		if( !$this->getUser()->getGuardUser()->getIsSuperAdmin() and ($this->getUser()->getGuardUser() != $event->getOrganiser()->getGuardUser()) ) {
 
 			$this->getUser()->setFlash('error', "You don't have permission to edit this event!");
-			$this->redirect('satellites/book');
+			$this->redirect('satellites/index');
 		}
 
 		$this->form = new EventForm($event);
@@ -110,7 +110,7 @@ class satellitesActions extends sfActions {
 		if( !$this->getUser()->getGuardUser()->getIsSuperAdmin() and ($this->getUser()->getGuardUser() != $event->getOrganiser()->getGuardUser()) ) {
 
 			$this->getUser()->setFlash('error', "You don't have permission to edit this event!");
-			$this->redirect('satellites/book');
+			$this->redirect('satellites/index');
 		}
 
 		$this->form = new EventForm($event);

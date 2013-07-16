@@ -12,17 +12,10 @@
 			<a href="<?=url_for('satellites/host')?>" class="button_black button_black_small fright" style="z-index: 10; margin-right: 1px; margin-top: -2px;">&#43; Host your own</a>
         	<ul class="event-categories">
 
-			<li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book')?>">All</a></li>
+			<li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/index')?>">All</a></li>
 <?php foreach($categories as $loopCategory): ?>
-	    		<li<?php if(isset($category) and !is_null($category) and $category->getId() === $loopCategory->getId()) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?category=' . $loopCategory->getId())?>"><?=$loopCategory->getName()?></a></li>
+	    		<li<?php if(isset($category) and !is_null($category) and $category->getId() === $loopCategory->getId()) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/index?category=' . $loopCategory->getId())?>"><?=$loopCategory->getName()?></a></li>
 <?php endforeach ?>
-
-<?php /*
-			<li<?php if(!isset($category) or is_null($category)) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?page=' . $page)?>">All</a></li>
-<?php foreach($categories as $loopCategory): ?>
-	    		<li<?php if(isset($category) and !is_null($category) and $category->getId() === $loopCategory->getId()) { ?> class="selected"<?php } ?>><a href="<?=url_for('satellites/book?category=' . $loopCategory->getId() . '&page=' . $page)?>"><?=$loopCategory->getName()?></a></li>
-<?php endforeach ?>
-*/ ?>
         	</ul>
 
 <?php if(isset($events) and count($events)): ?>
