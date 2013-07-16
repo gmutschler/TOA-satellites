@@ -44,6 +44,8 @@
             <a href="http://www.medianet-bb.de" target="_blank"><img src="/images/content/sponsors/medianet.png"></a>
             <a href="http://www.welt.de/" target="_blank"><img src="/images/content/sponsors/welt.png"></a>
             <a href="http://www.welt.de/welt-kompakt/" target="_blank"><img src="/images/content/sponsors/weltkompakt.png"></a>
+            <a href="http://venturevillage.eu/" target="_blank"><img src="/images/content/sponsors/venturevillage.png"></a>
+            <a href="http://www.gruenderszene.de/" target="_blank"><img src="/images/content/sponsors/grunderszene.png"></a>
             <div class="clear"></div>
         </div>
 	</div>
