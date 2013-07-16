@@ -63,7 +63,7 @@ if($color = $event->getListingColor()) {
         <a href="/satellites/book/" class="button_back"><big>&lsaquo;</big> All events</a>
 
 <?php if($sf_user->isAuthenticated() and $event->getOrganiser()->getGuardUser() == $sf_user->getGuardUser()): ?>
-	<a class="button_black button_small" href="<?=url_for('satellites/edit?id=' . $event->getId())?>">Edit the event</a>
+	<a class="button_black button_black_small" href="<?=url_for('satellites/edit?id=' . $event->getId())?>">Edit the event</a>
 <?php endif ?>
 
 		<h1><?=$event->getTitle()?><span class="time"><?=$event->getStartHourClean()?> - <?=$event->getEndHourClean()?></span></h1>
