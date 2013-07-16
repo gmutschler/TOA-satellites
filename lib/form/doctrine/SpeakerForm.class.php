@@ -16,7 +16,8 @@ class SpeakerForm extends BaseSpeakerForm {
 		unset(
 
 			$this['created_at'],
-			$this['updated_at']
+			$this['updated_at'],
+			$this['position']
 		);
 
 		// widgets and validators
