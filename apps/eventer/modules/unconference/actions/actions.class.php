@@ -15,7 +15,8 @@ class unconferenceActions extends sfActions {
 
 	public function executeSpeakers(sfWebRequest $request) {
 
-		$this->speakers = Doctrine_Core::getTable('Speaker')->findAllSorted('asc');
+		//$this->speakers = Doctrine_Core::getTable('Speaker')->findAllSorted('asc');
+		$this->speakers = Doctrine_Core::getTable('Speaker')->getByLastName();
 	}
 
 	public function executeSchedule(sfWebRequest $request) {

@@ -16,8 +16,10 @@ generator:
       actions: ~
       fields:  ~
       list:
-        table_method: getWithPosition
-        display: ['_position', '_face', =first_name, =last_name, company_position, company]
+#        table_method: getWithPosition
+#        display: ['_position', '_face', =first_name, =last_name, company_position, company]
+        table_method: getByLastNameForAdmin
+        display: ['_face', =first_name, =last_name, company_position, company]
       filter:  ~
       form:    ~
       edit:    ~
