@@ -13,7 +13,6 @@
 
 <?php include_partial('submenu') ?>
 	<div class="textual">
-        <h1>The Satellite events<span>&nbsp; August 2, 2013</span></h1>
         <p class="lead">On the second day the ecosystem takes over and self‑organizes events all over the city.<br />
         <small>Attendees will get the opportunity to visit startup offices, enjoy corporate perks, participate in workshops and network with interesting people at meet‑ups, music performances and memorable parties.</small></p>
     </div>

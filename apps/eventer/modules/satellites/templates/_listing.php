@@ -1,6 +1,8 @@
 <?php //if(!isset($page)) $page = 0; // small fix for easier linking ?>
 <?php use_helper('Text') ?>
 	<div class="listing">
+	
+    <h1>All Events<span>&nbsp; August 2, 2013</span></h1>
 
 <?php include_partial('listing_widget', array(
 
