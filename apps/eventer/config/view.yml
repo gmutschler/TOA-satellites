@@ -6,10 +6,10 @@ default:
     content-type: text/html
 
   metas:
-    title:        TOA Berlin 2013
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
+    title:        Tech Open Air Berlin | This is NOT Europe's SXSW | Tech, Music, Art & Science | August 1-2, 2013
+    description:  TOA is a 2 two-day festival that aim to connect, grow and inspire the creative, entrepreneurial and scientific community through knowledge exchange and collaboration.
+    #keywords:     TOA, Tech Open Air, Festival, Unconference
+    language:     en
     #robots:       index, follow
 
   stylesheets:    [main.css]
