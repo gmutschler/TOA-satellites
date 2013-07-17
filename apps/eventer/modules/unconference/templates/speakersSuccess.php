@@ -7,23 +7,30 @@
 <?php if(isset($speakers) and count($speakers)): ?>
 		<div class="speakers-list">
 <?php	foreach($speakers as $speaker): ?>
+            <div class="speaker-item"<?php if($speaker->getId() == 9) { ?> style="margin-bottom: 300px;"<?php } ?>>
+                <div class="speaker-container">
+                    <img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?> portrait" />
+                    <div class="speaker-meta">
+                        <h3><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h3>
+                        <span class="speaker-position"><?=$speaker->getCompanyPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
+                    </div>
+                    <div class="speaker-cursor"<?php if($speaker->getId() != 9) { ?> style="display: none"<?php } ?>></div>
+                </div>
 
-		    <div class="speaker-container">
-		        <img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?> portrait" />
-		        <div class="speaker-meta">
-		            <h3><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h3>
-		            <span class="speaker-position"><?=$speaker->getCompanyPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
-		        </div>
-
-<?php /*
-		      	<div class="speaker-description">
+		      	<div class="speaker-description"<?php if($speaker->getId() != 9) { ?> style="display: none"<?php } ?>>
+                    <h1><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h1>
+                    <?php if($speaker->getCompany()) { ?> <span class="speaker-company"><?=$speaker->getCompany()?></span><? } ?>
+                    <?php if($speaker->getCompany() & $speaker->getCompanyPosition()) { ?><span class="speaker-company">&#124;</span><? } ?>
+                    <?php if($speaker->getCompanyPosition()) { ?> <span class="speaker-position"><?=$speaker->getCompanyPosition()?></span><? } ?>
                     <?php if($speaker->getDescription()) { ?><p><?=$speaker->getDescription() ?></p><? } ?>
-                    <?php if($speaker->getTwitter()) { ?><div class="speaker-links first-link"><?=$speaker->getTwitter() ?></div><? } ?>
-                    <?php if($speaker->getURL()) { ?><div class="speaker-links <?php if(!$speaker->getTwitter()) { ?>first-link"><? } ?><?=$speaker->getURL() ?></div><? } ?>
-                    <?php if($speaker->getFacebook()) { ?><div class="speaker-links<?php if(!$speaker->getTwitter() && !$speaker->getURL()) { ?>first-link"><? } ?>"><?=$speaker->getFacebook() ?></div><? } ?>
-			</div>
-*/ ?>
-		    </div>
+                    <div class="speaker-links">
+                    <?php if($speaker->getTwitter()) { ?><span class="first-link twitter"><a href="http://www.twitter.com/<?=$speaker->getTwitter() ?>">@<?=$speaker->getTwitter() ?></a></span><? } ?>
+                    <?php if($speaker->getURL()) { ?><span class="website <?php if(!$speaker->getTwitter()) { ?>first-link<? } ?>"><a href="http://<?=$speaker->getURL() ?>"><?=$speaker->getURL() ?></a></span><? } ?>
+                    <?php if($speaker->getFacebook()) { ?><span class="facebook <?php if(!$speaker->getTwitter() && !$speaker->getURL()) { ?>first-link<? } ?>"><a href="http://www.facebook.com/<?=$speaker->getFacebook() ?>">facebook.com/<?=$speaker->getFacebook() ?></a></span><? } ?>
+                    </div>
+			     </div>
+                    
+            </div>
 
 <?php /*
 		    <div class="speaker-container">
@@ -329,7 +336,7 @@
 		    </div>
 */ ?>
 <?php	endforeach ?>
-		    <div class="speaker-container more">
+		    <div class="speaker-item more">
 		            <h3>More to be announced<br>...</h3>
 		    </div>
 		    

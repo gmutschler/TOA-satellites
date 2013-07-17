@@ -1910,66 +1910,140 @@ div.screen_unconference_speakers#content {
     	
         .speakers-list {
             @portrait-size: 192px;
+            font-size: 0;
             
-            .speaker-container {
-                .relative;
-                .fleft;
+            .speaker-item {
+                display: inline-block;
                 width: @portrait-size;
                 height: @portrait-size;
-                overflow: hidden;
-                
-                .speaker-meta {
-                    .absolute;
-                    .topleft(0,0);
-                    width: @portrait-size;
-                    height: @portrait-size;
-                    
-                    h3 {
-                        font-size: 23px;
-                        .tupper;
-                        margin: 8px;
-                        .absolute;
-                        .topleft(0, 0);
-                        line-height: 21px;
-                        color: @color-retro-bg;
-                    }
-                    
-                    span.speaker-position {
-                        color: @color-bg;
-                        .absolute;
-                        .bottomleft(0,0);
-                        margin: 8px 5px;
-                        display: none;
-                        width: 182px;
-                        font-size: 14px;
-                        .tcenter;
-                        color: @color-retro-bg;
-                    }
-                }
-                
-                &:hover {
-                    .speaker-meta {
-                        background: @color-retro-text;
-                        
-                        h3 {
-                            color: @color-retro-bg;
-                        }
-                        
-                        span.speaker-position {
-                            display: block;
-                        }
-                    }
-                
-                }
                 
                 &.more {
                     background: @color-retro-text;
                     .tcenter;
+                    vertical-align: bottom;
                     
                     h3 {
                     color: @color-retro-bg;
                     font-size: 24px;
                     margin: 60px 20px;
+                    }
+                }
+                
+                .speaker-container {
+                    .relative;
+                    overflow: hidden;
+                    
+                    .speaker-meta {
+                        .absolute;
+                        .topleft(0,0);
+                        width: @portrait-size;
+                        height: @portrait-size;
+                        
+                        h3 {
+                            font-size: 23px;
+                            .tupper;
+                            margin: 8px;
+                            .absolute;
+                            .topleft(0, 0);
+                            line-height: 21px;
+                            color: @color-retro-bg;
+                        }
+                        
+                        span.speaker-position {
+                            color: @color-bg;
+                            .absolute;
+                            .bottomleft(0,0);
+                            margin: 8px 5px;
+                            display: none;
+                            width: 182px;
+                            font-size: 14px;
+                            .tcenter;
+                            color: @color-retro-bg;
+                        }
+                        
+                    }
+                    
+                    &:hover {
+                        .speaker-meta {
+                            background: @color-retro-text;
+                            
+                            h3 {
+                                color: @color-retro-bg;
+                            }
+                            
+                            span.speaker-position {
+                                display: block;
+                            }
+                        }
+                    }
+                    
+                    .speaker-cursor {
+                       	.absolute;
+                       	.bottomleft(0, 78px);
+                       	.disblock(36px,20px);
+                       	.bglay('speakercursor.png');
+                	}
+                	
+                }
+                           
+                .speaker-description {
+                	@local-inner-padding: 40px;
+                	
+                    width: @width-layout - 2 * @local-inner-padding;
+                    font-size: 18px;
+                    .absolute;
+                    left: 0;
+                    background: @color-retro-bg;
+                    color: @color-retro-text;
+                    padding: @local-inner-padding;
+                    
+                    span.speaker-company {
+                    	.ffamily(16px, @font-proxima, 800);
+                    	.tupper
+                    }
+                    
+                    span.speaker-position {
+                    	.ffamily(18px, @font-minion);
+                    	padding-left: 3px;
+                    	font-style: italic;
+                    	text-transform: lowercase;
+                    }
+                    
+                    h1 {
+                        font-size: 41px;
+                        line-height: 0.72em;
+                    }
+                    
+                    p {
+                        .ffamily(19px, @font-minion);
+                        width: 620px;
+                        margin: 15px 0;
+                    }
+                    
+                    .speaker-links {
+                    	
+                    	span {
+                    		.ffamily(17px, @font-proxima, 700);
+                    		
+                    		&:before {
+                    			content:"|";
+                    			margin: 0 6px 0 2px;
+                    		}
+                    		
+                    		&.first-link {
+                    			&:before {
+                    				content:"";
+                    				margin-right: 0;
+                    			}
+                    		}
+                    		
+	                    	a {
+	                    		text-decoration: none;
+	                    		
+	                    		&:hover {color: @color-text;}
+	                    		
+	                    	}
+                    	}
                     }
                 }
             }
