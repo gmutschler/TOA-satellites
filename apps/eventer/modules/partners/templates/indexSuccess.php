@@ -46,6 +46,7 @@
             <a href="http://www.welt.de/welt-kompakt/" target="_blank"><img src="/images/content/sponsors/weltkompakt.png"></a>
             <a href="http://venturevillage.eu/" target="_blank"><img src="/images/content/sponsors/venturevillage.png"></a>
             <a href="http://www.gruenderszene.de/" target="_blank"><img src="/images/content/sponsors/grunderszene.png"></a>
+            <a href="http://www.fluxfm.de/" target="_blank"><img src="/images/content/sponsors/fluxfm.png"></a>
             <div class="clear"></div>
         </div>
 	</div>
