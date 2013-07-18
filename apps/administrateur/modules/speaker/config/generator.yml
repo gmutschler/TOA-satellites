@@ -14,7 +14,13 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        url:
+          help: The website address without http:// prefix
+        facebook:
+          help: Plain facebook profile name, without http://facebook.com/ prefix
+        twitter:
+          help: Twitter username, without @ or http://twitter.com/ prefix
       list:
 #        table_method: getWithPosition
 #        display: ['_position', '_face', =first_name, =last_name, company_position, company]

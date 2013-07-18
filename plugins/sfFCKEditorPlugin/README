@@ -1,0 +1,11 @@
+How to install:
+
+  symfony plugin:install sfFCKEditorPlugin
+
+How to use:
+
+  $this->widgetSchema['my_editor'] = new sfWidgetFormFCKEditor();
+
+FCKeditor Documentation
+
+You can find the official documentation for FCKeditor online, at http://docs.fckeditor.net/.

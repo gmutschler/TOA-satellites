@@ -36,19 +36,33 @@ Program:
     title:
       type: string(64)
     description:
-      type: string(512)
+      type: text
     start_hour:
       type: time
       notnull: true
     end_hour:
       type: time
       notnull: true
+    photo:
+      type: string(128)
+    url:
+      type: string(128)
+    facebook:
+      type: string(128)
+    twitter:
+      type: string(128)
+    room:
+      type: string(32)
 
   relations:
     Speakers:
       class:            Speaker
       refClass:         ProgramSpeaker
       foreignAlias:     Programs
+    Moderators:
+      class:            Speaker
+      refClass:         ProgramModerator
+      foreignAlias:     ModeratedPrograms
 
 
 Speaker:
@@ -67,7 +81,7 @@ Speaker:
     company:
       type: string(64)
     description:
-      type: string(512)
+      type: text
     url:
       type: string(128)
     facebook:
@@ -80,6 +94,10 @@ Speaker:
       class:            Program
       refClass:         ProgramSpeaker
       foreignAlias:     Speakers
+    ModeratedPrograms:
+      class:            Program
+      refClass:         ProgramModerator
+      foreignAlias:     Moderators
 
 
 ProgramSpeaker:
@@ -96,6 +114,22 @@ ProgramSpeaker:
       foreignAlias: ProgramSpeakers
     Speaker:
       foreignAlias: ProgramSpeakers
+
+
+ProgramModerator:
+  columns:
+    program_id:
+      type: integer
+      notnull: true
+    speaker_id:
+      type: integer
+      notnull: true
+
+  relations:
+    Program:
+      foreignAlias: ProgramModerators
+    Speaker:
+      foreignAlias: ProgramModerators
 
 
 # Satellite events related tables

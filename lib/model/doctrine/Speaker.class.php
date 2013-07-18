@@ -7,9 +7,13 @@
  * 
  * @package    toaberlin
  * @subpackage model
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Speaker extends BaseSpeaker
-{
+class Speaker extends BaseSpeaker {
+
+	public function getName() {
+	
+		return $this->getFirstName() . ' ' . $this->getLastName();
+	}
 }

@@ -10,23 +10,44 @@
  * @property string $description
  * @property time $start_hour
  * @property time $end_hour
+ * @property string $photo
+ * @property string $url
+ * @property string $facebook
+ * @property string $twitter
+ * @property string $room
  * @property Doctrine_Collection $Speakers
+ * @property Doctrine_Collection $Moderators
  * @property Doctrine_Collection $ProgramSpeakers
+ * @property Doctrine_Collection $ProgramModerators
  * 
- * @method string              getKind()            Returns the current record's "kind" value
- * @method string              getTitle()           Returns the current record's "title" value
- * @method string              getDescription()     Returns the current record's "description" value
- * @method time                getStartHour()       Returns the current record's "start_hour" value
- * @method time                getEndHour()         Returns the current record's "end_hour" value
- * @method Doctrine_Collection getSpeakers()        Returns the current record's "Speakers" collection
- * @method Doctrine_Collection getProgramSpeakers() Returns the current record's "ProgramSpeakers" collection
- * @method Program             setKind()            Sets the current record's "kind" value
- * @method Program             setTitle()           Sets the current record's "title" value
- * @method Program             setDescription()     Sets the current record's "description" value
- * @method Program             setStartHour()       Sets the current record's "start_hour" value
- * @method Program             setEndHour()         Sets the current record's "end_hour" value
- * @method Program             setSpeakers()        Sets the current record's "Speakers" collection
- * @method Program             setProgramSpeakers() Sets the current record's "ProgramSpeakers" collection
+ * @method string              getKind()              Returns the current record's "kind" value
+ * @method string              getTitle()             Returns the current record's "title" value
+ * @method string              getDescription()       Returns the current record's "description" value
+ * @method time                getStartHour()         Returns the current record's "start_hour" value
+ * @method time                getEndHour()           Returns the current record's "end_hour" value
+ * @method string              getPhoto()             Returns the current record's "photo" value
+ * @method string              getUrl()               Returns the current record's "url" value
+ * @method string              getFacebook()          Returns the current record's "facebook" value
+ * @method string              getTwitter()           Returns the current record's "twitter" value
+ * @method string              getRoom()              Returns the current record's "room" value
+ * @method Doctrine_Collection getSpeakers()          Returns the current record's "Speakers" collection
+ * @method Doctrine_Collection getModerators()        Returns the current record's "Moderators" collection
+ * @method Doctrine_Collection getProgramSpeakers()   Returns the current record's "ProgramSpeakers" collection
+ * @method Doctrine_Collection getProgramModerators() Returns the current record's "ProgramModerators" collection
+ * @method Program             setKind()              Sets the current record's "kind" value
+ * @method Program             setTitle()             Sets the current record's "title" value
+ * @method Program             setDescription()       Sets the current record's "description" value
+ * @method Program             setStartHour()         Sets the current record's "start_hour" value
+ * @method Program             setEndHour()           Sets the current record's "end_hour" value
+ * @method Program             setPhoto()             Sets the current record's "photo" value
+ * @method Program             setUrl()               Sets the current record's "url" value
+ * @method Program             setFacebook()          Sets the current record's "facebook" value
+ * @method Program             setTwitter()           Sets the current record's "twitter" value
+ * @method Program             setRoom()              Sets the current record's "room" value
+ * @method Program             setSpeakers()          Sets the current record's "Speakers" collection
+ * @method Program             setModerators()        Sets the current record's "Moderators" collection
+ * @method Program             setProgramSpeakers()   Sets the current record's "ProgramSpeakers" collection
+ * @method Program             setProgramModerators() Sets the current record's "ProgramModerators" collection
  * 
  * @package    toaberlin
  * @subpackage model
@@ -58,6 +79,26 @@ abstract class BaseProgram extends sfDoctrineRecord
              'type' => 'time',
              'notnull' => true,
              ));
+        $this->hasColumn('photo', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
+        $this->hasColumn('url', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
+        $this->hasColumn('facebook', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
+        $this->hasColumn('twitter', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
+        $this->hasColumn('room', 'string', 32, array(
+             'type' => 'string',
+             'length' => 32,
+             ));
 
         $this->option('charset', 'UTF8');
         $this->option('type', 'innodb');
@@ -71,7 +112,16 @@ abstract class BaseProgram extends sfDoctrineRecord
              'local' => 'program_id',
              'foreign' => 'speaker_id'));
 
+        $this->hasMany('Speaker as Moderators', array(
+             'refClass' => 'ProgramModerator',
+             'local' => 'program_id',
+             'foreign' => 'speaker_id'));
+
         $this->hasMany('ProgramSpeaker as ProgramSpeakers', array(
+             'local' => 'id',
+             'foreign' => 'program_id'));
+
+        $this->hasMany('ProgramModerator as ProgramModerators', array(
              'local' => 'id',
              'foreign' => 'program_id'));
 

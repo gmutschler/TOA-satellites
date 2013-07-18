@@ -14,8 +14,15 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+        url:
+          help: The website address without http:// prefix
+        facebook:
+          help: Plain facebook profile name, without http://facebook.com/ prefix
+        twitter:
+          help: Twitter username, without @ or http://twitter.com/ prefix
+      list:
+        display: [=title, =start_hour, =end_hour]
       filter:  ~
       form:    ~
       edit:    ~

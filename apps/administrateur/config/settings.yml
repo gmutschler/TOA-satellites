@@ -41,3 +41,4 @@ all:
 
     secure_module:          sfGuardAuth
     secure_action:          secure
+    rich_text_fck_js_dir:   js/vendor/fckeditor

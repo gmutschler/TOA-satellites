@@ -15,30 +15,36 @@
  * @property string $facebook
  * @property string $twitter
  * @property Doctrine_Collection $Programs
+ * @property Doctrine_Collection $ModeratedPrograms
  * @property Doctrine_Collection $ProgramSpeakers
+ * @property Doctrine_Collection $ProgramModerators
  * 
- * @method string              getFace()             Returns the current record's "face" value
- * @method string              getFirstName()        Returns the current record's "first_name" value
- * @method string              getLastName()         Returns the current record's "last_name" value
- * @method string              getCompanyPosition()  Returns the current record's "company_position" value
- * @method string              getCompany()          Returns the current record's "company" value
- * @method string              getDescription()      Returns the current record's "description" value
- * @method string              getUrl()              Returns the current record's "url" value
- * @method string              getFacebook()         Returns the current record's "facebook" value
- * @method string              getTwitter()          Returns the current record's "twitter" value
- * @method Doctrine_Collection getPrograms()         Returns the current record's "Programs" collection
- * @method Doctrine_Collection getProgramSpeakers()  Returns the current record's "ProgramSpeakers" collection
- * @method Speaker             setFace()             Sets the current record's "face" value
- * @method Speaker             setFirstName()        Sets the current record's "first_name" value
- * @method Speaker             setLastName()         Sets the current record's "last_name" value
- * @method Speaker             setCompanyPosition()  Sets the current record's "company_position" value
- * @method Speaker             setCompany()          Sets the current record's "company" value
- * @method Speaker             setDescription()      Sets the current record's "description" value
- * @method Speaker             setUrl()              Sets the current record's "url" value
- * @method Speaker             setFacebook()         Sets the current record's "facebook" value
- * @method Speaker             setTwitter()          Sets the current record's "twitter" value
- * @method Speaker             setPrograms()         Sets the current record's "Programs" collection
- * @method Speaker             setProgramSpeakers()  Sets the current record's "ProgramSpeakers" collection
+ * @method string              getFace()              Returns the current record's "face" value
+ * @method string              getFirstName()         Returns the current record's "first_name" value
+ * @method string              getLastName()          Returns the current record's "last_name" value
+ * @method string              getCompanyPosition()   Returns the current record's "company_position" value
+ * @method string              getCompany()           Returns the current record's "company" value
+ * @method string              getDescription()       Returns the current record's "description" value
+ * @method string              getUrl()               Returns the current record's "url" value
+ * @method string              getFacebook()          Returns the current record's "facebook" value
+ * @method string              getTwitter()           Returns the current record's "twitter" value
+ * @method Doctrine_Collection getPrograms()          Returns the current record's "Programs" collection
+ * @method Doctrine_Collection getModeratedPrograms() Returns the current record's "ModeratedPrograms" collection
+ * @method Doctrine_Collection getProgramSpeakers()   Returns the current record's "ProgramSpeakers" collection
+ * @method Doctrine_Collection getProgramModerators() Returns the current record's "ProgramModerators" collection
+ * @method Speaker             setFace()              Sets the current record's "face" value
+ * @method Speaker             setFirstName()         Sets the current record's "first_name" value
+ * @method Speaker             setLastName()          Sets the current record's "last_name" value
+ * @method Speaker             setCompanyPosition()   Sets the current record's "company_position" value
+ * @method Speaker             setCompany()           Sets the current record's "company" value
+ * @method Speaker             setDescription()       Sets the current record's "description" value
+ * @method Speaker             setUrl()               Sets the current record's "url" value
+ * @method Speaker             setFacebook()          Sets the current record's "facebook" value
+ * @method Speaker             setTwitter()           Sets the current record's "twitter" value
+ * @method Speaker             setPrograms()          Sets the current record's "Programs" collection
+ * @method Speaker             setModeratedPrograms() Sets the current record's "ModeratedPrograms" collection
+ * @method Speaker             setProgramSpeakers()   Sets the current record's "ProgramSpeakers" collection
+ * @method Speaker             setProgramModerators() Sets the current record's "ProgramModerators" collection
  * 
  * @package    toaberlin
  * @subpackage model
@@ -99,7 +105,16 @@ abstract class BaseSpeaker extends sfDoctrineRecord
              'local' => 'speaker_id',
              'foreign' => 'program_id'));
 
+        $this->hasMany('Program as ModeratedPrograms', array(
+             'refClass' => 'ProgramModerator',
+             'local' => 'speaker_id',
+             'foreign' => 'program_id'));
+
         $this->hasMany('ProgramSpeaker as ProgramSpeakers', array(
+             'local' => 'id',
+             'foreign' => 'speaker_id'));
+
+        $this->hasMany('ProgramModerator as ProgramModerators', array(
              'local' => 'id',
              'foreign' => 'speaker_id'));
 

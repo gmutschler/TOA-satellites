@@ -1,0 +1,3 @@
+# UNCONFERENCE module
+speakersSuccess:
+  javascripts: ['controllers/e_unconference_speakers.js']
