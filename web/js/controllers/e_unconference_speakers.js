@@ -6,6 +6,7 @@ Face = Class.create({
 	elmWrapper: undefined,
 	elmMeta: undefined,
 	elmDescription: undefined,
+	elmSpeakerPosition: undefined,
 
 	// objs
 	objParent: undefined,
@@ -24,6 +25,7 @@ Face = Class.create({
 		this.elmMeta = this.elmWrapper.select('div.speaker-meta').first();
 		this.elmDescription = this.elmWrapper.select('div.speaker-description').first();
 		this.elmCursor = this.elmWrapper.select('div.speaker-cursor').first();
+		this.elmSpeakerPosition = this.elmMeta.select('span.speaker-position').first();
 
 		// register observers
 		this.elmMeta.on('click', this.onClickFace.bindAsEventListener(this));
@@ -39,22 +41,37 @@ Face = Class.create({
 	_close: function() {
 
 		// effects, styles
-		this.elmWrapper.setStyle({ marginBottom: null });
+		if(this.objEffect) this.objEffect.kill();
+
 		this.elmCursor.hide();
-		this.elmDescription.hide();
+		this.elmSpeakerPosition.show();
+		this.objEffect = TweenLite.to(this.elmWrapper, .45, {
 
-		this.isOpen = false;
+			marginBottom: 0,
+			ease: Power2.easeOut,
+
+			onComplete: function() {
+
+				this.elmDescription.hide();
+
+				this.isOpen = false;
+			}.bind(this)
+		});
 	},
-
 	_open: function() {
 
 		// close any other potential things
 		this.objParent.closeAll();
 
 		// effects, styles
-		this.elmWrapper.setStyle({ marginBottom: this.elmDescription.measure('padding-box-height') + 'px'});
-		this.elmCursor.show();
 		this.elmDescription.show();
+		this.elmCursor.show();
+		this.elmSpeakerPosition.hide();
+		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
+
+			marginBottom: this.elmDescription.measure('padding-box-height'),
+			ease: Power2.easeOut
+		});
 
 		this.isOpen = true;
 	},

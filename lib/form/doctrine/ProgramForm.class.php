@@ -40,7 +40,8 @@ class ProgramForm extends BaseProgramForm {
 				'Heinz'			=> 'Heinz',
 				'Rummel'		=> 'Rummel',
 				'Hütte'			=> 'Hütte',
-				'Confession Chair'	=> 'Confession Chair'
+				'Confession Chair'	=> 'Confession Chair',
+				'Fluxbau '		=> 'Fluxbau '
 			)
 		)));
 

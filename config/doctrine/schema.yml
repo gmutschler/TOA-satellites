@@ -36,7 +36,7 @@ Program:
     title:
       type: string(64)
     description:
-      type: text
+      type: string(4096)
     start_hour:
       type: time
       notnull: true
@@ -81,7 +81,7 @@ Speaker:
     company:
       type: string(64)
     description:
-      type: text
+      type: string(4096)
     url:
       type: string(128)
     facebook:
