@@ -22,13 +22,14 @@
             <!--<a href="http://www.earlybird.com/" target="_blank"><img src="/images/content/sponsors/earlybird.png"></a>-->
             <div class="clear"></div>
         </div>
-        <h2>Food &amp; Drinks</h2>
+        <h2>Event Barters</h2>
         <div class="sponsors_logos">
             <a href="http://www.deinbiogarten.de/" target="_blank"><img src="/images/content/sponsors/biogarten.png"></a>
             <a href="http://roccoandsanny.de/" target="_blank"><img src="/images/content/sponsors/roccosanny.png"></a>
             <a href="http://www.wonderpots.de/" target="_blank"><img src="/images/content/sponsors/wonderpots.png"></a>
             <a href="http://www.coffeecircle.com/" target="_blank"><img src="/images/content/sponsors/coffecircle.png"></a>
             <a href="http://www.happycups.de/" target="_blank"><img src="/images/content/sponsors/happycups.png"></a>
+            <a href="http://camaloon.com/en" target="_blank"><img src="/images/content/sponsors/camaloon.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
