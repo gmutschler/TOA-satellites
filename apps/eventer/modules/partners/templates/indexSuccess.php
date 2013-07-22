@@ -32,6 +32,7 @@
             <a href="http://www.happycups.de/" target="_blank"><img src="/images/content/sponsors/happycups.png"></a>
             <a href="http://camaloon.com/en" target="_blank"><img src="/images/content/sponsors/camaloon.png"></a>
             <a href="http://www.facebook.com/SierraTequila" target="_blank"><img src="/images/content/sponsors/sierrapaloma.png"></a>
+            <a href="http://www.heisenbergmedia.com/" target="_blank"><img src="/images/content/sponsors/heisenberg.png"></a>
 
             <div class="clear"></div>
         </div>
