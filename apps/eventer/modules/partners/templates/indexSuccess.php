@@ -19,6 +19,7 @@
             <a href="http://twisper.com/" target="_blank"><img src="/images/content/sponsors/twisper.png"></a>
             <a href="https://www.elance.com/q/berlin" target="_blank"><img src="/images/content/sponsors/elance.png"></a>
             <a href="http://www.kpmg.com/" target="_blank"><img src="/images/content/sponsors/kpmg.png"></a>
+            <a href="http://www.simyo.de/" target="_blank"><img src="/images/content/sponsors/simyo.png"></a>
             <!--<a href="http://www.earlybird.com/" target="_blank"><img src="/images/content/sponsors/earlybird.png"></a>-->
             <div class="clear"></div>
         </div>
@@ -30,6 +31,8 @@
             <a href="http://www.coffeecircle.com/" target="_blank"><img src="/images/content/sponsors/coffecircle.png"></a>
             <a href="http://www.happycups.de/" target="_blank"><img src="/images/content/sponsors/happycups.png"></a>
             <a href="http://camaloon.com/en" target="_blank"><img src="/images/content/sponsors/camaloon.png"></a>
+            <a href="http://www.facebook.com/SierraTequila" target="_blank"><img src="/images/content/sponsors/sierrapaloma.png"></a>
+
             <div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
