@@ -2123,27 +2123,78 @@ div.screen_home#content {
                 text-decoration: none;
                 .relative;
                 .content-box-inner;
+                height: 210px;
+                border: none;
+                overflow: hidden;
+                background: red;
+                
+                &.fleft {.bglay('unconf-teaser.jpg');}
+                &.fright {.bglay('satellite-teaser.jpg');}
+                
+                
+                span.date {
+                	.absolute;
+                	.topright(-14px,-2px);
+                	.ffamily (56px, @font-proxima, bold);
+                	.tupper;
+                	line-height: 42px;
+                	color: @color-bg;
+                	
+                	sup {
+                		vertical-align: text-top;
+                		font-size: 21px;
+                	}
+                }
                 
                 h3 {
                     .tupper;
+                    .tleft;
                     text-decoration: none;
                     color: @color-text;
+                    padding: 4px 6px;
+                    background: @color-bg;
+                	display: inline-block;
+                	margin-top: 35px;
                 }
-                p {
-                    text-decoratione: none;
+                .day-description {
+                	.absolute;
+                	.bottomleft(25px, 25px);
+                	
+                	p {                		
+	                	.ffamily(21px, @font-minion);
+	                	.tupper;
+	                	color: @color-bg;
+	                	margin-bottom: 0;
+                		width: 390px;
+                		text-decoration: none;
+                	}	
                 }
                 
-                span.seemore {
-                    .absolute;
-                    .bottomright(8px, 14px);
-                    margin-bottom: 0;
+                .seemore-hover {
+                	.ffamily(21px, @font-minion);
+                	font-style: italic;
+                	color: @color-bg;
+                	background: @color-red;
+                	.absolute;
+                	.topleft(0,0);
+                	.tcenter;
+                	width: 100%;
+                	height: 100%;
+                	display: none;
+                	
+                	span {
+                		.ffamily (72px, @font-proxima, bold);
+                		font-style: normal;
+                		.disblock;
+                		line-height: 46px;
+                		margin-top: 90px;
+                	}
                 }
                 
                 &:hover {
-                    border: 1px solid @color-text;
-                    
-                    span.seemore {
-                        color: @color-red;
+                   
+                    .seemore-hover {
+                        display: block;
                     }
                 }
             }
