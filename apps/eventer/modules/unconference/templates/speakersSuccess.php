@@ -34,7 +34,9 @@
 
 <?php	endforeach ?>
 		    <div class="speaker-item more">
+                <div class="speaker-container">
 		            <h3>More to be announced<br>...</h3>
+	            </div>
 		    </div>
 		    
 		<div class="clear"></div>
