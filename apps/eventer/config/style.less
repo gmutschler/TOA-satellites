@@ -237,9 +237,25 @@ a.slider_nav {
             p {
                 width: @width-layout + 8px;
                 padding-top: 6px;
-                .ffamily(14px, @font-proxima);
+                .ffamily(13px, @font-proxima);
                 .mauto;
                 .tright;
+                
+                span.log-top {
+                	
+                	a {
+                		display: inline-block;
+                		background: @color-red;
+                		padding: 6px 8px 4px 8px;
+                		color: @color-bg;
+                		margin-left: 6px;
+                		margin-top: -6px;
+                		
+                		&:hover {
+                			background: @color-red-dark;
+                		}
+                	}
+                }
                 
                 a {
                     color: @color-red;
@@ -1860,6 +1876,49 @@ div.screen_unconference_index#content {
             .content-box-inner;
     
             h3 {color: @color-retro-bg;}
+        }
+        
+        .activity-column {
+        	.fleft;      	
+        	width: 313px;
+        	margin: 0 5px;
+        	
+        	&.first {margin-left: 0;}
+	        &.last {margin-right: 0;}
+	        
+	        .activity {
+	        	margin: 10px 0;
+	        	padding: 20px;
+	        	background: @color-retro-bg;
+	        	color: @color-retro-text;
+	        	
+	        	h3 {
+	        		font-size: 18px;
+	        		display: inline-block;
+	        		.tupper;
+	        		color: @color-retro-bg;
+	        		background: @color-retro-text;
+	        		padding: 4px 5px 2px 5px;
+	        	}
+	        	
+	        	p {
+	        		color: @color-retro-text;
+	        		font-size: 16px;
+	        	}
+	        	
+	        	.activity_meta {
+	        		font-size: 12px;
+					margin-right: -5px;
+					margin-bottom: -14px;
+					margin-top: 25px;
+					font-style: italic;
+					
+					span {
+						display: block;
+						.tright;
+					}
+	        	}
+	        }
         }
     }
     

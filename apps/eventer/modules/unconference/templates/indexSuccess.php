@@ -14,8 +14,9 @@
     
         <div id="about-2013">
 			<p class="lead">The theme of this year is called “Reset tomorrow!” and will build upon the concept of <a href="https://en.wikipedia.org/wiki/Retro-futurism" target="_blank">retrofuturism</a>.</p> 
-            <div id="theme-description">
-            	<h3>What to expect</h3>
+			
+            <h2>What to expect</h2>
+            <!--<div id="theme-description">
             	<p>At this year’s unconference on Day 1 we want to take a critical view of what Technology has achieved over the last decades and whether the expectations we had when we were little kids watching Blade Runner were actually met.<br>
 In some areas technology has clearly over-delivered, but in other areas it still falls short. Not that it should be considered a sign of ultimate human achievement, but isn’t it crazy that 20 years ago we were able to fly across the Atlantic in half the time. And why the hell do cars still use four wheels to get us from A to B.</p>
 
@@ -43,7 +44,43 @@ In some areas technology has clearly over-delivered, but in other areas it still
                     <li>Live Music & DJ Sets</li>
                     <li>BBQ</li>
                 </ul>
+            </div>-->
+            
+            <div class="activity-column first">
+				<div class="activity">
+					<h3>Speaker Talks</h3>
+					<p>Speakers will deliver ‘ignite style’ talks which are engaging and energetic. The length will be either 5 minutes for shorter talks or 15 minutes (including Q&A) for longer talks. Projectors are not available, but we permit use of a 65 inch screen which can be utilised for visuals that complement an engaging talk. Powerpoint slides should not be used, and we encourage that the intimacy of the room should be engaged with for honest storytelling.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Rummel</span><span><strong>How long:</strong> 5 or 15 minutes</span></div>
+				</div>
             </div>
+            
+           <div class="activity-column">
+				<div class="activity">
+					<h3>Panel sessions</h3>	
+					<p>Panels are constructed with a view to discussing controversial issues with differing opinions on these issues presented by a good mix of panel members. Panels will have 3-4 panellists with 1 moderator. Panels will either last for 20 minutes (short panel) or 40 minutes (long panel)</p>
+					<div class="activity_meta"><span><strong>Where:</strong> The Gallery</span><span><strong>How Long:</strong> 25 or 45 minutes</span></div>
+				</div>
+				
+				<div class="activity">
+					<h3>Pillow Talk sessions</h3>
+					<p>Pillow talk sessions consist of conversations between thought leaders in a circle on KaterHolzig’s Terrace. The idea is to get people knowledgeable about a topic to be able to discuss in depth, with those surrounding able to chime in and contribute to the discussion as it carries on. Usually a pillow talk session will reflect a theme or topic of deeper interest to attendees.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> The Terrace</span><span><strong>How long:</strong>45 minutes</span></div>
+				</div>
+			</div>
+            
+            <div class="activity-column last">
+				<div class="activity">
+					<h3>Ask me Anything</h3>
+					<p>Taking the ‘Ask me Anything’ concept into the offline world, we allow for people who are open to the idea to spend one hour answering whatever questions are pitched to them anonymously. It gives a chance to attendees to ask questions they may be too shy to otherwise put forward in a more public setting.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Confession booth</span><span><strong>How Long:</strong> 1 hour</span></div>
+				</div>
+	            
+	            <div class="activity">
+					<h3>Knowshop sessions</h3>
+					<p>Knowshops are workshops organised by people with experience to disseminate active knowledge. They take place in the morning and should keep the participants active and engaged, whilst communicating lessons, which can be taken away from the room.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Heinz</span><span><strong>How Long:</strong> 30 minutes</span></div>
+				</div>
+			</div>
             
             <div class="clear"></div>
         </div>

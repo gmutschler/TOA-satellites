@@ -16,11 +16,9 @@
             <a href="http://www.axelspringer.de/" target="_blank"><img src="/images/content/sponsors/axelspringer.png"></a>
             <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/sponsors/factory.png"></a>
             <a href="http://www.plista.com/" target="_blank"><img src="/images/content/sponsors/plista.png"></a>
-            <a href="http://twisper.com/" target="_blank"><img src="/images/content/sponsors/twisper.png"></a>
             <a href="https://www.elance.com/q/berlin" target="_blank"><img src="/images/content/sponsors/elance.png"></a>
             <a href="http://www.kpmg.com/" target="_blank"><img src="/images/content/sponsors/kpmg.png"></a>
             <a href="http://www.simyo.de/" target="_blank"><img src="/images/content/sponsors/simyo.png"></a>
-            <!--<a href="http://www.earlybird.com/" target="_blank"><img src="/images/content/sponsors/earlybird.png"></a>-->
             <div class="clear"></div>
         </div>
         <h2>Event Barters</h2>

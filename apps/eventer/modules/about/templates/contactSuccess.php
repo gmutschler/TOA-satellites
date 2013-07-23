@@ -5,7 +5,7 @@
         <h3>Main contact</h3>
         <p>
             <span>Tech Open UG</span><br />
-            Sophinestr. 24<br />
+            Sophienstr. 24<br />
             10178 Berlin<br />
             <a href="mailto:hello@toaberlin.com">hello@toaberlin.com</a>
         </p>
@@ -52,4 +52,4 @@
     </div>
             
 </div>
-<input type="hidden" id="map_data_pulp" value="%7B%22id%22%3A%2217%22%2C%22lat%22%3A%2252.5057327%22%2C%22lng%22%3A%2213.2993471%22%7D">
+<input type="hidden" id="map_data_pulp" value="%7B%22id%22%3A%2217%22%2C%22lat%22%3A%2252.526065%22%2C%22lng%22%3A%2213.399951%22%7D">

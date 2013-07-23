@@ -19,10 +19,10 @@
 
 <?php if(!$sf_user->isAuthenticated()): ?>
 
-			<p><strong><a href="<?=url_for('home/login')?>">Log in with Eventbrite</a></strong></p>
+			<p><span class="log-top"><a href="<?=url_for('home/login')?>">Log in with Eventbrite</a></span></p>
 <?php else: ?>
 
-			<p><?=link_to('Hi, '.$sf_user->getGuardUser()->getFirstName(), 'user/index')?> | <?=link_to('Logout', 'sf_guard_signout') ?></p>
+			<p><?=link_to('Hi, '.$sf_user->getGuardUser()->getFirstName(), 'user/index')?> <span class="log-top"><?=link_to('Logout', 'sf_guard_signout') ?></span></p>
 <?php endif ?>
 		</div>
 
