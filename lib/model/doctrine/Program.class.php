@@ -7,9 +7,38 @@
  * 
  * @package    toaberlin
  * @subpackage model
- * @author     Your name here
+ * @author     maciej@canadel.ee
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Program extends BaseProgram
-{
+class Program extends BaseProgram {
+
+	public function getRoomEscaped() {
+
+		return str_replace(' ', '_', preg_replace('/[^(\x20-\x7F)]*/', '', strtolower($this->getRoom())));
+	}
+
+	// time-to-pixel public interface
+	public function getPixelHeight() {
+
+		return $this->secondsToPixels($this->timeToSeconds($this->getEndHour()) - $this->timeToSeconds($this->getStartHour()));
+	}
+
+	public function getPixelPositionTop() {
+
+		return $this->secondsToPixels($this->timeToSeconds($this->getStartHour()) - $this->timeToSeconds('09:00:00'));
+	}
+
+	// time-to-pixel private methods
+	private function timeToSeconds($time) {
+
+		list($h, $m, $s) = explode(':', $time); 
+		return ($h * 3600) + ($m * 60) + $s; 
+	}
+	private function secondsToPixels($seconds) {
+
+		$hr = 242;		// FIXME: 1 hour = 242 pixels (from the design)
+		$sec = $hr / 3600;
+
+		return round($seconds * $sec);
+	}
 }
