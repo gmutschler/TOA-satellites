@@ -1977,7 +1977,7 @@ div.screen_unconference_speakers#content {
                 display: inline-block;
                 width: @portrait-size;
                 height: @portrait-size;
-                vertical-align: text-top
+                vertical-align: text-top;
                 
                 &.more {
                     .tcenter;
@@ -2115,6 +2115,77 @@ div.screen_unconference_speakers#content {
             }
         }
     }
+}
+
+div.screen_unconference_program {
+
+	&#content {
+
+		.program_wrapper {
+
+			@program-local-width: 320px;
+			@program-local-marginleft: 20px;
+
+			// TODO: I think this div should have all the timelines, headers, etc
+			width: 5000px;
+			height: 1000px;
+			overflow: hidden;
+
+			.program_rooms {
+
+				li {
+					.fleft;
+					.disblock;
+					.tcenter;
+
+					width: @program-local-width;
+					margin-left: @program-local-marginleft;
+
+					text-transform: uppercase;
+
+					background-color: #2A3740;
+					color: #E6D5B9;
+
+					&.first {
+						margin-left: 0 !important;
+					}
+				}
+			}
+
+			.program_inside {
+
+				.relative;
+
+				.program_item {
+
+					// TODO: colors, hovers, inner elements, padders, finetunes
+
+					.absolute;
+					width: 320px;	// FIXME: finetune this
+
+					background-color: #E6D5B9;
+
+					h2 {
+						font-size: 18px;
+
+						span {
+							.titalic;
+							text-transform: lowercase;
+						}
+					}
+
+					// room subclasses adjusting left position
+					&.room_the_terrace { left: 0 }
+					&.room_the_dock { left: @program-local-width + @program-local-marginleft }
+					&.room_heinz { left: 2 * (@program-local-width + @program-local-marginleft) }
+
+					// NOTE: room names will be stripped down to ASCII chars
+					// NOTE: further rooms should have higher multiplier, 3 *, 4 *, 5 *,  (@program-local-width + @program-local-marginleft), etc
+					&.room_htte { left: 400px }
+				}
+			}
+		}
+	}
 }
 
 div.screen_home#content {

@@ -21,4 +21,10 @@ class unconferenceActions extends sfActions {
 
 	public function executeSchedule(sfWebRequest $request) {
 	}
+
+	public function executeProgram(sfWebRequest $request) {
+
+		// fetch all programs
+		$this->programs = Doctrine_Core::getTable('Program')->getOrderedByTimeStart();
+	}
 }

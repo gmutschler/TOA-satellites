@@ -5,5 +5,6 @@
 
 		'What to expect' => 'unconference/index',
 		'Our Speakers' => 'unconference/speakers',
+		'Program' => 'unconference/program'
 	)
 )) ?>
