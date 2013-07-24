@@ -1,6 +1,6 @@
 <div id="hero">
 
-        <div id="hero_background"><img src="/images/content/ill-2013-v1.jpg" /></div>
+        <div id="hero_background"><img src="/images/content/ill-2013-v2.jpg" /></div>
         <div id="hero_foreground"><h1><span>Reset Tomorrow!</span><br><span>An ode to retro-futurism</span></h1></div>
 </div>
 
@@ -13,7 +13,7 @@
 		<h1>The Unconference<span>&nbsp; August 1, 2013</span></h1>
     
         <div id="about-2013">
-			<p class="lead">The theme of this year is called “Reset tomorrow!” and will build upon the concept of <a href="https://en.wikipedia.org/wiki/Retro-futurism" target="_blank">retrofuturism</a>.</p> 
+			<p class="lead">The theme of this year is called “Reset tomorrow!” and will build upon the concept of <a href="http://blog.toaberlin.com/post/54461948015/this-years-theme-reset-tomorrow">retrofuturism</a>.</p> 
 			
             <h2>What to expect</h2>
             <!--<div id="theme-description">
@@ -48,38 +48,62 @@ In some areas technology has clearly over-delivered, but in other areas it still
             
             <div class="activity-column first">
 				<div class="activity">
-					<h3>Speaker Talks</h3>
-					<p>Speakers will deliver ‘ignite style’ talks which are engaging and energetic. The length will be either 5 minutes for shorter talks or 15 minutes (including Q&A) for longer talks. Projectors are not available, but we permit use of a 65 inch screen which can be utilised for visuals that complement an engaging talk. Powerpoint slides should not be used, and we encourage that the intimacy of the room should be engaged with for honest storytelling.</p>
-					<div class="activity_meta"><span><strong>Where:</strong> Rummel</span><span><strong>How long:</strong> 5 or 15 minutes</span></div>
-				</div>
-            </div>
-            
-           <div class="activity-column">
-				<div class="activity">
 					<h3>Panel sessions</h3>	
-					<p>Panels are constructed with a view to discussing controversial issues with differing opinions on these issues presented by a good mix of panel members. Panels will have 3-4 panellists with 1 moderator. Panels will either last for 20 minutes (short panel) or 40 minutes (long panel)</p>
+					<p>Panels are constructed with a view to discussing controversial issues with differing opinions on these issues presented by a good mix of panel members.</p>
 					<div class="activity_meta"><span><strong>Where:</strong> The Gallery</span><span><strong>How Long:</strong> 25 or 45 minutes</span></div>
 				</div>
 				
 				<div class="activity">
+					<h3>Pitch Clinic</h3>
+					<p>Pitch your product or service in just 1:30min in front of a high end jury. The prizes include coveted wildcard spots at Berlin’s most prestigious accelerators (Telekom Hubraum & Axel Springer PlugnPlay) as well as $60K worth of Google App Packages. We put the pitch first!</p>
+					<p><a href="https://docs.google.com/a/toaberlin.com/forms/d/1nxeHtvLDGhysoabhV_jQxwQh8p2BZe5S1fqci7cN0xc/viewform" target="_blank" style="text-transform: uppercase; color: #e9ddc5; background: #231f20; text-decoration: none; padding: 2px 6px; font-size: 15px;">Apply here</a></p>
+					<div class="activity_meta"><span><strong>Where:</strong> The Dock</span><span><strong>When:</strong> 16:45 to 17:45</span></div>
+				</div>
+					
+            </div>
+            
+           <div class="activity-column">
+				<div class="activity">
+					<h3>Ignite Talks</h3>
+					<p>Speakers will deliver ‘ignite style’ talks which are inspiring and energetic. Don’t worry, no sales presentations and no bullet points.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Rummel</span><span><strong>How long:</strong> 5 or 15 minutes</span></div>
+				</div>
+				
+				<div class="activity">
 					<h3>Pillow Talk sessions</h3>
-					<p>Pillow talk sessions consist of conversations between thought leaders in a circle on KaterHolzig’s Terrace. The idea is to get people knowledgeable about a topic to be able to discuss in depth, with those surrounding able to chime in and contribute to the discussion as it carries on. Usually a pillow talk session will reflect a theme or topic of deeper interest to attendees.</p>
+					<p>Well, not what you think! :-) Pillow talk sessions consist of conversations between thought 
+leaders in a circle on Kater Holzig’s Terrace. The idea is to get people who are knowledgeable about a topic to discuss it in depth, with those surrounding able to chime in and contribute.</p>
 					<div class="activity_meta"><span><strong>Where:</strong> The Terrace</span><span><strong>How long:</strong>45 minutes</span></div>
 				</div>
+				
+				<div class="activity">
+					<h3>Open Capital</h3>
+					<p>Founders meet funders on the terrace for refreshing one on one conversations. Meet a select group of top VCs and start the dialogue. It’s never too early!</p>
+					<div class="activity_meta"><span><strong>Where:</strong> The Terrace</span><span><strong>When:</strong> 14:00 to 15:00 </span></div>
+				</div>
+				
 			</div>
             
             <div class="activity-column last">
+   				<div class="activity">
+					<h3>Crowdfunding Stage</h3>
+					<p>Artists and entrepreneurs unite. Here we give crowdfunding campaigners the stage to promote and amplify their idea to the crowd offline. Hear from the latest and greatest ideas that are searching for support from the crowd, live and unplugged!</p>
+					<div class="activity_meta"><span><strong>Where:</strong> The Dock</span><span><strong>When:</strong> 12:30 to 13:00</span></div>
+				</div>            
+				
+	            <div class="activity">
+					<h3>Knowshop</h3>
+					<p>Knowshops are delivered by those who have seen and done it all. Through interactive sessions, people will come out with concrete learnings.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Heinz</span><span><strong>How Long:</strong> 25 minutes</span></div>
+				</div>
+
 				<div class="activity">
 					<h3>Ask me Anything</h3>
-					<p>Taking the ‘Ask me Anything’ concept into the offline world, we allow for people who are open to the idea to spend one hour answering whatever questions are pitched to them anonymously. It gives a chance to attendees to ask questions they may be too shy to otherwise put forward in a more public setting.</p>
-					<div class="activity_meta"><span><strong>Where:</strong> Confession booth</span><span><strong>How Long:</strong> 1 hour</span></div>
+					<p>Ask me anything sessions allow you to ask ‘the big guys’ anonymous questions in a confession chair that you’d be otherwise shy to ask! Anything goes here, really!</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Confession booth</span><span><strong>How Long:</strong> 30 minutes</span></div>
 				</div>
-	            
-	            <div class="activity">
-					<h3>Knowshop sessions</h3>
-					<p>Knowshops are workshops organised by people with experience to disseminate active knowledge. They take place in the morning and should keep the participants active and engaged, whilst communicating lessons, which can be taken away from the room.</p>
-					<div class="activity_meta"><span><strong>Where:</strong> Heinz</span><span><strong>How Long:</strong> 30 minutes</span></div>
-				</div>
+								
+
 			</div>
             
             <div class="clear"></div>

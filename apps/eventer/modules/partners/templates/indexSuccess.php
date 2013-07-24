@@ -9,10 +9,12 @@
             <a href="https://www.eventbrite.de/features/?ref=toa2013" target="_blank"><img src="/images/content/sponsors/eventbrite.png"></a>
             <a href="http://www.termine24.de/" target="_blank"><img src="/images/content/sponsors/termine24.png"></a>
             <a href="http://www.hubraum.com/" target="_blank"><img src="/images/content/sponsors/hubraum.png"></a>
+            <a href="https://www.uber.com/" target="_blank"><img src="/images/content/sponsors/uber.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Boosters</h2>
         <div class="sponsors_logos">
+            <a href="http://twisper.com/" target="_blank"><img src="/images/content/sponsors/twisper.png"></a>
             <a href="http://www.axelspringer.de/" target="_blank"><img src="/images/content/sponsors/axelspringer.png"></a>
             <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/sponsors/factory.png"></a>
             <a href="http://www.plista.com/" target="_blank"><img src="/images/content/sponsors/plista.png"></a>
@@ -31,8 +33,8 @@
             <a href="http://camaloon.com/en" target="_blank"><img src="/images/content/sponsors/camaloon.png"></a>
             <a href="http://www.facebook.com/SierraTequila" target="_blank"><img src="/images/content/sponsors/sierrapaloma.png"></a>
             <a href="http://www.heisenbergmedia.com/" target="_blank"><img src="/images/content/sponsors/heisenberg.png"></a>
-
-            <div class="clear"></div>
+            <a href="http://www.noblego.de/" target="_blank"><img src="/images/content/sponsors/noblego.png"></a>
+          	<div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
         <div class="sponsors_logos">
@@ -40,6 +42,12 @@
             <a href="http://samuelbraungroup.com/" target="_blank"><img src="/images/content/sponsors/sbraun.png"></a>
             <a href="http://www.lux-eleven.com/" target="_blank"><img src="/images/content/sponsors/lux11.png"></a>
             <a href="http://www.the-weinmeister.com/" target="_blank"><img src="/images/content/sponsors/weinmeister.png"></a>
+            <a href="http://agoracollective.org/" target="_blank"><img src="/images/content/sponsors/agora.png"></a>
+            <a href="http://betahaus.de/" target="_blank"><img src="/images/content/sponsors/betahaus.png"></a>
+            <a href="http://www.sanktoberholz.de/" target="_blank"><img src="/images/content/sponsors/oberholz.png"></a>
+            <a href="http://www2.mobilesuite.de/" target="_blank"><img src="/images/content/sponsors/mobilesuite.png"></a>
+            <a href="http://www.thewye.de/" target="_blank"><img src="/images/content/sponsors/wye.png"></a>
+            <a href="http://www.ahoyberlin.com/" target="_blank"><img src="/images/content/sponsors/ahoy.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Media partners</h2>
@@ -51,6 +59,7 @@
             <a href="http://www.gruenderszene.de/" target="_blank"><img src="/images/content/sponsors/grunderszene.png"></a>
             <a href="http://www.fluxfm.de/" target="_blank"><img src="/images/content/sponsors/fluxfm.png"></a>
             <a href="http://www.business-punk.com/" target="_blank"><img src="/images/content/sponsors/businesspunk.png"></a>
+            <a href="http://thenextweb.com/" target="_blank"><img src="/images/content/sponsors/tnw.png"></a>
             <div class="clear"></div>
         </div>
 	</div>

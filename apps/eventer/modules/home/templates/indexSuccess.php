@@ -31,19 +31,35 @@
 	<div class="textual">
         <!--<h2>A Two-day Tech, Music, Art & Science festival</h2>-->
 		
-        <div class="tcenter bicolumn">
+        <div class="bicolumn">
 	            <a class="column fleft"  href="/unconference">
-	            	<img src="/images/content/micro.jpg">
+	            	<span class="date">1<sup>st</sup> August</span>
+	            	<div class="day-description">
+	            		<h3>The Unconference</h3>
+	            		<p>&#35;50+ speakers &#35;pitches<br />&#35;installations &#35;livemusic<br />&#35;audience participation<br />&#35;NO marketing presentations</p>
+	            	</div>
+	            	<div class="seemore-hover"><span>+</span>Discover what to expect</div>
+	            	<!--<span href="/unconference/index" class="seemore">More about what to expect &rsaquo;</span>-->
+	            	
+	            	<!--<img src="/images/content/micro.jpg">
 	            	<h3>Unconference at Kater Holzig</h3>
 	                <p>A first day to connect with creators across various fields, countries and disciplines at a magical location. More than 50 top‑class artists, scientists and entrepreneurs speaking about what keeps their inner flame burning and what they truly aspire to change.</p>
-                    <span href="/unconference/index" class="seemore">More about the unconference &rsaquo;</span>
+                    <span href="/unconference/index" class="seemore">More about the unconference &rsaquo;</span>-->
 	            </a>
 	            
 	            <a class="column fright" href="/satellites">
-	            	<img src="/images/content/satellite_sponso.jpg">
+	            	<span class="date">2<sup>nd</sup> August</span>
+	            	<div class="day-description">
+	            		<h3>Satellite Events</h3>
+		            	<p>&#35;50+ events &#35;7 Festival locations<br />&#35;corporate perks &#35;workshops<br />&#35;rooftop meet-ups<br />&#35;Closing Party @ Factory</p>
+	            	</div>
+	            	<div class="seemore-hover"><span>+</span>See all events</div>
+                    <!--<span href="/satellites" class="seemore">See all the satellite events &rsaquo;</span>-->
+	            	
+	            	<!--<img src="/images/content/satellite_sponso.jpg">
 	            	<h3>Satellite Events across the city</h3>
 	                <p>On the second day, the ecosystem takes over and self‑organizes events all over the city. Attendees will get the opportunity to visit startup offices, enjoy corporate perks, participate in workshops and network with smart people at meet‑ups and memorable parties.</p>
-                    <span href="/satellites" class="seemore">See all the satellite events &rsaquo;</span>
+                    <span href="/satellites" class="seemore">See all the satellite events &rsaquo;</span>-->
 	            </a>
                 <div class="clear"></div>
 	    	</div>
