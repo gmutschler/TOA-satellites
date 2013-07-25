@@ -2118,30 +2118,64 @@ div.screen_unconference_program {
 
 	&#content {
 
+		@color-local-green: #406F44;
+		@color-local-red: #893013;
+		@color-local-darkgrey: #2A3740;
+		@color-local-coffee: #E6D5B9;
+
+		@program-total-height: 2298px;
+		@program-total-width: 2020px;
+		@program-left-width: 61px;
+		@padding-rightcol-top: 14px;
+
+		h1 {
+			margin-bottom: 12px;
+
+			font-size: 39px;
+		}
+
+		.column {
+			.fleft;
+			height: @program-total-height;
+
+			&.left {
+				.bglay('timeline.png');
+				width: @program-left-width;
+			}
+			&.right {
+				width: @width-layout - @program-left-width;
+				overflow: auto;
+
+				padding-top: @padding-rightcol-top;
+			}
+		}
+
 		.program_wrapper {
 
 			@program-local-width: 320px;
 			@program-local-marginleft: 20px;
 
-			// TODO: I think this div should have all the timelines, headers, etc
-			width: 5000px;
-			height: 1000px;
-			overflow: hidden;
+			height: @program-total-height;
 
 			.program_rooms {
+
+				width: @program-total-width;
 
 				li {
 					.fleft;
 					.disblock;
 					.tcenter;
+					.ffamily(16px, @font-proxima, bold);
+
+					padding: 11px 0;
 
 					width: @program-local-width;
 					margin-left: @program-local-marginleft;
 
 					text-transform: uppercase;
 
-					background-color: #2A3740;
-					color: #E6D5B9;
+					background-color: @color-local-darkgrey;
+					color: @color-local-coffee;
 
 					&.first {
 						margin-left: 0 !important;
@@ -2153,6 +2187,13 @@ div.screen_unconference_program {
 
 				.relative;
 
+				@margin-local-top: 30px;
+
+				margin-top: @margin-local-top;
+				height: @program-total-height - @margin-local-top - @padding-rightcol-top - 44px;	// FIXME: 41px is TOTALY GUESSED
+				width: @program-total-width;
+				background: repeat url(@{images-layout}/timespace.png);
+
 				.program_item {
 
 					// TODO: colors, hovers, inner elements, padders, finetunes
@@ -2162,23 +2203,62 @@ div.screen_unconference_program {
 
 					background-color: #E6D5B9;
 
-					h2 {
-						font-size: 18px;
+					// room subclasses adjusting left position
+					// NOTE: room names will be stripped down to ASCII chars
+					&.room_the_dock { left: 0 }
+					&.room_rummel { left: @program-local-width + @program-local-marginleft }
+					&.room_heinz { left: 2 * (@program-local-width + @program-local-marginleft) }
+					&.room_gallery { left: 3 * (@program-local-width + @program-local-marginleft) }
+					&.room_htte { left: 4 * (@program-local-width + @program-local-marginleft) }
+					&.room_the_terrace { left: 5 * (@program-local-width + @program-local-marginleft) }
 
-						span {
-							.titalic;
-							text-transform: lowercase;
+					// inner elements
+					.program_padder {
+
+						@padding-local-leftright: 15px;
+						@padding-local-topbottom: 10px;
+
+						.relative;
+
+						width: 100%;
+						height: 100%;
+
+						h2, p, ul {
+							padding: @padding-local-topbottom @padding-local-leftright;
+						}
+
+						h2 {
+							font-size: 20px;
+
+							span {
+								.titalic;
+								text-transform: lowercase;
+							}
+						}
+
+						a.toggle_button {
+
+							.absolute;
+							.bottomright(@padding-local-topbottom, @padding-local-leftright);
+							.ffamily(12px, @font-proxima);
+							.tupper;
+
+							padding: 5px 14px;
+
+							color: @color-local-coffee;
+							background-color: @color-local-darkgrey;
 						}
 					}
+				}
 
-					// room subclasses adjusting left position
-					&.room_the_terrace { left: 0 }
-					&.room_the_dock { left: @program-local-width + @program-local-marginleft }
-					&.room_heinz { left: 2 * (@program-local-width + @program-local-marginleft) }
+				.program_lunch {
 
-					// NOTE: room names will be stripped down to ASCII chars
-					// NOTE: further rooms should have higher multiplier, 3 *, 4 *, 5 *,  (@program-local-width + @program-local-marginleft), etc
-					&.room_htte { left: 400px }
+					.absolute(961, 0);
+
+					width: 100%;
+					height: 245px;
+
+					background-color: #7F868C;
 				}
 			}
 		}

@@ -36,7 +36,7 @@ class Program extends BaseProgram {
 	}
 	private function secondsToPixels($seconds) {
 
-		$hr = 242;		// FIXME: 1 hour = 242 pixels (from the design)
+		$hr = 240;		// 1 hour = 240 pixels (from the design)
 		$sec = $hr / 3600;
 
 		return round($seconds * $sec);
