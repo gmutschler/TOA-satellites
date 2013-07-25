@@ -31,8 +31,9 @@
 @color-green: #0ABFBC;
 @color-green-dark: #137475;
 
-@color-retro-bg: #e6d6b8;
-@color-retro-text: #2a3741;
+@color-retro-bg: #e9ddc5;
+@color-retro-contrast: #b42234;
+@color-retro-text: #231f20;
 
 @font-minion: 'minion-pro', serif;
 @font-proxima: 'proxima-nova', sans-serif;
@@ -1897,7 +1898,7 @@ div.screen_unconference_index#content {
 	        		display: inline-block;
 	        		.tupper;
 	        		color: @color-retro-bg;
-	        		background: @color-retro-text;
+	        		background: @color-retro-contrast;
 	        		padding: 4px 5px 2px 5px;
 	        	}
 	        	
@@ -1907,6 +1908,7 @@ div.screen_unconference_index#content {
 	        	}
 	        	
 	        	.activity_meta {
+	        		color: @color-retro-contrast;
 	        		font-size: 12px;
 					margin-right: -5px;
 					margin-bottom: -14px;
@@ -1935,7 +1937,7 @@ div.screen_unconference_index#content {
             line-height: 0;
         
             .location-address {
-                background: @color-retro-text;
+                background: @color-retro-contrast;
                 .absolute;
                 .bottomleft(10px, 12px);
                 padding: 5px;
@@ -1980,6 +1982,9 @@ div.screen_unconference_speakers#content {
                 &.more {
                     .tcenter;
                     
+                    .speaker-container {
+                    	background: @color-retro-contrast;
+                    }
                     
                     h3 {
                     color: @color-retro-bg;
@@ -2102,8 +2107,9 @@ div.screen_unconference_speakers#content {
                     		
 	                    	a {
 	                    		text-decoration: none;
+	                    		color: @color-retro-contrast;
 	                    		
-	                    		&:hover {color: @color-text;}
+	                    		&:hover {color: @color-retro-text;}
 	                    		
 	                    	}
                     	}
@@ -2318,6 +2324,7 @@ div.screen_home#content {
 	                	margin-bottom: 0;
                 		width: 390px;
                 		text-decoration: none;
+                		text-align: left;
                 	}	
                 }
                 
@@ -2433,7 +2440,7 @@ div.screen_home#content {
                             background: @color-text;
                             .tcenter;
                             .absolute;
-                            .topleft(-50%,-50%);
+                            .topleft(-10%,-50%);
                             
                         }
                     }
@@ -2680,3 +2687,4 @@ div.screen_event#content {
         }
 	}
 }
+	

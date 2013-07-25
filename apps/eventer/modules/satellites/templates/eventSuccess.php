@@ -123,9 +123,10 @@ if($color = $event->getListingColor()) {
 		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the free tickets are not displayed below, please use the following as a promotionnal code:<input class="accesscode" type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" /></p>
 <?php else: ?>
         <div class="event-main-ticket">
-            <p class="lead">Don't have a Tech Open Air ticket yet?</p>
-            <p>With a ticket you will get access* to aspecially reserved contingent at every satellite event and also enjoy free entrance* to any paid event.<br /><em>* As long as satellite event is not completely sold out, incl. special TOA contingent.</em></p>
-            <a class="button_red" href="http://toaberlin2013-TOAWebsite.eventbrite.com" target="_blank">Get yours now!</a>
+            <p class="lead">Already have a Day 1 ticket?</p>
+            <p>Your seat is reserved and free for paid events<sup>*</sup>. Please <a href="<?=url_for('home/login')?>" style="color:#DC142C">login</a> to proceed with registration.<br />Space is limited for Non Tech Open Air ticket holders<br /></p>
+            <p><a class="button_red" href="http://toaberlin2013-TOAWebsite.eventbrite.com" target="_blank">Get your ticket now!</a></p>
+            <p><em><sup>*</sup>As long as satellite event is not completely sold out.</em></p>
         </div>
 <?php	endif ?>
 
