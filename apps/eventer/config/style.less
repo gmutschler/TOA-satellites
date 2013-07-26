@@ -2130,7 +2130,7 @@ div.screen_unconference_program {
 		@color-local-coffee: #E6D5B9;
 
 		@program-total-height: 2298px;
-		@program-total-width: 2020px;
+		@program-total-width: 2360px;
 		@program-left-width: 61px;
 		@padding-rightcol-top: 14px;
 
@@ -2153,6 +2153,44 @@ div.screen_unconference_program {
 				overflow: auto;
 
 				padding-top: @padding-rightcol-top;
+			}
+		}
+
+		.program_concerts {
+
+			.program_concert {
+				@height-local-concert: 360px;
+				@width-local-image: 360px;
+
+				height: @height-local-concert;
+				background-color: @color-local-coffee;
+
+				.program_concert_image, .program_concert_desc {
+					.fleft;
+					.relative;
+
+					height: @height-local-concert;
+				}
+
+				.program_concert_image {
+
+					width: @width-local-image;
+					background-repeat: no-repeat;
+
+					p.time {
+						.absolute(10, 10);
+
+						padding: 5px 10px;
+
+						background-color: #2A3740;
+						color: @color-local-coffee;
+					}
+				}
+
+				.program_concert_desc {
+
+					width: @width-layout - @width-local-image;
+				}
 			}
 		}
 
@@ -2196,18 +2234,18 @@ div.screen_unconference_program {
 				@margin-local-top: 30px;
 
 				margin-top: @margin-local-top;
-				height: @program-total-height - @margin-local-top - @padding-rightcol-top - 44px;	// FIXME: 41px is TOTALY GUESSED
+				height: @program-total-height - @margin-local-top - @padding-rightcol-top - 44px;	// FIXME: 44px is TOTALY GUESSED
 				width: @program-total-width;
 				background: repeat url(@{images-layout}/timespace.png);
 
 				.program_item {
 
-					// TODO: colors, hovers, inner elements, padders, finetunes
-
 					.absolute;
 					width: 320px;	// FIXME: finetune this
 
-					background-color: #E6D5B9;
+					color: @color-local-green;
+					&:hover { color: @color-local-red; }
+					background-color: @color-local-coffee;
 
 					// room subclasses adjusting left position
 					// NOTE: room names will be stripped down to ASCII chars
@@ -2217,6 +2255,7 @@ div.screen_unconference_program {
 					&.room_gallery { left: 3 * (@program-local-width + @program-local-marginleft) }
 					&.room_htte { left: 4 * (@program-local-width + @program-local-marginleft) }
 					&.room_the_terrace { left: 5 * (@program-local-width + @program-local-marginleft) }
+					&.room_confession_chair { left: 6 * (@program-local-width + @program-local-marginleft) }
 
 					// inner elements
 					.program_padder {
@@ -2229,8 +2268,9 @@ div.screen_unconference_program {
 						width: 100%;
 						height: 100%;
 
-						h2, p, ul {
+						h2, h3, p, ul {
 							padding: @padding-local-topbottom @padding-local-leftright;
+							color: inherit;
 						}
 
 						h2 {
@@ -2239,6 +2279,23 @@ div.screen_unconference_program {
 							span {
 								.titalic;
 								text-transform: lowercase;
+							}
+						}
+
+						h3 {
+							.tupper;
+							font-size: 14px;
+							padding-bottom: 0;
+						}
+
+						ul {
+							padding-top: 0;
+
+							li {
+								img {
+									width: 41px;
+									height: 41px;
+								}
 							}
 						}
 

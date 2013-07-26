@@ -50,7 +50,12 @@ class homeActions extends sfActions {
 			$userData = $melodyObj->getUserData(null);
 
 			// check for errors
-			if(isset($userData['error'])) throw new sfException('Oops... something went wrong with the Eventbrite API response!');
+			//if(isset($userData['error'])) throw new sfException('Oops... something went wrong with the Eventbrite API response!');
+			if(isset($userData['error'])) {
+
+				file_put_contents('/tmp/sflogs.txt', print_r($userData, true), FILE_APPEND);
+				throw new sfException('Oops... something went wrong with the Eventbrite API response!');
+			}
 
 			// check if we have a user of given			** this query could be moved to some model method like FindOneByEmail()
 			$q = Doctrine_Query::create()

@@ -17,6 +17,15 @@ class Program extends BaseProgram {
 		return str_replace(' ', '_', preg_replace('/[^(\x20-\x7F)]*/', '', strtolower($this->getRoom())));
 	}
 
+	public function getStartHourClean() {
+
+		return date('H:i', strtotime($this->getStartHour()));
+	}
+	public function getEndHourClean() {
+
+		return date('H:i', strtotime($this->getEndHour()));
+	}
+
 	// time-to-pixel public interface
 	public function getPixelHeight() {
 

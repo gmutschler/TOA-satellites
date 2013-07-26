@@ -67,9 +67,9 @@ abstract class BaseProgram extends sfDoctrineRecord
              'type' => 'string',
              'length' => 64,
              ));
-        $this->hasColumn('description', 'string', 512, array(
+        $this->hasColumn('description', 'string', 4096, array(
              'type' => 'string',
-             'length' => 512,
+             'length' => 4096,
              ));
         $this->hasColumn('start_hour', 'time', null, array(
              'type' => 'time',

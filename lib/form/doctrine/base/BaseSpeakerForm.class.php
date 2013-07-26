@@ -39,7 +39,7 @@ abstract class BaseSpeakerForm extends BaseFormDoctrine
       'last_name'               => new sfValidatorString(array('max_length' => 64, 'required' => false)),
       'company_position'        => new sfValidatorString(array('max_length' => 96, 'required' => false)),
       'company'                 => new sfValidatorString(array('max_length' => 64, 'required' => false)),
-      'description'             => new sfValidatorString(array('max_length' => 512, 'required' => false)),
+      'description'             => new sfValidatorString(array('max_length' => 4096, 'required' => false)),
       'url'                     => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'facebook'                => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'twitter'                 => new sfValidatorString(array('max_length' => 128, 'required' => false)),

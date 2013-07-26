@@ -36,7 +36,7 @@ abstract class BaseProgramForm extends BaseFormDoctrine
       'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'kind'            => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'title'           => new sfValidatorString(array('max_length' => 64, 'required' => false)),
-      'description'     => new sfValidatorString(array('max_length' => 512, 'required' => false)),
+      'description'     => new sfValidatorString(array('max_length' => 4096, 'required' => false)),
       'start_hour'      => new sfValidatorTime(),
       'end_hour'        => new sfValidatorTime(),
       'photo'           => new sfValidatorString(array('max_length' => 128, 'required' => false)),

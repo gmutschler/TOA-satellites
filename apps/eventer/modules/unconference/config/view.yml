@@ -1,3 +1,6 @@
 # UNCONFERENCE module
 speakersSuccess:
   javascripts: ['vendor/TweenMax.min.js', 'controllers/e_unconference_speakers.js']
+
+programSuccess:
+  javascripts: ['vendor/TweenMax.min.js', 'controllers/e_unconference_program.js']
