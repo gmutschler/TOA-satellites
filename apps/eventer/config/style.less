@@ -2126,12 +2126,13 @@ div.screen_unconference_program {
 
 		@color-local-green: #406F44;
 		@color-local-red: #893013;
-		@color-local-darkgrey: #2A3740;
-		@color-local-coffee: #E6D5B9;
+        @color-local-blue: #2A3741;
+        @color-local-violet: #57486d;
+        @color-local-maroon: #8c6b2f;
 
 		@program-total-height: 2298px;
 		@program-total-width: 2360px;
-		@program-left-width: 61px;
+		@program-left-width: 55px;
 		@padding-rightcol-top: 14px;
 
 		h1 {
@@ -2145,11 +2146,17 @@ div.screen_unconference_program {
 			height: @program-total-height;
 
 			&.left {
-				.bglay('timeline.png');
+				.bglay('schedule_timeline.png');
 				width: @program-left-width;
+                margin-left: -1 - @program-left-width;
+                border-right: 1px solid @color-border-dark;
+                -webkit-box-shadow: 5px 0 8px -8px #000;
+                box-shadow: 5px 0 8px -8px #000;
+                .relative;
+                z-index: 10;
 			}
 			&.right {
-				width: @width-layout - @program-left-width;
+				width: @width-layout;
 				overflow: auto;
 
 				padding-top: @padding-rightcol-top;
@@ -2163,7 +2170,7 @@ div.screen_unconference_program {
 				@width-local-image: 360px;
 
 				height: @height-local-concert;
-				background-color: @color-local-coffee;
+				background-color: @color-retro-bg;
 
 				.program_concert_image, .program_concert_desc {
 					.fleft;
@@ -2182,8 +2189,8 @@ div.screen_unconference_program {
 
 						padding: 5px 10px;
 
-						background-color: #2A3740;
-						color: @color-local-coffee;
+						background-color: @color-retro-text;
+						color: @color-retro-bg;
 					}
 				}
 
@@ -2218,8 +2225,8 @@ div.screen_unconference_program {
 
 					text-transform: uppercase;
 
-					background-color: @color-local-darkgrey;
-					color: @color-local-coffee;
+					background-color: @color-retro-contrast;
+					color: @color-retro-bg;
 
 					&.first {
 						margin-left: 0 !important;
@@ -2236,16 +2243,22 @@ div.screen_unconference_program {
 				margin-top: @margin-local-top;
 				height: @program-total-height - @margin-local-top - @padding-rightcol-top - 44px;	// FIXME: 44px is TOTALY GUESSED
 				width: @program-total-width;
-				background: repeat url(@{images-layout}/timespace.png);
+                
+                .program_inside_bg {
+                    background: repeat url(@{images-layout}/timespace.png);
+                    width: 100%;
+                    height: 100%;
+                    .absolute;
+                    .topleft(0,0);
+                }
 
 				.program_item {
 
 					.absolute;
 					width: 320px;	// FIXME: finetune this
 
-					color: @color-local-green;
-					&:hover { color: @color-local-red; }
-					background-color: @color-local-coffee;
+					color: @color-retro-text;
+					background-color: @color-retro-bg;
 
 					// room subclasses adjusting left position
 					// NOTE: room names will be stripped down to ASCII chars
@@ -2256,12 +2269,13 @@ div.screen_unconference_program {
 					&.room_htte { left: 4 * (@program-local-width + @program-local-marginleft) }
 					&.room_the_terrace { left: 5 * (@program-local-width + @program-local-marginleft) }
 					&.room_confession_chair { left: 6 * (@program-local-width + @program-local-marginleft) }
+					
 
 					// inner elements
 					.program_padder {
 
-						@padding-local-leftright: 15px;
-						@padding-local-topbottom: 10px;
+						@padding-local-leftright: 9px;
+						@padding-local-topbottom: 9px;
 
 						.relative;
 
@@ -2274,7 +2288,8 @@ div.screen_unconference_program {
 						}
 
 						h2 {
-							font-size: 20px;
+							font-size: 17px;
+                            line-height: 19px;
 
 							span {
 								.titalic;
@@ -2287,14 +2302,23 @@ div.screen_unconference_program {
 							font-size: 14px;
 							padding-bottom: 0;
 						}
+                        
+                        p {
+                         font-size: 14px;
+                            margin-bottom: -0.4em;
+                        }
 
 						ul {
 							padding-top: 0;
+                            margin-bottom: 16px;
+                            font-size: 13px;
 
 							li {
 								img {
 									width: 41px;
 									height: 41px;
+                                    vertical-align: middle;
+                                    margin: 0 2px 2px 0;
 								}
 							}
 						}
@@ -2302,14 +2326,16 @@ div.screen_unconference_program {
 						a.toggle_button {
 
 							.absolute;
-							.bottomright(@padding-local-topbottom, @padding-local-leftright);
-							.ffamily(12px, @font-proxima);
+							.bottomright(@padding-local-topbottom - 3, @padding-local-leftright - 3);
+							.ffamily(10px, @font-proxima, bold);
 							.tupper;
 
 							padding: 5px 14px;
 
-							color: @color-local-coffee;
-							background-color: @color-local-darkgrey;
+							color: @color-retro-bg;
+							background-color: @color-retro-text;
+                            
+                            &:hover { background-color: @color-retro-contrast; }
 						}
 					}
 				}

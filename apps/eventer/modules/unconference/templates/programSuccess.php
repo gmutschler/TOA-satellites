@@ -30,18 +30,23 @@
 					<li>Rummel</li>
 					<li>Heinz</li>
 					<li>Gallery</li>
-					<li>Hütte</li>
+					<li class="room_htte_title">Hütte</li>
 					<li>The Terrace</li>
 					<li>Confession chair</li>
 				</ul>
 
 				<div class="clear"></div>
-
+                
 				<div class="program_inside">
+                <div class="program_inside_bg"></div>
 <?php	foreach($programs as $program): ?>
 <?php		if($program->getRoom() != 'Fluxbau'): ?>
+                    
+                    <div class="program_lunch">
+				        <h1>Lunch</h1>
+				    </div>
 
-					<div class="program_item room_<?=$program->getRoomEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=$program->getPixelHeight()?>px">
+					<div class="program_item room_<?=$program->getRoomEscaped()?> cat_<?=$program->getKindEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=$program->getPixelHeight()?>px">
 						<div class="program_padder">
 
 							<h2><?=$program->getTitle()?> | <span><?=$program->getKind()?></span></h2>
@@ -61,10 +66,6 @@
 
 <?php		endif ?>
 <?php	endforeach // & programs loop ?>
-					<div class="program_lunch">
-
-						<h1>Lunch</h1>
-					</div>
 
 				</div>
 			</div>
