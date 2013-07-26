@@ -125,4 +125,17 @@ class EventTable extends Doctrine_Table {
 
 		return $q->execute();
 	}
+
+	public function getSynchronized() {
+
+		$q = $this->createQuery()
+
+			->from('Event e')
+			->where('e.moderated = ?', true)
+			->addWhere('e.test = ?', false)
+			->addWhere('e.synchronized = ?', true)
+		;
+
+		return $q->execute();
+	}
 }
