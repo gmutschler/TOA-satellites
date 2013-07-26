@@ -14,6 +14,7 @@
         </div>
         <h2>Boosters</h2>
         <div class="sponsors_logos">
+            <a href="http://careers.stackoverflow.com/" target="_blank"><img src="/images/content/sponsors/stackoverflow.png"></a>
             <a href="http://twisper.com/" target="_blank"><img src="/images/content/sponsors/twisper.png"></a>
             <a href="http://www.axelspringer.de/" target="_blank"><img src="/images/content/sponsors/axelspringer.png"></a>
             <a href="http://www.factoryberlin.com/" target="_blank"><img src="/images/content/sponsors/factory.png"></a>
@@ -60,6 +61,7 @@
             <a href="http://www.fluxfm.de/" target="_blank"><img src="/images/content/sponsors/fluxfm.png"></a>
             <a href="http://www.business-punk.com/" target="_blank"><img src="/images/content/sponsors/businesspunk.png"></a>
             <a href="http://thenextweb.com/" target="_blank"><img src="/images/content/sponsors/tnw.png"></a>
+            <a href="https://www.wetransfer.com/" target="_blank"><img src="/images/content/sponsors/wetransfer.png"></a>
             <div class="clear"></div>
         </div>
 	</div>
