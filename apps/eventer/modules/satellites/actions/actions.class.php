@@ -32,6 +32,45 @@ class satellitesActions extends sfActions {
 
 		$this->map_data_pulp = $this->event->fetchMapDataPulpEncoded();
 	}
+	public function executeEbFrame(sfWebRequest $request) {
+
+		/*
+		// example URLs:
+
+		http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>
+
+		http://www.eventbrite.com/tickets-external?eid=7622955465&ref=etckt&access=yGEPpq2ESwlVBUdU&access_code=yGEPpq2ESwlVBUdU&1374850547
+		*/
+
+		// build the base url, add auth stuff, fetch the data
+		$url = sprintf('http://www.eventbrite.com/tickets-external?eid=%s&ref=etckt', $request->getParameter('ebId'));
+		if($request->getParameter('ebAc')) $url .= sprintf('&access=%s&access_code=%s', $request->getParameter('ebAc'), $request->getParameter('ebAc'));
+		$url .= '&' . time();
+
+		// fetch the data
+		global $_SERVER;
+		$ch = curl_init();
+		curl_setopt_array($ch, array(
+
+			CURLOPT_CONNECTTIMEOUT => 5,
+			CURLOPT_TIMEOUT => 15,
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_FRESH_CONNECT => 1,
+			CURLOPT_FAILONERROR => 1,
+			CURLOPT_PORT => 80,
+
+			// ** consider adding referer
+			CURLOPT_USERAGENT => $_SERVER['HTTP_USER_AGENT'],
+
+			CURLOPT_URL => $url
+		));
+
+		//print $url;
+		print curl_exec($ch);	// TODO: add failsafe checks!
+
+		return sfView::NONE;
+	}
 
 	public function executeHost(sfWebRequest $request) {
 

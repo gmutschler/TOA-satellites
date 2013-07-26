@@ -1,3 +1,59 @@
+EventbriteHax = Class.create({
+
+	// elms
+	elmIframe: undefined,
+	elmExtDocument: undefined,
+
+	// storage
+	accessCode: null,
+
+	// init
+	initialize: function(params) {
+
+		// store elms
+		this.elmIframe = $(params.elmIframe);
+		this.accessCode = params.accessCode;
+
+		// hide the iframe before it loads and we inject stuff
+		this.elmIframe.hide();
+
+		// load observer
+		this.elmIframe.on('load', this.onLoadIframe.bindAsEventListener(this));
+	},
+
+	// private methods
+	_getExternalDocument: function() {
+
+		// support MSIE and the rest of the world nicely
+		return this.elmIframe.contentDocument || this.elmIframe.contentWindow.document;
+	},
+
+	_applyHax: function(afterFinish) {
+
+		//console.log('Apply');
+
+		// form -> div#TicketReg -> div#discounts -> div#discountDiv1 .hide()
+		//this.elmExtDocument.getElementById('discountDiv1').style.display = 'none';
+		//this.elmExtDocument.getElementById('discountDiv1').innerHTML = 'Hacked with pleasure by TOA devs. Because we can (and ecause EventBrite sucks)';
+
+		// form -> div#TicketReg -> div#discounts -> div#discountDiv -> input#discount_code value = CODE
+		this.elmExtDocument.getElementById('discount_code').value = this.accessCode;
+
+		// callback
+		if(Object.isFunction(afterFinish)) afterFinish();
+	},
+
+	// callbacks
+	onLoadIframe: function(e) {
+
+		// fetch the external document
+		this.elmExtDocument = this._getExternalDocument();
+
+		// apply hacks and show
+		this._applyHax(function() { this.elmIframe.show(); }.bind(this));
+	}
+});
+
 // # SATELLITES/EVENT screen controller
 document.observe("dom:loaded", function() {
 
@@ -23,5 +79,12 @@ document.observe("dom:loaded", function() {
 			// custom pointer path
 			pointer_path: '/uploads/event_images/pins/#{id}.png'
 		}
+	});
+
+	// Apply eventbrite hacks
+	if($('js_accesscode')) new EventbriteHax({
+
+		elmIframe: $('js_iframe'),
+		accessCode: $F('js_accesscode')
 	});
 });
