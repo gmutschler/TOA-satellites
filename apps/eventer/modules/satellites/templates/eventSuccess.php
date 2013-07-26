@@ -101,13 +101,13 @@ if($color = $event->getListingColor()) {
 		    
 					<div class="organizer-social-icons">
 <?php if($event->getOrganiser()->getTwitter()): ?>
-						<a href="http://<?=$event->getOrganiser()->getTwitter()?>" class="twitter-link" target="_blank"></a>
+						<a href="<?=$event->getOrganiser()->getHttpPrefixed($event->getOrganiser()->getTwitter())?>" class="twitter-link" target="_blank"></a>
 <?php endif ?>
 <?php if($event->getOrganiser()->getFacebook()): ?>
-						<a href="http://<?=$event->getOrganiser()->getFacebook()?>" class="facebook-link" target="_blank"></a>
+						<a href="<?=$event->getOrganiser()->getHttpPrefixed($event->getOrganiser()->getFacebook())?>" class="facebook-link" target="_blank"></a>
 <?php endif ?>
 <?php if($event->getOrganiser()->getUrl()): ?>
-						<a href="http://<?=$event->getOrganiser()->getUrl()?>" class="website-link" target="_blank"></a>
+						<a href="<?=$event->getOrganiser()->getHttpPrefixed($event->getOrganiser()->getUrl())?>" class="website-link" target="_blank"></a>
 <?php endif ?>
 					</div>
 				</div>

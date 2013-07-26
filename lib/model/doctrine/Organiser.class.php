@@ -12,6 +12,11 @@
  */
 class Organiser extends BaseOrganiser {
 
+	public function getHttpPrefixed($what) {
+
+		return preg_match('/^http(s)*:\/\//si', $what) ? $what : 'http://' . $what;
+	}
+
 	// Eventbrite API synchronization method
 	public function syncForUser(sfUser $user) {
 
