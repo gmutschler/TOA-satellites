@@ -30,11 +30,8 @@ EventbriteHax = Class.create({
 
 	_applyHax: function(afterFinish) {
 
-		//console.log('Apply');
-
 		// form -> div#TicketReg -> div#discounts -> div#discountDiv1 .hide()
-		//this.elmExtDocument.getElementById('discountDiv1').style.display = 'none';
-		//this.elmExtDocument.getElementById('discountDiv1').innerHTML = 'Hacked with pleasure by TOA devs. Because we can (and ecause EventBrite sucks)';
+		// this.elmExtDocument.getElementById('discountDiv1').style.display = 'none';
 
 		// form -> div#TicketReg -> div#discounts -> div#discountDiv -> input#discount_code value = CODE
 		this.elmExtDocument.getElementById('discount_code').value = this.accessCode;
@@ -82,9 +79,11 @@ document.observe("dom:loaded", function() {
 	});
 
 	// Apply eventbrite hacks
+	/*
 	if($('js_accesscode')) new EventbriteHax({
 
 		elmIframe: $('js_iframe'),
 		accessCode: $F('js_accesscode')
 	});
+	*/
 });
