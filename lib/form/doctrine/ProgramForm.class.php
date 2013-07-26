@@ -23,11 +23,17 @@ class ProgramForm extends BaseProgramForm {
 		$this->setWidget('kind', new sfWidgetFormChoice(array(
 
 			'choices' => array(
-				'Talks'			=> 'Talks',
-				'Pillow Talks'		=> 'Pillow Talks',
+
+				'Ignite Talk'		=> 'Ignite Talk',
+				'Panel'			=> 'Panel',
 				'Knowshop'		=> 'Knowshop',
+				'Pillow Talk'		=> 'Pillow Talk',
 				'Performance'		=> 'Performance',
-				'Pitch Session'		=> 'Pitch Session'
+				'Pitch Clinic'		=> 'Pitch Clinic',
+				'Open Capital'		=> 'Open Capital',
+				'Crowdfunding Stage'	=> 'Crowdfunding Stage',
+				'Ask me anything'	=> 'Ask me anything',
+				'Other'			=> 'Other'
 			)
 		)));
 

@@ -14,7 +14,11 @@ class Program extends BaseProgram {
 
 	public function getRoomEscaped() {
 
-		return str_replace(' ', '_', preg_replace('/[^(\x20-\x7F)]*/', '', strtolower($this->getRoom())));
+		return $this->escapeString($this->getRoom());
+	}
+	public function getKindEscaped() {
+
+		return $this->escapeString($this->getKind());
 	}
 
 	public function getStartHourClean() {
@@ -49,5 +53,10 @@ class Program extends BaseProgram {
 		$sec = $hr / 3600;
 
 		return round($seconds * $sec);
+	}
+
+	private function escapeString($string) {
+
+		return str_replace(' ', '_', preg_replace('/[^(\x20-\x7F)]*/', '', strtolower($string)));
 	}
 }
