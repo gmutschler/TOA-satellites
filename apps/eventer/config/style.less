@@ -1017,6 +1017,7 @@ a.slider_nav {
                         h2 {
                             font-size: 32px;
                             color: @color-retro-text;
+                            line-height: 28px;
                         }
                         
                         p {
@@ -2141,6 +2142,7 @@ div.screen_unconference_speakers#content {
                 .speaker-description {
                 	@local-inner-padding: 40px;
                 	
+                	overflow: hidden;
                     width: @width-layout - 2 * @local-inner-padding;
                     font-size: 18px;
                     .absolute;
@@ -2326,6 +2328,9 @@ div.screen_unconference_program {
 
 					.absolute;
 					width: 320px;	// FIXME: finetune this
+					overflow: hidden;
+					transition: background-color 360ms ease-out, box-shadow 360ms ease-out 160ms;
+					-webkit-transition: background-color 360ms ease-out, -webkit-box-shadow 360ms ease-out 160ms;
 
 					color: @color-retro-text;
 					background-color: @color-retro-bg;
