@@ -32,7 +32,7 @@
 	'title'		=> $event->getTitle(),
 	'desc'		=> $event->getDescription(),
 	'org_name'	=> $event->getOrganiser()->getName(),
-	'org_link'	=> $event->getOrganiser()->getUrl(),
+	'org_link'	=> $event->getOrganiser()->getUrl() ? $event->getOrganiser()->getHttpPrefixed($event->getOrganiser()->getUrl()) : null,
 	'ven_name'	=> $event->getVenueName(),
 	'ven_addr'	=> $event->getVenueAddress(),
 	'ven_post'	=> $event->getVenuePostalCode(),
