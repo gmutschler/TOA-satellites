@@ -1,13 +1,3 @@
-<?php /*
-<div id="hero">
-
-	<div id="hero_background">hero background</div>
-	<div id="hero_foreground">
-		<h1>hero foreground</h1>
-	</div>
-</div>
-*/ ?>
-
 <div id="content" class="screen_unconference_program">
 
 <?php include_partial('submenu') ?>
@@ -23,6 +13,7 @@
 			</div>
 
 			<div class="column right">
+                <div class="program_lunch"><h1>Lunch</h1></div>
 
 				<ul class="program_rooms">
 
@@ -39,12 +30,10 @@
                 
 				<div class="program_inside">
                 <div class="program_inside_bg"></div>
+                <div class="program_lunch_bg"></div>
 <?php	foreach($programs as $program): ?>
 <?php		if($program->getRoom() != 'Fluxbau'): ?>
                     
-                    <div class="program_lunch">
-				        <h1>Lunch</h1>
-				    </div>
 
 					<div class="program_item room_<?=$program->getRoomEscaped()?> cat_<?=$program->getKindEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=$program->getPixelHeight()?>px">
 						<div class="program_padder">
@@ -68,7 +57,10 @@
 <?php	endforeach // & programs loop ?>
 
 				</div>
+                
 			</div>
+			
+			<div class="column ex_right"></div>
 		</div>
 	</div>
 
@@ -93,12 +85,14 @@
 
 					<?=$program->getRaw('description')?>
 
-					<div class="speaker-links">
-						<?php if($program->getTwitter()) { ?><span class="first-link twitter"><a href="http://www.twitter.com/<?=$program->getTwitter() ?>" target="_blank">@<?=$program->getTwitter() ?></a></span><? } ?>
-						<?php if($program->getURL()) { ?><span class="website <?php if(!$program->getTwitter()) { ?>first-link<? } ?>" target="_blank"><a href="http://<?=$program->getURL() ?>"><?=$program->getURL() ?></a></span><? } ?>
-						<?php if($program->getFacebook()) { ?><span class="facebook <?php if(!$program->getTwitter() && !$program->getURL()) { ?>first-link<? } ?>"><a href="http://www.facebook.com/<?=$program->getFacebook() ?>" target="_blank">facebook.com/<?=$program->getFacebook() ?></a></span><? } ?>
 				</div>
-
+                
+                <div class="perf-social-icons">
+                    <?php if($program->getTwitter()) { ?><a href="http://www.twitter.com/<?=$program->getTwitter() ?>" target="_blank"  class="first-link twitter-link"></a><? } ?>
+                    <?php if($program->getURL()) { ?><a href="http://<?=$program->getURL() ?>" class="website-link <?php if(!$program->getTwitter()) { ?>first-link<? } ?>" target="_blank"></a><? } ?>
+                    <?php if($program->getFacebook()) { ?><a href="http://www.facebook.com/<?=$program->getFacebook() ?>" class="facebook-link <?php if(!$program->getTwitter() && !$program->getURL()) { ?>first-link<? } ?>" target="_blank"></a><? } ?>
+                </div>
+                
 				<div class="clear"></div>
 			</div>
 <?php		endif ?>

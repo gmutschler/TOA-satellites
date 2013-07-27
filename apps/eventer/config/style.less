@@ -963,6 +963,69 @@ a.slider_nav {
 
 		// > textual block
 		.textual {
+        
+            .program_concerts {
+
+                .program_concert {
+                    @height-local-concert: 360px;
+                    @width-local-image: 360px;
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                
+                    .relative;
+    
+                    height: @height-local-concert;
+                    background-color: @color-retro-bg;
+    
+                    .program_concert_image, .program_concert_desc {
+                        .fleft;
+                        .relative;
+    
+                    }
+    
+                    .program_concert_image {
+    
+                        width: @width-local-image;
+                        background-repeat: no-repeat;
+                        height: @height-local-concert;
+                        background-position: 50% 50%;
+                        background-size: cover;
+    
+    
+                        p.time {
+                            .absolute(10, 10);
+                            .ffamily(15px, @font-proxima, 700);
+                            line-height: 14px;
+    
+                            padding: 8px;
+    
+                            background-color: @color-retro-text;
+                            color: @color-retro-bg;
+                        
+                            span.venue {
+                                background: @color-retro-contrast;
+                                padding: 6px;
+                                margin: -8px -8px -8px 4px;
+                            }
+                        }
+                    }
+    
+                    .program_concert_desc {
+                        width: @width-layout - @width-local-image - 50;
+                        .content-box-inner;
+                        
+                        h2 {
+                            font-size: 32px;
+                            color: @color-retro-text;
+                            line-height: 28px;
+                        }
+                        
+                        p {
+                            color: @color-retro-text;
+                        }
+                    }
+                }
+            }
 			
 			hr {
 				border: none;
@@ -1080,6 +1143,28 @@ a.slider_nav {
 
 				}
 			}
+        
+            .perf-social-icons {
+                .absolute;
+                .bottomright(8px, 10px);
+                height: 32px;
+                
+                a {
+                    display: inline-block;
+                    width: 32px;
+                    height: 32px;
+                    
+                    &.twitter-link{ background: url('/images/layout/twitter-perf.png'); }
+                    &.facebook-link{ background: url('/images/layout/fb-perf.png'); }
+                    &.website-link{ background: url('/images/layout/web-perf.png'); }
+                    
+                    &:hover {                  
+                        filter : alpha(opacity=60);
+                        opacity: 0.6;
+                    }
+                
+                }
+            }
 
 		} // & end textual block
 
@@ -2057,6 +2142,7 @@ div.screen_unconference_speakers#content {
                 .speaker-description {
                 	@local-inner-padding: 40px;
                 	
+                	overflow: hidden;
                     width: @width-layout - 2 * @local-inner-padding;
                     font-size: 18px;
                     .absolute;
@@ -2131,8 +2217,9 @@ div.screen_unconference_program {
         @color-local-maroon: #8c6b2f;
 
 		@program-total-height: 2298px;
-		@program-total-width: 2360px;
+		@program-total-width: 2380px;
 		@program-left-width: 55px;
+		@program-right-width: 20px;
 		@padding-rightcol-top: 14px;
 
 		h1 {
@@ -2160,51 +2247,39 @@ div.screen_unconference_program {
 				overflow: auto;
 
 				padding-top: @padding-rightcol-top;
-			}
-		}
-
-		.program_concerts {
-
-			.program_concert {
-				@height-local-concert: 360px;
-				@width-local-image: 360px;
-
-				height: @height-local-concert;
-				background-color: @color-retro-bg;
-
-				.program_concert_image, .program_concert_desc {
-					.fleft;
-					.relative;
-
-					height: @height-local-concert;
-				}
-
-				.program_concert_image {
-
-					width: @width-local-image;
-					background-repeat: no-repeat;
-
-					p.time {
-						.absolute(10, 10);
-
-						padding: 5px 10px;
-
-						background-color: @color-retro-text;
+                
+                .program_lunch {
+                    .absolute(1285, 0);
+                    width: 960px;
+                    z-index: 10;
+                    
+                    h1 {
 						color: @color-retro-bg;
+						.ffamily(72px, @font-proxima, 800);
+						.tupper;
+						.tcenter;
+						line-height: 0;
+						vertical-align: middle;
+                        margin-bottom: 0;
 					}
-				}
-
-				.program_concert_desc {
-
-					width: @width-layout - @width-local-image;
-				}
+                }
+			}
+			&.ex_right {
+				width: @program-right-width;
+				background: #fff;
+				border-left: 1px solid @color-border-dark;
+                margin-right: -1 - @program-right-width;
+                -webkit-box-shadow: -5px 0 8px -8px #000;
+                box-shadow: -5px 0 8px -8px #000;
+                .relative;
+                z-index: 10;
 			}
 		}
 
 		.program_wrapper {
 
 			@program-local-width: 320px;
-			@program-local-marginleft: 20px;
+			@program-local-column-margin: 10px;
 
 			height: @program-total-height;
 
@@ -2221,16 +2296,13 @@ div.screen_unconference_program {
 					padding: 11px 0;
 
 					width: @program-local-width;
-					margin-left: @program-local-marginleft;
+					margin: 0 @program-local-column-margin;
 
 					text-transform: uppercase;
 
 					background-color: @color-retro-contrast;
 					color: @color-retro-bg;
 
-					&.first {
-						margin-left: 0 !important;
-					}
 				}
 			}
 
@@ -2249,26 +2321,29 @@ div.screen_unconference_program {
                     width: 100%;
                     height: 100%;
                     .absolute;
-                    .topleft(0,0);
+                    .topleft(0,10);
                 }
 
 				.program_item {
 
 					.absolute;
 					width: 320px;	// FIXME: finetune this
+					overflow: hidden;
+					transition: background-color 360ms ease-out, box-shadow 360ms ease-out 160ms;
+					-webkit-transition: background-color 360ms ease-out, -webkit-box-shadow 360ms ease-out 160ms;
 
 					color: @color-retro-text;
 					background-color: @color-retro-bg;
 
 					// room subclasses adjusting left position
 					// NOTE: room names will be stripped down to ASCII chars
-					&.room_the_dock { left: 0 }
-					&.room_rummel { left: @program-local-width + @program-local-marginleft }
-					&.room_heinz { left: 2 * (@program-local-width + @program-local-marginleft) }
-					&.room_the_gallery { left: 3 * (@program-local-width + @program-local-marginleft) }
-					&.room_htte { left: 4 * (@program-local-width + @program-local-marginleft) }
-					&.room_the_terrace { left: 5 * (@program-local-width + @program-local-marginleft) }
-					&.room_confession_chair { left: 6 * (@program-local-width + @program-local-marginleft) }
+					&.room_the_dock { left: @program-local-column-margin }
+					&.room_rummel { left: (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
+					&.room_heinz { left: 2 * (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
+					&.room_the_gallery { left: 3 * (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
+					&.room_htte { left: 4 * (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
+					&.room_the_terrace { left: 5 * (@program-local-width + 2* @program-local-column-margin) + @program-local-column-margin }
+					&.room_confession_chair { left: 6 * (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
 					
 					&.cat_knowshop {color: @color-local-green;}
 					&.cat_ignite_talk {color: @color-local-blue;}
@@ -2327,6 +2402,7 @@ div.screen_unconference_program {
 								}
 							}
 						}
+                        
 
 						a.toggle_button {
 
@@ -2345,14 +2421,23 @@ div.screen_unconference_program {
 					}
 				}
 
-				.program_lunch {
+				.program_lunch_bg {
 
 					.absolute(961, 0);
 
 					width: 100%;
 					height: 245px;
 
-					background-color: #7F868C;
+					background-color: #3f383a;
+					
+					h1 {
+						color: @color-retro-bg;
+						.ffamily(72px, @font-proxima, 800);
+						.tupper;
+						.tcenter;
+						line-height: 245px;
+						vertical-align: middle;
+					}
 				}
 			}
 		}
