@@ -62,6 +62,7 @@
             <a href="http://www.business-punk.com/" target="_blank"><img src="/images/content/sponsors/businesspunk.png"></a>
             <a href="http://thenextweb.com/" target="_blank"><img src="/images/content/sponsors/tnw.png"></a>
             <a href="https://www.wetransfer.com/" target="_blank"><img src="/images/content/sponsors/wetransfer.png"></a>
+            <a href="http://www.vice.com/" target="_blank"><img src="/images/content/sponsors/vice.png"></a>
             <div class="clear"></div>
         </div>
 	</div>
