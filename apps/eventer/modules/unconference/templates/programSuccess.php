@@ -1,13 +1,3 @@
-<?php /*
-<div id="hero">
-
-	<div id="hero_background">hero background</div>
-	<div id="hero_foreground">
-		<h1>hero foreground</h1>
-	</div>
-</div>
-*/ ?>
-
 <div id="content" class="screen_unconference_program">
 
 <?php include_partial('submenu') ?>

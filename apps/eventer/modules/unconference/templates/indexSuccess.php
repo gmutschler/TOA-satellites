@@ -108,6 +108,46 @@ leaders in a circle on Kater Holzig’s Terrace. The idea is to get people who a
             
             <div class="clear"></div>
         </div>
+        
+        
+        
+        <div class="program_concerts textual">
+        <h2>Performances</h2>
+<?php	foreach($programs as $program): ?>
+<?php		if($program->getKind() == 'Performance'): ?>
+
+			<div class="program_concert">
+
+				<div class="program_concert_image" style="background-image: url('/images/content/program-cms/<?=$program->getPhoto()?>">
+
+					<p class="time"><?=$program->getStartHourClean()?> - <?=$program->getEndHourClean()?>
+                        <?php if($program->getRoom() == 'Fluxbau'): ?>
+                            <span class="venue">Fluxbau</span>
+                        <?php else: ?>
+                            <span class="venue">Kater Holzig</span>
+                        <?php endif ?>
+                    </p>
+				</div>
+
+				<div class="program_concert_desc">
+
+					<h2><?=$program->getTitle()?></h2>
+
+					<?=$program->getRaw('description')?>
+
+				</div>
+                
+                <div class="perf-social-icons">
+                    <?php if($program->getTwitter()) { ?><a href="http://www.twitter.com/<?=$program->getTwitter() ?>" target="_blank"  class="first-link twitter-link"></a><? } ?>
+                    <?php if($program->getURL()) { ?><a href="http://<?=$program->getURL() ?>" class="website-link <?php if(!$program->getTwitter()) { ?>first-link<? } ?>" target="_blank"></a><? } ?>
+                    <?php if($program->getFacebook()) { ?><a href="http://www.facebook.com/<?=$program->getFacebook() ?>" class="facebook-link <?php if(!$program->getTwitter() && !$program->getURL()) { ?>first-link<? } ?>" target="_blank"></a><? } ?>
+                </div>
+                
+				<div class="clear"></div>
+			</div>
+<?php		endif ?>
+<?php	endforeach ?>
+		</div>
     
         <div id="locations-2013" class="textual">
             <h2>The Locations</h2>

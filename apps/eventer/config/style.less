@@ -963,6 +963,68 @@ a.slider_nav {
 
 		// > textual block
 		.textual {
+        
+            .program_concerts {
+
+                .program_concert {
+                    @height-local-concert: 360px;
+                    @width-local-image: 360px;
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                
+                    .relative;
+    
+                    height: @height-local-concert;
+                    background-color: @color-retro-bg;
+    
+                    .program_concert_image, .program_concert_desc {
+                        .fleft;
+                        .relative;
+    
+                    }
+    
+                    .program_concert_image {
+    
+                        width: @width-local-image;
+                        background-repeat: no-repeat;
+                        height: @height-local-concert;
+                        background-position: 50% 50%;
+                        background-size: cover;
+    
+    
+                        p.time {
+                            .absolute(10, 10);
+                            .ffamily(15px, @font-proxima, 700);
+                            line-height: 14px;
+    
+                            padding: 8px;
+    
+                            background-color: @color-retro-text;
+                            color: @color-retro-bg;
+                        
+                            span.venue {
+                                background: @color-retro-contrast;
+                                padding: 6px;
+                                margin: -8px -8px -8px 4px;
+                            }
+                        }
+                    }
+    
+                    .program_concert_desc {
+                        width: @width-layout - @width-local-image - 50;
+                        .content-box-inner;
+                        
+                        h2 {
+                            font-size: 32px;
+                            color: @color-retro-text;
+                        }
+                        
+                        p {
+                            color: @color-retro-text;
+                        }
+                    }
+                }
+            }
 			
 			hr {
 				border: none;
@@ -2212,59 +2274,6 @@ div.screen_unconference_program {
 			}
 		}
 
-		.program_concerts {
-
-			.program_concert {
-				@height-local-concert: 360px;
-				@width-local-image: 360px;
-                margin-bottom: 15px;
-
-				height: @height-local-concert;
-				background-color: @color-retro-bg;
-
-				.program_concert_image, .program_concert_desc {
-					.fleft;
-					.relative;
-
-				}
-
-				.program_concert_image {
-
-					width: @width-local-image;
-					background-repeat: no-repeat;
-					height: @height-local-concert;
-                    background-position: 50% 50%;
-                    background-size: cover;
-
-
-					p.time {
-						.absolute(10, 10);
-						.ffamily(15px, @font-proxima, 700);
-						line-height: 14px;
-
-						padding: 8px;
-
-						background-color: @color-retro-text;
-						color: @color-retro-bg;
-					}
-				}
-
-				.program_concert_desc {
-					width: @width-layout - @width-local-image - 50;
-					.content-box-inner;
-					
-					h2 {
-						font-size: 32px;
-						color: @color-retro-text;
-					}
-					
-					p {
-						color: @color-retro-text;
-					}
-				}
-			}
-		}
-
 		.program_wrapper {
 
 			@program-local-width: 320px;
@@ -2388,6 +2397,7 @@ div.screen_unconference_program {
 								}
 							}
 						}
+                        
 
 						a.toggle_button {
 

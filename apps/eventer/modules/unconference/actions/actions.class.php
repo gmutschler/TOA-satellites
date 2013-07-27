@@ -11,6 +11,8 @@
 class unconferenceActions extends sfActions {
 
 	public function executeIndex(sfWebRequest $request) {
+        //fetch all programs
+        $this->programs = Doctrine_Core::getTable('Program')->getOrderedByTimeStart();
 	}
 
 	public function executeSpeakers(sfWebRequest $request) {
