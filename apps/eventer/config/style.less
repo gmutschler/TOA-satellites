@@ -967,8 +967,8 @@ a.slider_nav {
             .program_concerts {
 
                 .program_concert {
-                    @height-local-concert: 360px;
-                    @width-local-image: 360px;
+                    @height-local-concert: 290px;
+                    @width-local-image: @height-local-concert;
                     margin-bottom: 15px;
                     overflow: hidden;
                 
@@ -993,35 +993,36 @@ a.slider_nav {
     
     
                         p.time {
-                            .absolute(10, 10);
-                            .ffamily(15px, @font-proxima, 700);
-                            line-height: 14px;
+                            .absolute(8, 9);
+                            .ffamily(13px, @font-proxima, 600);
+                            line-height: 12px;
     
-                            padding: 8px;
+                            padding: 6px;
     
                             background-color: @color-retro-text;
                             color: @color-retro-bg;
                         
                             span.venue {
                                 background: @color-retro-contrast;
-                                padding: 6px;
-                                margin: -8px -8px -8px 4px;
+                                padding: 4px;
+                                margin: -6px -6px -6px 2px;
                             }
                         }
                     }
     
                     .program_concert_desc {
-                        width: @width-layout - @width-local-image - 50;
-                        .content-box-inner;
+                        width: @width-layout - @width-local-image - 25;
+                        padding: 15px 15px 15px 10px;
                         
                         h2 {
-                            font-size: 32px;
+                            font-size: 28px;
                             color: @color-retro-text;
-                            line-height: 28px;
+                            line-height: 26px;
                         }
                         
                         p {
                             color: @color-retro-text;
+                            margin-bottom: 0.6em;
                         }
                     }
                 }

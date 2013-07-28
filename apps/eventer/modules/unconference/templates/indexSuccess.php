@@ -118,7 +118,7 @@ leaders in a circle on Kater Holzig’s Terrace. The idea is to get people who a
 
 			<div class="program_concert">
 
-				<div class="program_concert_image" style="background-image: url('/images/content/program-cms/<?=$program->getPhoto()?>">
+				<div class="program_concert_image" style="background-image: url('/images/content/program-cms/<?=$program->getPhoto()?>')">
 
 					<p class="time"><?=$program->getStartHourClean()?> - <?=$program->getEndHourClean()?>
                         <?php if($program->getRoom() == 'Fluxbau'): ?>

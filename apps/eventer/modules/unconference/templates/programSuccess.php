@@ -74,7 +74,7 @@
 
 			<div class="program_concert">
 
-				<div class="program_concert_image" style="background-image: url('/images/content/program-cms/<?=$program->getPhoto()?>">
+				<div class="program_concert_image" style="background-image: url('/images/content/program-cms/<?=$program->getPhoto()?>')">
 
 					<p class="time"><?=$program->getStartHourClean()?> - <?=$program->getEndHourClean()?></p>
 				</div>
