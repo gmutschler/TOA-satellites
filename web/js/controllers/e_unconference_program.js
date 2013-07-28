@@ -73,8 +73,8 @@ ProgramItem = Class.create({
 
 		this.elmMore.show();
 		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
-
-			height: this.heightStart + this.heightMore,
+			
+			height: 56 + this.heightMore,
 			backgroundColor: this.colorBgOpen,
 			ease: Power2.easeOut,
 

@@ -35,7 +35,7 @@
 <?php		if($program->getRoom() != 'Fluxbau'): ?>
                     
 
-					<div class="program_item room_<?=$program->getRoomEscaped()?> cat_<?=$program->getKindEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=$program->getPixelHeight()?>px">
+					<div class="program_item room_<?=$program->getRoomEscaped()?> cat_<?=$program->getKindEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=$program->getPixelHeight()?>px; min-height: <?=$program->getPixelHeight()?>px;">
 						<div class="program_padder">
 
 							<h2><?=$program->getTitle()?> | <span><?=$program->getKind()?></span></h2>
