@@ -2400,12 +2400,42 @@ div.screen_unconference_program {
                             font-size: 13px;
 
 							li {
-								img {
+                                span.speaker-avatar-container {
 									width: 41px;
 									height: 41px;
                                     vertical-align: middle;
                                     margin: 0 2px 2px 0;
-								}
+                                    display: inline-block;
+                                    background: @color-retro-text;
+                                    color: @color-retro-bg;
+                                    
+                                    img {   
+                                        width: 41px;
+                                        height: 41px;
+                                    }
+                                }
+                                
+                                span.speaker-infos-container {
+                                    vertical-align: middle;
+                                    display: inline-block;
+                                    width: 254px;
+                                    padding: 0 1px;
+                                    line-height: 14px;
+                                    
+                                    span.speaker-name {
+                                        .tupper;
+                                        width: 100%;
+                                        font-size: 16px;
+                                        display: inline-block;
+                                    }
+                                    span.speaker-company {
+                                        .ffamily(13px, @font-proxima, 700);
+                                    }
+                                    span.speaker-position{
+                                        font-style: italic;
+                                        font-size: 15px;
+                                    }
+                                }
 							}
 						}
                         
