@@ -25,7 +25,7 @@
                     <?php if($speaker->getDescription()) { ?><p><?=$speaker->getDescription() ?></p><? } ?>
                     <div class="speaker-links">
                     <?php if($speaker->getTwitter()) { ?><span class="first-link twitter"><a href="http://www.twitter.com/<?=$speaker->getTwitter() ?>" target="_blank">@<?=$speaker->getTwitter() ?></a></span><? } ?>
-                    <?php if($speaker->getURL()) { ?><span class="website <?php if(!$speaker->getTwitter()) { ?>first-link<? } ?>" target="_blank"><a href="http://<?=$speaker->getURL() ?>"><?=$speaker->getURL() ?></a></span><? } ?>
+                    <?php if($speaker->getURL()) { ?><span class="website <?php if(!$speaker->getTwitter()) { ?>first-link<? } ?>"><a href="http://<?=$speaker->getURL() ?>" target="_blank"><?=$speaker->getURL() ?></a></span><? } ?>
                     <?php if($speaker->getFacebook()) { ?><span class="facebook <?php if(!$speaker->getTwitter() && !$speaker->getURL()) { ?>first-link<? } ?>"><a href="http://www.facebook.com/<?=$speaker->getFacebook() ?>" target="_blank">facebook.com/<?=$speaker->getFacebook() ?></a></span><? } ?>
                     </div>
 			     </div>
