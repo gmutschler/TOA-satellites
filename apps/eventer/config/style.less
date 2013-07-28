@@ -2217,10 +2217,10 @@ div.screen_unconference_program {
         @color-local-violet: #57486d;
         @color-local-maroon: #8c6b2f;
 
-		@program-total-height: 2368px;
+		@program-total-height: 2498px;
 		@program-total-width: 2380px;
 		@program-left-width: 55px;
-		@program-right-width: 20px;
+		@program-right-width: 55px;
 		@padding-rightcol-top: 14px;
 
 		h1 {
@@ -2245,13 +2245,11 @@ div.screen_unconference_program {
 			}
 			&.right {
 				width: @width-layout;
-				overflow-x: auto;
                 overflow-y: hidden;
 
 				padding-top: @padding-rightcol-top;
                 
-                .program_lunch {
-                    .absolute(1285, 0);
+                .program_aside {
                     width: 960px;
                     z-index: 10;
                     
@@ -2264,6 +2262,10 @@ div.screen_unconference_program {
 						vertical-align: middle;
                         margin-bottom: 0;
 					}
+                    
+                    &.program_breakfast { .absolute(321, 0); }
+                    &.program_lunch { .absolute(1285, 0); }
+                    &.program_bbq { .absolute(2495, 0); }
                 }
 			}
 			&.ex_right {
@@ -2276,6 +2278,26 @@ div.screen_unconference_program {
                 .relative;
                 z-index: 10;
 			}
+            
+            &.ex_right, &.left {
+                .left_arrow, .right_arrow {
+                    .absolute (0,0);
+                    width: 100%;
+                    height: 100%;
+                    line-height: 480px;
+                    .ffamily (36px, arial, 600);
+                    color: #CCC;
+                    .tcenter;
+                    .c3transition(560ms);
+                    
+                    &:hover {
+                        cursor: pointer;
+                        background: rgba(0,0,0,0.6);
+                        color: #fff;
+                        .c3transition(120ms);
+                    }
+                }
+            }
 		}
 
 		.program_wrapper {
@@ -2304,7 +2326,14 @@ div.screen_unconference_program {
 
 					background-color: @color-retro-contrast;
 					color: @color-retro-bg;
-
+                    
+                    span {
+                        margin-left: 4px;
+                        .ffamily(17px, @font-minion, 400);
+                        font-style: italic;
+                        text-transform: none;
+                        line-height: 16px;
+                    }
 				}
 			}
 
@@ -2322,14 +2351,15 @@ div.screen_unconference_program {
                     background: repeat url(@{images-layout}/timespace.png);
                     width: 100%;
                     height: 100%;
-                    .absolute;
-                    .topleft(0,10);
+                    .absolute(0,10);
                 }
 
 				.program_item {
 
 					.absolute;
 					width: 320px;	// FIXME: finetune this
+                    border-bottom: 1px solid #D1C4AC;
+                    border-top: 1px solid #D1C4AC;
 					overflow: hidden;
 					transition: background-color 360ms ease-out, box-shadow 360ms ease-out 160ms;
 					-webkit-transition: background-color 360ms ease-out, -webkit-box-shadow 360ms ease-out 160ms;
@@ -2384,6 +2414,8 @@ div.screen_unconference_program {
 								text-transform: lowercase;
 							}
 						}
+                        
+                        img {margin: 0.6em 0;}
 
 						h3 {
 							.tupper;
@@ -2449,6 +2481,7 @@ div.screen_unconference_program {
 							.ffamily(10px, @font-proxima, bold);
 							.tupper;
                             .tcenter;
+                            z-index: 10;
 
 							padding: 5px 0;
                             width: 90px;
@@ -2461,23 +2494,24 @@ div.screen_unconference_program {
 					}
 				}
 
-				.program_lunch_bg {
-
-					.absolute(961, 0);
+				.program_aside_bg {
 
 					width: 100%;
-					height: 245px;
-
 					background-color: #3f383a;
-					
-					h1 {
-						color: @color-retro-bg;
-						.ffamily(72px, @font-proxima, 800);
-						.tupper;
-						.tcenter;
-						line-height: 245px;
-						vertical-align: middle;
-					}
+                    
+                    &.program_breakfast_bg {
+                       height: 239px;
+					   .absolute(1, 0);
+                    }                    
+                    &.program_lunch_bg {
+                       height: 239px;
+					   .absolute(961, 0);
+                    }                    
+                    &.program_bbq_bg {
+                       height: 250px;
+					   .absolute(2161, 0);
+                    }
+                    
 				}
 			}
 		}

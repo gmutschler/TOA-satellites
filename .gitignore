@@ -5,4 +5,5 @@ web/uploads/
 apps/eventer/config/app.yml
 *.swp
 web/*_dev.php
-web/images/content/speakers-cms/
+web/images/content/speaker-cms/
+web/images/content/program-cms/

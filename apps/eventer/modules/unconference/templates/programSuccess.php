@@ -10,10 +10,13 @@
 		<div class="program_wrapper">
 
 			<div class="column left">
+                <div class="left_arrow">&#9668;<br />&#9668;<br />&#9668;<br />&#9668;<br />&#9668;</div>
 			</div>
 
 			<div class="column right">
-                <div class="program_lunch"><h1>Lunch</h1></div>
+                <div class="program_breakfast program_aside"><h1>Breakfast</h1></div>
+                <div class="program_lunch program_aside"><h1>Lunch</h1></div>
+                <div class="program_bbq program_aside"><h1>BBQ</h1></div>
 
 				<ul class="program_rooms">
 
@@ -21,7 +24,7 @@
 					<li>Rummel</li>
 					<li>Heinz</li>
 					<li>Gallery</li>
-					<li class="room_htte_title">Hütte</li>
+					<li class="room_htte_title">Hütte<span>(sponsored stage)</span></li>
 					<li>The Terrace</li>
 					<li>Confession chair</li>
 				</ul>
@@ -30,18 +33,21 @@
                 
 				<div class="program_inside">
                 <div class="program_inside_bg"></div>
-                <div class="program_lunch_bg"></div>
+                <div class="program_breakfast_bg program_aside_bg"></div>
+                <div class="program_lunch_bg program_aside_bg"></div>
+                <div class="program_bbq_bg program_aside_bg"></div>
 <?php	foreach($programs as $program): ?>
 <?php		if($program->getRoom() != 'Fluxbau'): ?>
                     
 
-					<div class="program_item room_<?=$program->getRoomEscaped()?> cat_<?=$program->getKindEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=$program->getPixelHeight()?>px; min-height: <?=$program->getPixelHeight()?>px;">
+					<div class="program_item room_<?=$program->getRoomEscaped()?> cat_<?=$program->getKindEscaped()?>" style="top: <?=$program->getPixelPositionTop()?>px; height: <?=($program->getPixelHeight())-1?>px; min-height: <?=($program->getPixelHeight())-1?>px;">
 						<div class="program_padder">
 
-							<h2><?=$program->getTitle()?> | <span><?=$program->getKind()?></span></h2>
+							<h2><?=$program->getTitle()?><?php if ($program->getKind() !="Other" ) { ?> | <span><?=$program->getKind()?></span><? } ?></h2>
 
 							<div class="program_more" style="display: none;">
-
+                                
+                                <?php if ($program->getPhoto()) { ?><img src="/images/content/program-cms/<?=$program->getPhoto()?>" width="320" alt="<?=$program->getTitle()?>" /><? } ?>
 								<?=$program->getRaw('description')?>
 
 								<?php if($moderators = $program->getModerators() and count($moderators)) include_partial('programPeople', array('title' => 'Moderator', 'people' => $moderators)) ?>
@@ -57,10 +63,9 @@
 <?php	endforeach // & programs loop ?>
 
 				</div>
-                
 			</div>
 			
-			<div class="column ex_right"></div>
+			<div class="column ex_right"><div class="right_arrow">&#9658;<br />&#9658;<br />&#9658;<br />&#9658;<br />&#9658;</div></div>
 		</div>
 	</div>
 
