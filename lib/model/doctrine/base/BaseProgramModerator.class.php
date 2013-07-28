@@ -47,10 +47,12 @@ abstract class BaseProgramModerator extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Program', array(
              'local' => 'program_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $this->hasOne('Speaker', array(
              'local' => 'speaker_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
     }
 }

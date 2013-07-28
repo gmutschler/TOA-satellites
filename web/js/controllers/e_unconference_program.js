@@ -48,7 +48,7 @@ ProgramItem = Class.create({
 
 		if(this.objEffect) this.objEffect.kill();
 
-		this.elmMore.hide();
+		this.elmWrapper.removeClassName('state_open');
 		this.objEffect = TweenLite.to(this.elmWrapper, .45, {
 
 			height: this.heightStart,
@@ -57,13 +57,13 @@ ProgramItem = Class.create({
 
 			onComplete: function() {
 
+				this.elmMore.hide();
 				this.elmWrapper.setStyle({ zIndex: 0 });
 				this.elmButton.update('Show more');
 
 				this.isOpen = false;
 			}.bind(this)
 		});
-
 	},
 	_open: function() {
 
@@ -71,6 +71,7 @@ ProgramItem = Class.create({
 
 		this.elmWrapper.setStyle({ zIndex: 20 });
 
+		this.elmMore.show();
 		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
 
 			height: this.heightStart + this.heightMore,
@@ -79,7 +80,7 @@ ProgramItem = Class.create({
 
 			onComplete: function() {
 
-				this.elmMore.show();
+				this.elmWrapper.addClassName('state_open');
 				this.elmButton.update('Show less');
 			}.bind(this)
 		});

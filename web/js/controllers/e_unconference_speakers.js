@@ -10,10 +10,11 @@ Face = Class.create({
 
 	// objs
 	objParent: undefined,
-	objEffect: undefined,
+	objTimeline: undefined,
 
 	// states and storage
 	isOpen: false,
+	heightDescription: 0,
 
 	// init
 	initialize: function(elmWrapper, objParent) {
@@ -26,6 +27,9 @@ Face = Class.create({
 		this.elmDescription = this.elmWrapper.select('div.speaker-description').first();
 		this.elmCursor = this.elmWrapper.select('div.speaker-cursor').first();
 		this.elmSpeakerPosition = this.elmMeta.select('span.speaker-position').first();
+
+		// store some heights
+		this.heightDescription = this.elmDescription.measure('padding-box-height');
 
 		// register observers
 		this.elmMeta.on('click', this.onClickFace.bindAsEventListener(this));
@@ -41,22 +45,43 @@ Face = Class.create({
 	_close: function() {
 
 		// effects, styles
-		if(this.objEffect) this.objEffect.kill();
-
+		if(this.objTimeline) this.objTimeline.kill();
+		
 		this.elmCursor.hide();
 		this.elmSpeakerPosition.show();
-		this.objEffect = TweenLite.to(this.elmWrapper, .45, {
 
-			marginBottom: 0,
-			ease: Power2.easeOut,
+		this.objTimeline = new TimelineLite();
+		this.objTimeline.add(
 
-			onComplete: function() {
+			TweenLite.to(this.elmWrapper, .45, {
+
+				marginBottom: 0,
+				ease: Power2.easeOut
+			}),
+			0
+		);
+		this.objTimeline.add(
+
+			TweenLite.to(this.elmDescription, .45, {
+
+				height: 0,
+				ease: Power2.easeOut
+			}),
+			0
+		);
+		this.objTimeline.call(
+
+			function() {
+
 
 				this.elmDescription.hide();
 
 				this.isOpen = false;
+				
+				console.log('closed!');
+
 			}.bind(this)
-		});
+		);
 	},
 	_open: function() {
 
@@ -64,14 +89,28 @@ Face = Class.create({
 		this.objParent.closeAll();
 
 		// effects, styles
-		this.elmDescription.show();
+		this.elmDescription.show().setStyle({ height: 0 });
 		this.elmCursor.show();
 		this.elmSpeakerPosition.hide();
-		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
 
-			marginBottom: this.elmDescription.measure('padding-box-height'),
-			ease: Power2.easeOut
-		});
+		this.objTimeline = new TimelineLite();
+		this.objTimeline.add(
+
+			TweenLite.to(this.elmWrapper, .65, {
+
+				marginBottom: this.heightDescription,
+				ease: Power2.easeOut
+			}),
+			0
+		);
+		this.objTimeline.add(
+			TweenLite.to(this.elmDescription, .65, {
+
+				height: this.heightDescription - (this.elmDescription.measure('padding-top') * 2),
+				ease: Power2.easeOut
+			}),
+			0
+		);
 
 		this.isOpen = true;
 	},
