@@ -47,7 +47,7 @@
 
 							<div class="program_more" style="display: none;">
                                 
-                                <?php if ($program->getPhoto()) { ?><img src="/images/content/program-cms/<?=$program->getPhoto()?>" width="320" alt="<?=$program->getTitle()?>" /><? } ?>
+                                <?php if ($program->getPhoto()) { ?><img src="/images/content/program-cms/<?=$program->getPhoto()?>" width="320" alt="<?=$program->getTitle()?>" class="program_illustration" /><? } ?>
 								<?=$program->getRaw('description')?>
 
 								<?php if($moderators = $program->getModerators() and count($moderators)) include_partial('programPeople', array('title' => 'Moderator', 'people' => $moderators)) ?>
@@ -108,3 +108,4 @@
 
 	</div>
 </div>
+while
