@@ -2344,12 +2344,18 @@ div.screen_unconference_program {
 					&.room_htte { left: 4 * (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
 					&.room_the_terrace { left: 5 * (@program-local-width + 2* @program-local-column-margin) + @program-local-column-margin }
 					&.room_confession_chair { left: 6 * (@program-local-width + 2 * @program-local-column-margin) + @program-local-column-margin }
-					
+
 					&.cat_knowshop {color: @color-local-green;}
 					&.cat_ignite_talk {color: @color-local-blue;}
 					&.cat_pillow_talk {color: @color-local-violet;}
 					&.cat_performance {color: @color-local-maroon;}
 					&.cat_panel {color: @color-local-red;}
+
+					&.state_open {
+						-webkit-box-shadow: 0 2px 8px -3px #000;
+						-moz-box-shadow: 0 2px 8px -3px #000;
+						box-shadow: 0 2px 8px -3px #000;
+					}
 
 					// inner elements
 					.program_padder {
