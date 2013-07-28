@@ -9,7 +9,7 @@
 <?php	foreach($speakers as $speaker): ?>
             <div class="speaker-item">
                 <div class="speaker-container">
-                    <img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?> portrait" />
+                    <?php if ($speaker->getFace()) { ?><img src="/images/content/speakers-cms/<?=$speaker->getFace()?>" alt="<?=$speaker->getFirstName()?> <?=$speaker->getLastName()?> portrait" /><? } ?>
                     <div class="speaker-meta">
                         <h3><?=$speaker->getFirstName()?> <?=$speaker->getLastName()?></h3>
                         <span class="speaker-position"><?=$speaker->getCompanyPosition()?><?php if($speaker->getCompany()) { ?> - <?=$speaker->getCompany()?><? } ?></span>
