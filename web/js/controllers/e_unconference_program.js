@@ -58,7 +58,7 @@ ProgramItem = Class.create({
 			onComplete: function() {
 
 				this.elmMore.hide();
-				this.elmWrapper.setStyle({ zIndex: 0 });
+				this.elmWrapper.setStyle({ zIndex: 11 });
 				this.elmButton.update('Show more');
 
 				this.isOpen = false;
@@ -73,8 +73,9 @@ ProgramItem = Class.create({
 
 		this.elmMore.show();
 		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
-			
-			height: 56 + this.heightMore,
+
+			//height: this.heightStart + this.heightMore,
+			height: 56 + this.heightMore,			// ** @Guillaume: I'm not sure this is wise...
 			backgroundColor: this.colorBgOpen,
 			ease: Power2.easeOut,
 
@@ -122,8 +123,140 @@ ProgramItem.Loader = Class.create({
 
 });
 
+GridScroller = Class.create({
+
+	// elms
+	elmWrapper: undefined,
+	elmProgramInside: undefined,
+	elmProgramRooms: undefined,
+	elmArrowLeft: undefined,
+	elmArrowRight: undefined,
+	elmsScrollable: [],
+
+	// objs
+	objTimer: undefined,
+	objDrag: undefined,
+
+	// states and storage
+	delay: 0.01,
+	step: 35,
+
+	scrollMax: 0,
+
+	currentStep: 0,
+	scrollOffset: 0,
+	isMoving: false,
+
+	// init
+	initialize: function(elmWrapper) {
+
+		// store elms
+		this.elmWrapper = $(elmWrapper);
+		this.elmProgramInside = this.elmWrapper.select('div.program_inside').first();
+		this.elmProgramRooms = this.elmWrapper.select('ul.program_rooms').first();
+		this.elmsScrollable = [this.elmProgramRooms, this.elmProgramInside];
+
+		this.elmArrowLeft = this.elmWrapper.select('div.left_arrow').first();
+		this.elmArrowRight = this.elmWrapper.select('div.right_arrow').first();
+
+		// store some vars for easier execution
+		this.scrollMax = (this.elmsScrollable.first().measure('width') * -1) + this.elmWrapper.select('div.column.right').first().measure('width') ;
+
+		// register observers
+		this.elmArrowLeft.on('mousedown', this.onPressLeft.bindAsEventListener(this));
+		this.elmArrowRight.on('mousedown', this.onPressRight.bindAsEventListener(this));
+		this.elmArrowLeft.on('mouseup', this.onReleaseLeftRight.bindAsEventListener(this));
+		this.elmArrowRight.on('mouseup', this.onReleaseLeftRight.bindAsEventListener(this));
+
+		// register draggable
+		// NOTE: this code could (and should) be finetuned one day
+		this.objDrag = new Draggable(this.elmProgramInside, {
+
+			constraint: 'horizontal',
+			snap: this.step,
+
+			change: this.onDragChange.bind(this)
+		});
+	},
+
+	// private methods
+	_startMoving: function() {
+
+		if(!this.isMoving) {
+
+			this.objTimer = new PeriodicalExecuter(this.onMoveLoop.bind(this), this.delay);
+			this.isMoving = true;
+		}
+	},
+	_stopMoving: function() {
+
+		if(this.isMoving) {
+
+			this.objTimer.stop();
+			this.isMoving = false;
+		}
+	},
+
+	// callbacks
+	onMoveLoop: function(pe) {
+
+		// adjust offset
+		this.scrollOffset += this.currentStep;
+
+		// lock within the limits
+		if(this.scrollOffset >= 0) this.scrollOffset = 0;
+		else if(this.scrollOffset <= this.scrollMax) this.scrollOffset = this.scrollMax;
+
+		this.elmsScrollable.each(function(elm) {
+
+			elm.setStyle({ left: this.scrollOffset + 'px' });
+
+		}.bind(this));
+
+		if(this.scrollOffset == 0 || this.scrollOffset == this.scrollMax) this._stopMoving();
+	},
+
+	onDragChange: function() {
+
+		// get current scroll offset		** NOTE: very CPU expensive method
+		this.scrollOffset = parseInt(this.elmProgramInside.getStyle('left').gsub(/px$/, ''));
+
+		// limit
+		if(this.scrollOffset >= 0) {
+
+			this.scrollOffset = 0;
+			this.elmsScrollable.each(function(elm) { elm.setStyle({ left: 0 }); });
+		}
+		if(this.scrollOffset <= this.scrollMax) {
+
+			this.scrollOffset = this.scrollMax;
+			this.elmsScrollable.each(function(elm) { elm.setStyle({ left: this.scrollMax + 'px'}); }.bind(this));
+		}
+
+		// adjust rooms
+		this.elmProgramRooms.setStyle({ left: this.scrollOffset + 'px' });
+	},
+
+	onPressLeft: function(e) {
+
+		this.currentStep += this.step;
+		this._startMoving();
+	},
+	onPressRight: function(e) {
+
+		this.currentStep -= this.step;
+		this._startMoving();
+	},
+	onReleaseLeftRight: function(e) {
+
+		this.currentStep = 0;
+		this._stopMoving();
+	}
+});
+
 // # UNCONFERENCE/PROGRAM screen controller
 document.observe("dom:loaded", function() {
 
 	new ProgramItem.Loader($$('div.program_wrapper').first());	// NOTE: this will raise errors if there are no programs :)
+	new GridScroller($$('div.program_wrapper').first());
 });

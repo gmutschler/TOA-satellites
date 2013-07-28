@@ -2245,7 +2245,8 @@ div.screen_unconference_program {
 			}
 			&.right {
 				width: @width-layout;
-                overflow-y: hidden;
+                //overflow-y: hidden;
+		overflow: hidden;
 
 				padding-top: @padding-rightcol-top;
                 
@@ -2309,6 +2310,8 @@ div.screen_unconference_program {
 
 			.program_rooms {
 
+				.disblock();
+				.relative;
 				width: @program-total-width;
 
 				li {
@@ -2346,6 +2349,8 @@ div.screen_unconference_program {
 				margin-top: @margin-local-top;
 				height: @program-total-height - @margin-local-top - @padding-rightcol-top - 44px;	// FIXME: 44px is TOTALY GUESSED
 				width: @program-total-width;
+
+				cursor: move;
                 
                 .program_inside_bg {
                     background: repeat url(@{images-layout}/timespace.png);
@@ -2358,11 +2363,12 @@ div.screen_unconference_program {
 
 					.absolute;
 					width: 320px;	// FIXME: finetune this
-                    border-bottom: 1px solid #D1C4AC;
-                    border-top: 1px solid #D1C4AC;
+					border-bottom: 1px solid #D1C4AC;
+					border-top: 1px solid #D1C4AC;
 					overflow: hidden;
 					transition: background-color 360ms ease-out, box-shadow 360ms ease-out 160ms;
 					-webkit-transition: background-color 360ms ease-out, -webkit-box-shadow 360ms ease-out 160ms;
+					z-index: 11;
 
 					color: @color-retro-text;
 					background-color: @color-retro-bg;

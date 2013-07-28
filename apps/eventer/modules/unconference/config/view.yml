@@ -3,4 +3,4 @@ speakersSuccess:
   javascripts: ['vendor/TweenMax.min.js', 'controllers/e_unconference_speakers.js']
 
 programSuccess:
-  javascripts: ['vendor/TweenMax.min.js', 'controllers/e_unconference_program.js']
+  javascripts: ['vendor/TweenMax.min.js', 'libs/controls.js', 'libs/dragdrop.js', 'controllers/e_unconference_program.js']
