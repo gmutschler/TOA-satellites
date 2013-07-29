@@ -47,7 +47,8 @@ class ProgramForm extends BaseProgramForm {
 				'Rummel'		=> 'Rummel',
 				'Hütte'			=> 'Hütte',
 				'Confession Chair'	=> 'Confession Chair',
-				'Fluxbau'		=> 'Fluxbau'
+				'Fluxbau'		=> 'Fluxbau',
+				'Hexenhäuschen'	=> 'Hexenhäuschen'
 			)
 		)));
 

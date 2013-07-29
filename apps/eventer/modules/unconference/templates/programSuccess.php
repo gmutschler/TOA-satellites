@@ -27,6 +27,7 @@
 					<li class="room_htte_title">Hütte<span>(sponsored stage)</span></li>
 					<li>The Terrace</li>
 					<li>Confession chair</li>
+					<li>Hexenhäuschen</li>
 				</ul>
 
 				<div class="clear"></div>
