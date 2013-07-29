@@ -29,9 +29,9 @@ ProgramItem = Class.create({
 		this.elmButton = this.elmWrapper.select('a.toggle_button').first();
 
 		// store some heights to save the computing later on
-		this.heightStart = this.elmWrapper.measure('height');
-		this.heightMore = this.elmMore.measure('height');
-		this.heightTitle = this.elmTitle.measure('height');
+		this.heightStart = this.elmWrapper.measure('padding-box-height');
+		this.heightMore = this.elmMore.measure('padding-box-height');
+		//this.heightTitle = this.elmTitle.measure('height');
 		this.colorBgClosed = this.elmWrapper.getStyle('backgroundColor');
 		this.colorBgOpen = '#EEE8DA';	// ** HARDCODED
 
@@ -73,11 +73,14 @@ ProgramItem = Class.create({
 
 		this.elmWrapper.setStyle({ zIndex: 20 });
 
+		console.log('start: ' + this.heightStart);
+		console.log('more: ' + this.heightMore);
+
 		this.elmMore.show();
 		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
 
-			//height: this.heightStart + this.heightMore,
-			height: this.heightTitle + this.heightMore + 20,			// ** @Guillaume: I'm not sure this is wise...
+			height: this.heightStart + this.heightMore,
+			//height: this.heightTitle + this.heightMore + 20,
 			backgroundColor: this.colorBgOpen,
 			ease: Power2.easeOut,
 
