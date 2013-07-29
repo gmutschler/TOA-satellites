@@ -119,9 +119,11 @@ if($color = $event->getListingColor()) {
 <?php if($event->getSynchronized()): ?>
 		<h2>Tickets information</h2>
 
+<?php /*
 <?php	if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()): ?>
 		<p class="notice">As The Unconference attendee, you should have availability to enter sattelite events for free!<br />If the free tickets are not displayed below, please use the following as a promotionnal code:<input id="js_accesscode" class="accesscode" type="text" value="<?=$event->getEventbriteAccesscode()?>" onclick="this.select();" /></p>
-<?php else: ?>
+<?php	else: ?>
+
         <div class="event-main-ticket">
             <p class="lead">Already have a Day 1 ticket?</p>
             <p>Your seat is reserved and free for paid events<sup>*</sup>. Please <a href="<?=url_for('home/login')?>" style="color:#DC142C">login</a> to proceed with registration.<br />Space is limited for Non Tech Open Air ticket holders<br /></p>
@@ -131,6 +133,9 @@ if($color = $event->getListingColor()) {
 <?php	endif ?>
 
 		<iframe src="http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->isAuthenticated() and $sf_user->getGuardUser()->getAttendee()->getHasMainTicket()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>&v=2" frameborder="0" height="600" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+*/ ?>
+
+		<iframe src="http://www.eventbrite.com/tickets-external?eid=<?=$event->getEventbriteId()?>&ref=etckt<?php if($sf_user->isAuthenticated()) { ?>&access=<?=$event->getEventbriteAccesscode()?>&access_code=<?php echo $event->getEventbriteAccesscode(); } ?>&<?=time()?>&v=2" frameborder="0" height="600" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
 	
 <?php /*
 <?php
