@@ -35,6 +35,7 @@
             <a href="http://www.facebook.com/SierraTequila" target="_blank"><img src="/images/content/sponsors/sierrapaloma.png"></a>
             <a href="http://www.heisenbergmedia.com/" target="_blank"><img src="/images/content/sponsors/heisenberg.png"></a>
             <a href="http://www.noblego.de/" target="_blank"><img src="/images/content/sponsors/noblego.png"></a>
+            <a href="http://ourberlin.de/" target="_blank"><img src="/images/content/sponsors/ourberlin.png"></a>
           	<div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
