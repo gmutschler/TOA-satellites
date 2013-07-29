@@ -73,8 +73,8 @@ ProgramItem = Class.create({
 
 		this.elmWrapper.setStyle({ zIndex: 20 });
 
-		console.log('start: ' + this.heightStart);
-		console.log('more: ' + this.heightMore);
+		//console.log('start: ' + this.heightStart);
+		//console.log('more: ' + this.heightMore);
 
 		this.elmMore.show();
 		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
@@ -180,7 +180,8 @@ GridScroller = Class.create({
 			constraint: 'horizontal',
 			snap: this.step,
 
-			change: this.onDragChange.bind(this)
+			change: this.onDragChange.bind(this),
+			onEnd: this.onDrop.bind(this)
 		});
 	},
 
@@ -240,6 +241,11 @@ GridScroller = Class.create({
 
 		// adjust rooms
 		this.elmProgramRooms.setStyle({ left: this.scrollOffset + 'px' });
+	},
+	onDrop: function() {
+
+		// ** bruteforce as nothing else works
+		//this.elmProgramInside.style.zindex = '';
 	},
 
 	onPressLeft: function(e) {
