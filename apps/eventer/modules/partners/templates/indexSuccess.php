@@ -22,6 +22,7 @@
             <a href="https://www.elance.com/q/berlin" target="_blank"><img src="/images/content/sponsors/elance.png"></a>
             <a href="http://www.kpmg.com/" target="_blank"><img src="/images/content/sponsors/kpmg.png"></a>
             <a href="http://www.simyo.de/" target="_blank"><img src="/images/content/sponsors/simyo.png"></a>
+            <a href="http://www.lacore.de/" target="_blank"><img src="/images/content/sponsors/lacore.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Event Barters</h2>
@@ -36,6 +37,12 @@
             <a href="http://www.heisenbergmedia.com/" target="_blank"><img src="/images/content/sponsors/heisenberg.png"></a>
             <a href="http://www.noblego.de/" target="_blank"><img src="/images/content/sponsors/noblego.png"></a>
             <a href="http://ourberlin.de/" target="_blank"><img src="/images/content/sponsors/ourberlin.png"></a>
+            <a href="http://www.katzorange.com/" target="_blank"><img src="/images/content/sponsors/katzorange.png"></a>
+            <a href="http://contemporaryfoodlab.com/" target="_blank"><img src="/images/content/sponsors/cfl.png"></a>
+            <a href="http://www.jager.com/" target="_blank"><img src="/images/content/sponsors/jaegermeister.png"></a>
+            <a href="http://www.fredrixprintcanvas.com/" target="_blank"><img src="/images/content/sponsors/fredrix.png"></a>
+            <a href="http://www.combiframe.eu/de" target="_blank"><img src="/images/content/sponsors/combiframe.png"></a>
+            <a href="http://www.lemon-aid.de/" target="_blank"><img src="/images/content/sponsors/lemonaid.png"></a>
           	<div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
