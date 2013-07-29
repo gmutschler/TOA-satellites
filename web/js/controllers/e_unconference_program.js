@@ -31,7 +31,7 @@ ProgramItem = Class.create({
 		// store some heights to save the computing later on
 		this.heightStart = this.elmWrapper.measure('padding-box-height');
 		this.heightMore = this.elmMore.measure('padding-box-height');
-		//this.heightTitle = this.elmTitle.measure('height');
+		this.heightTitle = this.elmTitle.measure('padding-box-height');
 		this.colorBgClosed = this.elmWrapper.getStyle('backgroundColor');
 		this.colorBgOpen = '#EEE8DA';	// ** HARDCODED
 
@@ -73,14 +73,14 @@ ProgramItem = Class.create({
 
 		this.elmWrapper.setStyle({ zIndex: 20 });
 
-		//console.log('start: ' + this.heightStart);
-		//console.log('more: ' + this.heightMore);
+		console.log('start: ' + this.heightStart);
+		console.log('more: ' + this.heightMore);
 
 		this.elmMore.show();
 		this.objEffect = TweenLite.to(this.elmWrapper, .65, {
 
-			height: this.heightStart + this.heightMore,
-			//height: this.heightTitle + this.heightMore + 20,
+			//height: this.heightStart + this.heightMore,
+			height: this.heightTitle + this.heightMore + 20,
 			backgroundColor: this.colorBgOpen,
 			ease: Power2.easeOut,
 
@@ -143,8 +143,8 @@ GridScroller = Class.create({
 	objDrag: undefined,
 
 	// states and storage
-	delay: 0.01,
-	step: 35,
+	delay: 0.000001,
+	step: 60,
 
 	scrollMax: 0,
 
@@ -180,8 +180,7 @@ GridScroller = Class.create({
 			constraint: 'horizontal',
 			snap: this.step,
 
-			change: this.onDragChange.bind(this),
-			onEnd: this.onDrop.bind(this)
+			change: this.onDragChange.bind(this)
 		});
 	},
 
@@ -241,11 +240,6 @@ GridScroller = Class.create({
 
 		// adjust rooms
 		this.elmProgramRooms.setStyle({ left: this.scrollOffset + 'px' });
-	},
-	onDrop: function() {
-
-		// ** bruteforce as nothing else works
-		//this.elmProgramInside.style.zindex = '';
 	},
 
 	onPressLeft: function(e) {

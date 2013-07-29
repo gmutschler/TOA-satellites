@@ -72,7 +72,7 @@
 
 	<div class="textual">
 
-		<h1>The concerts <span>(fluxbau - 21:00 to 24:00)</span></h1>
+		<h1>The concerts <span>(fluxbau - 20:00 to 01:00)</span></h1>
 
 		<div class="program_concerts">
 <?php	foreach($programs as $program): ?>
@@ -109,4 +109,3 @@
 
 	</div>
 </div>
-while
