@@ -26,6 +26,7 @@
             <a href="http://www.welt.de/" target="_blank"><img src="/images/content/sponsors/welt.png"></a>
             <a href="http://dawanda.com/" target="_blank"><img src="/images/content/sponsors/dawanda.png"></a>
             <a href="http://www.schoenhaus.de/" target="_blank"><img src="/images/content/sponsors/schonhaus.png"></a>
+            <a href="http://www.berlin-partner.de/" target="_blank"><img src="/images/content/sponsors/berlinpartner.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Event Barters</h2>
