@@ -12,7 +12,7 @@ default:
     language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    ['main.css?killcache']
 
   javascripts:    ['http://use.typekit.net/ios4gyb.js', 'libs/prmtoaculous-1.9.0p1.7.1.micro.js', 'libs/protoScrollSpy.js', 'controllers/e_common.js']
 
