@@ -2218,7 +2218,7 @@ div.screen_unconference_program {
 		@color-local-violet: #57486d;
 		@color-local-maroon: #8c6b2f;
 
-		@program-total-height: 2600px;
+		@program-total-height: 2740px;
 		@program-total-width: 2720px;
 		@program-left-width: 55px;
 		@program-right-width: 55px;
@@ -2235,7 +2235,7 @@ div.screen_unconference_program {
 			height: @program-total-height;
 
 			&.left {
-				.bglay('schedule_timeline.png');
+				.bglay('timelinev2.png');
 				width: @program-left-width;
                 margin-left: -1 - @program-left-width;
                 border-right: 1px solid @color-border-dark;
@@ -2260,14 +2260,13 @@ div.screen_unconference_program {
 						.ffamily(36px, @font-proxima, 800);
 						.tupper;
 						.tcenter;
-						line-height: 0;
 						vertical-align: middle;
                         margin-bottom: 0;
 					}
                     
-                    &.program_breakfast { .absolute(335, 0); }
-                    &.program_lunch { .absolute(1290, 0); }
-                    &.program_bbq { .absolute(2525, 0); }
+                    &.program_breakfast { .absolute(316, 0); }
+                    &.program_lunch { .absolute(1273, 0); }
+                    &.program_bbq { .absolute(2554, 0); }
                 }
 			}
 			&.ex_right {
@@ -2520,7 +2519,7 @@ div.screen_unconference_program {
 					   .absolute(961, 0);
                     }                    
                     &.program_bbq_bg {
-                       height: 354px;
+                       height: 479px;
 					   .absolute(2161, 0);
                     }
                     

@@ -16,7 +16,7 @@
 			<div class="column right">
                 <div class="program_breakfast program_aside"><h1>Breakfast</h1></div>
                 <div class="program_lunch program_aside"><h1>Lunch</h1></div>
-                <div class="program_bbq program_aside"><h1>BBQ</h1></div>
+                <div class="program_bbq program_aside"><h1>BBQ<br />+<br />Shuttle to FluxBau</h1></div>
 
 				<ul class="program_rooms">
 
