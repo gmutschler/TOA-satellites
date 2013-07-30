@@ -28,6 +28,7 @@
 					<li>The Terrace</li>
 					<li>Confession chair</li>
 					<li>Hexenhäuschen</li>
+					<li>Other</li>
 				</ul>
 
 				<div class="clear"></div>
