@@ -23,6 +23,8 @@
             <a href="http://www.kpmg.com/" target="_blank"><img src="/images/content/sponsors/kpmg.png"></a>
             <a href="http://www.simyo.de/" target="_blank"><img src="/images/content/sponsors/simyo.png"></a>
             <a href="http://www.lacore.de/" target="_blank"><img src="/images/content/sponsors/lacore.png"></a>
+            <a href="http://www.welt.de/" target="_blank"><img src="/images/content/sponsors/welt.png"></a>
+            <a href="http://dawanda.com/" target="_blank"><img src="/images/content/sponsors/dawanda.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Event Barters</h2>
@@ -62,7 +64,6 @@
         <h2>Media partners</h2>
         <div class="sponsors_logos">
             <a href="http://www.medianet-bb.de" target="_blank"><img src="/images/content/sponsors/medianet.png"></a>
-            <a href="http://www.welt.de/" target="_blank"><img src="/images/content/sponsors/welt.png"></a>
             <a href="http://www.welt.de/welt-kompakt/" target="_blank"><img src="/images/content/sponsors/weltkompakt.png"></a>
             <a href="http://venturevillage.eu/" target="_blank"><img src="/images/content/sponsors/venturevillage.png"></a>
             <a href="http://www.gruenderszene.de/" target="_blank"><img src="/images/content/sponsors/grunderszene.png"></a>
