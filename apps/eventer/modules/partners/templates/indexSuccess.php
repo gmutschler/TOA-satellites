@@ -71,6 +71,7 @@
             <a href="http://thenextweb.com/" target="_blank"><img src="/images/content/sponsors/tnw.png"></a>
             <a href="https://www.wetransfer.com/" target="_blank"><img src="/images/content/sponsors/wetransfer.png"></a>
             <a href="http://www.vice.com/" target="_blank"><img src="/images/content/sponsors/vice.png"></a>
+            <a href="http://berlin.cityilike.com/de/home/" target="_blank"><img src="/images/content/sponsors/berlincity.png"></a>
             <div class="clear"></div>
         </div>
 	</div>

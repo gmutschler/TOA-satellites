@@ -2218,7 +2218,7 @@ div.screen_unconference_program {
 		@color-local-violet: #57486d;
 		@color-local-maroon: #8c6b2f;
 
-		@program-total-height: 2498px;
+		@program-total-height: 2600px;
 		@program-total-width: 2720px;
 		@program-left-width: 55px;
 		@program-right-width: 55px;
@@ -2253,7 +2253,7 @@ div.screen_unconference_program {
                 
                 .program_aside {
                     width: 960px;
-                    z-index: 10;
+                    z-index: 0;
                     
                     h1 {
 						color: @color-retro-bg;
@@ -2357,7 +2357,7 @@ div.screen_unconference_program {
                     background: repeat url(@{images-layout}/timespace.png);
                     width: 100%;
                     height: 100%;
-                    .absolute(0,10);
+                    .absolute(0,0);
                 }
 
 				.program_item {
@@ -2509,6 +2509,7 @@ div.screen_unconference_program {
 
 					width: 100%;
 					background-color: #3f383a;
+                    opacity: 0.2;
                     
                     &.program_breakfast_bg {
                        height: 239px;
@@ -2519,7 +2520,7 @@ div.screen_unconference_program {
 					   .absolute(961, 0);
                     }                    
                     &.program_bbq_bg {
-                       height: 250px;
+                       height: 354px;
 					   .absolute(2161, 0);
                     }
                     
