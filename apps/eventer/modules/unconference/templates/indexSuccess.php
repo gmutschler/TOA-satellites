@@ -16,35 +16,6 @@
 			<p class="lead">The theme of this year is called “Reset tomorrow!” and will build upon the concept of <a href="http://blog.toaberlin.com/post/54461948015/this-years-theme-reset-tomorrow">retrofuturism</a>.</p> 
 			
             <h2>What to expect</h2>
-            <!--<div id="theme-description">
-            	<p>At this year’s unconference on Day 1 we want to take a critical view of what Technology has achieved over the last decades and whether the expectations we had when we were little kids watching Blade Runner were actually met.<br>
-In some areas technology has clearly over-delivered, but in other areas it still falls short. Not that it should be considered a sign of ultimate human achievement, but isn’t it crazy that 20 years ago we were able to fly across the Atlantic in half the time. And why the hell do cars still use four wheels to get us from A to B.</p>
-
-				<p>Dude, where is my Hover-board?</p>
-
-				<p>It also seems that more and more people are beginning to question whether applied science will achieve its earlier promise that life would inevitably improve through technological progress. Many start to feel that the desired or expected future has failed to materialise and are increasingly keen on switching off and living off the grid.<br>
-				Join us for a day where we'll get smart thinkers and doers together to look at both the alienating and empowering effects of technology.</p>
-
-				<p>If you would like to highlight a specific angle of technology in a talk or would like to recommend someone, please get in touch with us.<break>
-				We can't wait to see you at the unconference.</p>
-
-				<p>And no worries, you’ll be able to park your hover-boards outside!</p>
-            </div>
-            
-            <div id="sidebar-expect">
-                <h3 class="tupper">What to expect</h3>
-                <ul>
-                    <li>Inspiring Talks</li>
-                    <li>GrowShop</li>
-                    <li>Debates</li>
-                    <li>Pitches</li>
-                    <li>VC Confession Chair</li>
-                    <li>Pillow Talk</li>
-                    <li>Art Installation</li>
-                    <li>Live Music & DJ Sets</li>
-                    <li>BBQ</li>
-                </ul>
-            </div>-->
             
             <div class="activity-column first">
 				<div class="activity">
@@ -57,7 +28,7 @@ In some areas technology has clearly over-delivered, but in other areas it still
 					<h3>Pitch Clinic</h3>
 					<p>Pitch your product or service in just 1:30min in front of a high end jury. The prizes include coveted wildcard spots at Berlin’s most prestigious accelerators (Telekom Hubraum & Axel Springer PlugnPlay) as well as $60K worth of Google App Packages. We put the pitch first!</p>
 					<p><a href="https://docs.google.com/a/toaberlin.com/forms/d/1nxeHtvLDGhysoabhV_jQxwQh8p2BZe5S1fqci7cN0xc/viewform" target="_blank" style="text-transform: uppercase; color: #e9ddc5; background: #231f20; text-decoration: none; padding: 2px 6px; font-size: 15px;">Apply here</a></p>
-					<div class="activity_meta"><span><strong>Where:</strong> The Dock</span><span><strong>When:</strong> 16:45 to 17:45</span></div>
+					<div class="activity_meta"><span><strong>Where:</strong> The Dock</span><span><strong>When:</strong> 17:00 to 17:45</span></div>
 				</div>
 					
             </div>
@@ -69,11 +40,10 @@ In some areas technology has clearly over-delivered, but in other areas it still
 					<div class="activity_meta"><span><strong>Where:</strong> Rummel</span><span><strong>How long:</strong> 5 or 15 minutes</span></div>
 				</div>
 				
-				<div class="activity">
-					<h3>Pillow Talk sessions</h3>
-					<p>Well, not what you think! :-) Pillow talk sessions consist of conversations between thought 
-leaders in a circle on Kater Holzig’s Terrace. The idea is to get people who are knowledgeable about a topic to discuss it in depth, with those surrounding able to chime in and contribute.</p>
-					<div class="activity_meta"><span><strong>Where:</strong> The Terrace</span><span><strong>How long:</strong>45 minutes</span></div>
+	            <div class="activity">
+					<h3>Knowshop</h3>
+					<p>Knowshops are delivered by those who have seen and done it all. Through interactive sessions, people will come out with concrete learnings.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> Heinz</span><span><strong>How Long:</strong> 25 minutes</span></div>
 				</div>
 				
 				<div class="activity">
@@ -85,22 +55,17 @@ leaders in a circle on Kater Holzig’s Terrace. The idea is to get people who a
 			</div>
             
             <div class="activity-column last">
-   				<div class="activity">
-					<h3>Crowdfunding Stage</h3>
-					<p>Artists and entrepreneurs unite. Here we give crowdfunding campaigners the stage to promote and amplify their idea to the crowd offline. Hear from the latest and greatest ideas that are searching for support from the crowd, live and unplugged!</p>
-					<div class="activity_meta"><span><strong>Where:</strong> The Dock</span><span><strong>When:</strong> 12:30 to 13:00</span></div>
-				</div>            
-				
-	            <div class="activity">
-					<h3>Knowshop</h3>
-					<p>Knowshops are delivered by those who have seen and done it all. Through interactive sessions, people will come out with concrete learnings.</p>
-					<div class="activity_meta"><span><strong>Where:</strong> Heinz</span><span><strong>How Long:</strong> 25 minutes</span></div>
+				<div class="activity">
+					<h3>Pillow Talk sessions</h3>
+					<p>Well, not what you think! :-) Pillow talk sessions consist of conversations between thought 
+leaders in a circle on Kater Holzig’s Terrace. The idea is to get people who are knowledgeable about a topic to discuss it in depth, with those surrounding able to chime in and contribute.</p>
+					<div class="activity_meta"><span><strong>Where:</strong> The Terrace</span><span><strong>How long:</strong>45 minutes</span></div>
 				</div>
 
 				<div class="activity">
 					<h3>Ask me Anything</h3>
 					<p>Ask me anything sessions allow you to ask ‘the big guys’ anonymous questions in a confession chair that you’d be otherwise shy to ask! Anything goes here, really!</p>
-					<div class="activity_meta"><span><strong>Where:</strong> Confession booth</span><span><strong>How Long:</strong> 30 minutes</span></div>
+					<div class="activity_meta"><span><strong>Where:</strong> Confession booth</span><span><strong>How Long:</strong> 15 minutes</span></div>
 				</div>
 								
 
