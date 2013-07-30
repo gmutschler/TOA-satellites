@@ -25,6 +25,7 @@
             <a href="http://www.lacore.de/" target="_blank"><img src="/images/content/sponsors/lacore.png"></a>
             <a href="http://www.welt.de/" target="_blank"><img src="/images/content/sponsors/welt.png"></a>
             <a href="http://dawanda.com/" target="_blank"><img src="/images/content/sponsors/dawanda.png"></a>
+            <a href="http://www.schoenhaus.de/" target="_blank"><img src="/images/content/sponsors/schonhaus.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Event Barters</h2>
@@ -45,6 +46,8 @@
             <a href="http://www.fredrixprintcanvas.com/" target="_blank"><img src="/images/content/sponsors/fredrix.png"></a>
             <a href="http://www.combiframe.eu/de" target="_blank"><img src="/images/content/sponsors/combiframe.png"></a>
             <a href="http://www.lemon-aid.de/" target="_blank"><img src="/images/content/sponsors/lemonaid.png"></a>
+            <a href="http://barefootwine.com/" target="_blank"><img src="/images/content/sponsors/barefoot.png"></a>
+            <a href="http://www.ipb.de/" target="_blank"><img src="/images/content/sponsors/ipb.png"></a>
           	<div class="clear"></div>
         </div>
         <h2>Accomodation</h2>
