@@ -1,15 +1,47 @@
-<div id="hero">
+<div id="hero" class="press-release-hero">
 
-        <div id="hero_background"><img src="/images/content/metropolis-press.jpg" /></div>
-        <div id="hero_foreground">
-            <div class="press-release">
-            <h3>Press Release</h3>
-            <h2>Europe’s most inspiring interdisciplinary technology festival unveils speakers and partners from all over the world.</h2>
-                <a href="https://docs.google.com/a/toaberlin.com/document/d/1CpMF5ci0tGnXgUq2P9hOxMlF5eCZolhjsQJ1aKMFVdk" target="_blank">Read it in english &rarr;</a>
-                <a href="https://docs.google.com/a/toaberlin.com/document/d/1rnP5QgPr8Bo4oHCq73XcY8jBNd1N1yzprOh6hv43LLY" target="_blank">Auf deutsch lesen &rarr;</a>
+    <div id="hero_background">
+        <div id="slider1" class="swipe" style="overflow: hidden; ">
+            <div style="width: 1920px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
+                <div class="slide"><img src="/images/content/filleauborddeleau-press.jpg" /></div>
+                <div class="slide"><img src="/images/content/metropolis-press.jpg" /></div>
             </div>
-            <span class="photo_credit">Metropolis, 1927 - Fritz Lang</span>
         </div>
+    </div>
+
+    <div id="hero_foreground">
+        <h3>Press Releases</h3>
+        
+        <div id="slider2" class="swipe" style="overflow: hidden; ">
+            <div style="width: 1920px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
+                
+                <div class="slide">
+                    <div class="press-release">
+                        <h2>Tech Open Air Berlin, Press Release, 1st & 2nd of August 2013.</h2>
+                        <a href="https://docs.google.com/a/toaberlin.com/document/d/1JWsNdnZPBbrJ7haa6znpa1YnPwtxEb1bymzUfhGnrII" target="_blank">Read it in english &rarr;</a>
+                        <a href="https://docs.google.com/a/toaberlin.com/document/d/1cZUl8R8inY9Jyaf8M8yBDifp2_btsvE6wcQDpfHnKko" target="_blank">Auf deutsch lesen &rarr;</a>
+                    </div>
+                    <span class="photo_credit">Photo by <a href="http://ailineliefeld.com/" target="_blank">Ailine Lefield</a></span>
+                </div>
+            
+                <div class="slide">
+                    <div class="press-release">
+                        <h2>Europe’s most inspiring interdisciplinary technology festival unveils speakers and partners from all over the world.</h2>
+                        <a href="https://docs.google.com/a/toaberlin.com/document/d/1CpMF5ci0tGnXgUq2P9hOxMlF5eCZolhjsQJ1aKMFVdk" target="_blank">Read it in english &rarr;</a>
+                        <a href="https://docs.google.com/a/toaberlin.com/document/d/1rnP5QgPr8Bo4oHCq73XcY8jBNd1N1yzprOh6hv43LLY" target="_blank">Auf deutsch lesen &rarr;</a>
+                    </div>
+                    <span class="photo_credit">Metropolis, 1927 - Fritz Lang</span>
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="swipecontrol">
+            <a href="javascript:;" class="slider_nav slider_previous" id="hero_previous"></a>
+            <a href="javascript:;" class="slider_nav slider_next" id="hero_next"></a>
+        </div>
+        
+    </div>
 </div>
 
 <div id="content" class="screen_about_press">

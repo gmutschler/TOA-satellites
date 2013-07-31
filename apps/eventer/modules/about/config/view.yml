@@ -2,3 +2,6 @@
 # TODO: DRY it one day
 contactSuccess:
   javascripts: ['http://maps.google.com/maps/api/js?libraries=places&sensor=false', 'libs/displaymap.js', 'controllers/e_about_contact.js']
+  
+pressSuccess:
+  javascripts: ['controllers/e_about_press.js']
