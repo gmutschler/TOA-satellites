@@ -63,6 +63,7 @@
             <a href="http://www2.mobilesuite.de/" target="_blank"><img src="/images/content/sponsors/mobilesuite.png"></a>
             <a href="http://www.thewye.de/" target="_blank"><img src="/images/content/sponsors/wye.png"></a>
             <a href="http://www.ahoyberlin.com/" target="_blank"><img src="/images/content/sponsors/ahoy.png"></a>
+            <a href="http://www.nhow-hotels.com/berlin/" target="_blank"><img src="/images/content/sponsors/nhow.png"></a>
             <div class="clear"></div>
         </div>
         <h2>Media partners</h2>
