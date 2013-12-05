@@ -11,6 +11,12 @@
         </div>
     </div>
     <div id="hero_foreground">
+<?php /*
+	<iframe src="//player.vimeo.com/video/79963891" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+*/ ?>
+
+	<iframe src="//player.vimeo.com/video/79963891" width="960" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<?php /*
         <div id="slider2" class="swipe" style="overflow: hidden; ">
             <div style="width: 3840px; transition: 100ms; -webkit-transition: 100ms; white-space: nowrap;">
                 <div class="slide"><a href="http://toaberlin2013-toawebsite.eventbrite.com/" target="_blank"><h1><span>August 1-2, 2013</span><br><span>Two days of Tech, Music, Art & Science</span><br><span class="readmore red_readmore">Get your ticket now!</span></h1></a><span class="photo_credit" style="left: 10px; text-align: left;">Photo by <a href="http://ailineliefeld.com/" target="_blank">Ailine Lefield</a></span></div>
@@ -23,6 +29,7 @@
             <a href="javascript:;" class="slider_nav slider_previous" id="hero_previous"></a>
             <a href="javascript:;" class="slider_nav slider_next" id="hero_next"></a>
         </div>
+*/ ?>
     </div>
 </div>
 
